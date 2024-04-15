@@ -8,13 +8,15 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./storage-config.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "SmelterDeamon"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -82,12 +84,40 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
+  # Allow steam
+  programs.steam.enable = true; 
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+  #  Gnome
+    gnomeExtensions.vitals
+    nautilus-open-any-terminal
+  #  Terminal
+    fish
+    terminator
+    fastfetch
+    vim
+  #  Gaming
+    heroic
+    jstest-gtk
+    protonup-qt
+    goverlay
+    mangohud
+    gamemode
+  #  Tools
+    bottles
+    corectrl
+    git
+  #  Social
+    discord
+  #  media
+    moonlight-qt
+    obs-studio
+    vlc
+  #  office
+    onlyoffice-bin
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
