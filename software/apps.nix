@@ -8,7 +8,10 @@
   programs.steam.enable = true;
 
   # Allow gamemode
-  programs.gamemode.enable = true; 
+  programs.gamemode.enable = true;
+
+  # Allow Dconf
+  programs.dconf.enable = true; 
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
