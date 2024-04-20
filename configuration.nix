@@ -13,7 +13,7 @@
       ./hardware/keyboardAndPrinting.nix
       ./hardware/kernel.nix
       ./software/apps.nix
-      ./software/gnome.nix
+      ./software/desktopEnvironment.nix
       ./system/user.nix
     ];
 
