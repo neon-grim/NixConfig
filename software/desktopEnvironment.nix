@@ -65,8 +65,9 @@
   };
 
   # custom fonts
+  # todo: move to theme
   fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs;
+  fonts.packages = with pkgs;
   [
     nerdfonts
     font-awesome
