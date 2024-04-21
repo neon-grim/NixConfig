@@ -22,13 +22,6 @@
       xdg-desktop-portal-hyprland
     ];
   };
-  
-  #environment.systemPackages = [
-  #  (pkgs.waybar.overrideAttrs (oldAttrs: {
-  #    mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-  #    })
-  #  )
-  #];
 
   # hyprland specific software
   environment.systemPackages = with pkgs; 
@@ -41,6 +34,7 @@
     rofi-wayland
     networkmanagerapplet
     libnotify
+    hyprnome
   # DE Tools
     polkit_gnome
     cinnamon.nemo-with-extensions
