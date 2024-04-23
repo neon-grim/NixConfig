@@ -4,7 +4,7 @@
   services.xserver.enable = true;
   
   # Enable GNOME Display Manager
-   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
   
   # Enable Hyprland Window Manager
   programs.hyprland.enable = true;
@@ -13,11 +13,13 @@
   programs.dconf.enable = true; 
  
   # Enable XDG Portals
+  xdg.autostart.enable = true;
   xdg.portal = 
   {
     enable = true;
     extraPortals = with pkgs;
-    [ 
+    [
+      xdg-desktop-portal 
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
     ];
@@ -33,45 +35,16 @@
     waybar
     rofi-wayland
     networkmanagerapplet
-    libnotify
     hyprnome
-  # DE Tools
-    polkit_gnome
-    cinnamon.nemo-with-extensions
+    nwg-look
     swww
-  ];
-
-  # enable polkit
-  # todo: move polkit to different file
-  security.polkit.enable = true;
-
-  systemd = 
-  {
-    user.services.polkit-gnome-authentication-agent-1 = 
-    {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = 
-      { 
-        Type = "simple";
-        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-        Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
-      };
-    };
-  };
-
-  # custom fonts
-  # todo: move to theme
-  fonts.fontDir.enable = true;
-  fonts.packages = with pkgs;
-  [
-    nerdfonts
-    font-awesome
-    google-fonts
+  # Dependencies 
+    gnome.nautilus
+    gnome.gnome-system-monitor
+    gnome.gnome-disk-utility
+    gnome.gnome-keyring
+  # Dependencies 
+    libnotify  
   ];
 
   # overlay for waybar

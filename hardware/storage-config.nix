@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 {
+  # enable services usb automount
+  services.devmon.enable = true;
+  services.gvfs.enable = true; 
+  services.udisks2.enable = true;
+ 
+  # Mount drives
   fileSystems."/mnt/NVME4SSD2" = 
   {
     device = "/dev/disk/by-label/NVME4SSD2";

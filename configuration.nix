@@ -13,8 +13,10 @@
       ./hardware/keyboardAndPrinting.nix
       ./hardware/kernel.nix
       ./software/apps.nix
+      ./software/polkit.nix
       ./software/desktopEnvironment.nix
       ./system/user.nix
+      ./system/theme.nix
     ];
 
   # Bootloader.
