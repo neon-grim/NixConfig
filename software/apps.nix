@@ -1,43 +1,48 @@
 { pkgs, ... }:
-
 {
-  # Allow unfree packages
+  # allow unfree packages
   nixpkgs.config.allowUnfree = true;
   
-  # Allow steam
+  # allow steam
   programs.steam.enable = true;
 
-  # Allow gamemode
-  programs.gamemode.enable = true; 
+  # allow gamemode
+  programs.gamemode.enable = true;
 
-  # List packages installed in system profile
-  environment.systemPackages = with pkgs; [
-  #  Gnome
-    gnomeExtensions.vitals
-    nautilus-open-any-terminal
-  #  Terminal
+  # allow blueman
+  services.blueman.enable = true; 
+
+  # list packages installed in system profile
+  environment.systemPackages = with pkgs; 
+  [
+  # terminal
     fish
-    terminator
     fastfetch
-    vim
-  #  Gaming
-    heroic
-    jstest-gtk
-    protonup-qt
-    goverlay
-    mangohud
-    prismlauncher
-  #  Tools
-    bottles
-    corectrl
     git
-  #  Social
+  # text editors
+    neovim
+    onlyoffice-bin
+  # gaming
+    heroic
+    prismlauncher
+  # tools
+    jstest-gtk
+    mangohud
+    goverlay
+  # browsers
+    firefox
+    librewolf
+  # wine proton manager
+    bottles
+    proton-qt
+  # overclocking
+    corectrl
+  # social
     discord
-  #  media
+  # media
     moonlight-qt
     obs-studio
     vlc
-  #  office
-    onlyoffice-bin
+    rhythmbox
   ];
 }
