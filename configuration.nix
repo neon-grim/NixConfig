@@ -1,9 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
-
 {
   imports =
     [
@@ -19,31 +14,26 @@
       ./system/theme.nix
     ];
 
-  # Bootloader.
+  # bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Define your hostname.
+  # define your hostname.
   networking.hostName = "SmelterDeamon";
 
-  # Enable networking
+  # enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
+  # set your time zone.
   time.timeZone = "Europe/Zurich";
 
-  # Select internationalisation properties.
+  # select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  # nixos release
+  system.stateVersion = "23.11";
 
-  # Enable flakes
-   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # enable flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 }

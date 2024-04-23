@@ -39,10 +39,9 @@
     nwg-look
     swww
   # Dependencies 
-    gnome.nautilus
+    cinnamon.nemo-with-extensions
     gnome.gnome-system-monitor
     gnome.gnome-disk-utility
-    gnome.gnome-keyring
   # Dependencies 
     libnotify  
   ];

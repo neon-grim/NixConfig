@@ -5,7 +5,7 @@
   services.gvfs.enable = true; 
   services.udisks2.enable = true;
  
-  # Mount drives
+  # mount drives
   fileSystems."/mnt/NVME4SSD2" = 
   {
     device = "/dev/disk/by-label/NVME4SSD2";

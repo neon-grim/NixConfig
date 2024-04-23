@@ -28,6 +28,7 @@
     mangohud
     prismlauncher
   # tools
+    firefox
     librewolf
     bottles
     corectrl
