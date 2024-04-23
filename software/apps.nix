@@ -18,19 +18,24 @@
   # terminal
     fish
     fastfetch
-    vim
     git
+  # text editors
+    neovim
+    onlyoffice-bin
   # gaming
     heroic
-    jstest-gtk
-    protonup-qt
-    goverlay
-    mangohud
     prismlauncher
   # tools
+    jstest-gtk
+    mangohud
+    goverlay
+  # browsers
     firefox
     librewolf
+  # wine proton manager
     bottles
+    proton-qt
+  # overclocking
     corectrl
   # social
     discord
@@ -38,7 +43,6 @@
     moonlight-qt
     obs-studio
     vlc
-  # office
-    onlyoffice-bin
+    rhythmbox
   ];
 }

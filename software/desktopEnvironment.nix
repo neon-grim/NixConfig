@@ -38,11 +38,12 @@
     hyprnome
     nwg-look
     swww
-  # Dependencies 
+  # DE tools 
     cinnamon.nemo-with-extensions
     gnome.gnome-system-monitor
     gnome.gnome-disk-utility
-  # Dependencies 
+    gnome-text-editor
+  # dependencies 
     libnotify  
   ];
 
