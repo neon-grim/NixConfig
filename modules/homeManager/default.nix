@@ -2,7 +2,7 @@
 {
   imports = 
   [
-    ./../packages.nix
-    ./../theme.nix
+    ./packages.nix
+    ./theme.nix
   ];
 }

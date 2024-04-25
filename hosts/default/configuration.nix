@@ -15,7 +15,7 @@
   nixpkgs.config.allowUnfree = true;
   
   # configure console keymap
-  console.keyMap = "ch";
+  console.keyMap = "sg";
 
   # enable networking
   networking.networkmanager.enable = true;

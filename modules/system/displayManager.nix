@@ -1,6 +1,6 @@
 {
   # Enable and configure sddm
-  services.xserver.displayManager.sddm = 
+  services.displayManager.sddm = 
   {
     enable = true;
     autoNumlock = true;
