@@ -3,23 +3,19 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./hardware/storage-config.nix
-      ./hardware/sound.nix
-      ./hardware/keyboardAndPrinting.nix
-      ./hardware/kernel.nix
-      ./software/apps.nix
-      ./software/polkit.nix
-      ./software/desktopEnvironment.nix
-      ./system/user.nix
-      ./system/theme.nix
+      ./storage-config.nix
+      ./../../modules/system/default.nix
+      ./../../modules/homeManager/default.nix
     ];
-
-  # bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   # define your hostname.
   networking.hostName = "SmelterDeamon";
+  
+  # allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+  
+  # configure console keymap
+  console.keyMap = "ch";
 
   # enable networking
   networking.networkmanager.enable = true;
@@ -35,5 +31,5 @@
 
   # enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  
 }

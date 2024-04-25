@@ -1,35 +1,14 @@
-{config, pkgs, ... }: 
+{ pkgs, ... }:
 {
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  
-  # Enable GNOME Display Manager
-  services.xserver.displayManager.gdm.enable = true;
-  
-  # Enable Hyprland Window Manager
-  programs.hyprland.enable = true;
-  
-  # Allow Dconf
-  programs.dconf.enable = true; 
- 
-  # Enable XDG Portals
-  xdg.autostart.enable = true;
-  xdg.portal = 
-  {
-    enable = true;
-    extraPortals = with pkgs;
-    [
-      xdg-desktop-portal 
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-    ];
-  };
-
-  # hyprland specific software
+  # list packages installed in system profile
   environment.systemPackages = with pkgs; 
   [
   # terminal
+    fish
+    fastfetch
+    git
     kitty
+    terminator
   # hyprland addons
     dunst
     waybar
@@ -43,10 +22,32 @@
     gnome.gnome-system-monitor
     gnome.gnome-disk-utility
     gnome-text-editor
+  # tools
+    jstest-gtk
+    mangohud
+    goverlay
   # dependencies 
     libnotify  
+  # gaming
+    heroic
+    prismlauncher
+  # browsers
+    firefox
+    librewolf
+  # wine proton manager
+    bottles
+    protonup-qt
+  # overclocking
+    corectrl
+  # social
+    discord
+  # media
+    moonlight-qt
+    obs-studio
+    vlc
+    rhythmbox
   ];
-
+  
   # overlay for waybar
   # todo: Learn what overlays are
   nixpkgs.overlays = 

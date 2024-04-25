@@ -9,6 +9,4 @@
   [
     lxqt.lxqt-policykit
   ];
-  
-
 }
