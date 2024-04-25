@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, inputs, ... }:
 let
   #inherit (./../../hosts/${host}/options.nix) keyboardLayout keyboardVariant;
 in
@@ -29,7 +29,10 @@ in
   };
   
   # Enable Hyprland Window Manager
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+      enable = true;
+      #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    };
   
   programs.gamemode.enable = true;
   programs.dconf.enable = true;
@@ -42,8 +45,7 @@ in
     {
       enable = true;
       extraPortals = with pkgs;
-      [
-        xdg-desktop-portal 
+      [ 
         xdg-desktop-portal-gtk
         xdg-desktop-portal-hyprland
       ];

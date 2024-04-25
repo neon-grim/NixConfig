@@ -3,8 +3,8 @@
   imports = 
   [
     ./hyprland.nix
-    ./steamTheme.nix
-    ./terminator.nix
-    ./waybar.nix
+  #  ./steamTheme.nix
+  #  ./terminator.nix
+  #  ./waybar.nix
   ];
 }

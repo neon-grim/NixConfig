@@ -17,7 +17,6 @@
     nwg-look
     swww
     waybar
-    ewww
   # DE tools 
     cinnamon.nemo-with-extensions
     gnome.gnome-system-monitor

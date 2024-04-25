@@ -5,8 +5,6 @@
       ./hardware-configuration.nix
       ./storage-config.nix
       ./../../modules/system/default.nix
-      ./../../modules/homeManager/default.nix
-      inputs.home-manager.nixosModules.default
     ];
   
   # allow unfree packages
@@ -28,15 +26,6 @@
     description = "Michael Mueller de los Santos";
     extraGroups = [ "networkmanager" "wheel" "libvirt" ];
     packages = with pkgs; [ ];
-  };
-  
-  home-manager = 
-  {
-    extraSpecialArgs = {inherit inputs;};
-    users =
-    {
-      "ashen_one" = import ./home.nix;
-    };
   };
   
   # set your time zone.
