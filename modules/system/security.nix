@@ -10,6 +10,7 @@
   # get polkit auth agent 
   environment.systemPackages = with pkgs;
   [
-    lxqt.lxqt-policykit
+    #lxqt.lxqt-policykit
+    pantheon.pantheon-agent-polkit
   ];
 }
