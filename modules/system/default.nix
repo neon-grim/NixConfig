@@ -8,6 +8,5 @@
     ./security.nix
     ./services.nix
     ./steam.nix
-    ./user.nix
   ];
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   imports =
     [
@@ -6,10 +6,8 @@
       ./storage-config.nix
       ./../../modules/system/default.nix
       ./../../modules/homeManager/default.nix
+      inputs.home-manager.nixosModules.default
     ];
-
-  # define your hostname.
-  networking.hostName = "SmelterDeamon";
   
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -18,8 +16,29 @@
   console.keyMap = "sg";
 
   # enable networking
-  networking.networkmanager.enable = true;
-
+  networking = 
+  {
+    hostName = "SmelterDeamon";
+    networkmanager.enable = true;
+  };
+  
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.ashen_one = {
+    isNormalUser = true;
+    description = "Michael Mueller de los Santos";
+    extraGroups = [ "networkmanager" "wheel" "libvirt" ];
+    packages = with pkgs; [ ];
+  };
+  
+  home-manager = 
+  {
+    extraSpecialArgs = {inherit inputs;};
+    users =
+    {
+      "ashen_one" = import ./home.nix;
+    };
+  };
+  
   # set your time zone.
   time.timeZone = "Europe/Zurich";
 
