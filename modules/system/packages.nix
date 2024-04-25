@@ -1,7 +1,7 @@
-{ pkgs, ... }:
-{
+{ pkgs, inputs, ... }:
+{ 
   # list packages installed in system profile
-  environment.systemPackages = with pkgs; 
+  environment.systemPackages = with pkgs;
   [
   # terminal
     fish
@@ -11,12 +11,13 @@
     terminator
   # hyprland addons
     dunst
-    waybar
     rofi-wayland
     networkmanagerapplet
     hyprnome
     nwg-look
     swww
+    waybar
+    ewww
   # DE tools 
     cinnamon.nemo-with-extensions
     gnome.gnome-system-monitor
@@ -46,15 +47,20 @@
     obs-studio
     vlc
     rhythmbox
+  # icons
+    bibata-cursors
+    beauty-line-icon-theme
+  # system
+    andromeda-gtk-theme
   ];
   
-  # overlay for waybar
-  # todo: Learn what overlays are
-  nixpkgs.overlays = 
-  [(
-    self: super:
-    {
-      waybar = super.waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"]; });
-    }
-  )];
+  # custom fonts
+  fonts.fontDir.enable = true;
+  
+  fonts.packages = with pkgs;
+  [
+    nerdfonts
+    font-awesome
+    google-fonts
+  ];
 }

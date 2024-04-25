@@ -2,7 +2,9 @@
 {
   imports = 
   [
-    ./packages.nix
-    ./theme.nix
+    ./hyprland.nix
+    ./steamTheme.nix
+    ./terminator.nix
+    ./waybar.nix
   ];
 }
