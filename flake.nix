@@ -31,11 +31,11 @@
         modules = 
         [ 
           ./hosts/default/configuration.nix
-          home-manager.nixosModules
+          home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.ashe_one = import ./hosts/default/home.nix;
+            home-manager.users.ashen_one = import ./hosts/default/home.nix;
             home-manager.extraSpecialArgs = {inherit inputs;};
           }
         ];

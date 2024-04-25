@@ -1,13 +1,13 @@
-{pkgs, lib, config, ... }
+{pkgs, lib, config, inputs, ... }:
 {
   wayland.windowManager.hyprland = 
   {
-    plugins = with inputs.hyprland-plugins.packages."${pkgs.sysstem}";
+    enable = true;
+    plugins = with inputs.hyprland-plugins.packages."${pkgs.system}";
     [
-      borders-plus-plus
-      hyprbar
+      #borders-plus-plus
       hyprexpo
     ];
     extraConfig = ''${builtins.readFile ./../../hyprlandConfig/hyprland.conf}'';
-  }
+  };
 }
