@@ -1,7 +1,4 @@
 { pkgs, config, lib, inputs, ... }:
-let
-  #inherit (./../../hosts/${host}/options.nix) keyboardLayout keyboardVariant;
-in
 {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
