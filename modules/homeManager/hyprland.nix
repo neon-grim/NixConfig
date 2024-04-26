@@ -134,8 +134,8 @@ in
         # hypernome navegation
         "${mainMod}, PAGE_DOWN, exec, hyprnome"
         "${mainMod}, PAGE_UP, exec, hyprnome --previous"
-        "${mainMod}, PAGE_DOWN, exec, hyprnome --move"
-        "${mainMod}, PAGE_UP, exec, hyprnome --previous --move"
+        "${mainMod} SHIFT, PAGE_DOWN, exec, hyprnome --move"
+        "${mainMod} SHIFT, PAGE_UP, exec, hyprnome --previous --move"
         
         # Move active window to workspace
         "${mainMod} SHIFT, 1, movetoworkspace, 1"

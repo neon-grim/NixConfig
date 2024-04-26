@@ -6,6 +6,6 @@
     ./theming.nix
   #  ./steamTheme.nix
   #  ./terminator.nix
-  #  ./waybar.nix
+    ./waybar.nix
   ];
 }
