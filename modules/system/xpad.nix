@@ -1,14 +1,14 @@
 { lib, stdenv, fetchFromGitHub, kernel }:
 
 stdenv.mkDerivation rec {
-	pname = "xpad";
-	version = "3.2";
+	pname = "xpad-noone";
+	version = "v1.0";
 
 	src = fetchFromGitHub {
-		owner = "paroj";
-		repo = "xpad";
-		rev = "1821d2822783e8c24733b05138e06d9a9f4d309d";
-		sha256 = "sha256-+KSv+fDwfzsT/rqonCCbl451LzdtDzGvhP5MrMWpfZg=";
+		owner = "SeekerOfAsh";
+		repo = "xpad-noone-azeron";
+		rev = "a42297dc1f64e4ec5e2a9430e8861bf93f8f69a2";
+		sha256 = "sha256-1BrJz4IYfTXRo5xuqG25IrKgsPbVfgeX5OiAfvIxibY=";
 	};
 
 	setSourceRoot = ''
@@ -28,8 +28,8 @@ stdenv.mkDerivation rec {
 	installTargets = [ "modules_install" ];
 
 	meta = with lib; {
-		description = "xpad kernel module";
-		homepage = "https://github.com/paroj/xpad";
+		description = "xpad kernel module with azeron support";
+		homepage = "https://github.com/SeekerOfAsh/xpad-noone-azeron";
 		license = licenses.gpl2Plus;
 		platforms = platforms.linux;
 	};
