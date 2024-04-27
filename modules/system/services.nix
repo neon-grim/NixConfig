@@ -54,12 +54,16 @@
     printing.enable = true;
   };
   
+  # enable virtualisation
+  virtualisation.libvirtd.enable = true;
+
   # enable vital programs
   programs = 
   {
     hyprland.enable = true;
     gamemode.enable = true;
     dconf.enable = true;
+    virt-manager.enable = true;
   };
   
   # Enable XDG Portals
