@@ -11,16 +11,18 @@
   # hyprland addons
     dunst
     hyprnome
+    hyprshot
+    hyprpaper
     hyprland-workspaces
     networkmanagerapplet
     rofi-wayland
-    swww
     wlogout
   # DE tools 
     cinnamon.nemo-with-extensions
     gnome.gnome-system-monitor
     gnome.gnome-disk-utility
     gnome-text-editor
+    gnome.gnome-tweaks
   # tools
     goverlay
     jstest-gtk
