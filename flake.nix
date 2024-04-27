@@ -17,7 +17,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, ... }:
   let
     lib = nixpkgs.lib;
   in
@@ -31,6 +31,10 @@
         modules = 
         [ 
           ./hosts/default/configuration.nix
+          hyprland.nixosModules.default
+          {
+            programs.hyprland.enable = true;
+          }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

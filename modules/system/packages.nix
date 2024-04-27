@@ -7,25 +7,24 @@
     fish
     fastfetch
     git
-    kitty
     terminator
   # hyprland addons
     dunst
-    rofi-wayland
-    networkmanagerapplet
     hyprnome
+    hyprland-workspaces
+    networkmanagerapplet
+    rofi-wayland
     swww
-    waybar
+    wlogout
   # DE tools 
     cinnamon.nemo-with-extensions
-    gnome.nautilus
     gnome.gnome-system-monitor
     gnome.gnome-disk-utility
     gnome-text-editor
   # tools
+    goverlay
     jstest-gtk
     mangohud
-    goverlay
   # dependencies 
     libnotify  
   # gaming
@@ -44,7 +43,22 @@
   # media
     moonlight-qt
     obs-studio
-    vlc
     rhythmbox
+    vlc
   ];
+  
+  #fonts.enableDefaultPackages = true;
+  fonts.packages = with pkgs; 
+  [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    nerdfonts
+    font-awesome
+    google-fonts
+    twemoji-color-font
+    fira-code
+    fira-code-symbols
+  ];
+  
 }

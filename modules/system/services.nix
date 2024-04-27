@@ -25,12 +25,6 @@
     variant = "de_nodeadkeys";
   };
   
-  # Enable Hyprland Window Manager
-  programs.hyprland = {
-      enable = true;
-      #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    };
-  
   programs.gamemode.enable = true;
   programs.dconf.enable = true;
   
@@ -45,7 +39,6 @@
       [ 
         xdg-desktop-portal
         xdg-desktop-portal-gtk
-        xdg-desktop-portal-hyprland
       ];
     };
   };
