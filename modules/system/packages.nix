@@ -23,6 +23,7 @@
     gnome.gnome-disk-utility
     gnome-text-editor
     gnome.gnome-tweaks
+    pavucontrol
   # tools
     goverlay
     jstest-gtk
