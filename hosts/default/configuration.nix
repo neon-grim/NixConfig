@@ -5,6 +5,7 @@
       ./hardware-configuration.nix
       ./storage-config.nix
       ./../../modules/system/default.nix
+      #./../../modules/system/azeron.nix
     ];
   
   # allow unfree packages

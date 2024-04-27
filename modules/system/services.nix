@@ -1,59 +1,81 @@
 { pkgs, config, lib, inputs, ... }:
 {
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  
-  # bluetooth services
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true; 
-  
-  # storage services
-  services.devmon.enable = true;
-  services.gvfs.enable = true; 
-  services.udisks2.enable = true;
-  services.fstrim.enable = true;
-  
-  # remote services
-  services.openssh.enable = true;
-  
-  # enable CUPS to print documents.
-  services.printing.enable = true;
-  
-  # configure keymap in X11
-  services.xserver.xkb = 
+  # hardware settings
+  hardware = 
   {
-    layout = "ch";
-    variant = "de_nodeadkeys";
-  };
-  
-  programs.gamemode.enable = true;
-  programs.dconf.enable = true;
-  
-  # Enable XDG Portals
-  xdg = 
-  {
-    autostart.enable = true;
-    portal = 
+    pulseaudio.enable = false;
+    bluetooth = 
     {
       enable = true;
-      extraPortals = with pkgs;
-      [ 
-        xdg-desktop-portal
-        xdg-desktop-portal-gtk
-      ];
+      powerOnBoot = true;
     };
   };
   
-  # sound services
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  services.pipewire = 
+  
+  # enable services
+  services = 
+  {
+    # enable pipewire
+    pipewire = 
+    { 
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
+    
+    # setup revelant xservices
+    xserver =
+    {
+      enable = true;
+      displayManager.gdm.enable = true;
+      xkb = 
+      {
+        layout = "ch";
+        variant = "de_nodeadkeys";
+      };
+    };
+    
+    # bluetooth service
+    blueman.enable = true; 
+  
+    # storage services
+    devmon.enable = true;
+    gvfs.enable = true; 
+    udisks2.enable = true;
+    fstrim.enable = true;
+  
+    # remote services
+    openssh.enable = true;
+  
+    # enable CUPS to print documents.
+    printing.enable = true;
+  };
+  
+  # enable vital programs
+  programs = 
+  {
+    hyprland.enable = true;
+    gamemode.enable = true;
+    dconf.enable = true;
+  };
+  
+  # Enable XDG Portals
+  xdg.portal = 
   {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
+    extraPortals = 
+    [ 
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal
+    ];
+    configPackages = 
+    [ 
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal
+    ];
   };
 }
