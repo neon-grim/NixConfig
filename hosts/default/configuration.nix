@@ -24,7 +24,7 @@
   users.users.ashen_one = {
     isNormalUser = true;
     description = "Michael Mueller de los Santos";
-    extraGroups = [ "networkmanager" "wheel" "libvirt" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirt" "kvm" "libvirtd"];
     packages = with pkgs; [ ];
   };
   

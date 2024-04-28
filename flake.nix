@@ -10,14 +10,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    #hyprland.url = "github:hyprwm/Hyprland";
+    #hyprland-plugins = {
+    #  url = "github:hyprwm/hyprland-plugins";
+    #  inputs.hyprland.follows = "hyprland";
+    #};
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
   let
     lib = nixpkgs.lib;
   in
@@ -31,10 +31,6 @@
         modules = 
         [ 
           ./hosts/default/configuration.nix
-          hyprland.nixosModules.default
-          {
-            programs.hyprland.enable = true;
-          }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

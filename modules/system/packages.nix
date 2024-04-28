@@ -28,8 +28,10 @@
     goverlay
     jstest-gtk
     mangohud
+    vkbasalt
   # dependencies 
-    libnotify  
+    libnotify
+    spice-gtk  
   # gaming
     heroic
     prismlauncher
