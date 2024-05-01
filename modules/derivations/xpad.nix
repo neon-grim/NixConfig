@@ -1,5 +1,4 @@
 { lib, stdenv, fetchFromGitHub, kernel }:
-
 stdenv.mkDerivation rec {
   # meta data
   pname = "xpad-noone";
