@@ -1,57 +1,61 @@
 { pkgs, inputs, ... }:
 { 
-  # list packages installed in system profile
+  # apps
   environment.systemPackages = with pkgs;
   [
-  # terminal
-    fish
+    # terminal
     fastfetch
+    fish
     git
+    nix-prefetch-git
     terminator
-  # hyprland addons
+    # hyprland addons
     dunst
-    hyprnome
-    hyprshot
-    hyprpaper
-    hyprland-workspaces
     networkmanagerapplet
+    hyprnome
+    hyprpaper
+    hyprshot
+    hyprland-workspaces
     rofi-wayland
     wlogout
-  # DE tools 
-    cinnamon.nemo-with-extensions
-    gnome.gnome-system-monitor
+    # DE tools 
     gnome.gnome-disk-utility
-    gnome-text-editor
+    gnome.nautilus
+    gnome.gnome-system-monitor
+    gnome.gnome-software
     gnome.gnome-tweaks
+    gnome-text-editor
     pavucontrol
-  # tools
+    # tools
     goverlay
     jstest-gtk
     mangohud
     vkbasalt
-  # dependencies 
+    # dependencies 
     libnotify
-    spice-gtk  
+    libz  
+    spice-gtk
+    python310
   # gaming
     heroic
     prismlauncher
-  # browsers
+    # browsers
     firefox
     librewolf
-  # wine proton manager
+    # wine proton manager
     bottles
     protonup-qt
-  # overclocking
+    # overclocking
     corectrl
-  # social
+    # social
     discord
-  # media
+    vesktop
+    # media
     moonlight-qt
     obs-studio
     rhythmbox
     vlc
   ];
-  
   #fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; 
   [
@@ -64,6 +68,5 @@
     twemoji-color-font
     fira-code
     fira-code-symbols
-  ];
-  
+  ];  
 }
