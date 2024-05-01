@@ -1,6 +1,7 @@
 { pkgs, config, lib, inputs, ... }:
 {
-  # hardware settings
+  #hardware settings
+  sound.enable = true;
   hardware = 
   {
     pulseaudio.enable = false;
@@ -10,13 +11,10 @@
       powerOnBoot = true;
     };
   };
-  
-  sound.enable = true;
-  
-  # enable services
+  # Service settings
   services = 
   {
-    # enable pipewire
+    # audio service
     pipewire = 
     { 
       enable = true;
@@ -25,47 +23,55 @@
       pulse.enable = true;
       jack.enable = true;
     };
-    
-    # setup revelant xservices
+    # xservices settings
     xserver =
     {
       enable = true;
-      displayManager.gdm.enable = true;
       xkb = 
       {
         layout = "ch";
         variant = "de_nodeadkeys";
       };
+    };    
+    # display manager
+    greetd = 
+    {
+      enable = true;
+      settings = {
+        default_session = 
+        {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+          user = "ashen_one";
+        };
+      };
     };
-    
-    # bluetooth service
-    blueman.enable = true; 
-  
     # storage services
     devmon.enable = true;
     gvfs.enable = true; 
-    udisks2.enable = true;
     fstrim.enable = true;
-  
-    # remote services
-    openssh.enable = true;
-  
-    # enable CUPS to print documents.
+    udisks2.enable = true;
+    # printing settings
     printing.enable = true;
+    avahi = 
+    {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+    # other services
+    blueman.enable = true; 
+    flatpak.enable = true;
+    openssh.enable = true;  
   };
-  
   # enable virtualisation
   virtualisation.libvirtd.enable = true;
-
   # enable vital programs
   programs = 
   {
-    hyprland.enable = true;
     gamemode.enable = true;
     dconf.enable = true;
     virt-manager.enable = true;
   };
-  
   # Enable XDG Portals
   xdg.portal = 
   {
@@ -81,5 +87,15 @@
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal
     ];
+  };
+  # flatpak settings
+  systemd.services.flatpak-repo = 
+  {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = 
+    ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
   };
 }

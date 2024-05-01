@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }:
-
 {
   programs.waybar = 
   {
@@ -23,7 +22,6 @@
           "custom/powermenu"
           "tray" 
         ];
-        
         "hyprland/workspaces" = 
         {
           formnat = "{icon}";
@@ -36,7 +34,6 @@
           on-scroll-up = "hyprctl dispatch workspace e+1";
       	  on-scroll-down = "hyprctl dispatch workspace e-1";
         };
-        
         "custom/launcher" = 
         {
           format = " ";
@@ -45,7 +42,6 @@
           on-click-right = "exec wallpaper_random";
           tooltip = false;
         };
-        
         "pulseaudio" = 
         {
           scroll-step = 1;
@@ -60,12 +56,10 @@
       	  on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           tooltip = false;
         };
-        
         "clock" = {
           interval = 1;
           format = "{:%R  %A %b %d}";
         };
-        
         "memory" = {
           interval = 1;
           format = "RAM {percentage}%";
@@ -84,7 +78,6 @@
         };
       }
     ];
-    
     style = 
     ''
       *

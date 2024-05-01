@@ -2,8 +2,6 @@
 {
   imports = 
   [
-    ./boot.nix
-    ./displayManager.nix
     ./kernel.nix
     ./packages.nix
     ./security.nix
