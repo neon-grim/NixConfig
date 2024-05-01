@@ -4,7 +4,7 @@ stdenv.mkDerivation rec {
   # meta data
   pname = "xpad-noone";
   version = "v1.0";
-	# package source
+  # package source
   src = fetchFromGitHub 
   {
     owner = "SeekerOfAsh";
