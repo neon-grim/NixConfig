@@ -5,6 +5,7 @@
   hardware = 
   {
     pulseaudio.enable = false;
+    xone.enable = true;
     bluetooth = 
     {
       enable = true;
