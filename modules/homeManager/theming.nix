@@ -18,8 +18,8 @@
     enable = true;
     theme = 
     {
-      name = "Andromeda";
-      package = pkgs.andromeda-gtk-theme;
+      name = "Nordic";
+      package = pkgs.nordic;
     };
     iconTheme = 
     {
@@ -42,8 +42,8 @@
     platformTheme.name = "gtk";
     style = 
     {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
+      name = "Nordic";
+      package = pkgs.nordic;
     };
   };
 }
