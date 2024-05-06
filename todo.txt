@@ -1,26 +1,33 @@
+Misc:
+----------
 -Fix notification
--Get hyprpaper running
--Get better volume control software
--Get virt-manager running
--Get vkbasalt running
 -Lock notification to main screen
--Fix Fullscreen in games
--Find better power menu
--Fix Mic noise not being reduced
--Get streaming going on discord
--Change to nautilus
--Get better workspace binds
-  -Switch between monitors
-  -Replace Workspace numbers
-  -Change focus type
-  -Make master layout better
--Get better app launcher
--Cleanup nix modules
--Add button combo for retarting waybar
--Fillout readme in repo
+-Make fullscreen games start in main screen
+  -Make window rule
+-Improve workstation nagvigation
+  -Cycle between monitors
+  -Workspace count starts at 0 for every monitor
+  -change focus type
+-Move clock to background like rain-meter
 -Get better animation
+
+
+Software:
+----------
+-Get hyprpaper running
+-Get Grim Running
+-Get virt-manager running
+-Get streaming going on discord
 -Get lock software
--Move clock to background image
--Music rain meter
--Learn ZSH
 -Get correct java version
+-Get or make better power menu
+
+Nix manipulations:
+----------
+-Learn how to downgrade homemanager when using flakes
+-Learn how to remove nix channels 
+
+Repo:
+----------
+-Fillout readme in repo
+
