@@ -72,6 +72,10 @@
     gamemode.enable = true;
     dconf.enable = true;
     virt-manager.enable = true;
+    hyprland = 
+    {
+      enable = true;
+    };
   };
   # Enable XDG Portals
   xdg.portal = 
@@ -85,7 +89,7 @@
     configPackages = 
     [ 
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
+     # pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal
     ];
   };

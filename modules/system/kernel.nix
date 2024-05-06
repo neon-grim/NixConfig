@@ -9,7 +9,7 @@
       efi.canTouchEfiVariables = true;
     };
     # set Kernel to zen
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     # set overclocking and disable systemd log
     kernelParams = 
     [ 
