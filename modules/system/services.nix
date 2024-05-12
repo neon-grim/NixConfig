@@ -62,7 +62,8 @@
     # other services
     blueman.enable = true; 
     flatpak.enable = true;
-    openssh.enable = true;  
+    openssh.enable = true;
+    dbus.enable = true;  
   };
   # enable virtualisation
   virtualisation.libvirtd.enable = true;
@@ -81,16 +82,10 @@
   xdg.portal = 
   {
     enable = true;
+    wlr.enable = true;
     extraPortals = 
     [ 
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal
-    ];
-    configPackages = 
-    [ 
-      pkgs.xdg-desktop-portal-gtk
-     # pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal
     ];
   };
   # flatpak settings
@@ -102,5 +97,10 @@
     ''
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
+  };
+  environment.sessionVariables = 
+  {
+    # Hint Electron apps to use wayland
+    NIXOS_OZONE_WL = "1";
   };
 }

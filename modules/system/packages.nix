@@ -31,6 +31,7 @@
     jstest-gtk
     mangohud
     vkbasalt
+    libstrangle
     # dependencies 
     libnotify
     libz  
@@ -41,14 +42,12 @@
     prismlauncher
     # browsers
     firefox
-    librewolf
     # wine proton manager
     bottles
     protonup-qt
     # overclocking
     corectrl
     # social
-    discord
     vesktop
     # media
     moonlight-qt

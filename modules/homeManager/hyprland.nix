@@ -25,7 +25,7 @@ in
       monitor = 
       [
         ",preferred,auto,1"
-        "DP-2,5120x1440@240.00,0x0,1,vrr,2,bitdepth,10"
+        "DP-2,5120x1440@240.00,0x0,1,bitdepth,10"
         "HDMI-A-1,1920x1080@60,1280x1440,1"
         "HDMI-A-2,2560x1440@75,-1440x-640,1,transform,3"
       ];
@@ -145,9 +145,13 @@ in
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
         # set main monitor refresh rate
-        "${mainMod} SHIFT, F1, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,0x0,1,vrr,2,bitdepth,10"
-        "${mainMod} SHIFT, F2, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,0x0,1,vrr,2,bitdepth,10"
-        "${mainMod} SHIFT, F3, exec, hyprctl keyword monitor DP-2,5120x1440@60.00,0x0,1,vrr,2,bitdepth,10"
+        # Normal use
+        "${mainMod} SHIFT, F1, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,0x0,1,bitdepth,10"
+        "${mainMod} SHIFT, F2, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,0x0,1,bitdepth,10"
+        #Gaming
+        "${mainMod} SHIFT, F3, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,0x0,1,vrr,2,bitdepth,10"
+        "${mainMod} SHIFT, F4, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,0x0,1,vrr,2,bitdepth,10"
+        "${mainMod} SHIFT, F5, exec, hyprctl keyword monitor DP-2,5120x1440@60.00,0x0,1,vrr,2,bitdepth,10"
       ];
       bindm = 
       [      
