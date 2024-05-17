@@ -1,7 +1,6 @@
 Misc:
 ----------
--Fix notification
--Lock notification to main screen
+-Get Swaync working correctly
 -Make fullscreen games start in main screen
   -Make window rule
 -Improve workstation nagvigation
@@ -14,17 +13,15 @@ Misc:
 -Set Global variables for default apps
 -Create variable module
 -Get better colors for text editor
+-setup xdg-user directories
 
 
 Software:
 ----------
--Get hyprpaper running
--Get hyprshot running
 -Get virt-manager running
 -Get streaming going on discord
 -Get lock software
 -Get correct java version
--Get or make better power menu
 
 Nix manipulations:
 ----------

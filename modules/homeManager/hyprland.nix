@@ -21,6 +21,7 @@ in
         "${pkgs.blueman}/bin/blueman-applet"
         "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
         "${pkgs.swaynotificationcenter}/bin/swaync"
+        "${pkgs.hyprpaper}/bin/hyprpaper"
       ];
       # screen setup
       monitor = 
@@ -146,14 +147,17 @@ in
         # Scroll through existing workspaces
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
-        # set main monitor refresh rate
-        # Normal use
+        # No VRR Desktop
         "${mainMod} SHIFT, F1, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,0x0,1,bitdepth,10"
         "${mainMod} SHIFT, F2, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,0x0,1,bitdepth,10"
-        #Gaming
+        # VRR Gaming
         "${mainMod} SHIFT, F3, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,0x0,1,vrr,2,bitdepth,10"
         "${mainMod} SHIFT, F4, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,0x0,1,vrr,2,bitdepth,10"
         "${mainMod} SHIFT, F5, exec, hyprctl keyword monitor DP-2,5120x1440@60.00,0x0,1,vrr,2,bitdepth,10"
+        # Screenshot
+        "${mainMod}, F9, exec, hyprshot -m window -c"
+        "${mainMod}, F10, exec, hyprshot -m region"
+        "${mainMod}, F11, exec, hyprshot -m output -c"
       ];
       bindm = 
       [      
