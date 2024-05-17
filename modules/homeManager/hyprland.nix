@@ -43,9 +43,9 @@ in
       # customization
       general = 
       {
-        border_size = 2;
-        gaps_in = 3;
-        gaps_out = 3;
+        border_size = 3;
+        gaps_in = 5;
+        gaps_out = 5;
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
         resize_on_border = true;
@@ -55,7 +55,7 @@ in
       };
       decoration = 
       {
-        rounding = 2;
+        rounding = 3;
         active_opacity = 1;
         inactive_opacity = 1;
         fullscreen_opacity = 1;
@@ -103,7 +103,8 @@ in
         "${mainMod}, F, exec, ${browser}"
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, K, killactive,"
-        "${mainMod}, L, exit,"
+        "${mainMod} SHIFT, L, exit,"
+        "${mainMod}, L, exec, nwg-bar"
         "${mainMod}, V, togglefloating,"
         "${mainMod}, P, pseudo,"
         "${mainMod}, J, togglesplit,"

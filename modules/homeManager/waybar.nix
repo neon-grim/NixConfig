@@ -51,7 +51,7 @@
         "clock" = {
           interval = 1;
           format = "{:%R  %A %b %d}";
-          on-click = "sleep 0.1 && orange";
+          on-click = "sleep 0.1 && orage";
         };
         "memory" = {
           interval = 1;
