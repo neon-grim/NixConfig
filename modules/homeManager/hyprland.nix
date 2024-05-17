@@ -3,7 +3,7 @@ let
   mainMod = "SUPER";
   secondMod = "ALT_L";
   terminal = "terminator";
-  fileManager = "nautilus";
+  fileManager = "thunar";
   menu = "rofi -show drun -show-icons";
   browser = "firefox";
 in
@@ -20,6 +20,7 @@ in
         "${pkgs.waybar}/bin/waybar"
         "${pkgs.blueman}/bin/blueman-applet"
         "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
+        "${pkgs.swaynotificationcenter}/bin/swaync"
       ];
       # screen setup
       monitor = 

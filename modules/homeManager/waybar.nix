@@ -8,7 +8,10 @@
       {
         layer = "top";
         position = "top";
-        modules-center = [ "clock" ];
+        modules-center = 
+        [ 
+          "clock" 
+        ];
         modules-left =  
         [ 
           "hyprland/workspaces" 
@@ -18,7 +21,6 @@
           "cpu"
           "memory"
           "pulseaudio"
-          "network"
           "custom/powermenu"
           "tray" 
         ];
@@ -27,54 +29,47 @@
           formnat = "{icon}";
           format-icons = 
           {
-            default = "s";
-            active = "x";
-            urgent = " b";
+            default = " ";
+            active = " ";
+            urgent = " ";
           };
           on-scroll-up = "hyprctl dispatch workspace e+1";
       	  on-scroll-down = "hyprctl dispatch workspace e-1";
         };
-        "custom/launcher" = 
-        {
-          format = " ";
-          on-click = "pkill rofi || rofi2";
-          on-click-middle = "exec default_wall";
-          on-click-right = "exec wallpaper_random";
-          tooltip = false;
-        };
         "pulseaudio" = 
         {
-          scroll-step = 1;
-          format = "VOL {volume}%";
-          format-muted = "󰖁 Muted";
+          format = "{icon} {volume}% {format_source}";
+          format-muted = "󰖁 {volume}% {format_source}";
+          format-source = " {volume}%";
+          format-source-muted = "";
           format-icons = 
           {
-            default = [ "" "" "" ];
+            default = ["" "" ""];
           };
-          on-scroll-up = "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+";
-      	  on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
-      	  on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-          tooltip = false;
+          on-click = "sleep 0.1 && pavucontrol";
         };
         "clock" = {
           interval = 1;
           format = "{:%R  %A %b %d}";
+          on-click = "sleep 0.1 && orange";
         };
         "memory" = {
           interval = 1;
-          format = "RAM {percentage}%";
+          format = " {percentage}%";
           states = {
             "warning" = 85;
           };
+          on-click = "sleep 0.1 && thunar";
         };
         "cpu" = {
           interval = 1;
-          format = "CPU {usage}%";
+          format = " {usage}%";
+          on-click = "sleep 0.1 && xfce4-taskmanager";
         };
-        "custom/powermenu" = 
-        {
-          format = " ";
-          on-click = "wlogout";
+        "custom/powermenu" = {
+          "format" = " Power";
+          "on-click" = "sleep 0.1 && nwg-bar";
+          "tooltip" = false;
         };
       }
     ];
@@ -83,9 +78,9 @@
       *
       {
         font-family: "JetBrainsMono Nerd Font";
-        font-size: 12pt;
+        font-size: 11pt;
         font-weight: bold;
-        border-radius: 8px;
+        border-radius: 3px;
         transition-property: background-color;
         transition-duration: 0.5s;
       }
@@ -93,8 +88,8 @@
       {
         to 
         {
-          background-color: rgb(242, 143, 173);
-          color: rgb(26, 24, 38);
+          background-color: #f28fad;
+          color: #1a1826;
         }
       }
       .warning, .critical, .urgent 
@@ -111,13 +106,18 @@
       }
       window > box 
       {
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-top: 5px;
-        background-color: #1e1e2a;
+        background-color: #000000;
         padding: 3px;
         padding-left:8px;
-        border: 2px none #33ccff;
+        border: 2px none;
+      }
+      tooltip 
+      {
+        background-color: #000000;
+      }
+      tooltip label 
+      {
+        color: #d9e0ee;
       }
       #workspaces 
       {
@@ -130,74 +130,52 @@
         padding-bottom: 5px;
         padding-left: 6px;
         padding-right: 6px;
+        margin-left: 2px;
+        margin-right: 2px;
       }
-      #workspaces button.active 
+      #workspaces button.active
       {
-        background-color: rgb(181, 232, 224);
-        color: rgb(26, 24, 38);
+        background-color: #b5e8e0;
+        color: #000000;
       }
       #workspaces button.urgent 
       {
-        color: rgb(26, 24, 38);
+        color: #000000;
       }
-      #workspaces button:hover 
+      #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #pulseaudio:hover, #custom-powermenu:hover
       {
-        background-color: rgb(248, 189, 150);
-        color: rgb(26, 24, 38);
+        background-color: #F8BD96;
+        color: #000000;;
       }
-      tooltip 
-      {
-        background: rgb(48, 45, 65);
-      }
-      tooltip label 
-      {
-        color: rgb(217, 224, 238);
-      }
-      #custom-launcher 
-      {
-        font-size: 20px;
-        padding-left: 8px;
-        padding-right: 6px;
-        color: #7ebae4;
-      }
-      #mode, #clock, #memory, #temperature,#cpu,#mpd, #custom-wall, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu, #custom-cava-internal
+      #clock, #memory, #cpu, #pulseaudio, #custom-powermenu
       {
         padding-left: 10px;
         padding-right: 10px;
       }
       #memory 
       {
-        color: rgb(181, 232, 224);
+        color: #B5E8E0;
       }
       #cpu 
       {
-        color: rgb(245, 194, 231);
+        color: #F5C2E7;
       }
       #clock
       {
-        color: rgb(217, 224, 238);
+        color: #D9E0EE;
       }
       #pulseaudio 
       {
-        color: rgb(245, 224, 220);
-      }
-      #network
-      {
-        color: #ABE9B3;
-      }
-      #network.disconnected 
-      {
-        color: rgb(255, 255, 255);
-      }
-      #custom-powermenu
-      {
-        color: rgb(242, 143, 173);
-        padding-right: 8px;
+        color: #F5E0DC;
       }
       #tray 
       {
         padding-right: 8px;
         padding-left: 10px;
+      }
+      #custom-powermenu
+      {
+        color: #F28FAD;
       }
     '';
   };

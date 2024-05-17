@@ -3,29 +3,40 @@
   # apps
   environment.systemPackages = with pkgs;
   [
-    # terminal
-    fastfetch
+    # Terminal
     fish
-    git
-    nix-prefetch-git
     terminator
-    # hyprland addons
-    dunst
+    # TUI Tools
+    calcure
+    fastfetch
+    git
+    neovim
+    nnn
+    nix-prefetch-git
+    # addons
     networkmanagerapplet
+    nwg-bar
+    rofi-wayland
+    swaynotificationcenter
+    # hyprland tools
+    hyprland-workspaces
+    hyprland-protocols
     hyprnome
     hyprpaper
     hyprshot
-    hyprland-workspaces
-    rofi-wayland
-    wlogout
-    # DE tools 
-    gnome.gnome-disk-utility
-    gnome.nautilus
-    gnome.gnome-system-monitor
+    # UI Tools
+    gparted
+    pavucontrol
+    xfce.mousepad
+    xfce.orage
+    xfce.ristretto
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.tumbler
+    xfce.xfce4-taskmanager
+    # Todo: Replace these two
     gnome.gnome-software
     gnome.gnome-tweaks
-    gnome-text-editor
-    pavucontrol
     # tools
     goverlay
     jstest-gtk
@@ -37,7 +48,7 @@
     libz  
     spice-gtk
     python310
-  # gaming
+    # gaming
     heroic
     prismlauncher
     # browsers
@@ -55,7 +66,7 @@
     rhythmbox
     vlc
   ];
-  #fonts.enableDefaultPackages = true;
+  fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; 
   [
     noto-fonts

@@ -8,14 +8,18 @@ Misc:
   -Cycle between monitors
   -Workspace count starts at 0 for every monitor
   -change focus type
--Move clock to background like rain-meter
 -Get better animation
+-Icons of active app in workspace
+-Fix popup window height
+-Set Global variables for default apps
+-Create variable module
+-Get better colors for text editor
 
 
 Software:
 ----------
 -Get hyprpaper running
--Get Grim Running
+-Get hyprshot running
 -Get virt-manager running
 -Get streaming going on discord
 -Get lock software
