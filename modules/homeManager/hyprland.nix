@@ -90,6 +90,7 @@ in
       {
         new_is_master = false;
         orientation = "center";
+        mfact = 0.5;
       };
       windowrulev2 = 
       [

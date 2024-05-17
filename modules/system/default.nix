@@ -2,6 +2,7 @@
 {
   imports = 
   [
+    ./fonts.nix
     ./kernel.nix
     ./packages.nix
     ./security.nix

@@ -1,9 +1,8 @@
 { pkgs, inputs, ... }:
 { 
-  # apps
   environment.systemPackages = with pkgs;
   [
-    # Terminal
+    # Terminal And Shell
     fish
     terminator
     # TUI Tools
@@ -13,12 +12,12 @@
     neovim
     nnn
     nix-prefetch-git
-    # addons
+    # Thirparty Tools
     networkmanagerapplet
     nwg-bar
     rofi-wayland
     swaynotificationcenter
-    # hyprland tools
+    # Hyprland Tools
     hyprland-workspaces
     hyprland-protocols
     hyprnome
@@ -37,46 +36,33 @@
     # Todo: Replace these two
     gnome.gnome-software
     gnome.gnome-tweaks
-    # tools
+    # Gaming Tools
     goverlay
     jstest-gtk
     mangohud
     vkbasalt
     libstrangle
-    # dependencies 
+    # Dependencies 
     libnotify
     libz  
     spice-gtk
     python310
-    # gaming
+    # Launchers
     heroic
     prismlauncher
-    # browsers
+    # Browsers
     firefox
-    # wine proton manager
+    # Wine Proton Client
     bottles
     protonup-qt
-    # overclocking
+    # Overclocking
     corectrl
-    # social
+    # Social
     vesktop
-    # media
+    # Media
     moonlight-qt
     obs-studio
     rhythmbox
     vlc
   ];
-  fonts.enableDefaultPackages = true;
-  fonts.packages = with pkgs; 
-  [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    nerdfonts
-    font-awesome
-    google-fonts
-    twemoji-color-font
-    fira-code
-    fira-code-symbols
-  ];  
 }
