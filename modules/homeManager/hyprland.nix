@@ -28,9 +28,9 @@ in
       monitor =
       [
         ",preferred,auto,1"
-        "DP-2,5120x1440@240.00,0x0,1,bitdepth,10"
-        "HDMI-A-1,1920x1080@60,1280x1440,1"
-        "HDMI-A-2,2560x1440@75,-1440x-640,1,transform,3"
+        "HDMI-A-2,2560x1440@75,0x0,1,transform,3"
+        "DP-2,5120x1440@240.00,1440x640,1,bitdepth,10"
+        "HDMI-A-1,1920x1080@60,2720x2080,1"
       ];
       # HID settings
       input =
