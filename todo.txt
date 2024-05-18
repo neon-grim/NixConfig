@@ -1,21 +1,27 @@
 Misc:
 ----------
--Get Swaync working correctly
--Make fullscreen games start in main screen
-  -Make window rule
--Improve workstation nagvigation
-  -Cycle between monitors
-  -Workspace count starts at 0 for every monitor
-  -change focus type
--Get better animation
--Icons of active app in workspace
--Fix popup window height
--Set Global variables for default apps
--Create variable module
--Get better colors for text editor
--setup xdg-user directories
--Fix QT theme
+-Create Global Variable module
+-Create Missing SessionVariable
+-Create Git Credentials Config
 
+
+Desktop:
+----------
+-Theme swaync
+-Theme Rofi
+-Theme Mousepad text editor
+-Remove animation slowdown
+-Add qt nordic theme
+
+Workspace:
+----------
+-Make waybar module for icons of active app in output
+-Make window rule for games to start in mainscreen
+-Make window rule for popup window height
+-Replace Workspace numbers with sign
+-Add binding to cycle between outputs
+-Add binding to cycle between master window
+-Add binding to move window to different output
 
 Software:
 ----------
@@ -23,6 +29,8 @@ Software:
 -Get streaming going on discord
 -Get lock software
 -Get correct java version
+-Get Swaync working correctly
+-Fix hyprhsot not working on vertical screen
 
 Nix manipulations:
 ----------

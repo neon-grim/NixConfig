@@ -2,16 +2,21 @@
 { 
   environment.systemPackages = with pkgs;
   [
-    # Terminal And Shell
-    fish
-    terminator
-    # TUI Tools
+    # TTY Tools
     calcure
-    fastfetch
+    gifsicle
     git
+    gping
+    fastfetch
+    ffmpeg_7-full
+    lazygit
     neovim
     nnn
     nix-prefetch-git
+    psmisc
+    terminator
+    viu
+    usbutils
     # Thirparty Tools
     networkmanagerapplet
     nwg-bar
@@ -29,9 +34,7 @@
     xfce.mousepad
     xfce.orage
     xfce.ristretto
-    xfce.thunar
     xfce.thunar-volman
-    xfce.tumbler
     xfce.xfce4-taskmanager
     # Todo: Replace these two
     gnome.gnome-software
@@ -47,6 +50,8 @@
     libz  
     spice-gtk
     python310
+    xdg-user-dirs
+    xdg-utils
     # Launchers
     heroic
     prismlauncher
@@ -60,6 +65,8 @@
     # Social
     vesktop
     # Media
+    cava
+    gimp
     moonlight-qt
     obs-studio
     rhythmbox

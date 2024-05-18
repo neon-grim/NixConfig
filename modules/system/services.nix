@@ -1,9 +1,12 @@
 {pkgs, ...}:
 {
   # General
+  zramSwap.enable = true;
   programs.dconf.enable = true;
-  services.openssh.enable = true;
+  programs.fish.enable = true;
   services.dbus.enable = true;
+  services.geoclue2.enable = true;
+  services.openssh.enable = true;
   services.xserver.enable = true;
   # Storage
   services.devmon.enable = true;
@@ -13,6 +16,10 @@
   # Virtualization
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+  # File Manager
+  programs.thunar.enable = true;
+  programs.xfconf.enable = true;
+  services.tumbler.enable = true; 
   # Bluetooth
   services.blueman.enable = true;
   hardware.bluetooth =
