@@ -4,7 +4,6 @@ Misc:
 -Create Missing SessionVariable
 -Create Git Credentials Config
 
-
 Desktop:
 ----------
 -Theme swaync
@@ -18,10 +17,7 @@ Workspace:
 -Make waybar module for icons of active app in output
 -Make window rule for games to start in mainscreen
 -Make window rule for popup window height
--Replace Workspace numbers with sign
--Add binding to cycle between outputs
--Add binding to cycle between master window
--Add binding to move window to different output
+-Replace Workspace numbers with symbol
 
 Software:
 ----------
