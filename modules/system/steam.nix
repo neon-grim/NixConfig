@@ -1,6 +1,7 @@
-{ pkgs, config, lib, ... }:
+{pkgs, ...}:
 {
-  # Steam Configuration
+  hardware.xone.enable = true;
+  programs.gamemode.enable = true;
   programs.steam = 
   {
     enable = true;

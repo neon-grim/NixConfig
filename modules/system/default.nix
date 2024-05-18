@@ -1,6 +1,6 @@
-{ pkgs, config, ... }:
+{...}:
 {
-  imports = 
+  imports =
   [
     ./flatpak.nix
     ./fonts.nix

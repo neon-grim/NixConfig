@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{pkgs, ...}:
 {
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; 
@@ -12,5 +12,5 @@
     twemoji-color-font
     fira-code
     fira-code-symbols
-  ];  
+  ];
 }

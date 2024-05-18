@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{pkgs, ...}:
 {
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = 

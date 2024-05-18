@@ -1,6 +1,6 @@
-{ config, lib, pkgs, ... }:
+{...}:
 {
-  programs.waybar = 
+  programs.waybar =
   {
     enable = true;
     settings =
@@ -8,23 +8,23 @@
       {
         layer = "top";
         position = "top";
-        modules-center = 
+        modules-center =
         [ 
           "clock" 
         ];
-        modules-left =  
+        modules-left =
         [ 
           "hyprland/workspaces" 
         ];
-        modules-right = 
-        [ 
+        modules-right =
+        [
           "cpu"
           "memory"
           "pulseaudio"
           "custom/powermenu"
           "tray" 
         ];
-        "hyprland/workspaces" = 
+        "hyprland/workspaces" =
         {
           formnat = "{icon}";
           format-icons = 
@@ -36,7 +36,7 @@
           on-scroll-up = "hyprctl dispatch workspace e+1";
       	  on-scroll-down = "hyprctl dispatch workspace e-1";
         };
-        "pulseaudio" = 
+        "pulseaudio" =
         {
           format = "{icon} {volume}% {format_source}";
           format-muted = "󰖁 {volume}% {format_source}";
@@ -48,12 +48,14 @@
           };
           on-click = "sleep 0.1 && pavucontrol";
         };
-        "clock" = {
+        "clock" =
+        {
           interval = 1;
           format = "{:%R  %A %b %d}";
           on-click = "sleep 0.1 && orage";
         };
-        "memory" = {
+        "memory" =
+        {
           interval = 1;
           format = " {percentage}%";
           states = {
@@ -61,19 +63,21 @@
           };
           on-click = "sleep 0.1 && thunar";
         };
-        "cpu" = {
+        "cpu" =
+        {
           interval = 1;
           format = " {usage}%";
           on-click = "sleep 0.1 && xfce4-taskmanager";
         };
-        "custom/powermenu" = {
+        "custom/powermenu" =
+        {
           "format" = " Power";
           "on-click" = "sleep 0.1 && nwg-bar";
           "tooltip" = false;
         };
       }
     ];
-    style = 
+    style =
     ''
       *
       {

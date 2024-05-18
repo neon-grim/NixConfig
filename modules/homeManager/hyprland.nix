@@ -1,4 +1,4 @@
-{pkgs, lib, config, inputs, ... }:
+{pkgs, ...}:
 let
   mainMod = "SUPER";
   secondMod = "ALT_L";
@@ -11,7 +11,7 @@ in
   wayland.windowManager.hyprland = 
   {
     enable = true;
-    settings = 
+    settings =
     {
       # auto start
       exec-once=
@@ -24,7 +24,7 @@ in
         "${pkgs.hyprpaper}/bin/hyprpaper"
       ];
       # screen setup
-      monitor = 
+      monitor =
       [
         ",preferred,auto,1"
         "DP-2,5120x1440@240.00,0x0,1,bitdepth,10"
@@ -32,7 +32,7 @@ in
         "HDMI-A-2,2560x1440@75,-1440x-640,1,transform,3"
       ];
       # HID settings
-      input = 
+      input =
       {
         kb_layout = "ch";
         kb_variant = "de_nodeadkeys";
@@ -42,7 +42,7 @@ in
         accel_profile = "flat";
       };
       # customization
-      general = 
+      general =
       {
         border_size = 3;
         gaps_in = 5;
@@ -54,7 +54,7 @@ in
         layout = "master";
         allow_tearing = false;
       };
-      decoration = 
+      decoration =
       {
         rounding = 3;
         active_opacity = 1;
@@ -66,7 +66,7 @@ in
       {
         enabled = true;
         bezier = [ "myBezier, 0.05, 0.9, 0.1, 1.05" ];
-        animation = 
+        animation =
         [
           "windows, 1, 7, myBezier"
           "windowsOut, 1, 7, default, popin 80%"
@@ -76,13 +76,13 @@ in
           "workspaces, 1, 6, default"
         ];
       };
-      misc = 
+      misc =
       {
         #no_direct_scanout = false;
         force_default_wallpaper = 2;
       };
       # tiling layout
-      dwindle = 
+      dwindle =
       {
         
       };
@@ -160,8 +160,8 @@ in
         "${mainMod}, F10, exec, hyprshot -m region"
         "${mainMod}, F11, exec, hyprshot -m output -c"
       ];
-      bindm = 
-      [      
+      bindm =
+      [
         # Move/resize windows
         "${mainMod}, mouse:272, movewindow"
         "${mainMod}, mouse:273, resizewindow"

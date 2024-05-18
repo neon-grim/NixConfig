@@ -1,22 +1,21 @@
-{ pkgs, config, lib, inputs, ... }:
+{pkgs, ...}:
 {
+  # General
+  programs.dconf.enable = true;
+  services.openssh.enable = true;
+  services.dbus.enable = true;
+  services.xserver.enable = true;
   # Storage
   services.devmon.enable = true;
-  services.gvfs.enable = true; 
+  services.gvfs.enable = true;
   services.fstrim.enable = true;
   services.udisks2.enable = true;
   # Virtualization
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
-  # General
-  hardware.xone.enable = true;
-  programs.gamemode.enable = true;
-  programs.dconf.enable = true;
-  services.openssh.enable = true;
-  services.dbus.enable = true;
   # Bluetooth
-  services.blueman.enable = true; 
-  hardware.bluetooth = 
+  services.blueman.enable = true;
+  hardware.bluetooth =
   {
     enable = true;
     powerOnBoot = true;
@@ -33,15 +32,11 @@
     jack.enable = true;
   };
   # Keyboard
-  services.xserver =
+  services.xserver.xkb =
   {
-    enable = true;
-    xkb = 
-    {
-      layout = "ch";
-      variant = "de_nodeadkeys";
-    };
-  };    
+    layout = "ch";
+    variant = "de_nodeadkeys";
+  }; 
   # Printing
   services.printing.enable = true;
   services.avahi = 
@@ -51,7 +46,7 @@
     openFirewall = true;
   }; 
   # XDG Portals
-  xdg.portal = 
+  xdg.portal =
   {
     enable = true;
     wlr.enable = true;
@@ -61,16 +56,16 @@
     ];
   };
   # Window Manager
-  programs.hyprland = 
+  programs.hyprland =
   {
     enable = true;
     xwayland.enable = true;
   };
   # Display Manager
-  services.greetd = 
+  services.greetd =
   {
     enable = true;
-    settings = 
+    settings =
     {
       default_session = 
       {
