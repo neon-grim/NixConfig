@@ -1,28 +1,28 @@
-{ config, pkgs, ... }:
+{pkgs, config, ...}:
 {
   boot =
   {
-    # bootloader
+    # Bootloader
     loader =
     {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    # set Kernel to zen
+    # Set Kernel
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    # set overclocking and disable systemd log
+    # Kernel Parameters
     kernelParams = 
     [ 
       "amdgpu.ppfeaturemask=0xffffffff"
       "quiet" 
     ];
-    # download kernel packages for later use
+    # Kernel Modules
     extraModulePackages = 
     [ 
-      # modified xpad driver
+      # Custom Xpad Module
       (config.boot.kernelPackages.callPackage ./../derivations/xpad.nix {}) 
     ];
-    # set Kernel module
+    # Load Kernel Module
     kernelModules = [ "xpad-noone" ];
   };
 }

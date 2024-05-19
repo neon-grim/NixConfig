@@ -1,7 +1,7 @@
-{pkgs, ... }:
+{pkgs, ...}:
 {
-  # set cursor theme
-  home = 
+  # Cursor Theme
+  home =
   {
     pointerCursor = 
     {
@@ -12,7 +12,7 @@
       size = 24;
     };
   };
-  # set gtk theme  
+  # GTK Theme
   gtk = 
   {
     enable = true;
@@ -35,7 +35,7 @@
       gtk-application-prefer-dark-theme=1;
     };
   };
-  # set qt theme  
+  # QT Theme
   qt = 
   {
     enable = true;

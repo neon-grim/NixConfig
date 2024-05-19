@@ -1,4 +1,4 @@
-{pkgs, lib, config, inputs, ... }:
+{pkgs, ...}:
 let
   mainMod = "SUPER";
   secondMod = "ALT_L";
@@ -6,12 +6,13 @@ let
   fileManager = "thunar";
   menu = "rofi -show drun -show-icons";
   browser = "firefox";
+  powerMenu = "nwg-bar";
 in
 {
   wayland.windowManager.hyprland = 
   {
     enable = true;
-    settings = 
+    settings =
     {
       # auto start
       exec-once=
@@ -21,27 +22,28 @@ in
         "${pkgs.blueman}/bin/blueman-applet"
         "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
         "${pkgs.swaynotificationcenter}/bin/swaync"
+        "${pkgs.hyprpaper}/bin/hyprpaper"
       ];
       # screen setup
-      monitor = 
+      monitor =
       [
         ",preferred,auto,1"
-        "DP-2,5120x1440@240.00,0x0,1,bitdepth,10"
-        "HDMI-A-1,1920x1080@60,1280x1440,1"
-        "HDMI-A-2,2560x1440@75,-1440x-640,1,transform,3"
+        "HDMI-A-2,2560x1440@75,0x0,1,transform,3"
+        "DP-2,5120x1440@240.00,1440x640,1,bitdepth,10"
+        "HDMI-A-1,1920x1080@60,2720x2080,1"
       ];
       # HID settings
-      input = 
+      input =
       {
         kb_layout = "ch";
         kb_variant = "de_nodeadkeys";
         numlock_by_default = true;
         sensitivity = 0;
-        follow_mouse = 1;
+        follow_mouse = 2;
         accel_profile = "flat";
       };
       # customization
-      general = 
+      general =
       {
         border_size = 3;
         gaps_in = 5;
@@ -53,7 +55,7 @@ in
         layout = "master";
         allow_tearing = false;
       };
-      decoration = 
+      decoration =
       {
         rounding = 3;
         active_opacity = 1;
@@ -65,7 +67,7 @@ in
       {
         enabled = true;
         bezier = [ "myBezier, 0.05, 0.9, 0.1, 1.05" ];
-        animation = 
+        animation =
         [
           "windows, 1, 7, myBezier"
           "windowsOut, 1, 7, default, popin 80%"
@@ -75,13 +77,13 @@ in
           "workspaces, 1, 6, default"
         ];
       };
-      misc = 
+      misc =
       {
         #no_direct_scanout = false;
         force_default_wallpaper = 2;
       };
       # tiling layout
-      dwindle = 
+      dwindle =
       {
         
       };
@@ -89,74 +91,67 @@ in
       {
         new_is_master = false;
         orientation = "center";
+        mfact = 0.5;
       };
       windowrulev2 = 
       [
         "suppressevent maximize, class:.*"
       ];
-      # key bindings
       bind =
       [
-        # execute default programs and actions
+        # Execute default programs and actions
         "${mainMod}, Q, exec, ${terminal}"
         "${mainMod}, E, exec, ${fileManager}"
         "${mainMod}, F, exec, ${browser}"
         "${mainMod}, R, exec, ${menu}"
+        "${mainMod}, L, exec, ${powerMenu}"
+        "${mainMod}, V, togglefloating,"
         "${mainMod}, K, killactive,"
         "${mainMod} SHIFT, L, exit,"
-        "${mainMod}, L, exec, nwg-bar"
-        "${mainMod}, V, togglefloating,"
-        "${mainMod}, P, pseudo,"
-        "${mainMod}, J, togglesplit,"
-        # change window focus 
+        # Change focused window
         "${mainMod}, left, movefocus, l"
         "${mainMod}, right, movefocus, r"
         "${mainMod}, up, movefocus, u"
         "${mainMod}, down, movefocus, d"
-        # switch workspaces
-        "${mainMod}, 1, workspace, 1"
-        "${mainMod}, 2, workspace, 2"
-        "${mainMod}, 3, workspace, 3"
-        "${mainMod}, 4, workspace, 4"
-        "${mainMod}, 5, workspace, 5"
-        "${mainMod}, 6, workspace, 6"
-        "${mainMod}, 7, workspace, 7"
-        "${mainMod}, 8, workspace, 8"
-        "${mainMod}, 9, workspace, 9"
-        "${mainMod}, 0, workspace, 0"
-        # hypernome navegation
+        # Cycle master window within workspace
+        "${mainMod} SHIFT, left, layoutmsg, rollnext"
+        "${mainMod} SHIFT, right, layoutmsg, rollprev"
+        "${mainMod}, home, layoutmsg, swapwithmaster"
+        #Swap focused window within workspace
+        "${mainMod} CONTROL, left, layoutmsg, swapprev"
+        "${mainMod} CONTROL, right, layoutmsg, swapnext"
+        # Cycle focus between Monitors
+        "${mainMod} SHIFT, up, focusmonitor, -1"
+        "${mainMod} SHIFT, down, focusmonitor, +1"
+        # Swap focused window between monitors
+        "${mainMod} CONTROL, up, movewindow, mon:-1"
+        "${mainMod} CONTROL, down, movewindow, mon:+1"
+        # Navigate between workspaces on the same monitor
         "${mainMod}, PAGE_DOWN, exec, hyprnome"
         "${mainMod}, PAGE_UP, exec, hyprnome --previous"
+        # Move active window between workspaces on the same monitor
         "${mainMod} SHIFT, PAGE_DOWN, exec, hyprnome --move"
         "${mainMod} SHIFT, PAGE_UP, exec, hyprnome --previous --move"
-        # Move active window to workspace
-        "${mainMod} SHIFT, 1, movetoworkspace, 1"
-        "${mainMod} SHIFT, 2, movetoworkspace, 2"
-        "${mainMod} SHIFT, 3, movetoworkspace, 3"
-        "${mainMod} SHIFT, 4, movetoworkspace, 4"
-        "${mainMod} SHIFT, 5, movetoworkspace, 5"
-        "${mainMod} SHIFT, 6, movetoworkspace, 6"
-        "${mainMod} SHIFT, 7, movetoworkspace, 7"
-        "${mainMod} SHIFT, 8, movetoworkspace, 8"
-        "${mainMod} SHIFT, 9, movetoworkspace, 9"
-        "${mainMod} SHIFT, 0, movetoworkspace, 0"
         # Example special workspace (scratchpad)
         "${mainMod}, S, togglespecialworkspace, magic"
         "${mainMod} SHIFT, S, movetoworkspace, special:magic"
         # Scroll through existing workspaces
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
-        # set main monitor refresh rate
-        # Normal use
+        # No VRR Desktop
         "${mainMod} SHIFT, F1, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,0x0,1,bitdepth,10"
         "${mainMod} SHIFT, F2, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,0x0,1,bitdepth,10"
-        #Gaming
+        # VRR Gaming
         "${mainMod} SHIFT, F3, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,0x0,1,vrr,2,bitdepth,10"
         "${mainMod} SHIFT, F4, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,0x0,1,vrr,2,bitdepth,10"
         "${mainMod} SHIFT, F5, exec, hyprctl keyword monitor DP-2,5120x1440@60.00,0x0,1,vrr,2,bitdepth,10"
+        # Screenshot
+        "${mainMod}, F9, exec, hyprshot -m window -c"
+        "${mainMod}, F10, exec, hyprshot -m region"
+        "${mainMod}, F11, exec, hyprshot -m output -c"
       ];
-      bindm = 
-      [      
+      bindm =
+      [
         # Move/resize windows
         "${mainMod}, mouse:272, movewindow"
         "${mainMod}, mouse:273, resizewindow"

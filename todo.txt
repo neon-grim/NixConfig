@@ -1,30 +1,33 @@
 Misc:
 ----------
--Fix notification
--Lock notification to main screen
--Make fullscreen games start in main screen
-  -Make window rule
--Improve workstation nagvigation
-  -Cycle between monitors
-  -Workspace count starts at 0 for every monitor
-  -change focus type
--Get better animation
--Icons of active app in workspace
--Fix popup window height
--Set Global variables for default apps
--Create variable module
--Get better colors for text editor
+-Create Global Variable module
+-Create Missing SessionVariable
+-Create Git Credentials Config
 
+Desktop:
+----------
+-Theme swaync
+-Theme Rofi
+-Theme Mousepad text editor
+-Remove animation slowdown
+-Add qt nordic theme
+-Change border color
+
+Workspace:
+----------
+-Make waybar module for icons of active app in output
+-Make window rule for games to start in mainscreen
+-Make window rule for popup window height
+-Replace Workspace numbers with symbol
+-Limit amount of of windows in worksapce
 
 Software:
 ----------
--Get hyprpaper running
--Get hyprshot running
 -Get virt-manager running
 -Get streaming going on discord
 -Get lock software
 -Get correct java version
--Get or make better power menu
+-Get Swaync working correctly
 
 Nix manipulations:
 ----------
@@ -34,4 +37,3 @@ Nix manipulations:
 Repo:
 ----------
 -Fillout readme in repo
-

@@ -1,85 +1,59 @@
-{ pkgs, config, lib, inputs, ... }:
+{pkgs, ...}:
 {
-  #hardware settings
-  sound.enable = true;
-  hardware = 
-  {
-    pulseaudio.enable = false;
-    xone.enable = true;
-    bluetooth = 
-    {
-      enable = true;
-      powerOnBoot = true;
-    };
-  };
-  # Service settings
-  services = 
-  {
-    # audio service
-    pipewire = 
-    { 
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
-    # xservices settings
-    xserver =
-    {
-      enable = true;
-      xkb = 
-      {
-        layout = "ch";
-        variant = "de_nodeadkeys";
-      };
-    };    
-    # display manager
-    greetd = 
-    {
-      enable = true;
-      settings = {
-        default_session = 
-        {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-          user = "ashen_one";
-        };
-      };
-    };
-    # storage services
-    devmon.enable = true;
-    gvfs.enable = true; 
-    fstrim.enable = true;
-    udisks2.enable = true;
-    # printing settings
-    printing.enable = true;
-    avahi = 
-    {
-      enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
-    };
-    # other services
-    blueman.enable = true; 
-    flatpak.enable = true;
-    openssh.enable = true;
-    dbus.enable = true;  
-  };
-  # enable virtualisation
+  # General
+  zramSwap.enable = true;
+  programs.dconf.enable = true;
+  programs.fish.enable = true;
+  services.dbus.enable = true;
+  services.geoclue2.enable = true;
+  services.openssh.enable = true;
+  services.xserver.enable = true;
+  # Storage
+  services.devmon.enable = true;
+  services.gvfs.enable = true;
+  services.fstrim.enable = true;
+  services.udisks2.enable = true;
+  # Virtualization
   virtualisation.libvirtd.enable = true;
-  # enable vital programs
-  programs = 
+  programs.virt-manager.enable = true;
+  # File Manager
+  programs.thunar.enable = true;
+  programs.xfconf.enable = true;
+  services.tumbler.enable = true; 
+  # Bluetooth
+  services.blueman.enable = true;
+  hardware.bluetooth =
   {
-    gamemode.enable = true;
-    dconf.enable = true;
-    virt-manager.enable = true;
-    hyprland = 
-    {
-      enable = true;
-    };
+    enable = true;
+    powerOnBoot = true;
   };
-  # Enable XDG Portals
-  xdg.portal = 
+  # Audio
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  services.pipewire = 
+  { 
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
+  # Keyboard
+  services.xserver.xkb =
+  {
+    layout = "ch";
+    variant = "de_nodeadkeys";
+  }; 
+  # Printing
+  services.printing.enable = true;
+  services.avahi = 
+  {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  }; 
+  # XDG Portals
+  xdg.portal =
   {
     enable = true;
     wlr.enable = true;
@@ -88,19 +62,23 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
-  # flatpak settings
-  systemd.services.flatpak-repo = 
+  # Window Manager
+  programs.hyprland =
   {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = 
-    ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
+    enable = true;
+    xwayland.enable = true;
   };
-  environment.sessionVariables = 
+  # Display Manager
+  services.greetd =
   {
-    # Hint Electron apps to use wayland
-    NIXOS_OZONE_WL = "1";
+    enable = true;
+    settings =
+    {
+      default_session = 
+      {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        user = "ashen_one";
+      };
+    };
   };
 }
