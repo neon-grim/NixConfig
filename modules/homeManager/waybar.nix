@@ -149,7 +149,7 @@
       #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #pulseaudio:hover, #custom-powermenu:hover
       {
         background-color: #F8BD96;
-        color: #000000;;
+        color: #000000;
       }
       #clock, #memory, #cpu, #pulseaudio, #custom-powermenu
       {
