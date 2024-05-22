@@ -34,7 +34,6 @@
     xfce.mousepad
     xfce.orage
     xfce.ristretto
-    xfce.thunar-volman
     xfce.xfce4-taskmanager
     # Todo: Replace these two
     gnome.gnome-software

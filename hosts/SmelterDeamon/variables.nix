@@ -1,5 +1,18 @@
-{}:
 {
+  # User Credentials
+  username = "ashen_one";
+  userDescription = "Michael Mueller de los Santos";
+  userGroups = 
+  [
+    "networkmanager" 
+    "wheel" 
+    "libvirt" 
+    "kvm" 
+    "libvirtd"
+  ];
+  # System Config
+  systemTimeZone = "Europe/Zurich";
+  systemLanguage = "en_GB.UTF-8";
   # Keybaord
   layout = "ch";
   variant = "de_nodeadkeys";
@@ -17,13 +30,13 @@
   inactiveBorderColor = "rgba(595959aa)";
   # Waybar Theme
   backgroundColor = "#000000";
-  textColor = "#ffffff"
+  textColor = "#ffffff";
   activeBackgroundColor = "#b5e8e0";
   activeTextColor = "#b5e8e0";
-  urgentBackgroundColor ="#F8BD96"
+  urgentBackgroundColor ="#F8BD96";
   urgentTextColor = "#000000";
-  hoverBackgroundColor = "${urgentBackgroundColor}";
-  hoverBackgroundColor = "${urgentTextColor}";
+  hoverBackgroundColor = "#F8BD96";
+  hoverTextColor = "#000000";
   # System Wallpapers
   wallpaperMainScreen = "/mnt/SATASSD1/1_Images/BackgroundImages/Death_OG.png";
   wallpaperleftScreen = "/mnt/SATASSD1/1_Images/BackgroundImages/red_transistor.png";
@@ -38,7 +51,7 @@
   volumeControl = "pavucontrol";
   # Default Modkey
   mainMod = "SUPER";
-  mainModShift = "${mainMod} SHIFT";
-  mainmodAlt = "${mainMod} ALT_L";
-  mainModControl = "${mainMod} CONTROL_L";
+  mainModShift = "SUPER SHIFT";
+  mainmodAlt = "$SUPER ALT_L";
+  mainModControl = "SUPER CONTROL_L";
 }

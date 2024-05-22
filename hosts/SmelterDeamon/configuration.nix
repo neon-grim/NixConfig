@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{config, pkgs, inputs, host, ...}:
+let
+  inherit (import ./variables.nix)
+    systemTimeZone
+    systemLanguage;
+in
 {
   imports =
   [
@@ -13,20 +18,13 @@
   # enable networking
   networking = 
   {
-    hostName = "SmelterDeamon";
+    hostName = "${host}";
     networkmanager.enable = true;
   };
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ashen_one = {
-    isNormalUser = true;
-    description = "Michael Mueller de los Santos";
-    extraGroups = [ "networkmanager" "wheel" "libvirt" "kvm" "libvirtd"];
-    packages = with pkgs; [ ];
-  };
   # set your time zone.
-  time.timeZone = "Europe/Zurich";
+  time.timeZone = "${systemTimeZone}";
   # select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
+  i18n.defaultLocale = "${systemLanguage}";
   # nixos release
   system.stateVersion = "23.11";
   # enable flakes
