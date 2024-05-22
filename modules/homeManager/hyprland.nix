@@ -8,7 +8,6 @@ let
     mainModShift
     # Default Apps
     browser
-    calendar
     fileManager
     menu
     powerMenu
@@ -119,6 +118,7 @@ in
         "${mainMod}, F, exec, ${browser}"
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, L, exec, ${powerMenu}"
+        "${mainMod}, T, exec, ${taskManager}"
         "${mainMod}, V, togglefloating,"
         "${mainMod}, K, killactive,"
         "${mainModShift}, L, exit,"

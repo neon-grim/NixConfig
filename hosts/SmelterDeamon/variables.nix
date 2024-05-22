@@ -32,7 +32,7 @@
   backgroundColor = "#000000";
   textColor = "#ffffff";
   activeBackgroundColor = "#b5e8e0";
-  activeTextColor = "#b5e8e0";
+  activeTextColor = "#000000";
   urgentBackgroundColor ="#F8BD96";
   urgentTextColor = "#000000";
   hoverBackgroundColor = "#F8BD96";
