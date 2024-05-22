@@ -1,5 +1,5 @@
 {
-  # User Credentials
+  # User
   userDescription = "Michael Mueller de los Santos";
   userGroups = 
   [
@@ -9,23 +9,18 @@
     "kvm" 
     "libvirtd"
   ];
-  # System Config
+  # International
   systemTimeZone = "Europe/Zurich";
   systemLanguage = "en_GB.UTF-8";
-  # Input Config
+  # Input
   layout = "ch";
   variant = "de_nodeadkeys";
   mouseProfile = "flat";
   # Git Credentials
   gitUser = "SeekerOfAsh";
   gitMail = "michael.muellerdelossantos@outlook.com";
-  # Cursor Theming
-  cursorSize = "24";
-  cursorTheme = "Bibata-Original-Classic";
-  # System Theme
-  gtkTheme = "Nordic";
-  iconTheme = "BeautyLine";
-  rofiTheme = "";
+  # System
+  cursorSize = 24;
   activeBorderColor = "rgba(33ccffee) rgba(00ff99ee) 45deg";
   inactiveBorderColor = "rgba(595959aa)";
   # Waybar Theme
@@ -37,11 +32,11 @@
   urgentTextColor = "#000000";
   hoverBackgroundColor = "#F8BD96";
   hoverTextColor = "#000000";
-  # System Wallpapers
+  # Wallpaper
   wallpaperOne = "/mnt/SATASSD1/1_Images/BackgroundImages/Death_OG.png";
   wallpaperTwo = "/mnt/SATASSD1/1_Images/BackgroundImages/red_transistor.png";
   wallpaperThree = "/mnt/SATASSD1/1_Images/BackgroundImages/instrument.png";
-  # Default Software
+  # Default Apps
   browser = "firefox";
   calendar = "orage";
   fileManager = "thunar";
@@ -50,7 +45,7 @@
   taskManager = "xfce4-taskmanager";
   terminal = "terminator";
   volumeControl = "pavucontrol";
-  # Default Modkey
+  # Modkeys
   mainMod = "SUPER";
   mainModShift = "SUPER SHIFT";
   mainmodAlt = "$SUPER ALT_L";

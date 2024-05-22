@@ -1,4 +1,8 @@
-{pkgs, ...}:
+{pkgs, host, ...}:
+let
+  inherit (import ../../hosts/${host}/variables.nix)
+    cursorSize;
+in
 {
   # Cursor Theme
   home =
@@ -9,7 +13,7 @@
       x11.enable = true;
       name = "Bibata-Original-Classic";
       package = pkgs.bibata-cursors;
-      size = 24;
+      size = cursorSize;
     };
   };
   # GTK Theme
