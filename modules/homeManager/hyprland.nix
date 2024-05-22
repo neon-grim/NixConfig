@@ -139,12 +139,12 @@ in
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
         # No VRR Desktop
-        "${mainMod} SHIFT, F1, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,0x0,1,bitdepth,10"
-        "${mainMod} SHIFT, F2, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,0x0,1,bitdepth,10"
+        "${mainMod} SHIFT, F1, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,1440x640,1,bitdepth,10"
+        "${mainMod} SHIFT, F2, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,1440x640,1,bitdepth,10"
         # VRR Gaming
-        "${mainMod} SHIFT, F3, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,0x0,1,vrr,2,bitdepth,10"
-        "${mainMod} SHIFT, F4, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,0x0,1,vrr,2,bitdepth,10"
-        "${mainMod} SHIFT, F5, exec, hyprctl keyword monitor DP-2,5120x1440@60.00,0x0,1,vrr,2,bitdepth,10"
+        "${mainMod} SHIFT, F3, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,1440x640,1,vrr,2,bitdepth,10"
+        "${mainMod} SHIFT, F4, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,1440x640,1,vrr,2,bitdepth,10"
+        "${mainMod} SHIFT, F5, exec, hyprctl keyword monitor DP-2,5120x1440@60.00,1440x640,1,vrr,2,bitdepth,10"
         # Screenshot
         "${mainMod}, F9, exec, hyprshot -m window -c"
         "${mainMod}, F10, exec, hyprshot -m region"
