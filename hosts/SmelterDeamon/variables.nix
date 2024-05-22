@@ -38,18 +38,18 @@
   hoverBackgroundColor = "#F8BD96";
   hoverTextColor = "#000000";
   # System Wallpapers
-  wallpaperMainScreen = "/mnt/SATASSD1/1_Images/BackgroundImages/Death_OG.png";
-  wallpaperleftScreen = "/mnt/SATASSD1/1_Images/BackgroundImages/red_transistor.png";
-  wallpaperBottomScreen = "/mnt/SATASSD1/1_Images/BackgroundImages/instrument.png";
+  wallpaperOne = "/mnt/SATASSD1/1_Images/BackgroundImages/Death_OG.png";
+  wallpaperTwo = "/mnt/SATASSD1/1_Images/BackgroundImages/red_transistor.png";
+  wallpaperThree = "/mnt/SATASSD1/1_Images/BackgroundImages/instrument.png";
   # Default Software
   browser = "firefox";
-  fileManager = "thunar";
-  powerMenu = "nwg-bar";
-  terminal = "terminator";
-  taskManager = "xfce4-taskmanager";
   calendar = "orage";
-  volumeControl = "pavucontrol";
+  fileManager = "thunar";
   menu = "rofi -show drun -show-icons";
+  powerMenu = "nwg-bar";
+  taskManager = "xfce4-taskmanager";
+  terminal = "terminator";
+  volumeControl = "pavucontrol";
   # Default Modkey
   mainMod = "SUPER";
   mainModShift = "SUPER SHIFT";

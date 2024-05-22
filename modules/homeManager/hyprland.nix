@@ -3,26 +3,25 @@ let
   inherit (import ../../hosts/${host}/variables.nix)
     # ModKeys
     mainMod
-    mainModShift
     mainmodAlt
     mainModControl
+    mainModShift
     # Default Apps
     browser
-    fileManager
-    powerMenu
-    terminal
-    taskManager
     calendar
-    volumeControl
+    fileManager
     menu
+    powerMenu
+    taskManager
+    terminal
     # Border Color
     activeBorderColor
     inactiveBorderColor
     # Keyboard
     layout
-    variant
-    mouseProfile;
-  in
+    mouseProfile
+    variant;
+in
 {
   wayland.windowManager.hyprland = 
   {
