@@ -1,6 +1,5 @@
 {
   # User Credentials
-  username = "ashen_one";
   userDescription = "Michael Mueller de los Santos";
   userGroups = 
   [
@@ -13,14 +12,15 @@
   # System Config
   systemTimeZone = "Europe/Zurich";
   systemLanguage = "en_GB.UTF-8";
-  # Keybaord
+  # Input Config
   layout = "ch";
   variant = "de_nodeadkeys";
+  mouseProfile = "flat";
   # Git Credentials
   gitUser = "SeekerOfAsh";
   gitMail = "michael.muellerdelossantos@outlook.com";
   # Cursor Theming
-  cursorSize = 24;
+  cursorSize = "24";
   cursorTheme = "Bibata-Original-Classic";
   # System Theme
   gtkTheme = "Nordic";
@@ -49,6 +49,7 @@
   taskManager = "xfce4-taskmanager";
   calendar = "orage";
   volumeControl = "pavucontrol";
+  menu = "rofi -show drun -show-icons";
   # Default Modkey
   mainMod = "SUPER";
   mainModShift = "SUPER SHIFT";
