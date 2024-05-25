@@ -1,9 +1,16 @@
-{pkgs, ...}:
+{pkgs, host, ...}:
+let
+  inherit (import ../../hosts/${host}/variables.nix)
+    layout
+    variant;
+in
 {
+  
   # General
   zramSwap.enable = true;
   programs.dconf.enable = true;
   programs.fish.enable = true;
+  programs.firefox.enable = true;
   services.dbus.enable = true;
   services.geoclue2.enable = true;
   services.openssh.enable = true;
@@ -17,7 +24,16 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   # File Manager
-  programs.thunar.enable = true;
+  programs.thunar =
+  {
+    enable = true;
+    plugins = with pkgs.xfce; 
+    [ 
+      thunar-archive-plugin
+      thunar-media-tags-plugin
+      thunar-volman
+    ];
+  };
   programs.xfconf.enable = true;
   services.tumbler.enable = true; 
   # Bluetooth
@@ -41,8 +57,8 @@
   # Keyboard
   services.xserver.xkb =
   {
-    layout = "ch";
-    variant = "de_nodeadkeys";
+    layout = "${layout}";
+    variant = "${variant}";
   }; 
   # Printing
   services.printing.enable = true;

@@ -10,5 +10,6 @@
     ./services.nix
     ./sessionVariables.nix
     ./steam.nix
+    ./users.nix
   ];
 }

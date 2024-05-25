@@ -19,7 +19,7 @@
     usbutils
     # Thirparty Tools
     networkmanagerapplet
-    nwg-bar
+    rofi-power-menu
     rofi-wayland
     swaynotificationcenter
     # Hyprland Tools
@@ -34,7 +34,6 @@
     xfce.mousepad
     xfce.orage
     xfce.ristretto
-    xfce.thunar-volman
     xfce.xfce4-taskmanager
     # Todo: Replace these two
     gnome.gnome-software
@@ -55,8 +54,6 @@
     # Launchers
     heroic
     prismlauncher
-    # Browsers
-    firefox
     # Wine Proton Client
     bottles
     protonup-qt

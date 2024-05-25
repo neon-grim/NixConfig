@@ -1,12 +1,25 @@
-{pkgs, ...}:
+{pkgs, host, ...}:
 let
-  mainMod = "SUPER";
-  secondMod = "ALT_L";
-  terminal = "terminator";
-  fileManager = "thunar";
-  menu = "rofi -show drun -show-icons";
-  browser = "firefox";
-  powerMenu = "nwg-bar";
+  inherit (import ../../hosts/${host}/variables.nix)
+    # ModKeys
+    mainMod
+    mainmodAlt
+    mainModControl
+    mainModShift
+    # Default Apps
+    browser
+    fileManager
+    menu
+    powerMenu
+    taskManager
+    terminal
+    # Border Color
+    activeBorderColor
+    inactiveBorderColor
+    # Keyboard
+    layout
+    mouseProfile
+    variant;
 in
 {
   wayland.windowManager.hyprland = 
@@ -18,11 +31,12 @@ in
       exec-once=
       [
         "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
-        "${pkgs.waybar}/bin/waybar"
-        "${pkgs.blueman}/bin/blueman-applet"
-        "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
-        "${pkgs.swaynotificationcenter}/bin/swaync"
-        "${pkgs.hyprpaper}/bin/hyprpaper"
+        "dbus-update-activation-environment --systemd --all"
+        "blueman-applet"
+        "nm-applet --indicator"
+        "killall -q hyprpaper;sleep .5 && hyprpaper"
+        "killall -q swaync;sleep .5 && swaync"
+        "killall -q waybar;sleep .5 && waybar"
       ];
       # screen setup
       monitor =
@@ -35,12 +49,12 @@ in
       # HID settings
       input =
       {
-        kb_layout = "ch";
-        kb_variant = "de_nodeadkeys";
+        kb_layout = "${layout}";
+        kb_variant = "${variant}";
         numlock_by_default = true;
         sensitivity = 0;
         follow_mouse = 2;
-        accel_profile = "flat";
+        accel_profile = "${mouseProfile}";
       };
       # customization
       general =
@@ -48,8 +62,8 @@ in
         border_size = 3;
         gaps_in = 5;
         gaps_out = 5;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "${activeBorderColor}";
+        "col.inactive_border" = "${inactiveBorderColor}";
         resize_on_border = true;
         hover_icon_on_border = false;
         layout = "master";
@@ -105,46 +119,47 @@ in
         "${mainMod}, F, exec, ${browser}"
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, L, exec, ${powerMenu}"
+        "${mainMod}, T, exec, ${taskManager}"
         "${mainMod}, V, togglefloating,"
         "${mainMod}, K, killactive,"
-        "${mainMod} SHIFT, L, exit,"
+        "${mainModShift}, L, exit,"
         # Change focused window
         "${mainMod}, left, movefocus, l"
         "${mainMod}, right, movefocus, r"
         "${mainMod}, up, movefocus, u"
         "${mainMod}, down, movefocus, d"
         # Cycle master window within workspace
-        "${mainMod} SHIFT, left, layoutmsg, rollnext"
-        "${mainMod} SHIFT, right, layoutmsg, rollprev"
+        "${mainModShift}, left, layoutmsg, rollnext"
+        "${mainModShift}, right, layoutmsg, rollprev"
         "${mainMod}, home, layoutmsg, swapwithmaster"
         #Swap focused window within workspace
-        "${mainMod} CONTROL, left, layoutmsg, swapprev"
-        "${mainMod} CONTROL, right, layoutmsg, swapnext"
+        "${mainModControl}, left, layoutmsg, swapprev"
+        "${mainModControl}, right, layoutmsg, swapnext"
         # Cycle focus between Monitors
-        "${mainMod} SHIFT, up, focusmonitor, -1"
-        "${mainMod} SHIFT, down, focusmonitor, +1"
+        "${mainModShift}, up, focusmonitor, -1"
+        "${mainModShift}, down, focusmonitor, +1"
         # Swap focused window between monitors
-        "${mainMod} CONTROL, up, movewindow, mon:-1"
-        "${mainMod} CONTROL, down, movewindow, mon:+1"
+        "${mainModControl}, up, movewindow, mon:-1"
+        "${mainModControl}, down, movewindow, mon:+1"
         # Navigate between workspaces on the same monitor
         "${mainMod}, PAGE_DOWN, exec, hyprnome"
         "${mainMod}, PAGE_UP, exec, hyprnome --previous"
         # Move active window between workspaces on the same monitor
-        "${mainMod} SHIFT, PAGE_DOWN, exec, hyprnome --move"
-        "${mainMod} SHIFT, PAGE_UP, exec, hyprnome --previous --move"
+        "${mainModShift}, PAGE_DOWN, exec, hyprnome --move"
+        "${mainModShift}, PAGE_UP, exec, hyprnome --previous --move"
         # Example special workspace (scratchpad)
         "${mainMod}, S, togglespecialworkspace, magic"
-        "${mainMod} SHIFT, S, movetoworkspace, special:magic"
+        "${mainModShift}, S, movetoworkspace, special:magic"
         # Scroll through existing workspaces
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
         # No VRR Desktop
-        "${mainMod} SHIFT, F1, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,0x0,1,bitdepth,10"
-        "${mainMod} SHIFT, F2, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,0x0,1,bitdepth,10"
+        "${mainModShift} SHIFT, F1, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,1440x640,1,bitdepth,10"
+        "${mainModShift} SHIFT, F2, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,1440x640,1,bitdepth,10"
         # VRR Gaming
-        "${mainMod} SHIFT, F3, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,0x0,1,vrr,2,bitdepth,10"
-        "${mainMod} SHIFT, F4, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,0x0,1,vrr,2,bitdepth,10"
-        "${mainMod} SHIFT, F5, exec, hyprctl keyword monitor DP-2,5120x1440@60.00,0x0,1,vrr,2,bitdepth,10"
+        "${mainModShift}, F3, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,1440x640,1,vrr,2,bitdepth,10"
+        "${mainModShift}, F4, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,1440x640,1,vrr,2,bitdepth,10"
+        "${mainModShift}, F5, exec, hyprctl keyword monitor DP-2,5120x1440@60.00,1440x640,1,vrr,2,bitdepth,10"
         # Screenshot
         "${mainMod}, F9, exec, hyprshot -m window -c"
         "${mainMod}, F10, exec, hyprshot -m region"

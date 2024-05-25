@@ -1,4 +1,22 @@
-{...}:
+{host, ...}:
+let
+  inherit (import ../../hosts/${host}/variables.nix)
+    # Default Apps
+    calendar
+    fileManager
+    powerMenu
+    taskManager
+    volumeControl
+    # Waybar Color
+    backgroundColor
+    textColor
+    activeBackgroundColor
+    activeTextColor
+    urgentBackgroundColor
+    urgentTextColor
+    hoverBackgroundColor
+    hoverTextColor;
+in
 {
   programs.waybar =
   {
@@ -46,13 +64,13 @@
           {
             default = ["" "" ""];
           };
-          on-click = "sleep 0.1 && pavucontrol";
+          on-click = "sleep 0.1 && ${volumeControl}";
         };
         "clock" =
         {
           interval = 1;
           format = "{:%R  %A %b %d}";
-          on-click = "sleep 0.1 && orage";
+          on-click = "sleep 0.1 && ${calendar}";
         };
         "memory" =
         {
@@ -61,18 +79,18 @@
           states = {
             "warning" = 85;
           };
-          on-click = "sleep 0.1 && thunar";
+          on-click = "sleep 0.1 && ${fileManager}";
         };
         "cpu" =
         {
           interval = 1;
           format = " {usage}%";
-          on-click = "sleep 0.1 && xfce4-taskmanager";
+          on-click = "sleep 0.1 && ${taskManager}";
         };
         "custom/powermenu" =
         {
           "format" = " Power";
-          "on-click" = "sleep 0.1 && nwg-bar";
+          "on-click" = "sleep 0.1 && ${powerMenu}";
           "tooltip" = false;
         };
       }
@@ -110,18 +128,19 @@
       }
       window > box 
       {
-        background-color: #000000;
+        background-color: ${backgroundColor};
+        color: ${textColor};
         padding: 3px;
         padding-left:8px;
         border: 2px none;
       }
       tooltip 
       {
-        background-color: #000000;
+        background-color: ${backgroundColor};
       }
       tooltip label 
       {
-        color: #d9e0ee;
+        color: ${textColor};
       }
       #workspaces 
       {
@@ -139,47 +158,28 @@
       }
       #workspaces button.active
       {
-        background-color: #b5e8e0;
-        color: #000000;
+        background-color: ${activeBackgroundColor};
+        color: ${activeTextColor};
       }
       #workspaces button.urgent 
       {
-        color: #000000;
+        background-color: ${urgentBackgroundColor};
+        color: ${urgentTextColor};
       }
       #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #pulseaudio:hover, #custom-powermenu:hover
       {
-        background-color: #F8BD96;
-        color: #000000;;
+        background-color: ${hoverBackgroundColor};
+        color: ${hoverTextColor};
       }
       #clock, #memory, #cpu, #pulseaudio, #custom-powermenu
       {
         padding-left: 10px;
         padding-right: 10px;
       }
-      #memory 
-      {
-        color: #B5E8E0;
-      }
-      #cpu 
-      {
-        color: #F5C2E7;
-      }
-      #clock
-      {
-        color: #D9E0EE;
-      }
-      #pulseaudio 
-      {
-        color: #F5E0DC;
-      }
       #tray 
       {
         padding-right: 8px;
         padding-left: 10px;
-      }
-      #custom-powermenu
-      {
-        color: #F28FAD;
       }
     '';
   };
