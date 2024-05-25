@@ -54,8 +54,6 @@
     # Launchers
     heroic
     prismlauncher
-    # Browsers
-    firefox
     # Wine Proton Client
     bottles
     protonup-qt

@@ -10,6 +10,7 @@ in
   zramSwap.enable = true;
   programs.dconf.enable = true;
   programs.fish.enable = true;
+  programs.firefox.enable = true;
   services.dbus.enable = true;
   services.geoclue2.enable = true;
   services.openssh.enable = true;

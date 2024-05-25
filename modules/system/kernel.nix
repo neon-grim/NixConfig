@@ -25,15 +25,11 @@
     [
       # Custom Xpad Module
       (config.boot.kernelPackages.callPackage ./../derivations/xpad.nix {})
-      # Virtual Cam
-      config.boot.kernelPackages.v4l2loopback
     ];
     # Load Kernel Module
     kernelModules = 
     [
       "xpad-noone"
-      "v4l2loopback"
     ];
-    extraModprobeConfig = ''options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1'';
   };
 }
