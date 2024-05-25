@@ -27,6 +27,7 @@ Software:
 -Get lock software
 -Get correct java version
 -Get Swaync working correctly
+-Replace software with rofi scripts
 
 Nix manipulations:
 ----------

@@ -19,7 +19,10 @@
     usbutils
     # Thirparty Tools
     networkmanagerapplet
+    rofi-bluetooth
+    rofi-file-browser
     rofi-power-menu
+    rofi-pulse-select
     rofi-wayland
     swaynotificationcenter
     # Hyprland Tools
@@ -35,6 +38,7 @@
     xfce.orage
     xfce.ristretto
     xfce.xfce4-taskmanager
+    gnome.file-roller
     # Todo: Replace these two
     gnome.gnome-software
     gnome.gnome-tweaks
@@ -64,6 +68,7 @@
     # Media
     cava
     gimp
+    libsForQt5.kdenlive
     moonlight-qt
     obs-studio
     rhythmbox
