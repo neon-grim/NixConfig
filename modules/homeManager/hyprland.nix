@@ -31,11 +31,12 @@ in
       exec-once=
       [
         "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
-        "${pkgs.waybar}/bin/waybar"
-        "${pkgs.blueman}/bin/blueman-applet"
-        "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"
-        "${pkgs.swaynotificationcenter}/bin/swaync"
-        "${pkgs.hyprpaper}/bin/hyprpaper"
+        "dbus-update-activation-environment --systemd --all"
+        "blueman-applet"
+        "nm-applet --indicator"
+        "killall -q hyprpaper;sleep .5 && hyprpaper"
+        "killall -q swaync;sleep .5 && swaync"
+        "killall -q waybar;sleep .5 && waybar"
       ];
       # screen setup
       monitor =

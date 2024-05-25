@@ -41,7 +41,7 @@
   calendar = "orage";
   fileManager = "thunar";
   menu = "rofi -show drun -show-icons";
-  powerMenu = "nwg-bar";
+  powerMenu = "rofi -show power-menu -modi power-menu:rofi-power-menu";
   taskManager = "xfce4-taskmanager";
   terminal = "terminator";
   volumeControl = "pavucontrol";

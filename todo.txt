@@ -1,8 +1,8 @@
 Misc:
 ----------
--Create Global Variable module
--Create Missing SessionVariable
 -Create Git Credentials Config
+-Set Default Software
+-Create Thunar Config
 
 Desktop:
 ----------
@@ -15,7 +15,6 @@ Desktop:
 
 Workspace:
 ----------
--Make waybar module for icons of active app in output
 -Make window rule for games to start in mainscreen
 -Make window rule for popup window height
 -Replace Workspace numbers with symbol

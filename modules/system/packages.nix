@@ -19,7 +19,7 @@
     usbutils
     # Thirparty Tools
     networkmanagerapplet
-    nwg-bar
+    rofi-power-menu
     rofi-wayland
     swaynotificationcenter
     # Hyprland Tools
