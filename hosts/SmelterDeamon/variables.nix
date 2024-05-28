@@ -19,21 +19,22 @@
   # Git Credentials
   gitUser = "SeekerOfAsh";
   gitMail = "michael.muellerdelossantos@outlook.com";
-  # System
+  # Cursor
   cursorSize = 24;
-  activeBorderColor = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+  # Hyprland Borders
+  activeBorderColor = "rgb(c8c093)";
   inactiveBorderColor = "rgba(595959aa)";
-  # Waybar Theme
-  backgroundColor = "#000000";
-  textColor = "#ffffff";
-  activeBackgroundColor = "#b5e8e0";
-  activeTextColor = "#000000";
-  urgentBackgroundColor ="#F8BD96";
-  urgentTextColor = "#000000";
-  hoverBackgroundColor = "#F8BD96";
-  hoverTextColor = "#000000";
-  # Wallpaper
-  wallpaperOne = "/mnt/SATASSD1/1_Images/BackgroundImages/Death_OG.png";
+  # Waybar and Swaync Colors based on kanagawa theme
+  backgroundColorOne = "#1f1f28";
+  backgroundColorTwo = "#2a2a37";
+  backgroundColorThree = "#414148";
+  backgroundColorFour ="#F8BD96";
+  textColorOne = "#dcd7ba";
+  textColorTwo = "#dcd7ba";
+  textColorThree = "#e6c384";
+  textColorFour = "#000000";
+  # Hyprpaper Pictures
+  wallpaperOne = "/mnt/SATASSD1/1_Images/BackgroundImages/Porsche.png";
   wallpaperTwo = "/mnt/SATASSD1/1_Images/BackgroundImages/red_transistor.png";
   wallpaperThree = "/mnt/SATASSD1/1_Images/BackgroundImages/instrument.png";
   # Default Apps

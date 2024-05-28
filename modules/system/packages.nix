@@ -6,18 +6,15 @@
     calcure
     gifsicle
     git
-    gping
     fastfetch
     ffmpeg_7-full
     lazygit
-    neovim
     nnn
     nix-prefetch-git
     psmisc
     terminator
-    viu
     usbutils
-    # Thirparty Tools
+    # WM Tools
     networkmanagerapplet
     rofi-bluetooth
     rofi-file-browser
@@ -25,6 +22,7 @@
     rofi-pulse-select
     rofi-wayland
     swaynotificationcenter
+    waybar
     # Hyprland Tools
     hyprland-workspaces
     hyprland-protocols
@@ -34,12 +32,13 @@
     # UI Tools
     gparted
     pavucontrol
+    # XFCE Tools
     xfce.mousepad
     xfce.orage
     xfce.ristretto
     xfce.xfce4-taskmanager
+    # Gnome Tools
     gnome.file-roller
-    # Todo: Replace these two
     gnome.gnome-software
     gnome.gnome-tweaks
     # Gaming Tools
@@ -65,6 +64,7 @@
     corectrl
     # Social
     vesktop
+    discord
     # Media
     cava
     gimp
