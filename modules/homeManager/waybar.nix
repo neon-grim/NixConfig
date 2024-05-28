@@ -8,14 +8,14 @@ let
     taskManager
     volumeControl
     # Waybar Color
-    backgroundColor
-    textColor
-    activeBackgroundColor
-    activeTextColor
-    urgentBackgroundColor
-    urgentTextColor
-    hoverBackgroundColor
-    hoverTextColor;
+    backgroundColorOne
+    backgroundColorTwo
+    backgroundColorThree
+    backgroundColorFour
+    textColorOne
+    textColorTwo
+    textColorThree
+    textColorFour;
 in
 {
   programs.waybar =
@@ -26,21 +26,22 @@ in
       {
         layer = "top";
         position = "top";
+        modules-left =
+        [ 
+          "hyprland/workspaces"  
+        ];
         modules-center =
         [ 
           "clock" 
-        ];
-        modules-left =
-        [ 
-          "hyprland/workspaces" 
         ];
         modules-right =
         [
           "cpu"
           "memory"
           "pulseaudio"
+          "custom/notification"
           "custom/powermenu"
-          "tray" 
+          "tray"
         ];
         "hyprland/workspaces" =
         {
@@ -62,7 +63,7 @@ in
           format-source-muted = "";
           format-icons = 
           {
-            default = ["" "" ""];
+            default = ["" "" "jet"];
           };
           on-click = "sleep 0.1 && ${volumeControl}";
         };
@@ -89,9 +90,28 @@ in
         };
         "custom/powermenu" =
         {
-          "format" = " Power";
-          "on-click" = "sleep 0.1 && ${powerMenu}";
-          "tooltip" = false;
+          format = " Power";
+          on-click = "sleep 0.1 && ${powerMenu}";
+          tooltip = false;
+        };
+        "custom/notification" = {
+          tooltip = false;
+          format = "{icon} {}";
+          format-icons = {
+            notification = "";
+            none = "";
+            dnd-notification = "";
+            dnd-none = "";
+            inhibited-notification = "";
+            inhibited-none = "";
+            dnd-inhibited-notification = "";
+            dnd-inhibited-none = "";
+          };
+          return-type = "json";
+          exec-if = "which swaync-client";
+          exec = "swaync-client -swb";
+          on-click = "sleep 0.1 && swaync-client -t";
+          escape = true;
         };
       }
     ];
@@ -104,7 +124,7 @@ in
         font-weight: bold;
         border-radius: 3px;
         transition-property: background-color;
-        transition-duration: 0.5s;
+        transition-duration: 0.1s;
       }
       @keyframes blink_red
       {
@@ -128,19 +148,19 @@ in
       }
       window > box 
       {
-        background-color: ${backgroundColor};
-        color: ${textColor};
+        background-color: ${backgroundColorOne};
+        color: ${textColorOne};
         padding: 3px;
         padding-left:8px;
         border: 2px none;
       }
       tooltip 
       {
-        background-color: ${backgroundColor};
+        background-color: ${backgroundColorOne};
       }
       tooltip label 
       {
-        color: ${textColor};
+        color: ${textColorOne};
       }
       #workspaces 
       {
@@ -158,20 +178,21 @@ in
       }
       #workspaces button.active
       {
-        background-color: ${activeBackgroundColor};
-        color: ${activeTextColor};
+        color: ${textColorTwo};
+        background-color: ${backgroundColorThree};
+        font-weight: bold;
       }
       #workspaces button.urgent 
       {
-        background-color: ${urgentBackgroundColor};
-        color: ${urgentTextColor};
+        color: ${textColorFour};
+        background-color: ${backgroundColorFour};
       }
-      #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #pulseaudio:hover, #custom-powermenu:hover
+      #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #pulseaudio:hover, #custom-powermenu:hover, #custom-notification:hover
       {
-        background-color: ${hoverBackgroundColor};
-        color: ${hoverTextColor};
+        color: ${textColorThree};
+        background-color: ${backgroundColorThree};
       }
-      #clock, #memory, #cpu, #pulseaudio, #custom-powermenu
+      #clock, #memory, #cpu, #pulseaudio, #custom-powermenu, #custom-notification
       {
         padding-left: 10px;
         padding-right: 10px;

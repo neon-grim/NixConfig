@@ -22,10 +22,10 @@ in
     enable = true;
     theme = 
     {
-      name = "Nordic";
-      package = pkgs.nordic;
+      name = "Kanagawa-BL-LB";
+      package = pkgs.kanagawa-gtk-theme;
     };
-    iconTheme = 
+    iconTheme =
     {
       name = "BeautyLine";
       package = pkgs.beauty-line-icon-theme;
@@ -43,10 +43,11 @@ in
   qt = 
   {
     enable = true;
+    platformTheme.name = "gtk";
     style = 
     {
-      name = "Nordic";
-      package = pkgs.nordic;
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
     };
   };
 }
