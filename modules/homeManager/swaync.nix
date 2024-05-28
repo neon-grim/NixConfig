@@ -296,7 +296,7 @@ in
       }
 
       .widget-dnd > switch slider {
-        background: ${backgroundColorOne};
+        background: ${backgroundColorThree};
         border-radius: 8px;
         border: 1px solid ${backgroundColorTwo};
       }

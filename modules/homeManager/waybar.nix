@@ -130,8 +130,8 @@ in
       {
         to 
         {
-          background-color: #f28fad;
-          color: #1a1826;
+          color: ${textColorFour};
+          background-color: ${backgroundColorFour};
         }
       }
       .warning, .critical, .urgent 
@@ -148,8 +148,8 @@ in
       }
       window > box 
       {
-        background-color: ${backgroundColorOne};
         color: ${textColorOne};
+        background-color: ${backgroundColorOne};
         padding: 3px;
         padding-left:8px;
         border: 2px none;
