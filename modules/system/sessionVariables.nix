@@ -14,9 +14,9 @@ in
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     SDL_VIDEODRIVER = "wayland";
-    WLR_DRM_NO_ATOMIC = "1";
     XDG_SESSION_DESKTOP = "Hyprland";
     XCURSOR_SIZE = cursorSize;
+    #WLR_DRM_NO_ATOMIC = "1";
     # User dirs
     XDG_DESKTOP_DIR= "$HOME/Desktop";
     XDG_DOCUMENTS_DIR= "$HOME/Documents";

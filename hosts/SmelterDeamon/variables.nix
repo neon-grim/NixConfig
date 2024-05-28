@@ -22,7 +22,7 @@
   # Cursor
   cursorSize = 24;
   # Hyprland Borders
-  activeBorderColor = "rgb(c8c093)";
+  activeBorderColor = "rgb(dcd7ba)";
   inactiveBorderColor = "rgba(595959aa)";
   # Waybar and Swaync Colors based on kanagawa theme
   backgroundColorOne = "#1f1f28";
@@ -34,9 +34,9 @@
   textColorThree = "#e6c384";
   textColorFour = "#000000";
   # Hyprpaper Pictures
-  wallpaperOne = "/mnt/SATASSD1/1_Images/BackgroundImages/Porsche.png";
-  wallpaperTwo = "/mnt/SATASSD1/1_Images/BackgroundImages/red_transistor.png";
-  wallpaperThree = "/mnt/SATASSD1/1_Images/BackgroundImages/instrument.png";
+  wallpaperOne = "/mnt/SATASSD1/1_Images/BackgroundImages/Superwide/Death_Superwide.png";
+  wallpaperTwo = "/mnt/SATASSD1/1_Images/BackgroundImages/Uncompressed/red_transistor.png";
+  wallpaperThree = "/mnt/SATASSD1/1_Images/BackgroundImages/Uncompressed/instrument.png";
   # Default Apps
   browser = "firefox";
   calendar = "orage";
