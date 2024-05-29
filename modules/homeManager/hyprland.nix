@@ -27,7 +27,6 @@ in
     enable = true;
     settings =
     {
-      # auto start
       exec-once=
       [
         "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
@@ -38,7 +37,6 @@ in
         "killall -q swaync;sleep .5 && swaync"
         "killall -q waybar;sleep .5 && waybar"
       ];
-      # screen setup
       monitor =
       [
         ",preferred,auto,1"
@@ -46,7 +44,6 @@ in
         "DP-2,5120x1440@240.00,1440x640,1,bitdepth,10"
         "HDMI-A-1,1920x1080@60,2720x2080,1"
       ];
-      # HID settings
       input =
       {
         kb_layout = "${layout}";
@@ -57,7 +54,6 @@ in
         mouse_refocus = false;
         accel_profile = "${mouseProfile}";
       };
-      # customization
       general =
       {
         border_size = 3;
@@ -69,6 +65,10 @@ in
         hover_icon_on_border = false;
         layout = "master";
         allow_tearing = false;
+      };
+      binds =
+      {
+        movefocus_cycles_fullscreen = false;
       };
       decoration =
       {
@@ -96,11 +96,6 @@ in
       {
         #no_direct_scanout = false;
         force_default_wallpaper = 2;
-      };
-      # tiling layout
-      dwindle =
-      {
-        
       };
       master =
       {
