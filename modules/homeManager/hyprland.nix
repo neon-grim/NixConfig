@@ -54,6 +54,7 @@ in
         numlock_by_default = true;
         sensitivity = 0;
         follow_mouse = 2;
+        mouse_refocus = false;
         accel_profile = "${mouseProfile}";
       };
       # customization
@@ -110,6 +111,7 @@ in
       windowrulev2 = 
       [
         "suppressevent maximize, class:.*"
+        
       ];
       bind =
       [
