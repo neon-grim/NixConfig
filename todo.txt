@@ -1,33 +1,33 @@
 Misc:
 ----------
--Create Git Credentials Config
 -Set Default Software
--Create Thunar Config
+-Crop Wallpapers
+-Get Wallpaper cycling working
+-Create custom aceleration curve for windows, workspaces and dragging
+-Replace Workspace numbers with symbols
+-Cleanup host variables.nix
+
 
 Desktop:
 ----------
--Theme swaync
--Theme Rofi
--Theme Mousepad text editor
--Remove animation slowdown
--Add qt nordic theme
--Change border color
-
-Workspace:
-----------
 -Make window rule for games to start in mainscreen
 -Make window rule for popup window height
--Replace Workspace numbers with symbol
--Limit amount of of windows in worksapce
+-Disable window rule for floating file explorer
+-Fix Swaync focus not returning to active window
 
 Software:
 ----------
--Get virt-manager running
--Get streaming going on discord
+-Get virt-manager running, fix libvirt causing issues
 -Get lock software
 -Get correct java version
--Get Swaync working correctly
--Replace software with rofi scripts
+-Get Rofi scripts running
+
+Home-manager
+----------
+-Create Rofi moduile
+-Create Mousepad module
+-Create Git module
+-Create Terminator module
 
 Nix manipulations:
 ----------

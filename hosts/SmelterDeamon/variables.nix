@@ -28,11 +28,14 @@
   backgroundColorOne = "#1f1f28";
   backgroundColorTwo = "#2a2a37";
   backgroundColorThree = "#414148";
-  backgroundColorFour ="#F8BD96";
+  backgroundColorFour ="#ce0205";
+  backgroundColorFive ="#dcd7ba";
   textColorOne = "#dcd7ba";
   textColorTwo = "#dcd7ba";
   textColorThree = "#e6c384";
   textColorFour = "#000000";
+  textColorFive = "#1f1f28";
+  
   # Hyprpaper Pictures
   wallpaperOne = "/mnt/SATASSD1/1_Images/BackgroundImages/Superwide/Death_Superwide.png";
   wallpaperTwo = "/mnt/SATASSD1/1_Images/BackgroundImages/Uncompressed/red_transistor.png";

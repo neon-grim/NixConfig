@@ -12,10 +12,12 @@ let
     backgroundColorTwo
     backgroundColorThree
     backgroundColorFour
+    backgroundColorFive
     textColorOne
     textColorTwo
     textColorThree
-    textColorFour;
+    textColorFour
+    textColorFive;
 in
 {
   programs.waybar =
@@ -28,32 +30,34 @@ in
         position = "top";
         modules-left =
         [ 
-          "hyprland/workspaces"  
-        ];
-        modules-center =
-        [ 
-          "clock" 
-        ];
-        modules-right =
-        [
           "cpu"
           "memory"
           "pulseaudio"
+          "cava"
+        ];
+        modules-center =
+        [ 
+          "hyprland/workspaces" 
+        ];
+        modules-right =
+        [
+          "clock"
           "custom/notification"
           "custom/powermenu"
-          "tray"
         ];
         "hyprland/workspaces" =
         {
-          formnat = "{icon}";
+          on-scroll-up = "hyprctl dispatch workspace e+1";
+          on-scroll-down = "hyprctl dispatch workspace e-1";
+          on-click = "activate";
+          format = "{icon}";
           format-icons = 
           {
-            default = " ";
-            active = " ";
-            urgent = " ";
+            active = "";
+            empty = "";
+            default = "";
+            urgent = "";
           };
-          on-scroll-up = "hyprctl dispatch workspace e+1";
-      	  on-scroll-down = "hyprctl dispatch workspace e-1";
         };
         "pulseaudio" =
         {
@@ -90,7 +94,7 @@ in
         };
         "custom/powermenu" =
         {
-          format = " Power";
+          format = "";
           on-click = "sleep 0.1 && ${powerMenu}";
           tooltip = false;
         };
@@ -112,6 +116,27 @@ in
           exec = "swaync-client -swb";
           on-click = "sleep 0.1 && swaync-client -t";
           escape = true;
+        };
+        cava = 
+        {
+          framerate = 30;
+          autosens = 1;
+          bars = 14;
+          lower_cutoff_freq = 50;
+          method = "pipewire";
+          source = "auto";
+          stereo = true;
+          reverse = true;
+          hide_on_silence = true;
+          bar_delimiter = 0;
+          noise_reduction = 0.75;
+          input_delay = 2;
+          higher_cutoff_freq = 10000;
+          format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
+          actions = 
+          {
+	          on-click-right = "mode";
+	        };
         };
       }
     ];
@@ -165,14 +190,14 @@ in
       #workspaces 
       {
         padding-left: 0px;
-        padding-right: 4px;
+        padding-right: 4px; 
       }
       #workspaces button 
       {
         padding-top: 5px;
         padding-bottom: 5px;
         padding-left: 6px;
-        padding-right: 6px;
+        padding-right: 13px;
         margin-left: 2px;
         margin-right: 2px;
       }
@@ -194,13 +219,22 @@ in
       }
       #clock, #memory, #cpu, #pulseaudio, #custom-powermenu, #custom-notification
       {
+        padding-left: 13px;
+        padding-right: 13px;
+      }
+      #custom-powermenu
+      {
+        color: ${textColorFive};
+        background-color: ${backgroundColorFive};
+        padding-left: 10px;
+        padding-right: 16px;
+        margin-left: 5px;
+      }
+      #cava
+      {
+        font-size: 15pt;
         padding-left: 10px;
         padding-right: 10px;
-      }
-      #tray 
-      {
-        padding-right: 8px;
-        padding-left: 10px;
       }
     '';
   };
