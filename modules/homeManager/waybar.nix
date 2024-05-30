@@ -67,7 +67,7 @@ in
           format-source-muted = "";
           format-icons = 
           {
-            default = ["" "" "jet"];
+            default = ["" "" ""];
           };
           on-click = "sleep 0.1 && ${volumeControl}";
         };

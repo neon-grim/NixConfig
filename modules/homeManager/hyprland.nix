@@ -51,7 +51,6 @@ in
         numlock_by_default = true;
         sensitivity = 0;
         follow_mouse = 2;
-        mouse_refocus = false;
         accel_profile = "${mouseProfile}";
       };
       general =
@@ -65,10 +64,6 @@ in
         hover_icon_on_border = false;
         layout = "master";
         allow_tearing = false;
-      };
-      binds =
-      {
-        movefocus_cycles_fullscreen = false;
       };
       decoration =
       {
@@ -94,7 +89,6 @@ in
       };
       misc =
       {
-        #no_direct_scanout = false;
         force_default_wallpaper = 2;
       };
       master =
@@ -106,7 +100,7 @@ in
       windowrulev2 = 
       [
         "suppressevent maximize, class:.*"
-        
+        "monitor DP-2, class:steam_app*"
       ];
       bind =
       [
