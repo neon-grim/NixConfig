@@ -51,6 +51,7 @@ in
           on-scroll-down = "hyprctl dispatch workspace e-1";
           on-click = "activate";
           format = "{icon}";
+          
           format-icons = 
           {
             active = "";
@@ -89,7 +90,7 @@ in
         "cpu" =
         {
           interval = 1;
-          format = " {usage}%";
+          format = " {usage}% {avg_frequency}GHz";
           on-click = "sleep 0.1 && ${taskManager}";
         };
         "custom/powermenu" =

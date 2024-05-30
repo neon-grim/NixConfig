@@ -100,6 +100,7 @@ in
       windowrulev2 = 
       [
         "monitor DP-2, class:steam_app*"
+        "monitor HDMI-A-2, class:vesktop"
         "fullscreen, class:steam_app*"
         "center 1, title:(Open File)"
         "size 70% 70%, title:(Open File)"
