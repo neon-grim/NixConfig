@@ -1,11 +1,5 @@
 {pkgs, host, ...}:
-let
-  inherit (import ../../hosts/${host}/variables.nix)
-    layout
-    variant;
-in
 {
-  
   # General
   zramSwap.enable = true;
   programs.dconf.enable = true;
@@ -54,12 +48,6 @@ in
     pulse.enable = true;
     jack.enable = true;
   };
-  # Keyboard
-  services.xserver.xkb =
-  {
-    layout = "${layout}";
-    variant = "${variant}";
-  }; 
   # Printing
   services.printing.enable = true;
   services.avahi = 

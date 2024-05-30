@@ -3,16 +3,9 @@
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; 
   [
-    dina-font
-    fira-code
-    fira-code-symbols
-    font-awesome
-    google-fonts
-    liberation_ttf
+    jetbrains-mono
     nerdfonts
     noto-fonts
     noto-fonts-cjk
-    noto-fonts-emoji
-    twemoji-color-font
   ];
 }

@@ -1,6 +1,8 @@
 {config, pkgs, inputs, host, ...}:
 let
   inherit (import ./variables.nix)
+    layout
+    variant
     systemTimeZone
     systemLanguage;
 in
@@ -15,6 +17,12 @@ in
   nixpkgs.config.allowUnfree = true;
   # configure console keymap
   console.keyMap = "sg";
+    # Keyboard
+  services.xserver.xkb =
+  {
+    layout = "${layout}";
+    variant = "${variant}";
+  }; 
   # enable networking
   networking = 
   {

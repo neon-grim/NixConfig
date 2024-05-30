@@ -4,7 +4,6 @@
   [
     # TTY Tools
     calcure
-    gifsicle
     git
     fastfetch
     ffmpeg_7-full
@@ -49,9 +48,7 @@
     libstrangle
     # Dependencies 
     libnotify
-    libz  
     spice-gtk
-    python310
     xdg-user-dirs
     xdg-utils
     # Launchers
