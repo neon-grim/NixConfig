@@ -50,7 +50,7 @@ in
         kb_variant = "${variant}";
         numlock_by_default = true;
         sensitivity = 0;
-        follow_mouse = 2;
+        follow_mouse = 1;
         accel_profile = "${mouseProfile}";
       };
       general =
@@ -99,8 +99,12 @@ in
       };
       windowrulev2 = 
       [
-        "suppressevent maximize, class:.*"
         "monitor DP-2, class:steam_app*"
+        "fullscreen, class:steam_app*"
+        "center 1, title:(Open File)"
+        "size 70% 70%, title:(Open File)"
+        "center 1, title:(Save As)"
+        "size 70% 70%, title:(Save As)"
       ];
       bind =
       [
@@ -111,7 +115,7 @@ in
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, L, exec, ${powerMenu}"
         "${mainMod}, T, exec, ${taskManager}"
-        "${mainMod}, V, togglefloating,"
+        "${mainModShift}, V, togglefloating,"
         "${mainMod}, K, killactive,"
         "${mainModShift}, L, exit,"
         # Change focused window
@@ -133,11 +137,11 @@ in
         "${mainModControl}, up, movewindow, mon:-1"
         "${mainModControl}, down, movewindow, mon:+1"
         # Navigate between workspaces on the same monitor
-        "${mainMod}, PAGE_DOWN, exec, hyprnome"
-        "${mainMod}, PAGE_UP, exec, hyprnome --previous"
+        "${mainMod}, PAGE_DOWN, exec, hyprnome -k"
+        "${mainMod}, PAGE_UP, exec, hyprnome --previous -k"
         # Move active window between workspaces on the same monitor
-        "${mainModShift}, PAGE_DOWN, exec, hyprnome --move"
-        "${mainModShift}, PAGE_UP, exec, hyprnome --previous --move"
+        "${mainModShift}, PAGE_DOWN, exec, hyprnome --move -k"
+        "${mainModShift}, PAGE_UP, exec, hyprnome --previous --move -K"
         # Example special workspace (scratchpad)
         "${mainMod}, S, togglespecialworkspace, magic"
         "${mainModShift}, S, movetoworkspace, special:magic"

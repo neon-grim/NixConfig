@@ -1,18 +1,18 @@
 Misc:
 ----------
--Set Default Software
--Crop Wallpapers
--Get Wallpaper cycling working
--Create custom aceleration curve for windows, workspaces and dragging
+-Crop wallpaper to fit screens
+-Create Wallpaper cycling script
 -Cleanup host variables.nix
+-Set Default Software
+-Theme Rofi
+-Theme Terminator
 
-
-Desktop:
+Issues:
 ----------
--Make window rule for games to start in mainscreen
--Make window rule for popup window height
--Disable window rule for floating file explorer
--Fix Swaync focus not returning to active window
+-Fix Mouse not being captured in fullscreen games
+-Fix focus not being returned when closing swaync-client through bell
+-Fix thunar having a bunch of lines appear when deselecting items while floating
+-Fix Terminator not being opened through thunar
 
 Software:
 ----------
@@ -23,6 +23,7 @@ Software:
 -Add App tray to swaync
 -Add Bluetooth button to Swaync
 -Add Wifi Button to Swaync
+-Replace TUIGREET with GDM
 
 Home-manager
 ----------
