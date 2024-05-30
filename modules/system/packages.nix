@@ -59,7 +59,7 @@
     prismlauncher
     # Wine Proton Client
     bottles
-    protonup-qt
+    protonplus
     # Overclocking
     corectrl
     # Social
