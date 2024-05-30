@@ -199,7 +199,7 @@ in
         padding-top: 5px;
         padding-bottom: 5px;
         padding-left: 6px;
-        padding-right: 13px;
+        padding-right: 12px;
         margin-left: 2px;
         margin-right: 2px;
       }

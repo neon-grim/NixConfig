@@ -59,7 +59,7 @@ in
       * {
         all: unset;
         font-size: 15px;
-        font-family: "Nerd Font";
+        font-family: "JetBrainsMono Nerd Font";
         transition-duration: 0.1s;
         box-shadow: none;
       }
