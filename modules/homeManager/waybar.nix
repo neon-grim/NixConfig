@@ -157,8 +157,8 @@ in
       {
         to 
         {
-          color: ${textColorFour};
-          background-color: ${backgroundColorFour};
+          color: #${textColorFour};
+          background-color: #${backgroundColorFour};
         }
       }
       .warning, .critical, .urgent 
@@ -175,19 +175,19 @@ in
       }
       window > box 
       {
-        color: ${textColorOne};
-        background-color: ${backgroundColorOne};
+        color: #${textColorOne};
+        background-color: #${backgroundColorOne};
         padding: 3px;
         padding-left:8px;
         border: 2px none;
       }
       tooltip 
       {
-        background-color: ${backgroundColorOne};
+        background-color: #${backgroundColorOne};
       }
       tooltip label 
       {
-        color: ${textColorOne};
+        color: #${textColorOne};
       }
       #workspaces 
       {
@@ -205,19 +205,19 @@ in
       }
       #workspaces button.active
       {
-        color: ${textColorTwo};
-        background-color: ${backgroundColorThree};
+        color: #${textColorTwo};
+        background-color: #${backgroundColorThree};
         font-weight: bold;
       }
       #workspaces button.urgent 
       {
-        color: ${textColorFour};
-        background-color: ${backgroundColorFour};
+        color: #${textColorFour};
+        background-color: #${backgroundColorFour};
       }
       #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #pulseaudio:hover, #custom-powermenu:hover, #custom-notification:hover
       {
-        color: ${textColorThree};
-        background-color: ${backgroundColorThree};
+        color: #${textColorThree};
+        background-color: #${backgroundColorThree};
       }
       #clock, #memory, #cpu, #pulseaudio, #custom-powermenu, #custom-notification
       {
@@ -226,8 +226,8 @@ in
       }
       #custom-powermenu
       {
-        color: ${textColorFive};
-        background-color: ${backgroundColorFive};
+        color: #${textColorFive};
+        background-color: #${backgroundColorFive};
         padding-left: 10px;
         padding-right: 16px;
         margin-left: 5px;

@@ -14,8 +14,8 @@ let
     taskManager
     terminal
     # Border Color
-    activeBorderColor
-    inactiveBorderColor
+    backgroundColorOne
+    backgroundColorFive
     # Keyboard
     layout
     mouseProfile
@@ -58,8 +58,8 @@ in
         border_size = 3;
         gaps_in = 5;
         gaps_out = 5;
-        "col.active_border" = "${activeBorderColor}";
-        "col.inactive_border" = "${inactiveBorderColor}";
+        "col.active_border" = "rgb(${backgroundColorFive})";
+        "col.inactive_border" = "rgba(${backgroundColorOne}aa)";
         resize_on_border = true;
         hover_icon_on_border = false;
         layout = "master";
