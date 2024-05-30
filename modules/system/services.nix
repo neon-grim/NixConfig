@@ -78,12 +78,6 @@ in
       pkgs.xdg-desktop-portal-gtk
     ];
   };
-  # Window Manager
-  programs.hyprland =
-  {
-    enable = true;
-    xwayland.enable = true;
-  };
   # Display Manager
   services.greetd =
   {
