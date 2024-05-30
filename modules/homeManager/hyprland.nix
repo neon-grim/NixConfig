@@ -116,33 +116,33 @@ in
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, L, exec, ${powerMenu}"
         "${mainMod}, T, exec, ${taskManager}"
-        "${mainModShift}, V, togglefloating,"
         "${mainMod}, K, killactive,"
         "${mainModShift}, L, exit,"
+        "${mainModShift}, V, togglefloating,"
         # Change focused window
         "${mainMod}, left, movefocus, l"
         "${mainMod}, right, movefocus, r"
         "${mainMod}, up, movefocus, u"
         "${mainMod}, down, movefocus, d"
+        # Move focused window within workspace
+        "${mainModShift}, left, movewindow, l"
+        "${mainModShift}, right, movewindow, r"
+        "${mainModShift}, up, movewindow, u"
+        "${mainModShift}, down, movewindow, d"
         # Cycle master window within workspace
-        "${mainModShift}, left, layoutmsg, rollnext"
-        "${mainModShift}, right, layoutmsg, rollprev"
+        "${mainModControl}, left, layoutmsg, rollnext"
+        "${mainModControl}, right, layoutmsg, rollprev"
+        # Make focused window Master
         "${mainMod}, home, layoutmsg, swapwithmaster"
-        #Swap focused window within workspace
-        "${mainModControl}, left, layoutmsg, swapprev"
-        "${mainModControl}, right, layoutmsg, swapnext"
-        # Cycle focus between Monitors
-        "${mainModShift}, up, focusmonitor, -1"
-        "${mainModShift}, down, focusmonitor, +1"
-        # Swap focused window between monitors
-        "${mainModControl}, up, movewindow, mon:-1"
-        "${mainModControl}, down, movewindow, mon:+1"
         # Navigate between workspaces on the same monitor
         "${mainMod}, PAGE_DOWN, exec, hyprnome -k"
         "${mainMod}, PAGE_UP, exec, hyprnome --previous -k"
-        # Move active window between workspaces on the same monitor
-        "${mainModShift}, PAGE_DOWN, exec, hyprnome --move -k"
-        "${mainModShift}, PAGE_UP, exec, hyprnome --previous --move -K"
+        # Move focused window between workspaces on the same monitor
+        "${mainModShift}, PAGE_DOWN, exec, hyprnome --move"
+        "${mainModShift}, PAGE_UP, exec, hyprnome --previous --move"
+        # Move focused window between monitors
+        "${mainModControl}, PAGE_UP, movewindow, mon:-1"
+        "${mainModControl}, PAGE_DOWN, movewindow, mon:+1"
         # Example special workspace (scratchpad)
         "${mainMod}, S, togglespecialworkspace, magic"
         "${mainModShift}, S, movetoworkspace, special:magic"
