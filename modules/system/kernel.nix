@@ -9,7 +9,7 @@
       efi.canTouchEfiVariables = true;
     };
     # Set Kernel
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
     # Kernel Parameters
     kernelParams = 
     [ 
