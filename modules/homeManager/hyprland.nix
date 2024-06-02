@@ -39,10 +39,10 @@ in
       ];
       monitor =
       [
-        ",preferred,auto,1"
-        "HDMI-A-2,2560x1440@75,0x0,1,transform,3"
-        "DP-2,5120x1440@240.00,1440x640,1,bitdepth,10"
-        "HDMI-A-1,1920x1080@60,2720x2080,1"
+        ", preferred, auto, 1"
+        "DP-2, 5120x1440@120, 1440x640, 1"
+        "HDMI-A-1, 1920x1080@60, 2720x2080, 1"
+        "HDMI-A-2, 2560x1440@59.95, 0x0, 1, transform, 3"
       ];
       input =
       {
@@ -150,12 +150,11 @@ in
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
         # No VRR Desktop
-        "${mainModShift} SHIFT, F1, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,1440x640,1,bitdepth,10"
-        "${mainModShift} SHIFT, F2, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,1440x640,1,bitdepth,10"
+        "${mainModShift}, F1, exec, hyprctl keyword monitor DP-2, 5120x1440@120, 1440x640, 1"
         # VRR Gaming
-        "${mainModShift}, F3, exec, hyprctl keyword monitor DP-2,5120x1440@240.00,1440x640,1,vrr,2,bitdepth,10"
-        "${mainModShift}, F4, exec, hyprctl keyword monitor DP-2,5120x1440@120.00,1440x640,1,vrr,2,bitdepth,10"
-        "${mainModShift}, F5, exec, hyprctl keyword monitor DP-2,5120x1440@60.00,1440x640,1,vrr,2,bitdepth,10"
+        "${mainModShift}, F2, exec, hyprctl keyword monitor DP-2, 5120x1440@120, 1440x640, 1, vrr, 2"
+        "${mainModShift}, F3, exec, hyprctl keyword monitor DP-2, 5120x1440@240,1440x640,1,vrr,2"
+        "${mainModShift}, F4, exec, hyprctl keyword monitor DP-2, 5120x1440@60, 1440x640, 1, vrr, 2"
         # Screenshot
         "${mainMod}, F9, exec, hyprshot -m window -c"
         "${mainMod}, F10, exec, hyprshot -m region"
