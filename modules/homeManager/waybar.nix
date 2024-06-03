@@ -1,13 +1,7 @@
 {host, ...}:
 let
   inherit (import ../../hosts/${host}/variables.nix)
-    # Default Apps
-    calendar
-    fileManager
-    powerMenu
-    taskManager
-    volumeControl
-    # Waybar Color
+    # Color pallet
     backgroundColorOne
     backgroundColorTwo
     backgroundColorThree
@@ -18,6 +12,12 @@ let
     textColorThree
     textColorFour
     textColorFive;
+  # Default Apps
+  calendar = "orage";
+  performanceApp = "corectrl";
+  powerMenu = "rofi -show power-menu -modi power-menu:rofi-power-menu";
+  taskManager = "xfce4-taskmanager";
+  volumeControl = "pavucontrol";
 in
 {
   programs.waybar =
@@ -85,13 +85,13 @@ in
           states = {
             "warning" = 85;
           };
-          on-click = "sleep 0.1 && ${fileManager}";
+          on-click = "sleep 0.1 && ${taskManager}";
         };
         "cpu" =
         {
           interval = 1;
           format = " {usage}% {avg_frequency}GHz";
-          on-click = "sleep 0.1 && ${taskManager}";
+          on-click = "sleep 0.1 && ${performanceApp}";
         };
         "custom/powermenu" =
         {

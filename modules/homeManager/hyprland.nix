@@ -1,18 +1,6 @@
 {pkgs, host, ...}:
 let
   inherit (import ../../hosts/${host}/variables.nix)
-    # ModKeys
-    mainMod
-    mainmodAlt
-    mainModControl
-    mainModShift
-    # Default Apps
-    browser
-    fileManager
-    menu
-    powerMenu
-    taskManager
-    terminal
     # Border Color
     backgroundColorOne
     backgroundColorFive
@@ -20,6 +8,26 @@ let
     layout
     mouseProfile
     variant;
+  # Monitor Names
+  mainMonitorName = "desc:Samsung Electric Company Odyssey G95SC H1AK500000";
+  bottomMonitorName = "desc:DO NOT USE - RTK Verbatim MT14 demoset-1";
+  leftMonitorName = "desc:Acer Technologies ED323QUR";
+  # Main Monitor configs
+  mainMonitorDefault = "5120x1440@240, 1440x640, 1";
+  mainMonitorVRROne = "5120x1440@240, 1440x640, 1, vrr, 2";
+  mainMonitorVRRTwo = "5120x1440@120, 1440x640, 1, vrr, 2";
+  # Modkeys
+  mainMod = "SUPER";
+  mainModShift = "SUPER SHIFT";
+  mainmodAlt = "$SUPER ALT_L";
+  mainModControl = "SUPER CONTROL_L";
+  # Default Apps
+  browser = "firefox";
+  fileManager = "thunar";
+  menu = "rofi -show drun -show-icons";
+  powerMenu = "rofi -show power-menu -modi power-menu:rofi-power-menu";
+  terminal = "terminator";
+  bar = "waybar";
 in
 {
   wayland.windowManager.hyprland = 
@@ -31,18 +39,18 @@ in
       [
         "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
         "dbus-update-activation-environment --systemd --all"
-        "blueman-applet"
-        "nm-applet --indicator"
-        "killall -q hyprpaper;sleep .5 && hyprpaper"
-        "killall -q swaync;sleep .5 && swaync"
-        "killall -q waybar;sleep .5 && waybar"
+        bar
+        "hyprpaper"
+        "swaync"
+        #"blueman-applet"
+        #"nm-applet --indicator"
       ];
       monitor =
       [
         ", preferred, auto, 1"
-        "DP-2, 5120x1440@120, 1440x640, 1"
-        "HDMI-A-1, 1920x1080@60, 2720x2080, 1"
-        "HDMI-A-2, 2560x1440@59.95, 0x0, 1, transform, 3"
+        "${mainMonitorName}, ${mainMonitorDefault}"
+        "${bottomMonitorName}, preferred, 2720x2080, 1"
+        "${leftMonitorName}, preferred, 0x0, 1, transform, 3"
       ];
       input =
       {
@@ -110,12 +118,11 @@ in
       bind =
       [
         # Execute default programs and actions
-        "${mainMod}, Q, exec, ${terminal}"
+        "${mainMod}, T, exec, ${terminal}"
         "${mainMod}, E, exec, ${fileManager}"
         "${mainMod}, F, exec, ${browser}"
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, L, exec, ${powerMenu}"
-        "${mainMod}, T, exec, ${taskManager}"
         "${mainMod}, K, killactive,"
         "${mainModShift}, L, exit,"
         "${mainModShift}, V, togglefloating,"
@@ -150,11 +157,12 @@ in
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
         # No VRR Desktop
-        "${mainModShift}, F1, exec, hyprctl keyword monitor DP-2, 5120x1440@120, 1440x640, 1"
+        "${mainModShift}, F1, exec, hyprctl keyword monitor ${mainMonitorName}, ${mainMonitorDefault}"
         # VRR Gaming
-        "${mainModShift}, F2, exec, hyprctl keyword monitor DP-2, 5120x1440@120, 1440x640, 1, vrr, 2"
-        "${mainModShift}, F3, exec, hyprctl keyword monitor DP-2, 5120x1440@240,1440x640,1,vrr,2"
-        "${mainModShift}, F4, exec, hyprctl keyword monitor DP-2, 5120x1440@60, 1440x640, 1, vrr, 2"
+        "${mainModShift}, F2, exec, hyprctl keyword monitor ${mainMonitorName}, ${mainMonitorVRROne}"
+        "${mainModShift}, F3, exec, hyprctl keyword monitor ${mainMonitorName}, ${mainMonitorVRRTwo}"
+        # Restart Waybar
+        "${mainModShift}, F4, exec, pkill ${bar}; sleep .5 && hyprctl dispatch exec ${bar}"
         # Screenshot
         "${mainMod}, F9, exec, hyprshot -m window -c"
         "${mainMod}, F10, exec, hyprshot -m region"
