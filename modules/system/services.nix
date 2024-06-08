@@ -2,6 +2,7 @@
 {
   # General
   zramSwap.enable = true;
+  programs.hyprland.enable = true;
   programs.dconf.enable = true;
   programs.fish.enable = true;
   programs.firefox.enable = true;

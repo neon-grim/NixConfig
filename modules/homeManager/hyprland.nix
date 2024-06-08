@@ -107,14 +107,21 @@ in
       };
       windowrulev2 = 
       [
+        # Steam games rules
         "monitor DP-2, class:steam_app*"
-        "monitor HDMI-A-2, class:vesktop"
         "fullscreen, class:steam_app*"
+        "suppressevent float, class:steam_app*"
+        # General app rules
+        "monitor HDMI-A-2, class:vesktop"
         "center 1, title:(Open File)"
         "size 70% 70%, title:(Open File)"
         "center 1, title:(Save As)"
         "size 70% 70%, title:(Save As)"
       ];
+      binds =
+      {
+        movefocus_cycles_fullscreen = false;
+      };
       bind =
       [
         # Execute default programs and actions
@@ -171,8 +178,8 @@ in
       bindm =
       [
         # Move/resize windows
-        "${mainMod}, mouse:272, movewindow"
-        "${mainMod}, mouse:273, resizewindow"
+        "${mainModShift}, mouse:272, movewindow"
+        "${mainModShift}, mouse:273, resizewindow"
       ];
       bindl =
       [
