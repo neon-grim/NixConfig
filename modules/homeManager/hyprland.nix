@@ -107,11 +107,7 @@ in
       };
       windowrulev2 = 
       [
-        # Steam games rules
         "monitor DP-2, class:steam_app*"
-        "fullscreen, class:steam_app*"
-        "suppressevent float, class:steam_app*"
-        # General app rules
         "monitor HDMI-A-2, class:vesktop"
         "center 1, title:(Open File)"
         "size 70% 70%, title:(Open File)"
