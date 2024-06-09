@@ -33,7 +33,6 @@ in
           "cpu"
           "memory"
           "pulseaudio"
-          "cava"
         ];
         modules-center =
         [ 
@@ -99,7 +98,8 @@ in
           on-click = "sleep 0.1 && ${powerMenu}";
           tooltip = false;
         };
-        "custom/notification" = {
+        "custom/notification" = 
+        {
           tooltip = false;
           format = "{icon} {}";
           format-icons = {
@@ -118,27 +118,6 @@ in
           on-click = "sleep 0.1 && swaync-client -t -sw";
           on-click-right = "swaync-client -d -sw";
           escape = true;
-        };
-        cava = 
-        {
-          framerate = 30;
-          autosens = 1;
-          bars = 14;
-          lower_cutoff_freq = 50;
-          method = "pipewire";
-          source = "auto";
-          stereo = true;
-          reverse = true;
-          hide_on_silence = true;
-          bar_delimiter = 0;
-          noise_reduction = 0.75;
-          input_delay = 2;
-          higher_cutoff_freq = 10000;
-          format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
-          actions = 
-          {
-	          on-click-right = "mode";
-	        };
         };
       }
     ];
@@ -231,12 +210,6 @@ in
         padding-left: 10px;
         padding-right: 16px;
         margin-left: 5px;
-      }
-      #cava
-      {
-        font-size: 15pt;
-        padding-left: 10px;
-        padding-right: 10px;
       }
     '';
   };

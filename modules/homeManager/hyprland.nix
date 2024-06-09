@@ -13,9 +13,9 @@ let
   bottomMonitorName = "desc:DO NOT USE - RTK Verbatim MT14 demoset-1";
   leftMonitorName = "desc:Acer Technologies ED323QUR";
   # Main Monitor configs
-  mainMonitorDefault = "5120x1440@240, 1440x640, 1";
-  mainMonitorVRROne = "5120x1440@240, 1440x640, 1, vrr, 2";
-  mainMonitorVRRTwo = "5120x1440@120, 1440x640, 1, vrr, 2";
+  mainMonitorDefault = "5120x1440@120.00, 1440x640, 1";
+  mainMonitorVRROne = "5120x1440@120.00, 1440x640, 1, vrr, 2";
+  mainMonitorVRRTwo = "5120x1440@240.00, 1440x640, 1, vrr, 2"; 
   # Modkeys
   mainMod = "SUPER";
   mainModShift = "SUPER SHIFT";
