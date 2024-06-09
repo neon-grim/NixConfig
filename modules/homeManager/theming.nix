@@ -1,7 +1,9 @@
 {pkgs, host, ...}:
 let
   inherit (import ../../hosts/${host}/variables.nix)
-    cursorSize;
+    cursorSize
+    font
+    fontSize;
 in
 {
   # Cursor Theme
@@ -37,6 +39,11 @@ in
     gtk4.extraConfig = 
     {
       gtk-application-prefer-dark-theme=1;
+    };
+    font = 
+    {
+      name = font;
+      size = 14;
     };
   };
   # QT Theme

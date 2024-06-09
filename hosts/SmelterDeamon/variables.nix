@@ -28,4 +28,7 @@
   textColorThree = "e6c384";
   textColorFour = "000000";
   textColorFive = "1f1f28";
+  # Font Config
+  font = "JetBrainsMono Nerd Font";
+  fontSize= 14;
 }

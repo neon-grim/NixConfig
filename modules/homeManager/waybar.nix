@@ -1,7 +1,6 @@
 {host, ...}:
 let
   inherit (import ../../hosts/${host}/variables.nix)
-    # Color pallet
     backgroundColorOne
     backgroundColorTwo
     backgroundColorThree
@@ -11,8 +10,9 @@ let
     textColorTwo
     textColorThree
     textColorFour
-    textColorFive;
-  # Default Apps
+    textColorFive
+    font
+    fontSize;
   calendar = "orage";
   performanceApp = "corectrl";
   powerMenu = "rofi -show power-menu -modi power-menu:rofi-power-menu";
@@ -146,8 +146,8 @@ in
     ''
       *
       {
-        font-family: "JetBrainsMono Nerd Font";
-        font-size: 11pt;
+        font-family: "${font}";
+        font-size: ${toString fontSize}pt;
         font-weight: bold;
         border-radius: 3px;
         transition-property: background-color;

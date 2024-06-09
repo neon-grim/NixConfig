@@ -16,7 +16,6 @@ in
     SDL_VIDEODRIVER = "wayland";
     XDG_SESSION_DESKTOP = "Hyprland";
     XCURSOR_SIZE = cursorSize;
-    #WLR_DRM_NO_ATOMIC = "1";
     # User dirs
     XDG_DESKTOP_DIR= "$HOME/Desktop";
     XDG_DOCUMENTS_DIR= "$HOME/Documents";

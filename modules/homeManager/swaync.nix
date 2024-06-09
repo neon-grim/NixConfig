@@ -8,7 +8,9 @@ let
     textColorOne
     textColorTwo
     textColorThree
-    textColorFour;
+    textColorFour
+    font
+    fontSize;
 in
 {
   services.swaync =
@@ -58,8 +60,8 @@ in
     ''
       * {
         all: unset;
-        font-size: 15px;
-        font-family: "JetBrainsMono Nerd Font";
+        font-family: "${font}";
+        font-size: ${toString fontSize}pt;
         transition-duration: 0.1s;
         box-shadow: none;
       }
