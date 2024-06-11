@@ -15,7 +15,7 @@ let
     fontSize;
   calendar = "orage";
   performanceApp = "corectrl";
-  powerMenu = "rofi -show power-menu -modi power-menu:rofi-power-menu";
+  powerMenu = "pkill wlogout; sleep 0.1 && wlogout";
   taskManager = "xfce4-taskmanager";
   volumeControl = "pavucontrol";
 in

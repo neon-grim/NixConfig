@@ -4,14 +4,11 @@ Misc:
 -Create Wallpaper cycling script
 -Cleanup host variables.nix
 -Set Default Software
--Theme Rofi
--Theme Terminator
+-Change Animation to not have slowdowns
 
 Issues:
 ----------
 -Fix Mouse not being captured in fullscreen games
--Fix focus not being returned when closing swaync-client through bell
--Fix thunar having a bunch of lines appear when deselecting items while floating
 -Fix Terminator not being opened through thunar
 
 Software:
@@ -19,18 +16,13 @@ Software:
 -Get virt-manager running, fix libvirt causing issues
 -Get lock software
 -Get correct java version
--Get Rofi scripts running
 -Add App tray to swaync
 -Add Bluetooth button to Swaync
 -Add Wifi Button to Swaync
--Replace TUIGREET with GDM
 
 Home-manager
 ----------
--Create Rofi moduile
--Create Mousepad module
--Create Git module
--Create Terminator module
+-Configure empty modules
 
 Nix manipulations:
 ----------

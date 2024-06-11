@@ -24,8 +24,8 @@ let
   # Default Apps
   browser = "firefox";
   fileManager = "thunar";
-  menu = "rofi -show drun -show-icons";
-  powerMenu = "rofi -show power-menu -modi power-menu:rofi-power-menu";
+  menu = "pkill wofi; sleep 0.1 && wofi -S drun";
+  powerMenu = "pkill wlogout; sleep 0.1 && wlogout";
   terminal = "terminator";
   bar = "waybar";
 in

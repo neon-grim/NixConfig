@@ -15,11 +15,8 @@
     usbutils
     # WM Tools
     networkmanagerapplet
-    rofi-bluetooth
-    rofi-file-browser
-    rofi-power-menu
-    rofi-pulse-select
-    rofi-wayland
+    wofi
+    wlogout
     swaynotificationcenter
     waybar
     # Hyprland Tools
@@ -43,9 +40,10 @@
     # Gaming Tools
     goverlay
     jstest-gtk
-    mangohud
-    vkbasalt
     libstrangle
+    mangohud
+    scanmem
+    vkbasalt
     # Dependencies 
     libnotify
     spice-gtk
