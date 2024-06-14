@@ -1,32 +1,32 @@
 Misc:
 ----------
+-Set Default Software
 -Crop wallpaper to fit screens
 -Create Wallpaper cycling script
 -Cleanup host variables.nix
--Set Default Software
--Change Animation to not have slowdowns
 
 Issues:
 ----------
 -Fix Mouse not being captured in fullscreen games
 -Fix Terminator not being opened through thunar
+-Fix steam not opening thunar
 
 Software:
 ----------
 -Get virt-manager running, fix libvirt causing issues
 -Get lock software
--Get correct java version
--Add App tray to swaync
--Add Bluetooth button to Swaync
--Add Wifi Button to Swaync
+-Get teams on linux
 
 Home-manager
 ----------
 -Configure empty modules
+-Add app tray in swaync-client
+-Add bluetooth button to swaync-client
+-Add wifi button to swaync-client
+-Add Icons to Wofi
 
 Nix manipulations:
 ----------
--Learn how to downgrade homemanager when using flakes
 -Learn how to remove nix channels 
 
 Repo:

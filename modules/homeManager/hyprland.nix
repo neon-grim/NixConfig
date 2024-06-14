@@ -19,7 +19,7 @@ let
   # Modkeys
   mainMod = "SUPER";
   mainModShift = "SUPER SHIFT";
-  mainmodAlt = "$SUPER ALT_L";
+  mainModAlt = "$SUPER ALT_L";
   mainModControl = "SUPER CONTROL_L";
   # Default Apps
   browser = "firefox";
@@ -84,15 +84,15 @@ in
       animations = 
       {
         enabled = true;
-        bezier = [ "myBezier, 0.05, 0.9, 0.1, 1.05" ];
         animation =
         [
-          "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, default, popin 80%"
-          "border, 1, 10, default"
-          "borderangle, 1, 8, default"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
+          "windows, 1, 5, default"
+          "windowsIn, 1, 5, default"
+          "windowsOut, 1, 5, default"
+          "border, 1, 3, default"
+          "borderangle, 1, 3, default"
+          "fade, 1, 5, default"
+          "workspaces, 1, 3, default"
         ];
       };
       misc =
@@ -110,9 +110,11 @@ in
         "monitor DP-2, class:steam_app*"
         "monitor HDMI-A-2, class:vesktop"
         "center 1, title:(Open File)"
+        "center 1, ttitle:(Save As)"
+        "center 1, title:(Load Playlist)"
         "size 70% 70%, title:(Open File)"
-        "center 1, title:(Save As)"
         "size 70% 70%, title:(Save As)"
+        "size 70% 70%, title:(Load Playlist)"
       ];
       binds =
       {
@@ -156,9 +158,10 @@ in
         # Example special workspace (scratchpad)
         "${mainMod}, S, togglespecialworkspace, magic"
         "${mainModShift}, S, movetoworkspace, special:magic"
+        "${mainModControl}, S, movetoworkspace, e+0"
         # Scroll through existing workspaces
-        "${mainMod}, mouse_down, workspace, e+1"
-        "${mainMod}, mouse_up, workspace, e-1"
+        "${mainModAlt}, PAGE_UP, workspace, e+1"
+        "${mainModAlt}, PAGE_DOWN, workspace, e-1"
         # No VRR Desktop
         "${mainModShift}, F1, exec, hyprctl keyword monitor ${mainMonitorName}, ${mainMonitorDefault}"
         # VRR Gaming

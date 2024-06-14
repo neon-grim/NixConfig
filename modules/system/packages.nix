@@ -6,7 +6,6 @@
     calcure
     git
     fastfetch
-    ffmpeg_7-full
     lazygit
     nnn
     nix-prefetch-git
@@ -28,6 +27,7 @@
     # UI Tools
     gparted
     pavucontrol
+    onlyoffice-bin_latest
     # XFCE Tools
     xfce.mousepad
     xfce.orage
@@ -36,7 +36,6 @@
     # Gnome Tools
     gnome.file-roller
     gnome.gnome-software
-    gnome.gnome-tweaks
     # Gaming Tools
     goverlay
     jstest-gtk
