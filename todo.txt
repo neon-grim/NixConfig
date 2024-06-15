@@ -1,19 +1,15 @@
 Misc:
 ----------
--Set Default Software
 -Crop wallpaper to fit screens
 -Create Wallpaper cycling script
--Cleanup host variables.nix
 
 Issues:
 ----------
 -Fix Mouse not being captured in fullscreen games
--Fix Terminator not being opened through thunar
--Fix steam not opening thunar
 
 Software:
 ----------
--Get virt-manager running, fix libvirt causing issues
+-Allow virt manager to access USB ports
 -Get lock software
 -Get teams on linux
 
