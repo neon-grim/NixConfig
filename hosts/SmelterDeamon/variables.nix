@@ -17,6 +17,9 @@
   variant = "de_nodeadkeys";
   cursorSize = 24;
   mouseProfile = "flat";
+  # Font Config
+  font = "JetBrainsMono Nerd Font";
+  fontSize= 14;
   # Color Pallet
   backgroundColorOne = "1f1f28";
   backgroundColorTwo = "2a2a37";
@@ -28,7 +31,4 @@
   textColorThree = "e6c384";
   textColorFour = "000000";
   textColorFive = "1f1f28";
-  # Font Config
-  font = "JetBrainsMono Nerd Font";
-  fontSize= 14;
 }

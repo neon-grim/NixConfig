@@ -2,14 +2,22 @@
 {
   imports =
   [
-    ./flatpak.nix
-    ./fonts.nix
-    ./kernel.nix
-    ./packages.nix
-    ./security.nix
-    ./services.nix
-    ./sessionVariables.nix
-    ./steam.nix
-    ./users.nix
+    ./hardware/bluetooth.nix
+    ./hardware/kernel.nix
+    ./hardware/printing.nix
+    ./hardware/sound.nix
+    ./hardware/storageServices.nix
+    ./software/fileManager.nix
+    ./software/fonts.nix
+    ./software/gaming.nix
+    ./software/generalSoftware.nix
+    ./software/virtualisation.nix
+    ./system/displayManager.nix
+    ./system/environmentVariables.nix
+    ./system/flatpak.nix
+    ./system/security.nix
+    ./system/terminal.nix
+    ./system/users.nix
+    ./system/windowManager.nix
   ];
 }

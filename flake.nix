@@ -40,8 +40,8 @@
             home-manager.extraSpecialArgs = 
             {
               inherit inputs;
-              inherit username;
               inherit host;
+              inherit username;
             };
           }
         ];

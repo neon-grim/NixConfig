@@ -13,28 +13,36 @@ in
     ./storage-config.nix
     ./../../modules/system/default.nix
   ];
-  # allow unfree packages
+  # Time and language
+  i18n.defaultLocale = "${systemLanguage}";
+  time.timeZone = "${systemTimeZone}";
+  # Package Config
   nixpkgs.config.allowUnfree = true;
-  # configure console keymap
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # System Release
+  system.stateVersion = "23.11";
+  # Swap
+  zramSwap.enable = true;
+  # Keyboard and general services
   console.keyMap = "sg";
-    # Keyboard
-  services.xserver.xkb =
+  services =
   {
-    layout = "${layout}";
-    variant = "${variant}";
-  }; 
-  # enable networking
+    dbus.enable = true;
+    geoclue2.enable = true;
+    xserver =
+    {
+      enable = true;
+      xkb =
+      {
+        layout = "${layout}";
+        variant = "${variant}";
+      };
+    };
+  };
+  # Host config
   networking = 
   {
     hostName = "${host}";
     networkmanager.enable = true;
   };
-  # set your time zone.
-  time.timeZone = "${systemTimeZone}";
-  # select internationalisation properties.
-  i18n.defaultLocale = "${systemLanguage}";
-  # nixos release
-  system.stateVersion = "23.11";
-  # enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

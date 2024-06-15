@@ -2,11 +2,13 @@
 {
   imports =
   [
-    ./hyprland.nix
-    ./hyprpaper.nix
-    ./theming.nix
-    ./terminator.nix
-    ./waybar.nix
-    ./swaync.nix
+    ./apps/terminator.nix
+    ./generalTheming/theming.nix
+    ./windowManagers/hyprland.nix
+    ./windowManagerTools/hyprpaper.nix
+    ./windowManagerTools/waybar.nix
+    ./windowManagerTools/swaync.nix
+    ./xdgConfigurations/createUserDirs.nix
+    ./xdgConfigurations/defaultApps.nix
   ];
 }
