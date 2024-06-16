@@ -1,10 +1,10 @@
-{host, lib, ...}:
+{host, ...}:
 let
   inherit (import ../../../hosts/${host}/variables.nix)
     cursorSize;
 in
 {
-  environment.sessionVariables = (lib.mkForce)
+  environment.sessionVariables =
   {
     CLUTTER_BACKEND = "wayland";
     GDK_BACKEND = "wayland,x11";

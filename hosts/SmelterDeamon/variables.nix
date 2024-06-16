@@ -9,9 +9,6 @@
     "kvm" 
     "libvirtd"
   ];
-  # International
-  systemTimeZone = "Europe/Zurich";
-  systemLanguage = "en_GB.UTF-8";
   # HID
   layout = "ch";
   variant = "de_nodeadkeys";

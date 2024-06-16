@@ -2,9 +2,7 @@
 let
   inherit (import ./variables.nix)
     layout
-    variant
-    systemTimeZone
-    systemLanguage;
+    variant;
 in
 {
   imports =
@@ -14,8 +12,8 @@ in
     ./../../modules/system/default.nix
   ];
   # Time and language
-  time.timeZone = "${systemTimeZone}";
-  i18n.defaultLocale = "${systemLanguage}";
+  time.timeZone = "Europe/Zurich";
+  i18n.defaultLocale = "en_GB.UTF-8";
   # Package Config
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

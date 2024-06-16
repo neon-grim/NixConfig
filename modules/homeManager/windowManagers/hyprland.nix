@@ -42,8 +42,8 @@ in
         bar
         "hyprpaper"
         "swaync"
-        #"blueman-applet"
-        #"nm-applet --indicator"
+        "blueman-applet"
+        "nm-applet --indicator"
       ];
       monitor =
       [
