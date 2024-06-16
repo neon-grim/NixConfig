@@ -15,7 +15,7 @@ let
     fontSize;
   calendar = "orage";
   performanceApp = "corectrl";
-  powerMenu = "pkill wlogout; sleep 0.1 && wlogout";
+  powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
   taskManager = "xfce4-taskmanager";
   volumeControl = "pavucontrol";
 in

@@ -25,7 +25,7 @@ let
   browser = "firefox";
   fileManager = "thunar";
   menu = "pkill wofi; sleep 0.1 && wofi -S drun";
-  powerMenu = "pkill wlogout; sleep 0.1 && wlogout";
+  powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
   terminal = "terminator";
   bar = "waybar";
 in

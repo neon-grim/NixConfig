@@ -24,7 +24,6 @@
     pavucontrol
     swaynotificationcenter
     waybar
-    wlogout
     wofi
     # Dependencies 
     libnotify
