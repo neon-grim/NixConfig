@@ -6,7 +6,6 @@
     ./hardware/kernel.nix
     ./hardware/printing.nix
     ./hardware/sound.nix
-    ./hardware/storageServices.nix
     ./software/fileManager.nix
     ./software/fonts.nix
     ./software/gaming.nix

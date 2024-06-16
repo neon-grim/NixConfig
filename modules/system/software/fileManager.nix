@@ -1,6 +1,13 @@
-{pkgs, ...}:
+{pkgs, config, ...}:
 {
-  services.tumbler.enable = true; 
+  services =
+  {
+    devmon.enable = true;
+    gvfs.enable = true;
+    fstrim.enable = true;
+    udisks2.enable = true;
+    tumbler.enable = true;
+  };
   programs =
   {
     xfconf.enable = true;
@@ -17,6 +24,7 @@
   };
   environment.systemPackages = with pkgs;
   [
+    pcmanfm
     gnome.file-roller
   ];
 }
