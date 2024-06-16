@@ -1,7 +1,6 @@
 Misc:
 ----------
 -Crop wallpaper to fit screens
--Create Wallpaper cycling script
 
 Issues:
 ----------
@@ -21,10 +20,18 @@ Home-manager
 -Add wifi button to swaync-client
 -Add Icons to Wofi
 
-Nix manipulations:
-----------
--Learn how to remove nix channels 
-
 Repo:
 ----------
 -Fillout readme in repo
+
+Learning Goals:
+----------
+-Learn basics of C / C++
+-Learn basics of Rust
+-Learn basics of Lua
+-Learn basics of Neovim
+-Learn basics of GTKCSS
+-Learn basics of 3D modeling
+-Go through C# basics again
+-Learn how to hex edit game executables (FPS, RES, Aspect ratio)
+-Learn how to remove nix channels

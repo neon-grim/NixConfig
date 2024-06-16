@@ -14,8 +14,8 @@ in
     ./../../modules/system/default.nix
   ];
   # Time and language
-  i18n.defaultLocale = "${systemLanguage}";
   time.timeZone = "${systemTimeZone}";
+  i18n.defaultLocale = "${systemLanguage}";
   # Package Config
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

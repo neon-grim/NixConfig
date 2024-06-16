@@ -3,7 +3,6 @@
   imports = 
   [
     ./../../modules/homeManager/default.nix
-    {}
   ];
   # home manager user info
   home.username = username;
