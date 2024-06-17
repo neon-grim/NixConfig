@@ -29,21 +29,28 @@ in
         layer = "top";
         position = "top";
         modules-left =
-        [ 
-          "cpu"
-          "memory"
-          "pulseaudio"
+        [
+          "hyprland/workspaces"
         ];
         modules-center =
         [ 
-          "hyprland/workspaces" 
+          "clock"
         ];
         modules-right =
         [
-          "clock"
+          "pulseaudio"
+          "memory"
+          "cpu"
           "custom/notification"
+          "tray"
           "custom/powermenu"
         ];
+        "tray" = 
+        {
+          spacing = 12;
+          icon-size = 18;
+          reverse-direction = true;
+        };
         "hyprland/workspaces" =
         {
           on-scroll-up = "hyprctl dispatch workspace e+1";
@@ -61,13 +68,11 @@ in
         };
         "pulseaudio" =
         {
-          format = "{icon} {volume}% {format_source}";
-          format-muted = "󰖁 {volume}% {format_source}";
-          format-source = " {volume}%";
-          format-source-muted = "";
+          format = "{icon} {volume}%";
+          format-muted = "󰖁 {volume}";
           format-icons = 
           {
-            default = ["" "" ""];
+            default = ["" ""];
           };
           on-click = "sleep 0.1 && ${volumeControl}";
         };
@@ -89,7 +94,7 @@ in
         "cpu" =
         {
           interval = 1;
-          format = " {usage}% {avg_frequency}GHz";
+          format = " {usage}%";
           on-click = "sleep 0.1 && ${performanceApp}";
         };
         "custom/powermenu" =
@@ -193,23 +198,41 @@ in
         color: #${textColorFour};
         background-color: #${backgroundColorFour};
       }
-      #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #pulseaudio:hover, #custom-powermenu:hover, #custom-notification:hover
+      #clock
       {
-        color: #${textColorThree};
-        background-color: #${backgroundColorThree};
+        padding-left: 10px;
+        padding-right: 10px;
       }
-      #clock, #memory, #cpu, #pulseaudio, #custom-powermenu, #custom-notification
+      #custom-notification
       {
-        padding-left: 13px;
-        padding-right: 13px;
+        min-width: 50px;
+      }
+      #memory, #cpu, #pulseaudio
+      {
+        min-width: 70px;
+      }
+      #tray
+      {
+        color: #${textColorTwo};
+        background-color: #${backgroundColorTwo};
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: 5px;
+        margin-right: 0px;
       }
       #custom-powermenu
       {
         color: #${textColorFive};
         background-color: #${backgroundColorFive};
         padding-left: 10px;
-        padding-right: 16px;
+        padding-right: 15px;
         margin-left: 5px;
+        margin-right: 0px;
+      }
+      #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #pulseaudio:hover, #custom-powermenu:hover, #custom-notification:hover
+      {
+        color: #${textColorThree};
+        background-color: #${backgroundColorThree};
       }
     '';
   };

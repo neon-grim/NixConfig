@@ -9,15 +9,10 @@ Issues:
 Software:
 ----------
 -Allow virt manager to access USB ports
--Get lock software
 -Get teams on linux
 
 Home-manager
 ----------
--Configure empty modules
--Add app tray in swaync-client
--Add bluetooth button to swaync-client
--Add wifi button to swaync-client
 -Add Icons to Wofi
 
 Repo:

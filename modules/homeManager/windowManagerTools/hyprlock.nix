@@ -26,7 +26,7 @@ in
       };
       background = 
       {
-        path = "/mnt/SATASSD1/1_Images/BackgroundImages/Uncompressed/Porsche.png";
+        path = "/mnt/SATASSD1/1_Images/BackgroundImages/Uncompressed/evangelion.png";
         zindex = -2;
       };
       label =

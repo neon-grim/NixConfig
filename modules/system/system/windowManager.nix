@@ -18,6 +18,7 @@
     hyprland-protocols
     hyprnome
     hyprpaper
+    hyprpicker
     hyprshot
     # WM Tools
     networkmanagerapplet
