@@ -4,6 +4,7 @@
   {
     dconf.enable = true;
     hyprland.enable = true;
+    hyprlock.enable = true;
   };
   environment.systemPackages = with pkgs;
   [
@@ -11,7 +12,6 @@
     hyprland-activewindow
     hyprland-per-window-layout
     hyprland-autoname-workspaces
-    hyprlock
     hyprkeys
     # Hyprland Tools
     hyprland-workspaces
