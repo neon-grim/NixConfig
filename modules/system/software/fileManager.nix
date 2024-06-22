@@ -24,7 +24,6 @@
   };
   environment.systemPackages = with pkgs;
   [
-    pcmanfm
     gnome.file-roller
   ];
 }

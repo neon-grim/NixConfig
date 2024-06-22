@@ -15,6 +15,7 @@
   [
     bottles
     corectrl
+    discord
     heroic
     prismlauncher
     protonplus

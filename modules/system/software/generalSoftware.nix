@@ -9,6 +9,7 @@
     moonlight-qt
     obs-studio
     onlyoffice-bin_latest
+    python3
     rhythmbox
     vlc
     xfce.mousepad
