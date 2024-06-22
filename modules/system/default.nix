@@ -10,10 +10,10 @@
     ./software/fonts.nix
     ./software/gaming.nix
     ./software/generalSoftware.nix
-    ./software/virtualisation.nix
+    #./software/virtualisation.nix
     ./system/displayManager.nix
     ./system/environmentVariables.nix
-    ./system/flatpak.nix
+    #./system/flatpak.nix
     ./system/security.nix
     ./system/terminal.nix
     ./system/users.nix
