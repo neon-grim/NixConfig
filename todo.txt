@@ -1,6 +1,7 @@
 Misc:
 ----------
 -Crop wallpaper to fit screens
+-Abstrac monitor config based on host
 
 Issues:
 ----------
@@ -8,12 +9,15 @@ Issues:
 
 Software:
 ----------
--Allow virt manager to access USB ports
 -Get teams on linux
+-Allow virt manager to access USB ports
+-Fix org.freedesktop.portal.Desktop crashing when logging out
+-Fix hyprlock crashing on reconnecting screen
 
 Home-manager
 ----------
 -Add Icons to Wofi
+-Add window rule for floating windows to limit size based on monitor
 
 Repo:
 ----------
