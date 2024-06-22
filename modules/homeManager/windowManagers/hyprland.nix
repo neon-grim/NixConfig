@@ -38,7 +38,6 @@ in
       exec-once=
       [
         "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
-        "dbus-update-activation-environment --systemd --all"
         bar
         "hyprpaper"
         "swaync"
@@ -98,6 +97,7 @@ in
       misc =
       {
         force_default_wallpaper = 2;
+        no_direct_scanout  = true;
       };
       master =
       {
