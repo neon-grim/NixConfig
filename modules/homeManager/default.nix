@@ -9,7 +9,5 @@
     ./windowManagerTools/hyprlock.nix
     ./windowManagerTools/waybar.nix
     ./windowManagerTools/swaync.nix
-    ./xdgConfigurations/createUserDirs.nix
-    ./xdgConfigurations/defaultApps.nix
   ];
 }
