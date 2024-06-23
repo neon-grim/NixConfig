@@ -1,6 +1,6 @@
 {config, host, pkgs, username, ...}:
 let
-  inherit (import ../../../hosts/${host}/variables.nix)
+  inherit (import ../../../hosts/${host}/hostSpecific/systemConfig.nix)
     userDescription
     userGroups;
 in

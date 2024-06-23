@@ -1,6 +1,6 @@
 {config, pkgs, inputs, host, ...}:
 let
-  inherit (import ./variables.nix)
+  inherit (import ./hostSpecific/systemConfig.nix)
     layout
     variant;
 in
@@ -8,7 +8,7 @@ in
   imports =
   [
     ./hardware-configuration.nix
-    ./storage-config.nix
+    ./hostSpecific/storageConfig.nix
     ./../../modules/system/default.nix
   ];
   # Time and language

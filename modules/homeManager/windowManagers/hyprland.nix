@@ -1,33 +1,27 @@
-{pkgs, host, ...}:
+{pkgs, host, lib, ...}:
 let
-  inherit (import ../../../hosts/${host}/variables.nix)
-    # Border Color
-    backgroundColorOne
-    backgroundColorFive
-    # Keyboard
-    layout
-    mouseProfile
-    variant;
-  # Monitor Names
-  mainMonitorName = "desc:Samsung Electric Company Odyssey G95SC H1AK500000";
-  bottomMonitorName = "desc:DO NOT USE - RTK Verbatim MT14 demoset-1";
-  leftMonitorName = "desc:Acer Technologies ED323QUR";
-  # Main Monitor configs
-  mainMonitorDefault = "5120x1440@120.00, 1440x640, 1";
-  mainMonitorVRROne = "5120x1440@120.00, 1440x640, 1, vrr, 2";
-  mainMonitorVRRTwo = "5120x1440@240.00, 1440x640, 1, vrr, 2";
-  # Modkeys
+  # Main Mod
   mainMod = "SUPER";
   mainModShift = "SUPER SHIFT";
   mainModAlt = "$SUPER ALT_L";
   mainModControl = "SUPER CONTROL_L";
-  # Default Apps
-  browser = "firefox";
-  fileManager = "thunar";
-  menu = "pkill wofi; sleep 0.1 && wofi -S drun";
-  powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
-  terminal = "terminator";
-  bar = "waybar";
+  # Host specific
+  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
+    backgroundColorOne
+    backgroundColorFive;
+  inherit (import ../../../hosts/${host}/hostSpecific/systemConfig.nix)
+    layout
+    mouseProfile
+    variant;
+  inherit (import ../../../hosts/${host}/hostSpecific/defaultApps.nix)
+    browser
+    fileManager
+    terminal
+    menu
+    powerMenu;
+  inherit (import ../../../hosts/${host}/hostSpecific/monitorConfig.nix)
+    monitorSetup
+    monitorBinds;
 in
 {
   wayland.windowManager.hyprland = 
@@ -35,21 +29,15 @@ in
     enable = true;
     settings =
     {
+      monitor = [", preferred, auto, 1"] ++ monitorSetup;
       exec-once=
       [
         "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
-        bar
-        "hyprpaper"
-        "swaync"
+        "${lib.getExe pkgs.waybar}"
+        "${lib.getExe pkgs.hyprpaper}"
+        "${lib.getExe pkgs.swaynotificationcenter}"
         "blueman-applet"
         "nm-applet --indicator"
-      ];
-      monitor =
-      [
-        ", preferred, auto, 1"
-        "${mainMonitorName}, ${mainMonitorDefault}"
-        "${bottomMonitorName}, preferred, 2720x2080, 1"
-        "${leftMonitorName}, preferred, 0x0, 1, transform, 3"
       ];
       input =
       {
@@ -120,7 +108,7 @@ in
       {
         movefocus_cycles_fullscreen = false;
       };
-      bind =
+      bind = monitorBinds ++
       [
         # Execute default programs and actions
         "${mainMod}, T, exec, ${terminal}"
@@ -162,13 +150,6 @@ in
         # Scroll through existing workspaces
         "${mainModAlt}, PAGE_UP, workspace, e+1"
         "${mainModAlt}, PAGE_DOWN, workspace, e-1"
-        # No VRR Desktop
-        "${mainModShift}, F1, exec, hyprctl keyword monitor ${mainMonitorName}, ${mainMonitorDefault}"
-        # VRR Gaming
-        "${mainModShift}, F2, exec, hyprctl keyword monitor ${mainMonitorName}, ${mainMonitorVRROne}"
-        "${mainModShift}, F3, exec, hyprctl keyword monitor ${mainMonitorName}, ${mainMonitorVRRTwo}"
-        # Restart Waybar
-        "${mainModShift}, F4, exec, pkill ${bar}; sleep .5 && hyprctl dispatch exec ${bar}"
         # Screenshot
         "${mainMod}, F9, exec, hyprshot -m region --freeze"
         "${mainMod}, F10, exec, hyprshot -m window -m active --freeze"

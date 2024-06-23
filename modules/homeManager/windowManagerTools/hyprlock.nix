@@ -1,6 +1,6 @@
 {host, username, ...}:
 let
-  inherit (import ../../../hosts/${host}/variables.nix)
+  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     backgroundColorOne
     backgroundColorTwo
     backgroundColorThree
@@ -12,6 +12,8 @@ let
     textColorFour
     textColorFive
     font;
+  inherit (import ../../../hosts/${host}/hostSpecific/monitorConfig.nix)
+    lockWallpaper;
 in
 {
   programs.hyprlock =
@@ -26,7 +28,7 @@ in
       };
       background = 
       {
-        path = "/mnt/SATASSD1/1_Images/BackgroundImages/Uncompressed/evangelion.png";
+        path = "${lockWallpaper}";
         zindex = -2;
       };
       label =

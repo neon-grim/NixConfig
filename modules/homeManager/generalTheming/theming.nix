@@ -1,9 +1,15 @@
 {pkgs, host, ...}:
 let
-  inherit (import ../../../hosts/${host}/variables.nix)
+  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     cursorSize
+    cursorThemePackage
+    cursorThemeName
     font
-    fontSize;
+    fontSize
+    gtkThemePackage
+    gtkThemeName
+    iconThemeName
+    iconThemePackage;
 in
 {
   # Cursor Theme
@@ -13,8 +19,8 @@ in
     {
       gtk.enable = true;
       x11.enable = true;
-      name = "Bibata-Original-Classic";
-      package = pkgs.bibata-cursors;
+      package = pkgs."${cursorThemePackage}";
+      name = "${cursorThemeName}";
       size = cursorSize;
     };
   };
@@ -24,13 +30,13 @@ in
     enable = true;
     theme = 
     {
-      name = "Kanagawa-BL-LB";
-      package = pkgs.kanagawa-gtk-theme;
+      package = pkgs."${gtkThemePackage}";
+      name = "${gtkThemeName}";
     };
     iconTheme =
     {
-      name = "BeautyLine";
-      package = pkgs.beauty-line-icon-theme;
+      package = pkgs."${iconThemePackage}";
+      name = "${iconThemeName}";
     };
     gtk3.extraConfig = 
     {

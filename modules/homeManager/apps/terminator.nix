@@ -1,6 +1,6 @@
 {pkgs, host, ...}:
 let
-  inherit (import ../../../hosts/${host}/variables.nix)
+  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     font
     fontSize;
 in

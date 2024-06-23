@@ -1,6 +1,12 @@
 {host, ...}:
 let
-  inherit (import ../../../hosts/${host}/variables.nix)
+  inherit (import ../../../hosts/${host}/hostSpecific/defaultApps.nix)
+    calendar
+    performanceApp
+    taskManager
+    volumeControl
+    powerMenu;
+  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     backgroundColorOne
     backgroundColorTwo
     backgroundColorThree
@@ -13,11 +19,6 @@ let
     textColorFive
     font
     fontSize;
-  calendar = "orage";
-  performanceApp = "corectrl";
-  powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
-  taskManager = "xfce4-taskmanager";
-  volumeControl = "pavucontrol";
 in
 {
   programs.waybar =

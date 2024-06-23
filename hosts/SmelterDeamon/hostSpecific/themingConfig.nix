@@ -1,23 +1,19 @@
 {
-  # User
-  userDescription = "Michael Mueller de los Santos";
-  userGroups = 
-  [
-    "networkmanager" 
-    "wheel" 
-    "libvirt" 
-    "kvm" 
-    "libvirtd"
-  ];
-  # HID
-  layout = "ch";
-  variant = "de_nodeadkeys";
+  # Curosr
   cursorSize = 24;
-  mouseProfile = "flat";
+  cursorThemePackage = "bibata-cursors";
+  cursorThemeName = "Bibata-Original-Classic";
+  # GTK Theme
+  gtkThemePackage = "kanagawa-gtk-theme";
+  gtkThemeName = "Kanagawa-BL-LB";
+  # Icon Theme
+  iconThemeName = "BeautyLine";
+  iconThemePackage = "beauty-line-icon-theme";
   # Font Config
   font = "JetBrainsMono Nerd Font";
   fontSize= 14;
-  # Color Pallet
+  fontPackage = "";
+  # Color palette
   backgroundColorOne = "1f1f28";
   backgroundColorTwo = "2a2a37";
   backgroundColorThree = "414148";
