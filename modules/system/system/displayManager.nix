@@ -1,4 +1,5 @@
-{pkgs, ...}:
+{pkgs, username, ...}:
+
 {
   services.greetd =
   {
@@ -8,8 +9,12 @@
       default_session = 
       {
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-        user = "ashen_one";
+        user = "${username}";
       };
     };
   };
+  environment.systemPackages = with pkgs;
+  [
+    greetd.tuigreet
+  ];
 }
