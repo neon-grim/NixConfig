@@ -1,11 +1,14 @@
-{pkgs, ...}:
+{pkgs, host, ...}:
+let
+  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
+    fontPackage;
+in
 {
   fonts.enableDefaultPackages = true;
-  fonts.packages = with pkgs; 
+  fonts.packages =
   [
-    jetbrains-mono
-    nerdfonts
-    noto-fonts
-    noto-fonts-cjk
+    pkgs."${fontPackage}"
+    pkgs.noto-fonts
+    pkgs.noto-fonts-cjk
   ];
 }

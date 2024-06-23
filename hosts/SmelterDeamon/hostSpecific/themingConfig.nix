@@ -12,7 +12,7 @@
   # Font Config
   font = "JetBrainsMono Nerd Font";
   fontSize= 14;
-  fontPackage = "";
+  fontPackage = "nerdfonts";
   # Color palette
   backgroundColorOne = "1f1f28";
   backgroundColorTwo = "2a2a37";

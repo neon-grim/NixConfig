@@ -6,6 +6,7 @@ let
     cursorThemeName
     font
     fontSize
+    fontPackage
     gtkThemePackage
     gtkThemeName
     iconThemeName
@@ -48,19 +49,18 @@ in
     };
     font = 
     {
-      name = font;
-      size = 14;
+      name = "${font}";
+      size = fontSize;
     };
   };
   # QT Theme
   qt = 
   {
     enable = true;
-    platformTheme.name = "gtk";
+    platformTheme.name = "gtk3";
     style = 
     {
       name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
     };
   };
 }
