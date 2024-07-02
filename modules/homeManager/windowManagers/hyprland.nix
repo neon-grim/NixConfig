@@ -87,9 +87,13 @@ in
         force_default_wallpaper = 2;
         no_direct_scanout  = true;
       };
+      cursor =
+      {
+        no_hardware_cursors = true;
+      };
       master =
       {
-        new_is_master = false;
+        new_status = "slave";
         orientation = "center";
         mfact = 0.5;
       };

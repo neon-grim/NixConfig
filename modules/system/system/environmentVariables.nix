@@ -6,6 +6,7 @@ in
 {
   environment.sessionVariables =
   {
+    #WLR_DRM_NO_ATOMIC= "1";
     CLUTTER_BACKEND = "wayland";
     GDK_BACKEND = "wayland,x11";
     NIXOS_OZONE_WL = "1";
