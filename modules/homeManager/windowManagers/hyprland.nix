@@ -115,7 +115,7 @@ in
       bind = monitorBinds ++
       [
         # Execute default programs and actions
-        "${mainMod}, T, exec, ${terminal}"
+        "${mainMod}, Return, exec, ${terminal}"
         "${mainMod}, E, exec, ${fileManager}"
         "${mainMod}, F, exec, ${browser}"
         "${mainMod}, R, exec, ${menu}"
