@@ -29,7 +29,7 @@ in
     enable = true;
     settings =
     {
-      monitor = monitorSetup ++ [", preferred, auto, 1"];
+      #monitor = monitorSetup ++ [", preferred, auto, 1"];
       exec-once=
       [
         "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
@@ -90,6 +90,7 @@ in
       cursor =
       {
         no_hardware_cursors = true;
+        no_break_fs_vrr = true;
       };
       master =
       {
