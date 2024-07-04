@@ -22,7 +22,7 @@
     };
   };
   # Default apps
-  /*xdg.mimeApps =
+  xdg.mimeApps =
   {
     enable = true;
     defaultApplications =
@@ -39,5 +39,5 @@
       "application/vnd.openxmlformats-officedocument.presentationml.presentation" = ["onlyoffice-desktopeditors.desktop"];
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = ["onlyoffice-desktopeditors.desktop"];
     };
-  };*/
+  };
 }

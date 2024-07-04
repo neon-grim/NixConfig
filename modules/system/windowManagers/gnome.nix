@@ -27,9 +27,11 @@ in
   };
   environment.systemPackages = with pkgs;
   [
-    gnome.gnome-tweaks
-    gnome.dconf-editor
+    dconf-editor
+    gnome-tweaks
     gnome-extension-manager
+    gnomeExtensions.user-themes
+    gnomeExtensions.vitals
   ];
   environment.sessionVariables =
   {
