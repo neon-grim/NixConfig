@@ -16,6 +16,7 @@
     lib = nixpkgs.lib;
     host = "SmelterDeamon";
     username = "ashen_one";
+    windowManager = "gnome";
   in
   {
     nixosConfigurations = 
@@ -26,8 +27,9 @@
         specialArgs = 
         {
           inherit inputs;
-          inherit username;
           inherit host;
+          inherit username;
+          inherit windowManager;
         };
         modules = 
         [ 
@@ -42,6 +44,7 @@
               inherit inputs;
               inherit host;
               inherit username;
+              inherit windowManager;
             };
           }
         ];

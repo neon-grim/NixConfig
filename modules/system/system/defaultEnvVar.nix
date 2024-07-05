@@ -6,15 +6,8 @@ in
 {
   environment.sessionVariables =
   {
-    #WLR_DRM_NO_ATOMIC= "1";
-    CLUTTER_BACKEND = "wayland";
-    GDK_BACKEND = "wayland,x11";
-    NIXOS_OZONE_WL = "1";
-    QT_QPA_PLATFORM = "wayland;xcb";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    #SDL_VIDEODRIVER = "wayland";
-    XDG_SESSION_DESKTOP = "Hyprland";
+    # General system variables
+    NIXOS_OZONE_WL = 1;
     XCURSOR_SIZE = cursorSize;
     # User dirs
     XDG_DESKTOP_DIR= "$HOME/Desktop";

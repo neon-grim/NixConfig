@@ -1,4 +1,4 @@
-{config, pkgs, inputs, host, ...}:
+{config, pkgs, inputs, host, windowManager, ...}:
 let
   inherit (import ./hostSpecific/systemConfig.nix)
     layout
@@ -10,6 +10,7 @@ in
     ./hardware-configuration.nix
     ./hostSpecific/storageConfig.nix
     ./../../modules/system/default.nix
+    ./../../modules/system/${windowManager}.nix
   ];
   # Time and language
   time.timeZone = "Europe/Zurich";

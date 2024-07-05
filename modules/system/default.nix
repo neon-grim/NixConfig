@@ -6,15 +6,13 @@
     ./hardware/kernel.nix
     ./hardware/printing.nix
     ./hardware/sound.nix
-    ./software/fileManager.nix
     ./software/fonts.nix
     ./software/gaming.nix
     ./software/generalSoftware.nix
     ./software/terminal.nix
-    #./software/virtualisation.nix
-    #./system/flatpak.nix
+    ./system/defaultEnvVar.nix
+    ./system/flatpak.nix
     ./system/security.nix
     ./system/users.nix
-    ./windowManagers/gnome.nix
   ];
 }

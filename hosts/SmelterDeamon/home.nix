@@ -1,8 +1,9 @@
-{config, pkgs, username, ...}:
+{config, pkgs, username, windowManager, ...}:
 {
   imports = 
   [
     ./../../modules/homeManager/default.nix
+    ./../../modules/homeManager/${windowManager}.nix
   ];
   # home manager user info
   home.username = username;
