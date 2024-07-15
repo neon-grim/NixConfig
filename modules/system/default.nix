@@ -9,6 +9,7 @@
     ./software/fonts.nix
     ./software/gaming.nix
     ./software/generalSoftware.nix
+    ./software/virtualisation.nix
     ./software/terminal.nix
     ./system/defaultEnvVar.nix
     ./system/flatpak.nix

@@ -33,4 +33,8 @@ in
     gnomeExtensions.user-themes
     gnomeExtensions.vitals
   ];
+  environment.sessionVariables =
+  {
+    MUTTER_DEBUG_FORCE_KMS_MODE="simple";
+  };
 }

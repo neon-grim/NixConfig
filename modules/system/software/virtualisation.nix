@@ -2,8 +2,5 @@
 {
   programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;
-  environment.systemPackages = with pkgs;
-  [
-    spice-gtk
-  ];
+  virtualisation.spiceUSBRedirection.enable = true;
 }
