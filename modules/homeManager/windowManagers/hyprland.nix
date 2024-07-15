@@ -5,6 +5,19 @@ let
   mainModShift = "SUPER SHIFT";
   mainModAlt = "$SUPER ALT_L";
   mainModControl = "SUPER CONTROL_L";
+  # Monitor config
+  monitorSetup =
+  [
+    "desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@120.00, 1440x640, 1"
+    "desc:DO NOT USE - RTK Verbatim MT14 demoset-1, preferred, 2720x2080, 1"
+    "desc:Acer Technologies ED323QUR, preferred, 0x0, 1, transform, 3"
+  ];
+  monitorBinds =
+  [
+    "SUPER SHIFT, F1, exec, hyprctl keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@120.00, 1440x640, 1"
+    "SUPER SHIFT, F2, exec, hyprctl keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@120.00, 1440x640, 1, vrr, 2"
+    "SUPER SHIFT, F3, exec, hyprctl keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@240.00, 1440x640, 1, vrr, 2"
+  ];
   # Host specific
   inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     backgroundColorOne
@@ -19,9 +32,6 @@ let
     terminal
     menu
     powerMenu;
-  inherit (import ../../../hosts/${host}/hostSpecific/monitorConfig.nix)
-    monitorSetup
-    monitorBinds;
 in
 {
   wayland.windowManager.hyprland = 

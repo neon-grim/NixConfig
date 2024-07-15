@@ -1,5 +1,7 @@
 {host, username, ...}:
 let
+  lockWallpaper = "/mnt/SATASSD1/1_Images/BackgroundImages/Uncompressed/evangelion.png";
+  # Host specific
   inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     backgroundColorOne
     backgroundColorTwo
@@ -12,8 +14,6 @@ let
     textColorFour
     textColorFive
     font;
-  inherit (import ../../../hosts/${host}/hostSpecific/monitorConfig.nix)
-    lockWallpaper;
 in
 {
   programs.hyprlock =
