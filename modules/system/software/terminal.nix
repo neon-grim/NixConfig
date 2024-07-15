@@ -3,7 +3,6 @@
   programs.fish.enable = true;
   environment.systemPackages = with pkgs;
   [
-    calcure
     cava
     git
     fastfetch
