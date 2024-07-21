@@ -2,9 +2,7 @@
 {
   imports =
   [
-    ./hyprland.nix
-    ./hyprpaper.nix
-    ./theming.nix
-    ./waybar.nix
+    ./apps/terminator.nix
+    ./generalTheming/theming.nix
   ];
 }

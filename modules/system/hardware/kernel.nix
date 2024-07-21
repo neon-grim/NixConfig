@@ -2,15 +2,12 @@
 {
   boot =
   {
-    # Bootloader
     loader =
     {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    # Set Kernel
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    # Kernel Parameters
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = 
     [ 
       "amdgpu.ppfeaturemask=0xffffffff"
@@ -20,13 +17,10 @@
     {
       "vm.max_map_count" = 2147483642;
     };
-    # Kernel Modules
     extraModulePackages = 
     [
-      # Custom Xpad Module
-      (config.boot.kernelPackages.callPackage ./../derivations/xpad.nix {})
+      (config.boot.kernelPackages.callPackage ./../../derivations/xpad.nix {})
     ];
-    # Load Kernel Module
     kernelModules = 
     [
       "xpad-noone"

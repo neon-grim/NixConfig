@@ -1,38 +1,37 @@
 Misc:
 ----------
--Create Git Credentials Config
--Set Default Software
--Create Thunar Config
+-Crop wallpaper to fit screens
+-Abstrac monitor config based on host
 
-Desktop:
+Issues:
 ----------
--Theme swaync
--Theme Rofi
--Theme Mousepad text editor
--Remove animation slowdown
--Add qt nordic theme
--Change border color
-
-Workspace:
-----------
--Make window rule for games to start in mainscreen
--Make window rule for popup window height
--Replace Workspace numbers with symbol
--Limit amount of of windows in worksapce
+-Fix Mouse not being captured in fullscreen games
 
 Software:
 ----------
--Get virt-manager running
--Get streaming going on discord
--Get lock software
--Get correct java version
--Get Swaync working correctly
+-Get teams on linux
+-Allow virt manager to access USB ports
+-Fix org.freedesktop.portal.Desktop crashing when logging out
+-Fix hyprlock crashing on reconnecting screen
 
-Nix manipulations:
+Home-manager
 ----------
--Learn how to downgrade homemanager when using flakes
--Learn how to remove nix channels 
+-Add Icons to Wofi
+-Add window rule for floating windows to limit size based on monitor
 
 Repo:
 ----------
 -Fillout readme in repo
+
+Learning Goals:
+----------
+-Learn basics of C / C++
+-Learn basics of Rust
+-Learn basics of Lua
+-Learn basics of bash
+-Learn basics of Neovim
+-Learn basics of GTKCSS
+-Learn basics of 3D modeling
+-Go through C# basics again
+-Learn how to hex edit game executables (FPS, RES, Aspect ratio)
+-Learn how to remove nix channels

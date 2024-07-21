@@ -1,11 +1,10 @@
 {config, host, pkgs, username, ...}:
 let
-  inherit (import ../../hosts/${host}/variables.nix)
+  inherit (import ../../../hosts/${host}/hostSpecific/systemConfig.nix)
     userDescription
     userGroups;
 in
 {
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${username}" = {
     isNormalUser = true;
     description = "${userDescription}";

@@ -1,30 +1,25 @@
-{ config, pkgs, ... }:
+{config, pkgs, username, windowManager, ...}:
 {
   imports = 
   [
     ./../../modules/homeManager/default.nix
+    ./../../modules/homeManager/${windowManager}.nix
   ];
   # home manager user info
-  home.username = "ashen_one";
-  home.homeDirectory = "/home/ashen_one";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
   # home manager install verison
-  home.stateVersion = "23.11"; # Please read the comment before changing.
-  # home manager packages
-  home.packages = [ ];
-  # Manual dotfiles
-  home.file = { };
-  # home manager seesion variable
-  home.sessionVariables = { };
-  # let Home Manager install and manage itself.
+  home.stateVersion = "23.11";
+  # let home manager install and manage itself.
   programs.home-manager.enable = true;
-  # Create XDG Dirs
+  # User dirs
   xdg = 
   {
     enable = true;
     userDirs = 
     {
-       enable = true;
-       createDirectories = true;
+      enable = true;
+      createDirectories = true;
     };
   };
 }
