@@ -17,6 +17,7 @@
     corectrl
     discord
     heroic
+    moltengamepad
     prismlauncher
     protonplus
     goverlay
