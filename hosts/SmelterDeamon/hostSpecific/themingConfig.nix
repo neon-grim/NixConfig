@@ -4,8 +4,8 @@
   cursorThemePackage = "bibata-cursors";
   cursorThemeName = "Bibata-Original-Classic";
   # GTK Theme
-  gtkThemePackage = "adw-gtk3";
-  gtkThemeName = "adw-gtk3-dark";
+  gtkThemePackage = "gruvbox-gtk-theme";
+  gtkThemeName = "Gruvbox-Dark";
   # Icon Theme
   iconThemeName = "BeautyLine";
   iconThemePackage = "beauty-line-icon-theme";

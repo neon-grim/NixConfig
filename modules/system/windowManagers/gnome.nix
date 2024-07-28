@@ -21,13 +21,8 @@ in
       };
     };
   };
-  programs =
-  {
-    dconf.enable = true;
-  };
   environment.systemPackages = with pkgs;
   [
-    dconf-editor
     gnome-tweaks
     gnome-extension-manager
     gnomeExtensions.user-themes
