@@ -5,19 +5,13 @@ let
   mainModShift = "SUPER SHIFT";
   mainModAlt = "$SUPER ALT_L";
   mainModControl = "SUPER CONTROL_L";
-  # Monitor config
-  monitorSetup =
-  [
-    "desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@120.00, 1440x640, 1"
-    "desc:DO NOT USE - RTK Verbatim MT14 demoset-1, preferred, 2720x2080, 1"
-    "desc:Acer Technologies ED323QUR, preferred, 0x0, 1, transform, 3"
-  ];
-  monitorBinds =
-  [
-    "SUPER SHIFT, F1, exec, hyprctl keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@120.00, 1440x640, 1"
-    "SUPER SHIFT, F2, exec, hyprctl keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@120.00, 1440x640, 1, vrr, 2"
-    "SUPER SHIFT, F3, exec, hyprctl keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@240.00, 1440x640, 1, vrr, 2"
-  ];
+  # Default Apps
+  browser = "librewolf";
+  fileManager = "thunar";
+  terminal = "terminator";
+  # Wofi
+  menu = "pkill wofi; sleep 0.1 && wofi -S drun";
+  powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
   # Host specific
   inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     backgroundColorOne
@@ -26,12 +20,11 @@ let
     layout
     mouseProfile
     variant;
-  inherit (import ../../../hosts/${host}/hostSpecific/defaultApps.nix)
-    browser
-    fileManager
-    terminal
-    menu
-    powerMenu;
+  inherit (import ../../../hosts/${host}/hostSpecific/hyprland/monitorConfig.nix)
+    monitorSetup
+    monitorBinds;
+  inherit (import ../../../hosts/${host}/hostSpecific/hyprland/windowRules.nix)
+    hyprWindowRulesV2;
 in
 {
   wayland.windowManager.hyprland = 
@@ -40,6 +33,7 @@ in
     settings =
     {
       monitor = monitorSetup ++ [", preferred, auto, 1"];
+      windowrulev2 = hyprWindowRulesV2;
       exec-once=
       [
         "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
@@ -92,33 +86,22 @@ in
           "workspaces, 1, 3, default"
         ];
       };
-      misc =
-      {
-        force_default_wallpaper = 2;
-        no_direct_scanout  = true;
-      };
-      cursor =
-      {
-        no_hardware_cursors = true;
-        no_break_fs_vrr = true;
-      };
       master =
       {
         new_status = "slave";
         orientation = "center";
         mfact = 0.5;
       };
-      windowrulev2 = 
-      [
-        "monitor DP-2, class:steam_app*"
-        "monitor HDMI-A-2, class:vesktop"
-        "center 1, title:(Open File)"
-        "center 1, ttitle:(Save As)"
-        "center 1, title:(Load Playlist)"
-        "size 70% 70%, title:(Open File)"
-        "size 70% 70%, title:(Save As)"
-        "size 70% 70%, title:(Load Playlist)"
-      ];
+      misc =
+      {
+        #no_direct_scanout  = true;
+        force_default_wallpaper = 2;
+      };
+      /*cursor =
+      {
+        no_hardware_cursors = true;
+        no_break_fs_vrr = true;
+      };*/
       binds =
       {
         movefocus_cycles_fullscreen = false;

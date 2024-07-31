@@ -1,11 +1,11 @@
 {host, ...}:
 let
-  inherit (import ../../../hosts/${host}/hostSpecific/defaultApps.nix)
-    calendar
-    performanceApp
-    taskManager
-    volumeControl
-    powerMenu;
+  calendar = "orage";
+  performanceApp = "corectrl";
+  taskManager = "xfce4-taskmanager";
+  volumeControl = "pavucontrol";
+  powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
+  # Host Specific
   inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     backgroundColorOne
     backgroundColorTwo

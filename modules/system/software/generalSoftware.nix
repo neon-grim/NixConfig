@@ -1,10 +1,14 @@
 {pkgs, ...}:
-{ 
-  programs.firefox.enable = true;
+{
+  programs =
+  {
+    dconf.enable = true;
+  };
   environment.systemPackages = with pkgs;
   [
     gimp
     gparted
+    librewolf
     libsForQt5.kdenlive
     moonlight-qt
     obs-studio
