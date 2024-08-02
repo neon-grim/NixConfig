@@ -1,6 +1,6 @@
 {...}:
 {
-  k# Default apps
+  # Default apps
   xdg.mimeApps =
   {
     enable = true;

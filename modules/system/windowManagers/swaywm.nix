@@ -2,7 +2,6 @@
 {
   programs =
   {
-    dconf.enable = true;
     sway =
     {
       enable = true;

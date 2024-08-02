@@ -7,13 +7,11 @@
   };
   environment.systemPackages = with pkgs;
   [
-    /*
     # Testing
     hyprland-activewindow
     hyprland-per-window-layout
     hyprland-autoname-workspaces
     hyprkeys
-    */
     # Hyprland Tools
     hyprland-workspaces
     hyprland-protocols

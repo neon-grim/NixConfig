@@ -16,15 +16,15 @@
     bottles
     corectrl
     discord
+    goverlay
     heroic
     moltengamepad
     prismlauncher
     protonplus
-    goverlay
+    protontricks
     jstest-gtk
     libstrangle
     mangohud
-    protontricks
     scanmem
     vesktop
     vkbasalt

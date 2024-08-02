@@ -1,25 +1,14 @@
 {pkgs, host, ...}:
-let
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
-    cursorSize;
-in
 {
-  services = 
+  services.xserver.desktopManager.gnome = 
   {
-    xserver =
-    {
-      displayManager.gdm.enable = true;
-      desktopManager.gnome = 
-      {
-        enable = true;
-        extraGSettingsOverridePackages = [pkgs.gnome.mutter];
-        extraGSettingsOverrides = 
-        ''
-        [org.gnome.mutter]
-        experimental-features=['variable-refresh-rate', 'scale-monitor-framebuffer']
-        '';
-      };
-    };
+    enable = true;
+    extraGSettingsOverridePackages = [pkgs.gnome.mutter];
+    extraGSettingsOverrides = 
+    ''
+    [org.gnome.mutter]
+    experimental-features=['variable-refresh-rate', 'scale-monitor-framebuffer']
+    '';
   };
   environment.systemPackages = with pkgs;
   [
