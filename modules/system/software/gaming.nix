@@ -24,6 +24,7 @@
     jstest-gtk
     libstrangle
     mangohud
+    protontricks
     scanmem
     vesktop
     vkbasalt
