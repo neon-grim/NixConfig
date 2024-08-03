@@ -2,8 +2,9 @@
 {
   imports =
   [
-    ./windowManagers/swaywm.nix
-    ./windowManagerTools/waybar.nix
-    ./windowManagerTools/swaync.nix
+    ./apps/defaultApps.nix
+    ./compositors/swaywm.nix
+    ./compositorTools/waybar.nix
+    ./compositorTools/swaync.nix
   ];
 }

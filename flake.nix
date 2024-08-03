@@ -16,7 +16,7 @@
     lib = nixpkgs.lib;
     host = "SmelterDeamon";
     username = "ashen_one";
-    windowManager = "hyprland";
+    windowManager = "swaywm";
   in
   {
     nixosConfigurations = 

@@ -10,7 +10,8 @@
   };
   environment.systemPackages = with pkgs;
   [
-    # Waybar Tools
+    sov
+    Swaysome
     swww
     wayshot
   ];

@@ -1,6 +1,12 @@
 {pkgs, host, lib, config, ...}:
 let
-  # Todo: Figure out what splitting is
+  # Default Apps
+  browser = "librewolf";
+  fileManager = "thunar";
+  terminal = "terminator";
+  # Wofi
+  menu = "pkill wofi; sleep 0.1 && wofi -S drun";
+  powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
   # Host specific
   inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     backgroundColorOne
@@ -17,12 +23,9 @@ let
     layout
     variant
     mouseProfile;
-  inherit (import ../../../hosts/${host}/hostSpecific/defaultApps.nix)
-    browser
-    fileManager
-    terminal
-    menu
-    powerMenu;
+  inherit (import ../../../hosts/${host}/hostSpecific/swaywm/monitorConfig.nix)
+    monitorSetup
+    monitorBinds;
 in
 {
   wayland.windowManager.sway =
@@ -34,7 +37,8 @@ in
       menu = "'${menu}'";
       terminal = "${terminal}";
       modifier = "Mod4";
-      bars = [{ command = "${lib.getExe pkgs.waybar}"; }];
+      bars = [{command = "${lib.getExe pkgs.waybar}";}];
+      output = monitorSetup;
       startup =
       [
         {command = "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit";}
@@ -42,27 +46,6 @@ in
         {command = "blueman-applet";}
         {command = "nm-applet --indicator";}
       ];
-      output =
-      {
-        "Samsung Electric Company Odyssey G95SC H1AK500000" =
-        {
-          mode = "5120x1440@120.000Hz";
-          adaptive_sync = "on";
-          pos = "0 0";
-          bg = "~/Pictures/bg/Death_Superwide.png fill";
-        };
-        "DO NOT USE - RTK Verbatim MT14 demoset-1" =
-        {
-          pos = "1280 1440";
-          bg = "~/Pictures/bg/red_transistor.png fill";
-        };
-        "HDMI-A-2" =
-        {
-          bg = "~/Pictures/bg/instrument.png fill";
-          pos = "5120 0";
-          transform = "90";
-        };
-      };
       input =
       {
         "*" =

@@ -3,10 +3,10 @@
   imports =
   [
     ./apps/defaultApps.nix
-    ./windowManagers/hyprland.nix
-    ./windowManagerTools/hyprpaper.nix
-    ./windowManagerTools/hyprlock.nix
-    ./windowManagerTools/waybar.nix
-    ./windowManagerTools/swaync.nix
+    ./compositors/hyprland.nix
+    ./compositorsTools/hyprpaper.nix
+    ./compositorsTool/hyprlock.nix
+    ./compositorsTool/waybar.nix
+    ./compositorsTool/swaync.nix
   ];
 }

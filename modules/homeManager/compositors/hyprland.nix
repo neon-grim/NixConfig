@@ -97,11 +97,11 @@ in
         #no_direct_scanout  = true;
         force_default_wallpaper = 2;
       };
-      /*cursor =
+      cursor =
       {
         no_hardware_cursors = true;
         no_break_fs_vrr = true;
-      };*/
+      };
       binds =
       {
         movefocus_cycles_fullscreen = false;
