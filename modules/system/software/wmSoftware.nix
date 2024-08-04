@@ -1,6 +1,5 @@
 {pkgs, ...}:
 {
-  programs.waybar.enable = true;
   environment.systemPackages = with pkgs;
   [
     # WM Tools
@@ -8,6 +7,7 @@
     pantheon.pantheon-agent-polkit
     pavucontrol
     swaynotificationcenter
+    waybar
     wofi
     # Dependencies 
     libnotify

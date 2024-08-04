@@ -4,6 +4,7 @@
     "Samsung Electric Company Odyssey G95SC H1AK500000" =
     {
       mode = "5120x1440@120.000Hz";
+      adaptive_sync = "on";
       pos = "1440 640";
       bg = "~/Pictures/bg/Death_Superwide.png fill";
     };

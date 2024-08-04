@@ -1,5 +1,6 @@
 {pkgs, host, lib, config, ...}:
 let
+  mod = "Mod4";
   # Default Apps
   browser = "librewolf";
   fileManager = "thunar";
@@ -36,7 +37,7 @@ in
     {
       menu = "'${menu}'";
       terminal = "${terminal}";
-      modifier = "Mod4";
+      modifier = "${mod}";
       bars = [{command = "${lib.getExe pkgs.waybar}";}];
       output = monitorSetup;
       startup =
@@ -98,7 +99,6 @@ in
         };
       };
       keybindings = let
-        mod = config.wayland.windowManager.sway.config.modifier;
         term = config.wayland.windowManager.sway.config.terminal;
         dmenu = config.wayland.windowManager.sway.config.menu;
       in {
@@ -136,33 +136,75 @@ in
         # Scratchpad
         "${mod}+S" = "scratchpad show";
         "${mod}+Shift+S" = "move scratchpad";
-        # Workspace navigation
-        "${mod}+1" = "workspace number 1";
-        "${mod}+2" = "workspace number 2";
-        "${mod}+3" = "workspace number 3";
-        "${mod}+4" = "workspace number 4";
-        "${mod}+5" = "workspace number 5";
-        "${mod}+6" = "workspace number 6";
-        "${mod}+7" = "workspace number 7";
-        "${mod}+8" = "workspace number 8";
-        "${mod}+9" = "workspace number 9";
-        "${mod}+0" = "workspace number 10";
-        # Move focused window
-        "${mod}+Shift+1" = "move container to workspace number 1";
-        "${mod}+Shift+2" = "move container to workspace number 2";
-        "${mod}+Shift+3" = "move container to workspace number 3";
-        "${mod}+Shift+4" = "move container to workspace number 4";
-        "${mod}+Shift+5" = "move container to workspace number 5";
-        "${mod}+Shift+6" = "move container to workspace number 6";
-        "${mod}+Shift+7" = "move container to workspace number 7";
-        "${mod}+Shift+8" = "move container to workspace number 8";
-        "${mod}+Shift+9" = "move container to workspace number 9";
-        "${mod}+Shift+0" = "move container to workspace number 10";
         # Control volume
         XF86AudioRaiseVolume = "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+";
         XF86AudioLowerVolume = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
         XF86AudioMute = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
       };
     };
+    extraConfig =
+    ''
+      # Change focus between workspaces
+      bindsym --no-warn ${mod}+1 exec "swaysome focus 1"
+      bindsym --no-warn ${mod}+1 exec "swaysome focus 1"
+      bindsym --no-warn ${mod}+2 exec "swaysome focus 2"
+      bindsym --no-warn ${mod}+3 exec "swaysome focus 3"
+      bindsym --no-warn ${mod}+4 exec "swaysome focus 4"
+      bindsym --no-warn ${mod}+5 exec "swaysome focus 5"
+      bindsym --no-warn ${mod}+6 exec "swaysome focus 6"
+      bindsym --no-warn ${mod}+7 exec "swaysome focus 7"
+      bindsym --no-warn ${mod}+8 exec "swaysome focus 8"
+      bindsym --no-warn ${mod}+9 exec "swaysome focus 9"
+      bindsym --no-warn ${mod}+0 exec "swaysome focus 0"
+
+      # Move containers between workspaces
+      bindsym --no-warn ${mod}+Shift+1 exec "swaysome move 1"
+      bindsym --no-warn ${mod}+Shift+2 exec "swaysome move 2"
+      bindsym --no-warn ${mod}+Shift+3 exec "swaysome move 3"
+      bindsym --no-warn ${mod}+Shift+4 exec "swaysome move 4"
+      bindsym --no-warn ${mod}+Shift+5 exec "swaysome move 5"
+      bindsym --no-warn ${mod}+Shift+6 exec "swaysome move 6"
+      bindsym --no-warn ${mod}+Shift+7 exec "swaysome move 7"
+      bindsym --no-warn ${mod}+Shift+8 exec "swaysome move 8"
+      bindsym --no-warn ${mod}+Shift+9 exec "swaysome move 9"
+      bindsym --no-warn ${mod}+Shift+0 exec "swaysome move 0"
+
+      # Focus workspace groups
+      bindsym ${mod}+Alt+1 exec "swaysome focus-group 1"
+      bindsym ${mod}+Alt+2 exec "swaysome focus-group 2"
+      bindsym ${mod}+Alt+3 exec "swaysome focus-group 3"
+      bindsym ${mod}+Alt+4 exec "swaysome focus-group 4"
+      bindsym ${mod}+Alt+5 exec "swaysome focus-group 5"
+      bindsym ${mod}+Alt+6 exec "swaysome focus-group 6"
+      bindsym ${mod}+Alt+7 exec "swaysome focus-group 7"
+      bindsym ${mod}+Alt+8 exec "swaysome focus-group 8"
+      bindsym ${mod}+Alt+9 exec "swaysome focus-group 9"
+      bindsym ${mod}+Alt+0 exec "swaysome focus-group 0"
+
+      # Move containers to other workspace groups
+      bindsym ${mod}+Alt+Shift+1 exec "swaysome move-to-group 1"
+      bindsym ${mod}+Alt+Shift+2 exec "swaysome move-to-group 2"
+      bindsym ${mod}+Alt+Shift+3 exec "swaysome move-to-group 3"
+      bindsym ${mod}+Alt+Shift+4 exec "swaysome move-to-group 4"
+      bindsym ${mod}+Alt+Shift+5 exec "swaysome move-to-group 5"
+      bindsym ${mod}+Alt+Shift+6 exec "swaysome move-to-group 6"
+      bindsym ${mod}+Alt+Shift+7 exec "swaysome move-to-group 7"
+      bindsym ${mod}+Alt+Shift+8 exec "swaysome move-to-group 8"
+      bindsym ${mod}+Alt+Shift+9 exec "swaysome move-to-group 9"
+      bindsym ${mod}+Alt+Shift+0 exec "swaysome move-to-group 0"
+
+      # Move focused container to next output
+      bindsym ${mod}+o exec "swaysome next-output"
+      # Move focused container to previous output
+      bindsym ${mod}+Shift+o exec "swaysome prev-output"
+
+      # Move focused workspace group to next output
+      bindsym ${mod}+Alt+o exec "swaysome workspace-group-next-output"
+      # Move focused workspace group to previous output
+      bindsym ${mod}+Alt+Shift+o exec "swaysome workspace-group-prev-output"
+
+      # Init workspaces for every screen
+      exec "swaysome init 1"
+    '';
   };
 }
