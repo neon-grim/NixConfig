@@ -12,7 +12,6 @@
   [
     sov
     swaysome
-    swww
     wayshot
   ];
 }

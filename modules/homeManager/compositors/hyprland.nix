@@ -1,18 +1,5 @@
 {pkgs, host, lib, ...}:
 let
-  # Main Mod
-  mainMod = "SUPER";
-  mainModShift = "SUPER SHIFT";
-  mainModAlt = "$SUPER ALT_L";
-  mainModControl = "SUPER CONTROL_L";
-  # Default Apps
-  browser = "librewolf";
-  fileManager = "thunar";
-  terminal = "terminator";
-  # Wofi
-  menu = "pkill wofi; sleep 0.1 && wofi -S drun";
-  powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
-  # Host specific
   inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     backgroundColorOne
     backgroundColorFive;
@@ -47,10 +34,10 @@ in
       {
         kb_layout = "${layout}";
         kb_variant = "${variant}";
-        numlock_by_default = true;
+        accel_profile = "${mouseProfile}";
         sensitivity = 0;
         follow_mouse = 1;
-        accel_profile = "${mouseProfile}";
+        numlock_by_default = true;
       };
       general =
       {
@@ -94,7 +81,7 @@ in
       };
       misc =
       {
-        #no_direct_scanout  = true;
+        no_direct_scanout = true;
         force_default_wallpaper = 2;
       };
       cursor =
@@ -106,12 +93,21 @@ in
       {
         movefocus_cycles_fullscreen = false;
       };
-      bind = monitorBinds ++
+      bind = 
+      let 
+        mainMod = "SUPER";
+        mainModShift = "SUPER SHIFT";
+        mainModAlt = "$SUPER ALT_L";
+        mainModControl = "SUPER CONTROL_L";
+        menu = "pkill wofi; sleep 0.1 && wofi -S drun";
+        powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
+      in
+      monitorBinds ++
       [
         # Execute default programs and actions
-        "${mainMod}, Return, exec, ${terminal}"
-        "${mainMod}, E, exec, ${fileManager}"
-        "${mainMod}, F, exec, ${browser}"
+        "${mainMod}, Return, exec, ${lib.getExe pkgs.terminator}"
+        "${mainMod}, E, exec, ${lib.getExe pkgs.thunar}"
+        "${mainMod}, F, exec, ${lib.getExe pkgs.librewolf}"
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, L, exec, ${powerMenu}"
         "${mainMod}, K, killactive,"
