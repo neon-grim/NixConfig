@@ -3,7 +3,8 @@
   imports =
   [
     ./compositors/hyprland.nix
-    ./displayManagers/sddm.nix
+    ./compositors/swaywm.nix
+    ./displayManagers/gdm.nix
     ./software/fileManager.nix
     ./software/wmSoftware.nix
     ./system/wmEnvVar.nix

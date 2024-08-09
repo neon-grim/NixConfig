@@ -33,7 +33,7 @@ in
         position = "top";
         modules-left =
         [
-          #"hyprland/workspaces"
+          "hyprland/workspaces"
           "sway/workspaces"
         ];
         modules-center =
@@ -113,7 +113,7 @@ in
           on-click-right = "swaync-client -d -sw";
           escape = true;
         };
-        /*
+        
         "hyprland/workspaces" =
         {
           on-scroll-up = "hyprctl dispatch workspace e+1";
@@ -128,7 +128,6 @@ in
             urgent = "";
           };
         };
-        */
         "sway/workspaces" =
         {
           disable-scroll = false;
