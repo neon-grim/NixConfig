@@ -106,7 +106,7 @@ in
       [
         # Execute default programs and actions
         "${mainMod}, Return, exec, ${lib.getExe pkgs.terminator}"
-        "${mainMod}, E, exec, ${lib.getExe pkgs.thunar}"
+        "${mainMod}, E, exec, ${lib.getExe pkgs.xfce.thunar}"
         "${mainMod}, F, exec, ${lib.getExe pkgs.librewolf}"
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, L, exec, ${powerMenu}"
@@ -150,6 +150,10 @@ in
         "${mainMod}, F11, exec, hyprshot -m output -m active --freeze"
       ];
       bindm =
+      let 
+        mainMod = "SUPER";
+        mainModShift = "SUPER SHIFT";
+      in
       [
         # Move/resize windows
         "${mainModShift}, mouse:272, movewindow"

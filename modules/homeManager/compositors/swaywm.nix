@@ -36,7 +36,7 @@ in
         {command = "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit";}
         {command = "${lib.getExe pkgs.swaynotificationcenter}";}
         {command = "blueman-applet";}
-        {command = "nm-applet --indicator";}"swaysome init 1"
+        {command = "nm-applet --indicator";}
         {command = "swaysome init 1";}
       ];
       input =
@@ -99,11 +99,11 @@ in
         powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
       in {
         # Default apps
-        "${mainMod}+R" = "exec ${dmenu}";
         "${mainMod}+F" = "exec ${lib.getExe pkgs.librewolf}";
-        "${mainMod}+E" = "exec ${lib.getExe pkgs.thunar}";
+        "${mainMod}+E" = "exec ${lib.getExe pkgs.xfce.thunar}";
+        "${mainMod}+L" = "exec '${powerMenu}'";
         "${mainMod}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal}";
-        "${mainMod}+L" = "exec '${config.wayland.windowManager.sway.config.menu}'";
+        "${mainMod}+R" = "exec ${config.wayland.windowManager.sway.config.menu}";
         # System Operations
         "${mainMod}+K" = "kill";
         "${mainModShift}+C" = "reload";
@@ -130,7 +130,7 @@ in
         "${mainModShift}+E" = "layout toggle split";
         "${mainModShift}+space" = "floating toggle";
         # Scratchpad
-        "${mod}+S" = "scratchpad show";
+        "${mainMod}+S" = "scratchpad show";
         "${mainModShift}+S" = "move scratchpad";
         # Control volume
         XF86AudioRaiseVolume = "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+";
