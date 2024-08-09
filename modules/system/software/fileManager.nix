@@ -25,5 +25,6 @@
   environment.systemPackages = with pkgs;
   [
     file-roller
+    gparted
   ];
 }

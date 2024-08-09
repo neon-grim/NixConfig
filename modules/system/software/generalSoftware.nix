@@ -7,7 +7,6 @@
   environment.systemPackages = with pkgs;
   [
     gimp
-    gparted
     librewolf
     libsForQt5.kdenlive
     moonlight-qt

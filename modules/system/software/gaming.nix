@@ -18,14 +18,14 @@
     discord
     goverlay
     gamescope
-    lact
     heroic
+    jstest-gtk
+    lact
+    libstrangle
+    mangohud
     prismlauncher
     protonplus
     protontricks
-    jstest-gtk
-    libstrangle
-    mangohud
     scanmem
     vesktop
     vkbasalt
