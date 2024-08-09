@@ -3,7 +3,7 @@
   imports =
   [
     ./compositors/gnome.nix
-    ./dislayManagers/gdm.nix
+    ./displayManagers/gdm.nix
     ./software/fileManager.nix
   ];
 }

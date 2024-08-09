@@ -15,10 +15,13 @@
     gnome-tweaks
     gnome-extension-manager
     gnomeExtensions.user-themes
+    gnomeExtensions.tray-icons-reloaded
     gnomeExtensions.vitals
   ];
+  /*
   environment.sessionVariables =
   {
     MUTTER_DEBUG_FORCE_KMS_MODE="simple";
   };
+  */
 }
