@@ -1,4 +1,4 @@
-{pkgs, host, lib, ...}:
+{pkgs, host, lib, inputs, ...}:
 let
   inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     backgroundColorOne
@@ -14,6 +14,10 @@ let
     hyprWindowRulesV2;
 in
 {
+  imports = 
+  [
+    inputs.hyprland.homeManagerModules.default
+  ];
   wayland.windowManager.hyprland = 
   {
     enable = true;
@@ -81,7 +85,6 @@ in
       };
       misc =
       {
-        no_direct_scanout = true;
         force_default_wallpaper = 2;
       };
       cursor =

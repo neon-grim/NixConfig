@@ -1,9 +1,12 @@
 {pkgs, inputs, ...}:
 {
+  imports = 
+  [
+    inputs.hyprland.nixosModules.default
+  ];
   programs.hyprland = 
   {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
   environment.systemPackages = with pkgs;
   [
