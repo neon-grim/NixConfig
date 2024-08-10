@@ -91,6 +91,7 @@ in
       {
         no_hardware_cursors = true;
         no_break_fs_vrr = true;
+        min_refresh_rate = 0;
       };
       binds =
       {
