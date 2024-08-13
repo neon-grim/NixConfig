@@ -27,7 +27,7 @@ in
       windowrulev2 = windowRulesV2;
       exec-once=
       [
-        "${lib.getLib pkgs.pantheon.pantheon-agent-polkit}"
+        "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
         "${lib.getExe' pkgs.networkmanagerapplet "nm-applet"} --indicator"
         "${lib.getExe' pkgs.blueman "blueman-applet"}"
         "${lib.getExe pkgs.waybar}"
@@ -112,6 +112,7 @@ in
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, L, exec, ${powerMenu}"
         "${mainMod}, K, killactive,"
+        "${mainModShift}, F, fullscreen,"
         "${mainModShift}, L, exit,"
         "${mainModShift}, V, togglefloating,"
         # Change focused window
