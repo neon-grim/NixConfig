@@ -27,7 +27,7 @@ in
       windowrulev2 = windowRulesV2;
       exec-once=
       [
-        "${lib.getExe' pkgs.pantheon.pantheon-agent-polkit "io.elementary.desktop.agent-polkit"}"
+        "${lib.getLib pkgs.pantheon.pantheon-agent-polkit}"
         "${lib.getExe' pkgs.networkmanagerapplet "nm-applet"} --indicator"
         "${lib.getExe' pkgs.blueman "blueman-applet"}"
         "${lib.getExe pkgs.waybar}"
@@ -40,7 +40,7 @@ in
         kb_variant = "${variant}";
         numlock_by_default = true;
         accel_profile = "${mouseProfile}";
-        sensitivity = 1;
+        sensitivity = 0;
         follow_mouse = 1;
       };
       general =
@@ -83,7 +83,6 @@ in
       misc =
       {
         force_default_wallpaper = 2;
-        vrr = 2;
       };
       cursor =
       {

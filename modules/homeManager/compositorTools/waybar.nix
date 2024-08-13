@@ -1,10 +1,10 @@
-{host, lib, windowManager, ...}:
+{host, lib, pkgs, windowManager, ...}:
 let
   # Default Apps
-  calendar = "orage";
-  performanceApp = "corectrl";
-  taskManager = "xfce4-taskmanager";
-  volumeControl = "pavucontrol";
+  calendar = "${lib.getExe pkgs.xfce.orage}";
+  performanceApp = "${lib.getExe pkgs.lact}";
+  taskManager = "${lib.getExe pkgs.xfce.xfce4-taskmanager}";
+  volumeControl = "${lib.getExe pkgs.pavucontrol}";
   # Wofi
   powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
   # Host Specific

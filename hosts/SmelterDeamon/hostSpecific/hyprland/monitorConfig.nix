@@ -9,7 +9,8 @@
   monitorBinds =
   [
     "SUPER SHIFT, F1, exec, hyprctl keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@120.00, 1440x640, 1"
-    "SUPER SHIFT, F2, exec, hyprctl keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@240.00, 1440x640, 1"
+    "SUPER SHIFT, F2, exec, hyprctl keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@120.00, 1440x640, 1, vrr, 2"
+    "SUPER SHIFT, F3, exec, hyprctl keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@240.00, 1440x640, 1, vrr, 2"
   ];
   # Hyprpaper
   preloadWallpaper =

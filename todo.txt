@@ -2,6 +2,7 @@ Misc:
 ----------
 -Crop wallpaper to fit screens
 -Abstrac monitor config based on host
+-Check fullscreen mode of apps
 
 Issues:
 ----------
