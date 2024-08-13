@@ -28,16 +28,16 @@ in
     {
       modifier = "Mod4";
       menu = "'pkill wofi; sleep 0.1 && wofi -S drun'";
-      terminal = "${lib.getExe pkgs.terminator}";
+      terminal = "${lib.getExe' pkgs.terminator "terminator"}";
       bars = [{command = "${lib.getExe pkgs.waybar}";}];
       output = monitorSetup;
       startup =
       [
-        {command = "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit";}
+        {command = "${lib.getExe' pkgs.pantheon.pantheon-agent-polkit "io.elementary.desktop.agent-polkit"}";}
+        {command = "${lib.getExe' pkgs.networkmanagerapplet "nm-applet"} --indicator";}
+        {command = "${lib.getExe' pkgs.blueman "blueman-applet"}";}
         {command = "${lib.getExe pkgs.swaynotificationcenter}";}
-        {command = "blueman-applet";}
-        {command = "nm-applet --indicator";}
-        {command = "swaysome init 1";}
+        {command = "${lib.getExe pkgs.swaysome} init 1";}
       ];
       input =
       {

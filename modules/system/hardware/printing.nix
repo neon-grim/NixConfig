@@ -1,7 +1,9 @@
 {...}:
 {
+  programs.system-config-printer.enable = true;
   services =
   {
+    system-config-printer.enable = true;
     printing.enable = true;
     avahi = 
     {

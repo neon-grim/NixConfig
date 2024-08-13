@@ -10,8 +10,8 @@ let
   inherit (import ../../../hosts/${host}/hostSpecific/hyprland/monitorConfig.nix)
     monitorSetup
     monitorBinds;
-  inherit (import ../../../hosts/${host}/hostSpecific/hyprland/windowRules.nix)
-    hyprWindowRulesV2;
+  inherit (import ../../../hosts/${host}/hostSpecific/hyprland/hyprlandRules.nix)
+    windowRulesV2;
 in
 {
   imports = 
@@ -24,43 +24,40 @@ in
     settings =
     {
       monitor = monitorSetup ++ [", preferred, auto, 1"];
-      windowrulev2 = hyprWindowRulesV2;
+      windowrulev2 = windowRulesV2;
       exec-once=
       [
-        "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
+        "${lib.getExe' pkgs.pantheon.pantheon-agent-polkit "io.elementary.desktop.agent-polkit"}"
+        "${lib.getExe' pkgs.networkmanagerapplet "nm-applet"} --indicator"
+        "${lib.getExe' pkgs.blueman "blueman-applet"}"
         "${lib.getExe pkgs.waybar}"
         "${lib.getExe pkgs.hyprpaper}"
         "${lib.getExe pkgs.swaynotificationcenter}"
-        "blueman-applet"
-        "nm-applet --indicator"
       ];
       input =
       {
         kb_layout = "${layout}";
         kb_variant = "${variant}";
-        accel_profile = "${mouseProfile}";
-        sensitivity = 0;
-        follow_mouse = 1;
         numlock_by_default = true;
+        accel_profile = "${mouseProfile}";
+        sensitivity = 1;
+        follow_mouse = 1;
       };
       general =
       {
+        allow_tearing = true;
+        layout = "master";
+        "col.active_border" = "rgb(${backgroundColorFive})";
+        "col.inactive_border" = "rgba(${backgroundColorOne}aa)";
         border_size = 3;
         gaps_in = 5;
         gaps_out = 5;
-        "col.active_border" = "rgb(${backgroundColorFive})";
-        "col.inactive_border" = "rgba(${backgroundColorOne}aa)";
         resize_on_border = true;
         hover_icon_on_border = false;
-        layout = "master";
-        allow_tearing = false;
       };
       decoration =
       {
         rounding = 3;
-        active_opacity = 1;
-        inactive_opacity = 1;
-        fullscreen_opacity = 1;
         drop_shadow = false;
       };
       animations = 
@@ -81,11 +78,12 @@ in
       {
         new_status = "slave";
         orientation = "center";
-        mfact = 0.5;
+        mfact = 0.4;
       };
       misc =
       {
         force_default_wallpaper = 2;
+        vrr = 2;
       };
       cursor =
       {
@@ -109,7 +107,7 @@ in
       monitorBinds ++
       [
         # Execute default programs and actions
-        "${mainMod}, Return, exec, ${lib.getExe pkgs.terminator}"
+        "${mainMod}, Return, exec, ${lib.getExe' pkgs.terminator "terminator"}"
         "${mainMod}, E, exec, ${lib.getExe pkgs.xfce.thunar}"
         "${mainMod}, F, exec, ${lib.getExe pkgs.librewolf}"
         "${mainMod}, R, exec, ${menu}"

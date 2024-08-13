@@ -1,5 +1,5 @@
 {
-  hyprWindowRulesV2 = 
+  windowRulesV2 = 
   [
     # Gaming
     "monitor DP-2, class:steam_app*"

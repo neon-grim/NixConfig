@@ -10,7 +10,7 @@
       "audio/flac" = ["org.gnome.Rhythmbox3.desktop" "vlc.desktop"];
       "video/mp4" = ["vlc.desktop"];
       "inode/directory" = ["thunar.desktop"];
-      "application/pdf" = ["firefox.desktop"];
+      "application/pdf" = ["librewolf.desktop"];
       "image/jpeg" = ["org.xfce.ristretto.desktop"];
       "image/png" = ["org.xfce.ristretto.desktop"];
       "text/plain" = ["org.xfce.mousepad.desktop"];
