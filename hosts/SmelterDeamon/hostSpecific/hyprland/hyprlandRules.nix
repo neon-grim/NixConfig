@@ -2,15 +2,19 @@
   windowRulesV2 = 
   [
     # Gaming
-    "monitor DP-2, class:steam_app*"
-    "workspace 20,class:steam_app*"
-    "monitor HDMI-A-2, class:vesktop"
-    # Floeating
-    "center 1, title:(Open File)"
-    "center 1, ttitle:(Save As)"
-    "center 1, title:(Load Playlist)"
-    "size 70% 70%, title:(Open File)"
-    "size 70% 70%, title:(Save As)"
-    "size 70% 70%, title:(Load Playlist)"
+    "monitor DP-2, class:^((?i)steam_app_\d+)$"
+    "workspace 20, class:^((?i)steam_app_\d+)$"
+    "immediate, class:^((?i)steam_app_\d+)$"
+    # File-explorer
+    "center 1, floeating:1, title:^((?i)open.*)$"
+    "center 1, floeating:1, title:^((?i)save.*)$"
+    "center 1, floeating:1, title:^((?i)load.*)$"
+    "size 70% 70%, floeating:1, title:^((?i)open.*)$"
+    "size 70% 70%, floeating:1, title:^((?i)save.*)$"
+    "size 70% 70%, floeating:1, title:^((?i)load.*)$"
+    # Apps
+    "monitor HDMI-A-2, class:^(vesktop)$"
+    "monitor HDMI-A-1, title:^(Steam)$"
+    
   ];
 }
