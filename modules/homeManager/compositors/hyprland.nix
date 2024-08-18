@@ -45,8 +45,6 @@ in
       };
       general =
       {
-        allow_tearing = true;
-        layout = "master";
         "col.active_border" = "rgb(${backgroundColorFive})";
         "col.inactive_border" = "rgba(${backgroundColorOne}aa)";
         border_size = 3;
@@ -54,6 +52,14 @@ in
         gaps_out = 5;
         resize_on_border = true;
         hover_icon_on_border = false;
+        allow_tearing = true;
+        layout = "master";
+      };
+      master =
+      {
+        new_status = "slave";
+        orientation = "center";
+        mfact = 0.5;
       };
       decoration =
       {
@@ -73,12 +79,6 @@ in
           "fade, 1, 5, default"
           "workspaces, 1, 3, default"
         ];
-      };
-      master =
-      {
-        new_status = "slave";
-        orientation = "center";
-        mfact = 0.4;
       };
       misc =
       {
