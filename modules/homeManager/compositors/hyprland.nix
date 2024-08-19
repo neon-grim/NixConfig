@@ -3,7 +3,8 @@ let
   mainMod = "SUPER";
   inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     backgroundColorOne
-    backgroundColorFive;
+    backgroundColorFive
+    cursorSize;
   inherit (import ../../../hosts/${host}/hostSpecific/systemConfig.nix)
     layout
     mouseProfile
@@ -28,6 +29,15 @@ in
       monitor = monitorSetup ++ [", preferred, auto, 1"];
       windowrulev2 = windowRules;
       # General Settings
+      env =
+      [
+        "CLUTTER_BACKEND,wayland"
+        "GDK_BACKEND,wayland,x11,*"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "XCURSOR_SIZE,${cursorSize}"
+      ];
       exec-once=
       [
         "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
@@ -53,7 +63,7 @@ in
       {
         mfact = 0.5;
         new_status = "slave";
-        orientation = "center";
+        orientation = "left";
       };
       # Input Settings
       input =

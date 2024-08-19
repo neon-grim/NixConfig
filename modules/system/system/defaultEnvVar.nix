@@ -1,14 +1,8 @@
-{host, ...}:
-let
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
-    cursorSize;
-in
 {
   environment.sessionVariables =
   {
     # General system variables
     NIXOS_OZONE_WL = 1;
-    XCURSOR_SIZE = cursorSize;
     # User dirs
     XDG_DESKTOP_DIR= "$HOME/Desktop";
     XDG_DOCUMENTS_DIR= "$HOME/Documents";
