@@ -1,5 +1,6 @@
 {pkgs, host, lib, inputs, ...}:
 let
+  mainMod = "SUPER";
   inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     backgroundColorOne
     backgroundColorFive;
@@ -11,7 +12,7 @@ let
     monitorSetup
     monitorBinds;
   inherit (import ../../../hosts/${host}/hostSpecific/hyprland/hyprlandRules.nix)
-    windowRulesV2;
+    windowRules;
 in
 {
   imports = 
@@ -23,49 +24,54 @@ in
     enable = true;
     settings =
     {
+      # Monitor Settings
       monitor = monitorSetup ++ [", preferred, auto, 1"];
-      windowrulev2 = windowRulesV2;
+      windowrulev2 = windowRules;
+      # General Settings
       exec-once=
       [
         "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
-        "${lib.getExe' pkgs.networkmanagerapplet "nm-applet"} --indicator"
         "${lib.getExe' pkgs.blueman "blueman-applet"}"
-        "${lib.getExe pkgs.waybar}"
+        "${lib.getExe' pkgs.networkmanagerapplet "nm-applet"} --indicator"
         "${lib.getExe pkgs.hyprpaper}"
         "${lib.getExe pkgs.swaynotificationcenter}"
+        "${lib.getExe pkgs.waybar}"
       ];
-      input =
-      {
-        kb_layout = "${layout}";
-        kb_variant = "${variant}";
-        numlock_by_default = true;
-        accel_profile = "${mouseProfile}";
-        sensitivity = 0;
-        follow_mouse = 1;
-      };
       general =
       {
+        allow_tearing = true;
+        border_size = 3;
         "col.active_border" = "rgb(${backgroundColorFive})";
         "col.inactive_border" = "rgba(${backgroundColorOne}aa)";
-        border_size = 3;
         gaps_in = 5;
         gaps_out = 5;
-        resize_on_border = true;
         hover_icon_on_border = false;
-        allow_tearing = true;
         layout = "master";
+        resize_on_border = true;
       };
       master =
       {
+        mfact = 0.5;
         new_status = "slave";
         orientation = "center";
-        mfact = 0.5;
       };
-      decoration =
+      # Input Settings
+      input =
       {
-        rounding = 3;
-        drop_shadow = false;
+        accel_profile = "${mouseProfile}";
+        follow_mouse = 1;
+        kb_layout = "${layout}";
+        kb_variant = "${variant}";
+        numlock_by_default = true;
+        sensitivity = 0;
       };
+      cursor =
+      {
+        min_refresh_rate = 0;
+        no_hardware_cursors = true;
+        no_break_fs_vrr = true;
+      };
+      # Theming
       animations = 
       {
         enabled = true;
@@ -80,30 +86,40 @@ in
           "workspaces, 1, 3, default"
         ];
       };
+      decoration =
+      {
+        drop_shadow = false;
+        rounding = 3;
+      };
       misc =
       {
         force_default_wallpaper = 2;
       };
-      cursor =
-      {
-        no_hardware_cursors = true;
-        no_break_fs_vrr = true;
-        min_refresh_rate = 0;
-      };
+      # WM Bindings
       binds =
       {
         movefocus_cycles_fullscreen = false;
       };
+      bindm =
+      [
+        "${mainMod}, mouse:272, movewindow"
+        "${mainMod}, mouse:273, resizewindow"
+      ];
+      bindl =
+      [
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ];
       bind = 
       let 
-        mainMod = "SUPER";
-        mainModShift = "SUPER SHIFT";
-        mainModAlt = "$SUPER ALT_L";
-        mainModControl = "SUPER CONTROL_L";
+        mainModShift = "${mainMod} SHIFT";
+        mainModAlt = "${mainMod} ALT_L";
+        mainModControl = "${mainMod} CONTROL_L";
         menu = "pkill wofi; sleep 0.1 && wofi -S drun";
         powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
       in
-      monitorBinds ++
+        monitorBinds ++
       [
         # Execute default programs and actions
         "${mainMod}, Return, exec, ${lib.getExe' pkgs.terminator "terminator"}"
@@ -150,23 +166,6 @@ in
         "${mainMod}, F9, exec, hyprshot -m region --freeze"
         "${mainMod}, F10, exec, hyprshot -m window -m active --freeze"
         "${mainMod}, F11, exec, hyprshot -m output -m active --freeze"
-      ];
-      bindm =
-      let 
-        mainMod = "SUPER";
-        mainModShift = "SUPER SHIFT";
-      in
-      [
-        # Move/resize windows
-        "${mainModShift}, mouse:272, movewindow"
-        "${mainModShift}, mouse:273, resizewindow"
-      ];
-      bindl =
-      [
-        # volume control
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ];
     };
   };

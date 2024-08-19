@@ -1,17 +1,21 @@
 {
-  windowRulesV2 = 
+  windowRules = 
   [
     # Gaming
-    "monitor DP-2, class:^((?i)steam_app_\d+)$"
-    "workspace 20, class:^((?i)steam_app_\d+)$"
-    "immediate, class:^((?i)steam_app_\d+)$"
+    "monitor DP-2, class:^(steam_app_.*)$"
+    "workspace 20, class:^(steam_app_.*)$"
+    "immediate, class:^(steam_app_.*)$"
+    "fullscreen, class:^(steam_app_.*)$"
     # File-explorer
-    "center 1, floeating:1, title:^((?i)open.*)$"
-    "center 1, floeating:1, title:^((?i)save.*)$"
-    "center 1, floeating:1, title:^((?i)load.*)$"
-    "size 70% 70%, floeating:1, title:^((?i)open.*)$"
-    "size 70% 70%, floeating:1, title:^((?i)save.*)$"
-    "size 70% 70%, floeating:1, title:^((?i)load.*)$"
+    "float, floeating:0, title:^([O-o]pen.*)$"
+    "float, floeating:0, title:^([L-l]oad.*)$"
+    "float, floeating:0, title:^([S-s]ave.*)$"
+    "center 1, floeating:1, title:^([O-o]pen.*)$"
+    "center 1, floeating:1, title:^([L-l]oad.*)$"
+    "center 1, floeating:1, title:^([S-s]ave.*)$"
+    "size 70% 70%, floeating:1, title:^([O-o]pen.*)$"
+    "size 70% 70%, floeating:1, title:^([S-s]ave.*)$"
+    "size 70% 70%, floeating:1, title:^([L-l]oad.*)$"
     # Apps
     "monitor HDMI-A-2, class:^(vesktop)$"
     "monitor HDMI-A-1, title:^(Steam)$"
