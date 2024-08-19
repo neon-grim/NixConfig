@@ -1,18 +1,15 @@
 Misc:
 ----------
 -Crop wallpaper to fit screens
--Abstrac monitor config based on host
--Check fullscreen mode of apps
 
 Issues:
 ----------
 -Fix Mouse not being captured in fullscreen games
+-Fix waybar not restarting on relogin
 
 Software:
 ----------
 -Get teams on linux
--Allow virt manager to access USB ports
--Fix org.freedesktop.portal.Desktop crashing when logging out
 -Fix hyprlock crashing on reconnecting screen
 
 Home-manager
