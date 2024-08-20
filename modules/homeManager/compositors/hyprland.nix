@@ -56,14 +56,14 @@ in
         gaps_in = 5;
         gaps_out = 5;
         hover_icon_on_border = false;
-        layout = "center";
+        layout = "master";
         resize_on_border = true;
       };
       master =
       {
         mfact = 0.5;
         new_status = "slave";
-        orientation = "left";
+        orientation = "center";
       };
       # Input Settings
       input =
