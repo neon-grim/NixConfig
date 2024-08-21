@@ -6,12 +6,12 @@
   };
   environment.systemPackages = with pkgs;
   [
-    gimp
+    krita
     librewolf
-    libsForQt5.kdenlive
     moonlight-qt
     obs-studio
     onlyoffice-bin_latest
+    pitivi
     python3Full
     rhythmbox
     vlc
