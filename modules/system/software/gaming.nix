@@ -14,10 +14,7 @@
   environment.systemPackages = with pkgs;
   [
     bottles
-    corectrl
-    discord
     goverlay
-    gamescope
     heroic
     jstest-gtk
     lact

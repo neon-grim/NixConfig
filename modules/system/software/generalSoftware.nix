@@ -6,6 +6,7 @@
   };
   environment.systemPackages = with pkgs;
   [
+    geany
     krita
     librewolf
     moonlight-qt
@@ -13,11 +14,11 @@
     onlyoffice-bin_latest
     pitivi
     python3Full
+    resources
     rhythmbox
     vlc
     xfce.mousepad
     xfce.orage
     xfce.ristretto
-    xfce.xfce4-taskmanager
   ];
 }
