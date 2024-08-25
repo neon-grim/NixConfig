@@ -134,11 +134,11 @@ in
         # Execute default programs and actions
         "${mainMod}, Return, exec, ${lib.getExe' pkgs.terminator "terminator"}"
         "${mainMod}, E, exec, ${lib.getExe pkgs.xfce.thunar}"
-        "${mainMod}, F, exec, ${lib.getExe pkgs.librewolf}"
+        "${mainMod}, B, exec, ${lib.getExe pkgs.librewolf}"
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, L, exec, ${powerMenu}"
         "${mainMod}, K, killactive,"
-        "${mainModShift}, F, fullscreen,"
+        "${mainMod}, F, fullscreen,"
         "${mainModShift}, L, exit,"
         "${mainModShift}, V, togglefloating,"
         # Change focused window
