@@ -16,6 +16,7 @@
     python3Full
     resources
     rhythmbox
+    unrar
     vlc
     xfce.mousepad
     xfce.orage
