@@ -1,6 +1,6 @@
 {pkgs, host, ...}:
 let
-  inherit (import ../../../hosts/${host}/hostSpecific/hyprland/monitorConfig.nix)
+  inherit (import ../../../../hosts/${host}/hostSpecific/hyprland/monitorConfig.nix)
     preloadWallpaper
     wallpaperConfig;
 in

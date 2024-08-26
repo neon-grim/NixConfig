@@ -9,6 +9,7 @@
       url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -16,7 +17,7 @@
     lib = nixpkgs.lib;
     host = "SmelterDeamon";
     username = "ashen_one";
-    windowManager = "gnome";
+    windowManager = "windowManagers";
   in
   {
     nixosConfigurations = 

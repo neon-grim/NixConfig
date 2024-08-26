@@ -14,18 +14,27 @@
   environment.systemPackages = with pkgs;
   [
     bottles
-    corectrl
-    discord
-    heroic
-    moltengamepad
-    prismlauncher
-    protonplus
     goverlay
+    heroic
     jstest-gtk
+    lact
     libstrangle
     mangohud
+    prismlauncher
+    protonplus
+    protontricks
     scanmem
     vesktop
     vkbasalt
   ];
+  systemd.services.lactd = 
+  {
+    description = "AMDGPU Control Daemon";
+    enable = true;  
+    serviceConfig = 
+    {
+      ExecStart = "${pkgs.lact}/bin/lact daemon";
+    };
+    wantedBy = ["multi-user.target"];
+  };
 }

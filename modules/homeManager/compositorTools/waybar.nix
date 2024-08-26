@@ -1,9 +1,11 @@
-{host, ...}:
+{host, lib, pkgs, windowManager, ...}:
 let
-  calendar = "orage";
-  performanceApp = "corectrl";
-  taskManager = "xfce4-taskmanager";
-  volumeControl = "pavucontrol";
+  # Default Apps
+  calendar = "${lib.getExe pkgs.xfce.orage}";
+  performanceApp = "${lib.getExe pkgs.lact}";
+  taskManager = "${lib.getExe pkgs.xfce.xfce4-taskmanager}";
+  volumeControl = "${lib.getExe pkgs.pavucontrol}";
+  # Wofi
   powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
   # Host Specific
   inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
@@ -32,6 +34,7 @@ in
         modules-left =
         [
           "hyprland/workspaces"
+          "sway/workspaces"
         ];
         modules-center =
         [ 
@@ -51,21 +54,6 @@ in
           spacing = 12;
           icon-size = 18;
           reverse-direction = true;
-        };
-        "hyprland/workspaces" =
-        {
-          on-scroll-up = "hyprctl dispatch workspace e+1";
-          on-scroll-down = "hyprctl dispatch workspace e-1";
-          on-click = "activate";
-          format = "{icon}";
-          
-          format-icons = 
-          {
-            active = "";
-            empty = "";
-            default = "";
-            urgent = "";
-          };
         };
         "pulseaudio" =
         {
@@ -124,6 +112,33 @@ in
           on-click = "sleep 0.1 && swaync-client -t -sw";
           on-click-right = "swaync-client -d -sw";
           escape = true;
+        };
+        
+        "hyprland/workspaces" =
+        {
+          on-scroll-up = "hyprctl dispatch workspace e+1";
+          on-scroll-down = "hyprctl dispatch workspace e-1";
+          on-click = "activate";
+          format = "{icon}";
+          format-icons = 
+          {
+            default = "";
+            active = "";
+            empty = "";
+            urgent = "";
+          };
+        };
+        "sway/workspaces" =
+        {
+          disable-scroll = false;
+          all-outputs = true;
+          format = "{icon}";
+          format-icons =
+          {
+            default = "";
+            focused = "";
+            urgent = "";
+          };
         };
       }
     ];

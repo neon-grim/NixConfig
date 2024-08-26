@@ -1,4 +1,4 @@
-{pkgs, config, ...}:
+{pkgs, ...}:
 {
   services =
   {
@@ -25,5 +25,6 @@
   environment.systemPackages = with pkgs;
   [
     file-roller
+    gparted
   ];
 }

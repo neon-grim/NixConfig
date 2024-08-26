@@ -1,21 +1,10 @@
-{pkgs, host, lib, ...}:
+{pkgs, host, lib, inputs, ...}:
 let
-  # Main Mod
   mainMod = "SUPER";
-  mainModShift = "SUPER SHIFT";
-  mainModAlt = "$SUPER ALT_L";
-  mainModControl = "SUPER CONTROL_L";
-  # Default Apps
-  browser = "librewolf";
-  fileManager = "thunar";
-  terminal = "terminator";
-  # Wofi
-  menu = "pkill wofi; sleep 0.1 && wofi -S drun";
-  powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
-  # Host specific
   inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     backgroundColorOne
-    backgroundColorFive;
+    backgroundColorFive
+    cursorSize;
   inherit (import ../../../hosts/${host}/hostSpecific/systemConfig.nix)
     layout
     mouseProfile
@@ -23,55 +12,76 @@ let
   inherit (import ../../../hosts/${host}/hostSpecific/hyprland/monitorConfig.nix)
     monitorSetup
     monitorBinds;
-  inherit (import ../../../hosts/${host}/hostSpecific/hyprland/windowRules.nix)
-    hyprWindowRulesV2;
+  inherit (import ../../../hosts/${host}/hostSpecific/hyprland/hyprlandRules.nix)
+    windowRules;
 in
 {
+  imports = 
+  [
+    inputs.hyprland.homeManagerModules.default
+  ];
   wayland.windowManager.hyprland = 
   {
     enable = true;
     settings =
     {
+      # Monitor Settings
       monitor = monitorSetup ++ [", preferred, auto, 1"];
-      windowrulev2 = hyprWindowRulesV2;
+      windowrulev2 = windowRules;
+      # General Settings
+      env =
+      [
+        "CLUTTER_BACKEND,wayland"
+        "GDK_BACKEND,wayland,x11,*"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "XCURSOR_SIZE,${toString cursorSize}"
+      ];
       exec-once=
       [
         "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
-        "${lib.getExe pkgs.waybar}"
+        "${lib.getExe' pkgs.blueman "blueman-applet"}"
+        "${lib.getExe' pkgs.networkmanagerapplet "nm-applet"} --indicator"
         "${lib.getExe pkgs.hyprpaper}"
         "${lib.getExe pkgs.swaynotificationcenter}"
-        "blueman-applet"
-        "nm-applet --indicator"
+        "${lib.getExe pkgs.waybar}"
       ];
+      general =
+      {
+        allow_tearing = true;
+        border_size = 3;
+        "col.active_border" = "rgb(${backgroundColorFive})";
+        "col.inactive_border" = "rgba(${backgroundColorOne}aa)";
+        gaps_in = 5;
+        gaps_out = 5;
+        hover_icon_on_border = false;
+        layout = "master";
+        resize_on_border = true;
+      };
+      master =
+      {
+        mfact = 0.5;
+        new_status = "slave";
+        orientation = "center";
+      };
+      # Input Settings
       input =
       {
+        accel_profile = "${mouseProfile}";
+        follow_mouse = 1;
         kb_layout = "${layout}";
         kb_variant = "${variant}";
         numlock_by_default = true;
         sensitivity = 0;
-        follow_mouse = 1;
-        accel_profile = "${mouseProfile}";
       };
-      general =
+      cursor =
       {
-        border_size = 3;
-        gaps_in = 5;
-        gaps_out = 5;
-        "col.active_border" = "rgb(${backgroundColorFive})";
-        "col.inactive_border" = "rgba(${backgroundColorOne}aa)";
-        resize_on_border = true;
-        hover_icon_on_border = false;
-        layout = "master";
-        allow_tearing = false;
+        min_refresh_rate = 0;
+        no_hardware_cursors = true;
+        no_break_fs_vrr = true;
       };
-      decoration =
-      {
-        rounding = 3;
-        active_opacity = 1;
-        inactive_opacity = 1;
-        fullscreen_opacity = 1;
-        drop_shadow = false;
-      };
+      # Theming
       animations = 
       {
         enabled = true;
@@ -86,35 +96,49 @@ in
           "workspaces, 1, 3, default"
         ];
       };
-      master =
+      decoration =
       {
-        new_status = "slave";
-        orientation = "center";
-        mfact = 0.5;
+        drop_shadow = false;
+        rounding = 3;
       };
       misc =
       {
-        #no_direct_scanout  = true;
         force_default_wallpaper = 2;
       };
-      /*cursor =
-      {
-        no_hardware_cursors = true;
-        no_break_fs_vrr = true;
-      };*/
+      # WM Bindings
       binds =
       {
         movefocus_cycles_fullscreen = false;
       };
-      bind = monitorBinds ++
+      bindm =
+      [
+        "${mainMod}, mouse:272, movewindow"
+        "${mainMod}, mouse:273, resizewindow"
+      ];
+      bindl =
+      [
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ];
+      bind = 
+      let 
+        mainModShift = "${mainMod} SHIFT";
+        mainModAlt = "${mainMod} ALT_L";
+        mainModControl = "${mainMod} CONTROL_L";
+        menu = "pkill wofi; sleep 0.1 && wofi -S drun";
+        powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
+      in
+        monitorBinds ++
       [
         # Execute default programs and actions
-        "${mainMod}, Return, exec, ${terminal}"
-        "${mainMod}, E, exec, ${fileManager}"
-        "${mainMod}, F, exec, ${browser}"
+        "${mainMod}, Return, exec, ${lib.getExe' pkgs.terminator "terminator"}"
+        "${mainMod}, E, exec, ${lib.getExe pkgs.xfce.thunar}"
+        "${mainMod}, B, exec, ${lib.getExe pkgs.librewolf}"
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, L, exec, ${powerMenu}"
         "${mainMod}, K, killactive,"
+        "${mainMod}, F, fullscreen,"
         "${mainModShift}, L, exit,"
         "${mainModShift}, V, togglefloating,"
         # Change focused window
@@ -152,19 +176,6 @@ in
         "${mainMod}, F9, exec, hyprshot -m region --freeze"
         "${mainMod}, F10, exec, hyprshot -m window -m active --freeze"
         "${mainMod}, F11, exec, hyprshot -m output -m active --freeze"
-      ];
-      bindm =
-      [
-        # Move/resize windows
-        "${mainModShift}, mouse:272, movewindow"
-        "${mainModShift}, mouse:273, resizewindow"
-      ];
-      bindl =
-      [
-        # volume control
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ];
     };
   };

@@ -1,4 +1,4 @@
-{config, host, pkgs, username, ...}:
+{config, host, username, ...}:
 let
   inherit (import ../../../hosts/${host}/hostSpecific/systemConfig.nix)
     userDescription
@@ -9,6 +9,5 @@ in
     isNormalUser = true;
     description = "${userDescription}";
     extraGroups = userGroups;
-    packages = with pkgs; [ ];
   };
 }

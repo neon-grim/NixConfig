@@ -2,7 +2,6 @@
 {
   programs =
   {
-    dconf.enable = true;
     sway =
     {
       enable = true;
@@ -11,8 +10,8 @@
   };
   environment.systemPackages = with pkgs;
   [
-    # Waybar Tools
-    swww
+    sov
+    swaysome
     wayshot
   ];
 }

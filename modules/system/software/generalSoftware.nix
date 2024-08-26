@@ -6,19 +6,20 @@
   };
   environment.systemPackages = with pkgs;
   [
-    gimp
-    gparted
+    geany
+    krita
     librewolf
-    libsForQt5.kdenlive
     moonlight-qt
     obs-studio
     onlyoffice-bin_latest
+    pitivi
     python3Full
+    resources
     rhythmbox
+    unrar
     vlc
     xfce.mousepad
     xfce.orage
     xfce.ristretto
-    xfce.xfce4-taskmanager
   ];
 }
