@@ -15,18 +15,15 @@
   [
     bottles
     goverlay
-    heroic
     jstest-gtk
     lact
     libstrangle
     mangohud
-    prismlauncher
     protonplus
     protontricks
     rpcs3
     ryujinx
     scanmem
-    vesktop
     vkbasalt
   ];
   systemd.services.lactd = 
