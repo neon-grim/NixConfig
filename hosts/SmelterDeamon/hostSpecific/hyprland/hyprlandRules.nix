@@ -5,6 +5,7 @@
     "monitor DP-2, class:^(steam_app_.*)$"
     "workspace 20, class:^(steam_app_.*)$"
     "immediate, class:^(steam_app_.*)$"
+    "fullscreenstate 2 2, floating:1, class:^(steam_app_.*)$"
     # File-explorer
     "float, floeating:0, title:^([O-o]pen.*)$"
     "float, floeating:0, title:^([L-l]oad.*)$"

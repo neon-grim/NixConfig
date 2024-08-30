@@ -23,6 +23,8 @@
     prismlauncher
     protonplus
     protontricks
+    rpcs3
+    ryujinx
     scanmem
     vesktop
     vkbasalt
