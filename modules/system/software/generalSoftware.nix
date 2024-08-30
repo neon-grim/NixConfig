@@ -15,9 +15,9 @@
     pitivi
     python3Full
     resources
-    rhythmbox
+    lollypop
     unrar
-    vlc
+    celluloid
     xfce.mousepad
     xfce.orage
     xfce.ristretto

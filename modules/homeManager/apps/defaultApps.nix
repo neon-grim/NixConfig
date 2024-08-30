@@ -1,14 +1,14 @@
-{...}:
+{pkgs, lib, ...}:
 {
-  # Default apps
+  xdg.configFile."mimeapps.list".force = true;
   xdg.mimeApps =
   {
     enable = true;
     defaultApplications =
     {
-      "audio/mp3" = ["org.gnome.Rhythmbox3.desktop" "vlc.desktop"];
-      "audio/flac" = ["org.gnome.Rhythmbox3.desktop" "vlc.desktop"];
-      "video/mp4" = ["vlc.desktop"];
+      "audio/mp3" = ["org.gnome.Lollypop.desktop"];
+      "audio/flac" = ["org.gnome.Lollypop.desktop"];
+      "video/mp4" = ["io.github.celluloid_player.Celluloid.desktop"];
       "inode/directory" = ["thunar.desktop"];
       "application/pdf" = ["librewolf.desktop"];
       "image/jpeg" = ["org.xfce.ristretto.desktop"];
