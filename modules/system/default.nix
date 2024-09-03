@@ -2,7 +2,7 @@
 {
   imports =
   [
-    ./hardware/amdvlk.nix
+    #./hardware/amdvlk.nix
     ./hardware/bluetooth.nix
     ./hardware/kernel.nix
     ./hardware/printing.nix
