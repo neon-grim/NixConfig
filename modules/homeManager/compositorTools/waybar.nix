@@ -1,9 +1,9 @@
 {host, lib, pkgs, windowManager, ...}:
 let
   # Default Apps
-  calendar = "${lib.getExe pkgs.xfce.orage}";
+  calendar = "${lib.getExe pkgs.thunderbird}";
   performanceApp = "${lib.getExe pkgs.lact}";
-  taskManager = "${lib.getExe pkgs.xfce.xfce4-taskmanager}";
+  taskManager = "${lib.getExe pkgs.resources}";
   volumeControl = "${lib.getExe pkgs.pavucontrol}";
   # Wofi
   powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";

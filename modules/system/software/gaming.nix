@@ -13,16 +13,14 @@
   };
   environment.systemPackages = with pkgs;
   [
-    bottles
     goverlay
+    heroic
     jstest-gtk
     lact
     libstrangle
     mangohud
     protonplus
     protontricks
-    rpcs3
-    ryujinx
     scanmem
     vkbasalt
   ];

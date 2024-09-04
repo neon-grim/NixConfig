@@ -9,10 +9,10 @@
       "audio/mp3" = ["org.gnome.Lollypop.desktop"];
       "audio/flac" = ["org.gnome.Lollypop.desktop"];
       "video/mp4" = ["io.github.celluloid_player.Celluloid.desktop"];
-      "inode/directory" = ["thunar.desktop"];
+      "inode/directory" = ["pcmanfm.desktop"];
       "application/pdf" = ["librewolf.desktop"];
-      "image/jpeg" = ["org.xfce.ristretto.desktop"];
-      "image/png" = ["org.xfce.ristretto.desktop"];
+      "image/jpeg" = ["org.libvips.vipsdisp.desktop"];
+      "image/png" = ["org.libvips.vipsdisp.desktop"];
       "text/plain" = ["org.xfce.mousepad.desktop"];
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["onlyoffice-desktopeditors.desktop"];
       "application/vnd.openxmlformats-officedocument.presentationml.presentation" = ["onlyoffice-desktopeditors.desktop"];

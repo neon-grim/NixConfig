@@ -9,6 +9,7 @@
     nix-prefetch-git
     psmisc
     terminator
+    unrar
     usbutils
   ];
 }
