@@ -129,18 +129,6 @@ in
             urgent = "";
           };
         };
-        "sway/workspaces" =
-        {
-          disable-scroll = false;
-          all-outputs = true;
-          format = "{icon}";
-          format-icons =
-          {
-            default = "";
-            focused = "";
-            urgent = "";
-          };
-        };
       }
     ];
     style =
