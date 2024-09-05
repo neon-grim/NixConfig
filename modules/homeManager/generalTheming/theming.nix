@@ -14,7 +14,6 @@ let
     iconThemePackage;
 in
 {
-  # Cursor Theme
   home =
   {
     pointerCursor = 
@@ -26,7 +25,6 @@ in
       size = cursorSize;
     };
   };
-  # GTK Theme
   gtk = 
   {
     enable = true;
@@ -54,7 +52,6 @@ in
       size = fontSize;
     };
   };
-  # QT Theme
   qt = 
   {
     enable = true;

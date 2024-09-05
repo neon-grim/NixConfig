@@ -26,10 +26,8 @@ in
     enable = true;
     settings =
     {
-      # Monitor Settings
       monitor = monitorSetup ++ [", preferred, auto, 1"];
       windowrulev2 = windowRules;
-      # General Settings
       env =
       [
         "CLUTTER_BACKEND,wayland"
@@ -66,7 +64,6 @@ in
         new_status = "slave";
         orientation = "center";
       };
-      # Input Settings
       input =
       {
         accel_profile = "${mouseProfile}";
@@ -82,7 +79,6 @@ in
         no_hardware_cursors = true;
         no_break_fs_vrr = true;
       };
-      # Theming
       animations = 
       {
         enabled = true;
@@ -106,7 +102,6 @@ in
       {
         force_default_wallpaper = 2;
       };
-      # WM Bindings
       binds =
       {
         movefocus_cycles_fullscreen = false;
