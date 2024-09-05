@@ -1,4 +1,4 @@
-{host, lib, pkgs, windowManager, ...}:
+{host, lib, pkgs, gtkTheme, ...}:
 let
   # Default Apps
   calendar = "${lib.getExe pkgs.thunderbird}";
@@ -8,7 +8,7 @@ let
   # Wofi
   powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
   # Host Specific
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
+  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
     backgroundColorOne
     backgroundColorTwo
     backgroundColorThree
@@ -18,7 +18,8 @@ let
     textColorTwo
     textColorThree
     textColorFour
-    textColorFive
+    textColorFive;
+  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     font
     fontSize;
 in

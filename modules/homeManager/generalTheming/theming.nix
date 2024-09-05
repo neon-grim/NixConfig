@@ -1,5 +1,8 @@
-{pkgs, host, ...}:
+{pkgs, host, gtkTheme, ...}:
 let
+  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
+    gtkThemePackage
+    gtkThemeName;
   inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     cursorSize
     cursorThemePackage
@@ -7,8 +10,6 @@ let
     font
     fontSize
     fontPackage
-    gtkThemePackage
-    gtkThemeName
     iconThemeName
     iconThemePackage;
 in

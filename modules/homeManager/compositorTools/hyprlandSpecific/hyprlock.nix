@@ -1,6 +1,6 @@
 {host, username, ...}:
 let
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
+  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
     backgroundColorOne
     backgroundColorTwo
     backgroundColorThree
@@ -10,7 +10,8 @@ let
     textColorTwo
     textColorThree
     textColorFour
-    textColorFive
+    textColorFive;
+  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     font;
   inherit (import ../../../hosts/${host}/hostSpecific/hyprland/monitorConfig.nix)
     lockWallpaper;

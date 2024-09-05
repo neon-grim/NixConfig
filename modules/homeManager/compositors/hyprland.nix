@@ -1,9 +1,10 @@
-{pkgs, host, lib, inputs, ...}:
+{pkgs, host, lib, inputs, gtkTheme, ...}:
 let
   mainMod = "SUPER";
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
+  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
     backgroundColorOne
-    backgroundColorFive
+    backgroundColorFive;
+  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     cursorSize;
   inherit (import ../../../hosts/${host}/hostSpecific/systemConfig.nix)
     layout

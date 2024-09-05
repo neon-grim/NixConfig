@@ -1,6 +1,6 @@
-{host, ...}:
+{host, gtktheme, gtkTheme, ...}:
 let
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
+  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
     backgroundColorOne
     backgroundColorTwo
     backgroundColorThree
@@ -8,7 +8,8 @@ let
     textColorOne
     textColorTwo
     textColorThree
-    textColorFour
+    textColorFour;
+  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     font
     fontSize;
 in
