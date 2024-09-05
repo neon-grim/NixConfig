@@ -9,7 +9,6 @@
     bottles
     celluloid
     krita
-    librewolf
     lollypop
     moonlight-qt
     obs-studio

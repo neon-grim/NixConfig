@@ -14,6 +14,5 @@
     hyprland-protocols
     hyprnome
     hyprshot
-    hyprpaper
   ];
 }

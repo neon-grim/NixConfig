@@ -6,8 +6,6 @@
     networkmanagerapplet
     pantheon.pantheon-agent-polkit
     pavucontrol
-    swaynotificationcenter
-    waybar
     wofi
     # Dependencies 
     libnotify
