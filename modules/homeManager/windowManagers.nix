@@ -6,6 +6,6 @@
     ./compositors/hyprland.nix
     ./compositorTools/waybar.nix
     ./compositorTools/swaync.nix
-    ./compositorTools/hyprlandSpecific/hyprpaper.nix
+    ./compositorTools/hyprpaper.nix
   ];
 }

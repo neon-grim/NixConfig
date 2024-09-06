@@ -13,7 +13,6 @@
     ./software/virtualisation.nix
     ./software/terminal.nix
     ./system/defaultEnvVar.nix
-    ./system/flatpak.nix
     ./system/security.nix
     ./system/users.nix
   ];

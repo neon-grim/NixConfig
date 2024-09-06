@@ -22,6 +22,7 @@
     protonplus
     protontricks
     scanmem
+    vesktop
     vkbasalt
   ];
   systemd.services.lactd = 

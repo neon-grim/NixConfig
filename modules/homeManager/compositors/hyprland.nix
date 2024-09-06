@@ -36,6 +36,7 @@ in
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "XCURSOR_SIZE,${toString cursorSize}"
+        "HYPRSHOT_DIR,$XDG_PICTURES_DIR/sc"
       ];
       exec-once=
       [
@@ -56,7 +57,7 @@ in
         gaps_out = 5;
         hover_icon_on_border = false;
         layout = "master";
-        resize_on_border = true;
+        resize_on_border = false;
       };
       master =
       {

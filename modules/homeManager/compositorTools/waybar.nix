@@ -1,13 +1,10 @@
 {host, lib, pkgs, gtkTheme, ...}:
 let
-  # Default Apps
   calendar = "${lib.getExe pkgs.thunderbird}";
   performanceApp = "${lib.getExe pkgs.lact}";
   taskManager = "${lib.getExe pkgs.resources}";
   volumeControl = "${lib.getExe pkgs.pavucontrol}";
-  # Wofi
   powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
-  # Host Specific
   inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
     backgroundColorOne
     backgroundColorTwo
@@ -59,7 +56,7 @@ in
         "pulseaudio" =
         {
           format = "{icon} {volume}%";
-          format-muted = "󰖁 {volume}";
+          format-muted = "󰖁 {volume}%";
           format-icons = 
           {
             default = ["" ""];
