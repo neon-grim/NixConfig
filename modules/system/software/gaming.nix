@@ -3,6 +3,11 @@
   hardware.xone.enable = true;
   programs =
   {
+    corectrl = 
+    {
+      enable = true;
+      gpuOverclock.enable = true;
+    };
     gamemode.enable = true;
     steam = 
     {
@@ -16,7 +21,6 @@
     goverlay
     heroic
     jstest-gtk
-    lact
     libstrangle
     mangohud
     protonplus
@@ -25,14 +29,4 @@
     vesktop
     vkbasalt
   ];
-  systemd.services.lactd = 
-  {
-    description = "AMDGPU Control Daemon";
-    enable = true;  
-    serviceConfig = 
-    {
-      ExecStart = "${pkgs.lact}/bin/lact daemon";
-    };
-    wantedBy = ["multi-user.target"];
-  };
 }
