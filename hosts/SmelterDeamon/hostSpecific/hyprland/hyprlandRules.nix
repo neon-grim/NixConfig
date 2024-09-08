@@ -7,7 +7,7 @@
     "immediate, class:^(steam_app_.*)$"
     "fullscreenstate 2 2, floating:1, class:^(steam_app_.*)$"
     # File-explorer
-    "center 1, floeating:1, title:^(.*)$"
+    "center 1, floeating:1, xwayland:0, title:^(.*)$"
     "float, floeating:0, title:^([O-o]pen.*)$"
     "float, floeating:0, title:^([L-l]oad.*)$"
     "float, floeating:0, title:^([S-s]ave.*)$"
