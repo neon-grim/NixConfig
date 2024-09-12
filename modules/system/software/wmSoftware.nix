@@ -1,9 +1,10 @@
 {pkgs, ...}:
 {
+  services.playerctld.enable = true;
+  programs.nm-applet.enable = true;
   environment.systemPackages = with pkgs;
   [
     # WM Tools
-    networkmanagerapplet
     pantheon.pantheon-agent-polkit
     pavucontrol
     wofi
