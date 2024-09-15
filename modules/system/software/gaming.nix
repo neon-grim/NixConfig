@@ -1,19 +1,14 @@
 {pkgs, ...}:
 {
-  hardware.xone.enable = true;
   programs =
   {
-    corectrl = 
-    {
-      enable = true;
-      gpuOverclock.enable = true;
-    };
     gamemode.enable = true;
     steam = 
     {
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
+      gamescopeSession.enable = true;
     };
   };
   environment.systemPackages = with pkgs;
