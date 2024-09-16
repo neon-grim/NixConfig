@@ -1,40 +1,27 @@
 {pkgs, ...}:
 {
-  hardware.xone.enable = true;
   programs =
   {
     gamemode.enable = true;
     steam = 
     {
       enable = true;
-      remotePlay.openFirewall = true;
+      gamescopeSession.enable = true;
       dedicatedServer.openFirewall = true;
+      remotePlay.openFirewall = true;
     };
   };
   environment.systemPackages = with pkgs;
   [
-    bottles
     goverlay
     heroic
     jstest-gtk
-    lact
     libstrangle
     mangohud
-    prismlauncher
     protonplus
     protontricks
     scanmem
     vesktop
     vkbasalt
   ];
-  systemd.services.lactd = 
-  {
-    description = "AMDGPU Control Daemon";
-    enable = true;  
-    serviceConfig = 
-    {
-      ExecStart = "${pkgs.lact}/bin/lact daemon";
-    };
-    wantedBy = ["multi-user.target"];
-  };
 }

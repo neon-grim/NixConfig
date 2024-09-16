@@ -12,6 +12,6 @@
   };
   environment.systemPackages = with pkgs;
   [
-    gnome.gnome-software
+    gnome-software
   ]; 
 }

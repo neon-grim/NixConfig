@@ -1,13 +1,6 @@
 {pkgs, ...}:
 {
-  environment.systemPackages = with pkgs;
-  [
-    vulkan-tools
-  ];
-  hardware.graphics =
-  {
-    extraPackages = [pkgs.amdvlk];
-  };
+  hardware.amdgpu.amdvlk.enable = true;
   environment.variables =
   {
     AMD_VULKAN_ICD = "RADV";

@@ -1,10 +1,10 @@
 {pkgs, inputs, ...}:
 {
-  imports = 
+  imports =
   [
     inputs.hyprland.nixosModules.default
   ];
-  programs.hyprland = 
+  programs.hyprland =
   {
     enable = true;
   };
@@ -14,6 +14,5 @@
     hyprland-protocols
     hyprnome
     hyprshot
-    hyprpaper
   ];
 }

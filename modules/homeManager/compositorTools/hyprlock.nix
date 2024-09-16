@@ -1,6 +1,6 @@
 {host, username, ...}:
 let
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
+  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
     backgroundColorOne
     backgroundColorTwo
     backgroundColorThree
@@ -10,7 +10,8 @@ let
     textColorTwo
     textColorThree
     textColorFour
-    textColorFive
+    textColorFive;
+  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     font;
   inherit (import ../../../hosts/${host}/hostSpecific/hyprland/monitorConfig.nix)
     lockWallpaper;
@@ -21,12 +22,12 @@ in
     enable = true;
     settings =
     {
-      general = 
+      general =
       {
         disable_loading_bar = false;
         hide_cursor = false;
       };
-      background = 
+      background =
       {
         path = "${lockWallpaper}";
         zindex = -2;
@@ -77,7 +78,7 @@ in
         valign = "center";
         shadow_passes = 2;
       };
-      input-field = 
+      input-field =
       {
         # Box appearance
         fade_on_empty = false;
@@ -98,7 +99,7 @@ in
         check_color = "rgb(${textColorThree})";
         fail_color = "rgb(${backgroundColorFour})";
       };
-      shape = 
+      shape =
       {
         size = "1000, 2570";
         color = "rgba(${backgroundColorOne}d9)";

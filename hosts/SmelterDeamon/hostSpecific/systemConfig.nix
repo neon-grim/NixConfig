@@ -8,6 +8,7 @@
     "libvirt" 
     "kvm" 
     "libvirtd"
+    "corectrl"
   ];
   # HID
   layout = "ch";

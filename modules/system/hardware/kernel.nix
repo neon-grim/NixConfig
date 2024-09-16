@@ -1,5 +1,7 @@
 {pkgs, config, ...}:
 {
+  hardware.xone.enable = true;
+  zramSwap.enable = true;
   boot =
   {
     loader =
@@ -10,7 +12,6 @@
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelParams = 
     [ 
-      "amdgpu.ppfeaturemask=0xffffffff"
       "quiet" 
     ];
     kernel.sysctl = 

@@ -1,50 +1,50 @@
 {
   description = "SmelterDeamon NixOS flake";
-
-  inputs = 
+  inputs =
   {
-    nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
-    home-manager = 
+    home-manager =
     {
-      url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager";
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
-
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{self, nixpkgs, home-manager, ...}:
   let
     lib = nixpkgs.lib;
     host = "SmelterDeamon";
     username = "ashen_one";
+    gtkTheme = "andromeda";
     windowManager = "windowManagers";
   in
   {
-    nixosConfigurations = 
+    nixosConfigurations =
     {
-      "${host}" = lib.nixosSystem 
+      "${host}" = lib.nixosSystem
       {
         system = "x86_64-linux";
-        specialArgs = 
+        specialArgs =
         {
           inherit inputs;
           inherit host;
           inherit username;
           inherit windowManager;
         };
-        modules = 
-        [ 
+        modules =
+        [
           ./hosts/${host}/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./hosts/${host}/home.nix;
-            home-manager.extraSpecialArgs = 
+            home-manager.extraSpecialArgs =
             {
               inherit inputs;
               inherit host;
               inherit username;
+              inherit gtkTheme;
               inherit windowManager;
             };
           }

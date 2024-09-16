@@ -8,23 +8,16 @@
     udisks2.enable = true;
     tumbler.enable = true;
   };
-  programs =
-  {
-    xfconf.enable = true;
-    thunar =
-    {
-      enable = true;
-      plugins = with pkgs.xfce; 
-      [ 
-        thunar-archive-plugin
-        thunar-media-tags-plugin
-        thunar-volman
-      ];
-    };
-  };
   environment.systemPackages = with pkgs;
   [
+    ffmpegthumbnailer
     file-roller
     gparted
+    lxde.lxmenu-data
+    pcmanfm
   ];
+  environment.sessionVariables =
+  {
+    XDG_MENU_PREFIX = "lxde-";
+  };
 }

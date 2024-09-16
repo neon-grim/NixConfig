@@ -1,9 +1,10 @@
-{pkgs, host, lib, inputs, ...}:
+{pkgs, host, lib, inputs, gtkTheme, ...}:
 let
   mainMod = "SUPER";
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
+  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
     backgroundColorOne
-    backgroundColorFive
+    backgroundColorFive;
+  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     cursorSize;
   inherit (import ../../../hosts/${host}/hostSpecific/systemConfig.nix)
     layout
@@ -20,15 +21,13 @@ in
   [
     inputs.hyprland.homeManagerModules.default
   ];
-  wayland.windowManager.hyprland = 
+  wayland.windowManager.hyprland =
   {
     enable = true;
     settings =
     {
-      # Monitor Settings
       monitor = monitorSetup ++ [", preferred, auto, 1"];
       windowrulev2 = windowRules;
-      # General Settings
       env =
       [
         "CLUTTER_BACKEND,wayland"
@@ -37,6 +36,7 @@ in
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "XCURSOR_SIZE,${toString cursorSize}"
+        "HYPRSHOT_DIR,$XDG_PICTURES_DIR/sc"
       ];
       exec-once=
       [
@@ -57,7 +57,7 @@ in
         gaps_out = 5;
         hover_icon_on_border = false;
         layout = "master";
-        resize_on_border = true;
+        resize_on_border = false;
       };
       master =
       {
@@ -65,7 +65,6 @@ in
         new_status = "slave";
         orientation = "center";
       };
-      # Input Settings
       input =
       {
         accel_profile = "${mouseProfile}";
@@ -81,7 +80,6 @@ in
         no_hardware_cursors = true;
         no_break_fs_vrr = true;
       };
-      # Theming
       animations = 
       {
         enabled = true;
@@ -105,7 +103,6 @@ in
       {
         force_default_wallpaper = 2;
       };
-      # WM Bindings
       binds =
       {
         movefocus_cycles_fullscreen = false;
@@ -120,8 +117,13 @@ in
         ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioRewind, exec, playerctl position 5-"
+        ", XF86AudioForward, exec, playerctl position 5+"
       ];
-      bind = 
+      bind =
       let 
         mainModShift = "${mainMod} SHIFT";
         mainModAlt = "${mainMod} ALT_L";
@@ -133,7 +135,7 @@ in
       [
         # Execute default programs and actions
         "${mainMod}, Return, exec, ${lib.getExe' pkgs.terminator "terminator"}"
-        "${mainMod}, E, exec, ${lib.getExe pkgs.xfce.thunar}"
+        "${mainMod}, E, exec, ${lib.getExe pkgs.pcmanfm}"
         "${mainMod}, B, exec, ${lib.getExe pkgs.librewolf}"
         "${mainMod}, R, exec, ${menu}"
         "${mainMod}, L, exec, ${powerMenu}"
@@ -176,6 +178,8 @@ in
         "${mainMod}, F9, exec, hyprshot -m region --freeze"
         "${mainMod}, F10, exec, hyprshot -m window -m active --freeze"
         "${mainMod}, F11, exec, hyprshot -m output -m active --freeze"
+        # Save clients to file
+        "${mainModShift}, F5, exec, hyprctl clients | tee ~/Documents/client.txt"
       ];
     };
   };

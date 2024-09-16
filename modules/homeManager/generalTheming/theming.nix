@@ -1,5 +1,8 @@
-{pkgs, host, ...}:
+{pkgs, host, gtkTheme, ...}:
 let
+  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
+    gtkThemePackage
+    gtkThemeName;
   inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     cursorSize
     cursorThemePackage
@@ -7,16 +10,13 @@ let
     font
     fontSize
     fontPackage
-    gtkThemePackage
-    gtkThemeName
     iconThemeName
     iconThemePackage;
 in
 {
-  # Cursor Theme
   home =
   {
-    pointerCursor = 
+    pointerCursor =
     {
       gtk.enable = true;
       x11.enable = true;
@@ -25,11 +25,10 @@ in
       size = cursorSize;
     };
   };
-  # GTK Theme
-  gtk = 
+  gtk =
   {
     enable = true;
-    theme = 
+    theme =
     {
       package = pkgs."${gtkThemePackage}";
       name = "${gtkThemeName}";
@@ -39,22 +38,21 @@ in
       package = pkgs."${iconThemePackage}";
       name = "${iconThemeName}";
     };
-    gtk3.extraConfig = 
+    gtk3.extraConfig =
     {
       gtk-application-prefer-dark-theme=1;
     };
-    gtk4.extraConfig = 
+    gtk4.extraConfig =
     {
       gtk-application-prefer-dark-theme=1;
     };
-    font = 
+    font =
     {
       name = "${font}";
       size = fontSize;
     };
   };
-  # QT Theme
-  qt = 
+  qt =
   {
     enable = true;
     platformTheme.name = "gtk3";

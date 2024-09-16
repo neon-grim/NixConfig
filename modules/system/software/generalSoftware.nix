@@ -6,20 +6,17 @@
   };
   environment.systemPackages = with pkgs;
   [
-    geany
+    bottles
+    celluloid
     krita
-    librewolf
+    lollypop
     moonlight-qt
     obs-studio
-    onlyoffice-bin_latest
     pitivi
     python3Full
     resources
-    rhythmbox
-    unrar
-    vlc
+    thunderbird
+    vipsdisp
     xfce.mousepad
-    xfce.orage
-    xfce.ristretto
   ];
 }

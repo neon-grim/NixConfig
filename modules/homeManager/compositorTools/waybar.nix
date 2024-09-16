@@ -1,14 +1,11 @@
-{host, lib, pkgs, windowManager, ...}:
+{host, lib, pkgs, gtkTheme, ...}:
 let
-  # Default Apps
-  calendar = "${lib.getExe pkgs.xfce.orage}";
-  performanceApp = "${lib.getExe pkgs.lact}";
-  taskManager = "${lib.getExe pkgs.xfce.xfce4-taskmanager}";
+  calendar = "${lib.getExe pkgs.thunderbird}";
+  performanceApp = "${lib.getExe' pkgs.corectrl "corectrl"}";
+  taskManager = "${lib.getExe pkgs.resources}";
   volumeControl = "${lib.getExe pkgs.pavucontrol}";
-  # Wofi
   powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
-  # Host Specific
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
+  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
     backgroundColorOne
     backgroundColorTwo
     backgroundColorThree
@@ -18,7 +15,8 @@ let
     textColorTwo
     textColorThree
     textColorFour
-    textColorFive
+    textColorFive;
+  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
     font
     fontSize;
 in
@@ -49,7 +47,7 @@ in
           "tray"
           "custom/powermenu"
         ];
-        "tray" = 
+        "tray" =
         {
           spacing = 12;
           icon-size = 18;
@@ -58,7 +56,7 @@ in
         "pulseaudio" =
         {
           format = "{icon} {volume}%";
-          format-muted = "󰖁 {volume}";
+          format-muted = "󰖁 {volume}%";
           format-icons = 
           {
             default = ["" ""];
@@ -92,7 +90,7 @@ in
           on-click = "sleep 0.1 && ${powerMenu}";
           tooltip = false;
         };
-        "custom/notification" = 
+        "custom/notification" =
         {
           tooltip = false;
           format = "{icon} {}";
@@ -128,18 +126,6 @@ in
             urgent = "";
           };
         };
-        "sway/workspaces" =
-        {
-          disable-scroll = false;
-          all-outputs = true;
-          format = "{icon}";
-          format-icons =
-          {
-            default = "";
-            focused = "";
-            urgent = "";
-          };
-        };
       }
     ];
     style =
@@ -161,7 +147,7 @@ in
           background-color: #${backgroundColorFour};
         }
       }
-      .warning, .critical, .urgent 
+      .warning, .critical, .urgent
       {
         animation-name: blink_red;
         animation-duration: 1s;
@@ -169,7 +155,7 @@ in
         animation-iteration-count: infinite;
         animation-direction: alternate;
       }
-      window#waybar 
+      window#waybar
       {
         background-color: transparent;
       }
@@ -181,20 +167,20 @@ in
         padding-left:8px;
         border: 2px none;
       }
-      tooltip 
+      tooltip
       {
         background-color: #${backgroundColorOne};
       }
-      tooltip label 
+      tooltip label
       {
         color: #${textColorOne};
       }
-      #workspaces 
+      #workspaces
       {
         padding-left: 0px;
         padding-right: 4px; 
       }
-      #workspaces button 
+      #workspaces button
       {
         padding-top: 5px;
         padding-bottom: 5px;
@@ -209,7 +195,7 @@ in
         background-color: #${backgroundColorThree};
         font-weight: bold;
       }
-      #workspaces button.urgent 
+      #workspaces button.urgent
       {
         color: #${textColorFour};
         background-color: #${backgroundColorFour};
