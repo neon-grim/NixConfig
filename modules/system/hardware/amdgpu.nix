@@ -1,6 +1,6 @@
 {pkgs, ...}:
 {
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.videoDrivers = ["amdgpu"];
   programs.corectrl = 
   {
     enable = true;
