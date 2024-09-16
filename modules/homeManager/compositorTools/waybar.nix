@@ -1,7 +1,7 @@
 {host, lib, pkgs, gtkTheme, ...}:
 let
   calendar = "${lib.getExe pkgs.thunderbird}";
-  performanceApp = "${lib.getExe pkgs.lact}";
+  performanceApp = "${lib.getExe pkgs.corectrl}";
   taskManager = "${lib.getExe pkgs.resources}";
   volumeControl = "${lib.getExe pkgs.pavucontrol}";
   powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
