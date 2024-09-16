@@ -8,7 +8,6 @@
   };
   hardware =
   {
-    amdgpu.amdvlk.enable = true;
     graphics =
     {
       enable = true;
@@ -19,8 +18,4 @@
   [
     vulkan-tools
   ];
-  environment.variables =
-  {
-    AMD_VULKAN_ICD = "RADV";
-  };
 }
