@@ -1,7 +1,7 @@
 {host, lib, pkgs, gtkTheme, ...}:
 let
   calendar = "${lib.getExe pkgs.thunderbird}";
-  performanceApp = "${lib.getExe pkgs.corectrl}";
+  performanceApp = "${lib.getExe' pkgs.corectrl "corectrl"}";
   taskManager = "${lib.getExe pkgs.resources}";
   volumeControl = "${lib.getExe pkgs.pavucontrol}";
   powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
@@ -47,7 +47,7 @@ in
           "tray"
           "custom/powermenu"
         ];
-        "tray" = 
+        "tray" =
         {
           spacing = 12;
           icon-size = 18;
@@ -90,7 +90,7 @@ in
           on-click = "sleep 0.1 && ${powerMenu}";
           tooltip = false;
         };
-        "custom/notification" = 
+        "custom/notification" =
         {
           tooltip = false;
           format = "{icon} {}";
@@ -147,7 +147,7 @@ in
           background-color: #${backgroundColorFour};
         }
       }
-      .warning, .critical, .urgent 
+      .warning, .critical, .urgent
       {
         animation-name: blink_red;
         animation-duration: 1s;
@@ -155,7 +155,7 @@ in
         animation-iteration-count: infinite;
         animation-direction: alternate;
       }
-      window#waybar 
+      window#waybar
       {
         background-color: transparent;
       }
@@ -167,20 +167,20 @@ in
         padding-left:8px;
         border: 2px none;
       }
-      tooltip 
+      tooltip
       {
         background-color: #${backgroundColorOne};
       }
-      tooltip label 
+      tooltip label
       {
         color: #${textColorOne};
       }
-      #workspaces 
+      #workspaces
       {
         padding-left: 0px;
         padding-right: 4px; 
       }
-      #workspaces button 
+      #workspaces button
       {
         padding-top: 5px;
         padding-bottom: 5px;
@@ -195,7 +195,7 @@ in
         background-color: #${backgroundColorThree};
         font-weight: bold;
       }
-      #workspaces button.urgent 
+      #workspaces button.urgent
       {
         color: #${textColorFour};
         background-color: #${backgroundColorFour};

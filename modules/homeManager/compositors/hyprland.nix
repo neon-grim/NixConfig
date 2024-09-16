@@ -21,7 +21,7 @@ in
   [
     inputs.hyprland.homeManagerModules.default
   ];
-  wayland.windowManager.hyprland = 
+  wayland.windowManager.hyprland =
   {
     enable = true;
     settings =
@@ -123,7 +123,7 @@ in
         ", XF86AudioRewind, exec, playerctl position 5-"
         ", XF86AudioForward, exec, playerctl position 5+"
       ];
-      bind = 
+      bind =
       let 
         mainModShift = "${mainMod} SHIFT";
         mainModAlt = "${mainMod} ALT_L";

@@ -16,7 +16,7 @@ in
 {
   home =
   {
-    pointerCursor = 
+    pointerCursor =
     {
       gtk.enable = true;
       x11.enable = true;
@@ -25,10 +25,10 @@ in
       size = cursorSize;
     };
   };
-  gtk = 
+  gtk =
   {
     enable = true;
-    theme = 
+    theme =
     {
       package = pkgs."${gtkThemePackage}";
       name = "${gtkThemeName}";
@@ -38,21 +38,21 @@ in
       package = pkgs."${iconThemePackage}";
       name = "${iconThemeName}";
     };
-    gtk3.extraConfig = 
+    gtk3.extraConfig =
     {
       gtk-application-prefer-dark-theme=1;
     };
-    gtk4.extraConfig = 
+    gtk4.extraConfig =
     {
       gtk-application-prefer-dark-theme=1;
     };
-    font = 
+    font =
     {
       name = "${font}";
       size = fontSize;
     };
   };
-  qt = 
+  qt =
   {
     enable = true;
     platformTheme.name = "gtk3";

@@ -1,10 +1,10 @@
 {pkgs, host, ...}:
 {
-  services.xserver.desktopManager.gnome = 
+  services.xserver.desktopManager.gnome =
   {
     enable = true;
     extraGSettingsOverridePackages = [pkgs.gnome.mutter];
-    extraGSettingsOverrides = 
+    extraGSettingsOverrides =
     ''
     [org.gnome.mutter]
     experimental-features=['variable-refresh-rate', 'scale-monitor-framebuffer']
@@ -18,10 +18,8 @@
     gnomeExtensions.tray-icons-reloaded
     gnomeExtensions.vitals
   ];
-  /*
   environment.sessionVariables =
   {
     MUTTER_DEBUG_FORCE_KMS_MODE="simple";
   };
-  */
 }
