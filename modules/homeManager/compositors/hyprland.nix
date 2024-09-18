@@ -80,6 +80,10 @@ in
         no_hardware_cursors = true;
         no_break_fs_vrr = true;
       };
+      render =
+      {
+        direct_scanout = true;
+      };
       animations = 
       {
         enabled = true;
