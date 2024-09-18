@@ -9,6 +9,7 @@
     "kvm" 
     "libvirtd"
     "corectrl"
+    "gamemode"
   ];
   # HID
   layout = "ch";
