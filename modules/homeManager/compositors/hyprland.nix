@@ -49,7 +49,6 @@ in
       ];
       general =
       {
-        allow_tearing = true;
         border_size = 3;
         "col.active_border" = "rgb(${backgroundColorFive})";
         "col.inactive_border" = "rgba(${backgroundColorOne}aa)";
@@ -73,16 +72,6 @@ in
         kb_variant = "${variant}";
         numlock_by_default = true;
         sensitivity = 0;
-      };
-      cursor =
-      {
-        min_refresh_rate = 0;
-        no_hardware_cursors = true;
-        no_break_fs_vrr = true;
-      };
-      render =
-      {
-        direct_scanout = true;
       };
       animations = 
       {
