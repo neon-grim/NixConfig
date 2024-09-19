@@ -13,7 +13,7 @@ let
       keyword cursor:no_break_fs_vrr true; \
       keyword general:allow_tearing true; \
       keyword render:direct_scanout true; \
-      keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@240.00, 1440x640, 1, vrr, 2;"
+      keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@240.00, 1440x640, 1, vrr, 2, bitdepth, 10;"
     ${notify-send} -u low -a 'Gamemode' 'Tweaks on, wait 10s for game to start.'
     sleep 10s
   '';

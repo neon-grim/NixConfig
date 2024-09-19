@@ -28,6 +28,7 @@ in
     {
       monitor = monitorSetup ++ [", preferred, auto, 1"];
       windowrulev2 = windowRules;
+      xwayland.enabled = true;
       env =
       [
         "CLUTTER_BACKEND,wayland"
