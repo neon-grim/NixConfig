@@ -1,24 +1,40 @@
 {
-  windowRules = 
+  windowRules =
   [
     # Gaming
-    "monitor DP-2, class:^(steam_app_.*)$"
-    "workspace 20, class:^(steam_app_.*)$"
+    "workspace 1, class:^(steam_app_.*)$"
     "immediate, class:^(steam_app_.*)$"
     "fullscreenstate 2 2, floating:1, class:^(steam_app_.*)$"
     # File-explorer
-    "center 1, floeating:1, xwayland:0, title:^(.*)$"
-    "float, floeating:0, title:^([O-o]pen.*)$"
-    "float, floeating:0, title:^([L-l]oad.*)$"
-    "float, floeating:0, title:^([S-s]ave.*)$"
-    "float, floeating:0, title:^([S-s]elect.*)$"
-    "size 70% 70%, floeating:1, title:^(.*[O-o]pen.*)$"
-    "size 70% 70%, floeating:1, title:^(.*[S-s]ave.*)$"
-    "size 70% 70%, floeating:1, title:^(.*[L-l]oad.*)$"
-    "size 70% 70%, floeating:1, title:^(.*[S-s]elect.*)$"
+    "center 1, floating:1, xwayland:0, title:^(.*)$"
+    "float, floating:0, title:^([O-o]pen.*)$"
+    "float, floating:0, title:^([L-l]oad.*)$"
+    "float, floating:0, title:^([S-s]ave.*)$"
+    "float, floating:0, title:^([S-s]elect.*)$"
+    "float, floating:0, title:^([C-c]hoose.*)$"
+    "size 70% 70%, floating:1, title:^([O-o]pen.*)$"
+    "size 70% 70%, floating:1, title:^([S-s]ave.*)$"
+    "size 70% 70%, floating:1, title:^([L-l]oad.*)$"
+    "size 70% 70%, floating:1, title:^([S-s]elect.*)$"
+    "size 70% 70%, floating:1, title:^([C-c]hoose.*)$"
     # Apps
-    "monitor HDMI-A-2, class:^(vesktop)$"
-    "monitor HDMI-A-1, title:^(Steam)$"
-    
+    "monitor DP-2, class:^(librewolf)$"
+    "workspace 22, title:^(Steam)$"
+    "workspace 23, title:^(Heroic Games Launcher)$"
+    "workspace 24, title:^(CoreCtrl)$"
+    "workspace 25, title:^(Lollypop)$"
+    "workspace 42, class:^(vesktop)$"
+    "workspace special:magic, class:^(terminator)$"
+  ];
+  workspaceRules =
+  [
+    "1, border:false, rounding:false"
+    "1, monitor:desc:Samsung Electric Company Odyssey G95SC H1AK500000"
+    "2, monitor:desc:Samsung Electric Company Odyssey G95SC H1AK500000, default:true, persistent:true"
+    "22, monitor:desc:Invalid Vendor Codename - RTK Verbatim MT14 demoset-1, default:true, persistent:true"
+    "23, monitor:desc:Invalid Vendor Codename - RTK Verbatim MT14 demoset-1"
+    "24, monitor:desc:Invalid Vendor Codename - RTK Verbatim MT14 demoset-1"
+    "25, monitor:desc:Invalid Vendor Codename - RTK Verbatim MT14 demoset-1"
+    "42, monitor:desc:Acer Technologies ED323QUR, default:true, persistent:true"
   ];
 }

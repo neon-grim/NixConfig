@@ -4,6 +4,7 @@ let
   notify-send = lib.getExe pkgs.libnotify;
   startScript = pkgs.writers.writeDash "gamemode-start"
   ''
+    ${notify-send} -u low -a 'Gamemode' 'Tweaks on, wait 10s for game to start.'
     ${hyprctl} --batch "\
       keyword animations:enabled false; \
       keyword decoration:blur:enabled false; \
@@ -14,7 +15,6 @@ let
       keyword general:allow_tearing true; \
       keyword render:direct_scanout true; \
       keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@240.00, 1440x640, 1, vrr, 2, bitdepth, 10;"
-    ${notify-send} -u low -a 'Gamemode' 'Tweaks on, wait 10s for game to start.'
     sleep 10s
   '';
   endScript = pkgs.writers.writeDash "gamemode-end"

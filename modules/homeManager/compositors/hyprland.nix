@@ -11,10 +11,10 @@ let
     mouseProfile
     variant;
   inherit (import ../../../hosts/${host}/hostSpecific/hyprland/monitorConfig.nix)
-    monitorSetup
-    monitorBinds;
+    monitorSetup;
   inherit (import ../../../hosts/${host}/hostSpecific/hyprland/hyprlandRules.nix)
-    windowRules;
+    windowRules
+    workspaceRules;
 in
 {
   imports = 
@@ -28,6 +28,7 @@ in
     {
       monitor = monitorSetup ++ [", preferred, auto, 1"];
       windowrulev2 = windowRules;
+      workspace = workspaceRules;
       xwayland.enabled = true;
       env =
       [
@@ -125,7 +126,6 @@ in
         menu = "pkill wofi; sleep 0.1 && wofi -S drun";
         powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
       in
-        monitorBinds ++
       [
         # Execute default programs and actions
         "${mainMod}, Return, exec, ${lib.getExe' pkgs.terminator "terminator"}"
@@ -154,10 +154,10 @@ in
         "${mainMod}, home, layoutmsg, swapwithmaster"
         # Navigate between workspaces on the same monitor
         "${mainMod}, PAGE_DOWN, exec, hyprnome -k"
-        "${mainMod}, PAGE_UP, exec, hyprnome --previous -k"
+        "${mainMod}, PAGE_UP, exec, hyprnome -p -k -n"
         # Move focused window between workspaces on the same monitor
-        "${mainModShift}, PAGE_DOWN, exec, hyprnome --move"
-        "${mainModShift}, PAGE_UP, exec, hyprnome --previous --move"
+        "${mainModShift}, PAGE_DOWN, exec, hyprnome -m"
+        "${mainModShift}, PAGE_UP, exec, hyprnome -p -m -n"
         # Move focused window between monitors
         "${mainModControl}, PAGE_UP, movewindow, mon:-1"
         "${mainModControl}, PAGE_DOWN, movewindow, mon:+1"
