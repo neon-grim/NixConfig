@@ -14,9 +14,7 @@ let
       keyword general:allow_tearing true; \
       keyword render:direct_scanout true; \
       keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@240.00, 1440x640, 1, vrr, 2, bitdepth, 10;"
-    sleep 5s
-    ${notify-send} -u low -a 'Gamemode' 'Tweaks on, wait 25s for game to start.'
-    sleep 25s
+    ${notify-send} -u low -a 'Gamemode' 'Tweaks on, game opened silently.'
   '';
   endScript = pkgs.writers.writeDash "gamemode-end"
   ''

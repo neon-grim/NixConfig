@@ -2,7 +2,7 @@
   windowRules =
   [
     # Gaming
-    "workspace 1, class:^(steam_app_.*)$"
+    "workspace 1 silent, class:^(steam_app_.*)$"
     "immediate, class:^(steam_app_.*)$"
     "fullscreenstate 2 2, floating:1, class:^(steam_app_.*)$"
     # File-explorer
@@ -18,12 +18,11 @@
     "size 70% 70%, floating:1, title:^([S-s]elect.*)$"
     "size 70% 70%, floating:1, title:^([C-c]hoose.*)$"
     # Apps
-    "monitor DP-2, class:^(librewolf)$"
-    "workspace 22, title:^(Steam)$"
-    "workspace 23, title:^(Heroic Games Launcher)$"
-    "workspace 24, title:^(CoreCtrl)$"
-    "workspace 25, title:^(Lollypop)$"
-    "workspace 42, class:^(vesktop)$"
+    "workspace 22 silent, title:^(Steam)$"
+    "workspace 23 silent, title:^(Heroic Games Launcher)$"
+    "workspace 24 silent, title:^(CoreCtrl)$"
+    "workspace 25 silent, title:^(Lollypop)$"
+    "workspace 42 silent, class:^(vesktop)$"
     "workspace special:magic, class:^(terminator)$"
   ];
   workspaceRules =

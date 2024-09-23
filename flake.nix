@@ -9,6 +9,7 @@
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
   outputs = inputs@{self, nixpkgs, home-manager, ...}:
   let
@@ -17,19 +18,21 @@
     username = "ashen_one";
     gtkTheme = "andromeda";
     windowManager = "windowManagers";
+    systemArch = "x86_64-linux";
   in
   {
     nixosConfigurations =
     {
       "${host}" = lib.nixosSystem
       {
-        system = "x86_64-linux";
+        system = "${systemArch}";
         specialArgs =
         {
           inherit inputs;
           inherit host;
           inherit username;
           inherit windowManager;
+          inherit systemArch;
         };
         modules =
         [
