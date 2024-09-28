@@ -4,22 +4,12 @@ let
   notify-send = lib.getExe pkgs.libnotify;
   startScript = pkgs.writers.writeDash "gamemode-start"
   ''
-    ${hyprctl} --batch "\
-      keyword animations:enabled false; \
-      keyword decoration:blur:enabled false; \
-      keyword decoration:drop_shadow false; \
-      keyword cursor:min_refresh_rate 0; \
-      keyword cursor:no_hardware_cursors true; \
-      keyword cursor:no_break_fs_vrr true; \
-      keyword general:allow_tearing true; \
-      keyword render:direct_scanout true; \
-      keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@240.00, 1440x640, 1, vrr, 2, bitdepth, 10;"
-    ${notify-send} -u low -a 'Gamemode' 'Tweaks on, game opened silently.'
+    ${notify-send} -u low -a 'Gamemode' 'Gamemode On.'
   '';
   endScript = pkgs.writers.writeDash "gamemode-end"
   ''
     ${hyprctl} reload
-    ${notify-send} -u low -a 'Gamemode' 'Tweaks off, hyprland reloaded.'
+    ${notify-send} -u low -a 'Gamemode' 'Gamemode Off.'
   '';
 in
 {
