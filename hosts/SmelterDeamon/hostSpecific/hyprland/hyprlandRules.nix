@@ -3,8 +3,8 @@
   [
     # Gaming
     "immediate, class:^(.*)$"
-    "workspace 1, class:^(steam_app_.*)$"
-    "workspace 1, class:^(Selaco.*)$"
+    "workspace 1 silent, class:^(steam_app_.*)$"
+    "workspace 1 silent, class:^(Selaco.*)$"
     "fullscreenstate 2 2, floating:1, class:^(steam_app_.*)$"
     "fullscreenstate 2 2, floating:1, class:^(Selaco.*)$"
     # File-explorer

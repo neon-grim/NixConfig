@@ -54,6 +54,5 @@ if $maxRefreshRate || $adaptiveSync || $bitdepth; then
 fi
 
 hyprctl --batch $hyprCommand
-echo $hyprCommand
-wait
+
 sleep 20s
