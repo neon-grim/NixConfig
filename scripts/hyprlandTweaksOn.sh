@@ -1,28 +1,30 @@
 #!/usr/bin/env bash
 
-adaptiveSync="0"
-bitdepth=""
-cursor="false";
-directScanout="true"
-maxRefreshRate="120.00"
-variableFrameRate="true"
+adaptiveSync=false
+bitdepth=false
+maxRefreshRate=false
 
-while getopts ":abdmv" opt; do
+hyprCommand="keyword animations:enabled false;"
+hyprCommand+=" keyword decoration:blur:enabled false;"
+hyprCommand+=" keyword decoration:drop_shadow false;"
+
+while getopts ":abdm" opt; do
   case $opt in
     a)
-      adaptiveSync="2"
+      adaptiveSync=true
+      hyprCommand+=" keyword cursor:min_refresh_rate 0;"
+      hyprCommand+=" keyword cursor:no_break_fs_vrr true;"
+      hyprCommand+=" keyword cursor:no_hardware_cursors true;"
+      hyprCommand+=" keyword general:allow_tearing true;"
       ;;
     b)
-      bitdepth="bitdepth, 10"
+      bitdepth=true
       ;;
     d)
-      directScanout="true"
+      hyprCommand+=" keyword render:direct_scanout true;"
       ;;
     m)
-      maxRefreshRate="240.00"
-      ;;
-    v)
-      variableFrameRate="false"
+      maxRefreshRate=true
       ;;
     ?)
       echo 'Unknown paramter'
@@ -31,21 +33,27 @@ while getopts ":abdmv" opt; do
   esac
 done
 
-if [ $adaptiveSync == "2" ]
-then
-  cursor="true"
+monConfig="monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000"
+
+if $maxRefreshRate; then
+  monConfig+=", 5120x1440@240.00, 1440x640, 1"
+else
+  monConfig+=", 5120x1440@120.00, 1440x640, 1"
 fi
 
-hyprctl --batch "\
-  keyword animations:enabled false; \
-  keyword decoration:blur:enabled false; \
-  keyword decoration:drop_shadow false; \
-  keyword cursor:min_refresh_rate 0; \
-  keyword cursor:no_hardware_cursors ${cursor}; \
-  keyword cursor:no_break_fs_vrr ${cursor}; \
-  keyword general:allow_tearing true; \
-  keyword misc:vfr ${variableFrameRate}; \
-  keyword render:direct_scanout ${directScanout}; \
-  keyword monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000, 5120x1440@${maxRefreshRate}, 1440x640, 1, vrr, ${adaptiveSync}, ${bitdepth};"
+if $adaptiveSync; then
+  monConfig+=", vrr, 2"
+fi
 
-sleep 10s
+if $bitdepth; then
+  monConfig+=", bitdepth, 10"
+fi
+
+if $maxRefreshRate || $adaptiveSync || $bitdepth; then
+  hyprCommand+=" keyword ${monConfig};"
+fi
+
+hyprctl --batch $hyprCommand
+echo $hyprCommand
+wait
+sleep 20s
