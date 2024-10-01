@@ -1,6 +1,6 @@
 {pkgs, config, ...}:
 {
-  #hardware.xone.enable = true;
+  hardware.xone.enable = true;
   zramSwap.enable = true;
   boot =
   {
@@ -10,19 +10,19 @@
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = 
-    [ 
-      "quiet" 
+    kernelParams =
+    [
+      "quiet"
     ];
-    kernel.sysctl = 
+    kernel.sysctl =
     {
       "vm.max_map_count" = 2147483642;
     };
-    extraModulePackages = 
+    extraModulePackages =
     [
       (config.boot.kernelPackages.callPackage ./../../derivations/xpad.nix {})
     ];
-    kernelModules = 
+    kernelModules =
     [
       "xpad-noone"
     ];
