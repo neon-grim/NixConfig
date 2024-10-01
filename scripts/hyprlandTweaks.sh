@@ -3,12 +3,13 @@
 adaptiveSync=false
 bitdepth=false
 maxRefreshRate=false
+reloadHyprland=false
 
 hyprCommand="keyword animations:enabled false;"
 hyprCommand+=" keyword decoration:blur:enabled false;"
 hyprCommand+=" keyword decoration:drop_shadow false;"
 
-while getopts ":abdm" opt; do
+while getopts ":abdmr" opt; do
   case $opt in
     a)
       adaptiveSync=true
@@ -26,12 +27,20 @@ while getopts ":abdm" opt; do
     m)
       maxRefreshRate=true
       ;;
+    r)
+      reloadHyprland=true
+      ;;
     ?)
       echo 'Unknown paramter'
       exit 1
       ;;
   esac
 done
+
+if $reloadHyprland; then
+  hyprctl reload
+  exit 0
+fi
 
 monConfig="monitor desc:Samsung Electric Company Odyssey G95SC H1AK500000"
 

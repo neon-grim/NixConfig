@@ -8,7 +8,6 @@ let
   '';
   endScript = pkgs.writers.writeDash "gamemode-end"
   ''
-    ${hyprctl} reload
     ${notify-send} -u low -a 'Gamemode' 'Gamemode Off.'
   '';
 in
