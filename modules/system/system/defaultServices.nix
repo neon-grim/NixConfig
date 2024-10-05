@@ -1,4 +1,4 @@
-{host, config, username,...}:
+{host, config, username, ...}:
 {
   services =
   {

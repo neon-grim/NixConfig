@@ -14,7 +14,7 @@
         name = lib.mkOption
         {
           type = lib.types.str;
-          default = "";
+          default = "JetBrainsMono Nerd Font";
         };
         size = lib.mkOption
         {
@@ -47,12 +47,12 @@
         resolution = lib.mkOption
         {
           type = lib.types.str;
-          default = "";
+          default = "preferred";
         };
-        refreshRate = lib.mkOption
+        position = lib.mkOption
         {
           type = lib.types.str;
-          default = "";
+          default = "auto";
         };
       };
     };

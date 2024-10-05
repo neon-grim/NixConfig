@@ -8,7 +8,6 @@
   # home manager user info
   home.username = username;
   home.homeDirectory = "/home/${username}";
-  desktop.font.name = "JetBrainsMono Nerd Font";
   # home manager install verison
   home.stateVersion = "23.11";
   # let home manager install and manage itself.
