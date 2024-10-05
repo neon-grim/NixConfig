@@ -11,10 +11,6 @@ let
     textColorThree
     textColorFour
     textColorFive;
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
-    font;
-  inherit (import ../../../hosts/${host}/hostSpecific/hyprland/monitorConfig.nix)
-    lockWallpaper;
 in
 {
   programs.hyprlock =
@@ -27,18 +23,13 @@ in
         disable_loading_bar = false;
         hide_cursor = false;
       };
-      background =
-      {
-        path = "${lockWallpaper}";
-        zindex = -2;
-      };
       label =
       [
         {
           text = ''cmd[update:30000] echo "$(date +"%R")"'';
           color = "rgb(${textColorOne})";
           font_size = 80;
-          font_family = "${font}";
+          font_family = "${desktop.font.name}";
           position = "0, 0";
           halign = "center";
           valign = "bottom";
@@ -48,7 +39,7 @@ in
           text = ''cmd[update:43200000] echo "$(date +"%A, %d %B %Y")"'';
           color = "rgb(${textColorOne})";
           font_size = 25;
-          font_family = "${font}";
+          font_family = "${desktop.font.name}";
           position = "0, 50";
           halign = "center";
           valign = "bottom";
@@ -59,7 +50,7 @@ in
           text_align = "center";
           color = "rgb(${textColorOne})";
           font_size = 25;
-          font_family = "${font}";
+          font_family = "${desktop.font.name}";
           rotate = 0;
           position = "0, -100";
           halign = "center";

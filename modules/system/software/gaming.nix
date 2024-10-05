@@ -44,6 +44,7 @@ in
     mangohud
     protonplus
     protontricks
+    ryujinx
     scanmem
     vesktop
     vkbasalt

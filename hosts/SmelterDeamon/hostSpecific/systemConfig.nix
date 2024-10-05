@@ -11,8 +11,4 @@
     "corectrl"
     "gamemode"
   ];
-  # HID
-  layout = "ch";
-  variant = "de_nodeadkeys";
-  mouseProfile = "flat";
 }

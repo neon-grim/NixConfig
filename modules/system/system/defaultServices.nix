@@ -1,9 +1,4 @@
-{host, ...}:
-let
-  inherit (import ../../../hosts/${host}/hostSpecific/systemConfig.nix)
-    layout
-    variant;
-in
+{host, config, username,...}:
 {
   services =
   {
@@ -14,8 +9,8 @@ in
       enable = true;
       xkb =
       {
-        layout = "${layout}";
-        variant = "${variant}";
+        layout = config.home-manager.users.${username}.desktop.kbLayout;
+        variant = config.home-manager.users.${username}.desktop.kbVariant;
       };
     };
   };

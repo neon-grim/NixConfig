@@ -1,4 +1,4 @@
-{host, gtktheme, gtkTheme, ...}:
+{host, gtktheme, gtkTheme, config, ...}:
 let
   inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
     backgroundColorOne
@@ -9,9 +9,6 @@ let
     textColorTwo
     textColorThree
     textColorFour;
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
-    font
-    fontSize;
 in
 {
   services.swaync =
@@ -63,8 +60,8 @@ in
       *
       {
         all: unset;
-        font-family: "${font}";
-        font-size: ${toString fontSize}pt;
+        font-family: "${config.desktop.font.name}";
+        font-size: ${toString config.desktop.font.size}pt;
         transition-duration: 0.1s;
         box-shadow: none;
       }

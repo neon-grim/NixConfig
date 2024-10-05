@@ -1,4 +1,4 @@
-{host, lib, pkgs, gtkTheme, ...}:
+{host, lib, pkgs, gtkTheme, config, ...}:
 let
   calendar = "${lib.getExe pkgs.thunderbird}";
   performanceApp = "${lib.getExe' pkgs.corectrl "corectrl"}";
@@ -16,9 +16,6 @@ let
     textColorThree
     textColorFour
     textColorFive;
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
-    font
-    fontSize;
 in
 {
   programs.waybar =
@@ -133,8 +130,8 @@ in
     ''
       *
       {
-        font-family: "${font}";
-        font-size: ${toString fontSize}pt;
+        font-family: "${config.desktop.font.name}";
+        font-size: ${toString config.desktop.font.size}pt;
         font-weight: bold;
         border-radius: 3px;
         transition-property: background-color;
