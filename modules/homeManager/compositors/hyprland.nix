@@ -1,9 +1,4 @@
-{pkgs, host, lib, inputs, gtkTheme, config, ...}:
-let
-  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
-    backgroundColorOne
-    backgroundColorFive;
-in
+{pkgs, host, lib, inputs, config, ...}:
 {
   imports =
   [
@@ -38,8 +33,8 @@ in
       general =
       {
         border_size = 3;
-        "col.active_border" = "rgb(${backgroundColorFive})";
-        "col.inactive_border" = "rgba(${backgroundColorOne}aa)";
+        "col.active_border" = "rgb(${config.theming.palette.bkFive})";
+        "col.inactive_border" = "rgba(${config.theming.palette.bkOne}aa)";
         gaps_in = 5;
         gaps_out = 5;
         hover_icon_on_border = false;

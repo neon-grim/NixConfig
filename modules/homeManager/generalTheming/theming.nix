@@ -1,9 +1,4 @@
-{pkgs, host, gtkTheme, config, ...}:
-let
-  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
-    gtkThemePackage
-    gtkThemeName;
-in
+{pkgs, config, ...}:
 {
   home =
   {
@@ -21,8 +16,8 @@ in
     enable = true;
     theme =
     {
-      package = pkgs."${gtkThemePackage}";
-      name = "${gtkThemeName}";
+      package = pkgs."${config.theming.gtk.package}";
+      name = config.theming.gtk.name;
     };
     iconTheme =
     {

@@ -1,17 +1,4 @@
-{host, username, ...}:
-let
-  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
-    backgroundColorOne
-    backgroundColorTwo
-    backgroundColorThree
-    backgroundColorFour
-    backgroundColorFive
-    textColorOne
-    textColorTwo
-    textColorThree
-    textColorFour
-    textColorFive;
-in
+{username, ...}:
 {
   programs.hyprlock =
   {
@@ -27,7 +14,7 @@ in
       [
         {
           text = ''cmd[update:30000] echo "$(date +"%R")"'';
-          color = "rgb(${textColorOne})";
+          color = "rgb(${config.theming.palette.txOne})";
           font_size = 80;
           font_family = "${desktop.font.name}";
           position = "0, 0";
@@ -37,7 +24,7 @@ in
         }
         {
           text = ''cmd[update:43200000] echo "$(date +"%A, %d %B %Y")"'';
-          color = "rgb(${textColorOne})";
+          color = "rgb(${config.theming.palette.txOne})";
           font_size = 25;
           font_family = "${desktop.font.name}";
           position = "0, 50";
@@ -48,7 +35,7 @@ in
         {
           text = "Hi ${username}";
           text_align = "center";
-          color = "rgb(${textColorOne})";
+          color = "rgb(${config.theming.palette.txOne})";
           font_size = 25;
           font_family = "${desktop.font.name}";
           rotate = 0;
@@ -62,7 +49,7 @@ in
       {
         path = "/mnt/SATASSD1/1_Images/ProfilePic/Loverboy.png";
         size = 290;
-        border_color = "rgb(${backgroundColorFive})";
+        border_color = "rgb(${config.theming.palette.bkFive})";
         rounding = -1;
         position = "0, 100";
         halign = "center";
@@ -84,16 +71,16 @@ in
         dots_size = 0.33;
         dots_spacing = 0.15;
         # Color Settings
-        font_color = "rgb(${textColorOne})";
-        inner_color = "rgb(${backgroundColorOne})";
-        outer_color = "rgb(${backgroundColorFive})";
-        check_color = "rgb(${textColorThree})";
-        fail_color = "rgb(${backgroundColorFour})";
+        font_color = "rgb(${config.theming.palette.txOne})";
+        inner_color = "rgb(${config.theming.palette.bkOne})";
+        outer_color = "rgb(${config.theming.palette.bkFive})";
+        check_color = "rgb(${config.theming.palette.txThree})";
+        fail_color = "rgb(${config.theming.palette.bkFour})";
       };
       shape =
       {
         size = "1000, 2570";
-        color = "rgba(${backgroundColorOne}d9)";
+        color = "rgba(${config.theming.palette.bkOne}d9)";
         rounding = 3;
         border_size = -1;
         rotate = 0;

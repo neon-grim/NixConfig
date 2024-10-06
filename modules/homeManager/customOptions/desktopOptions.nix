@@ -37,19 +37,24 @@
         type = lib.types.str;
         default = "SUPER";
       };
-      mainMonitor =
+      mainMon =
       {
         name = lib.mkOption
         {
           type = lib.types.str;
           default = "";
         };
-        resolution = lib.mkOption
+        res = lib.mkOption
         {
           type = lib.types.str;
           default = "preferred";
         };
-        position = lib.mkOption
+        oc = lib.mkOption
+        {
+          type = lib.types.str;
+          default = "preferred";
+        };
+        pos = lib.mkOption
         {
           type = lib.types.str;
           default = "auto";

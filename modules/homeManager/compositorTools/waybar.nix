@@ -1,21 +1,10 @@
-{host, lib, pkgs, gtkTheme, config, ...}:
+{pkgs, lib, config, ...}:
 let
   calendar = "${lib.getExe pkgs.thunderbird}";
   performanceApp = "${lib.getExe' pkgs.corectrl "corectrl"}";
   taskManager = "${lib.getExe pkgs.resources}";
   volumeControl = "${lib.getExe pkgs.pavucontrol}";
   powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
-  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
-    backgroundColorOne
-    backgroundColorTwo
-    backgroundColorThree
-    backgroundColorFour
-    backgroundColorFive
-    textColorOne
-    textColorTwo
-    textColorThree
-    textColorFour
-    textColorFive;
 in
 {
   programs.waybar =
@@ -141,8 +130,8 @@ in
       {
         to 
         {
-          color: #${textColorFour};
-          background-color: #${backgroundColorFour};
+          color: #${config.theming.palette.txFour};
+          background-color: #${config.theming.palette.bkFour};
         }
       }
       .warning, .critical, .urgent
@@ -159,19 +148,19 @@ in
       }
       window > box 
       {
-        color: #${textColorOne};
-        background-color: #${backgroundColorOne};
+        color: #${config.theming.palette.txOne};
+        background-color: #${config.theming.palette.bkOne};
         padding: 3px;
         padding-left:8px;
         border: 2px none;
       }
       tooltip
       {
-        background-color: #${backgroundColorOne};
+        background-color: #${config.theming.palette.bkOne};
       }
       tooltip label
       {
-        color: #${textColorOne};
+        color: #${config.theming.palette.txOne};
       }
       #workspaces
       {
@@ -189,14 +178,14 @@ in
       }
       #workspaces button.active
       {
-        color: #${textColorTwo};
-        background-color: #${backgroundColorThree};
+        color: #${config.theming.palette.txTwo};
+        background-color: #${config.theming.palette.bkThree};
         font-weight: bold;
       }
       #workspaces button.urgent
       {
-        color: #${textColorFour};
-        background-color: #${backgroundColorFour};
+        color: #${config.theming.palette.txFour};
+        background-color: #${config.theming.palette.bkFour};
       }
       #clock
       {
@@ -213,8 +202,8 @@ in
       }
       #tray
       {
-        color: #${textColorTwo};
-        background-color: #${backgroundColorTwo};
+        color: #${config.theming.palette.txTwo};
+        background-color: #${config.theming.palette.bkTwo};
         padding-left: 15px;
         padding-right: 15px;
         margin-left: 5px;
@@ -222,8 +211,8 @@ in
       }
       #custom-powermenu
       {
-        color: #${textColorFive};
-        background-color: #${backgroundColorFive};
+        color: #${config.theming.palette.txFive};
+        background-color: #${config.theming.palette.bkFive};
         padding-left: 10px;
         padding-right: 15px;
         margin-left: 5px;
@@ -231,8 +220,8 @@ in
       }
       #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #pulseaudio:hover, #custom-powermenu:hover, #custom-notification:hover
       {
-        color: #${textColorThree};
-        background-color: #${backgroundColorThree};
+        color: #${config.theming.palette.txThree};
+        background-color: #${config.theming.palette.bkThree};
       }
     '';
   };

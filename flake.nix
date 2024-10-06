@@ -16,7 +16,7 @@
     lib = nixpkgs.lib;
     host = "SmelterDeamon";
     username = "ashen_one";
-    gtkTheme = "andromeda";
+    themeConfig = "andromeda";
     windowManager = "windowManagers";
     systemArch = "x86_64-linux";
   in
@@ -47,7 +47,7 @@
               inherit inputs;
               inherit host;
               inherit username;
-              inherit gtkTheme;
+              inherit themeConfig;
               inherit windowManager;
             };
           }
