@@ -33,27 +33,27 @@ in
             hyprCommand+=" keyword cursor:no_break_fs_vrr true;"
             hyprCommand+=" keyword cursor:no_hardware_cursors true;"
             hyprCommand+=" keyword general:allow_tearing true;"
-            notifyMessage+=" -a"
+            notifyMessage+=" VRR"
             ;;
           d)
             hyprCommand+=" keyword render:direct_scanout true;"
-            notifyMessage+=" -d"
+            notifyMessage+=" DS"
             ;;
           h)
             highDynamicRange=true
-            notifyMessage+=" -h"
+            notifyMessage+=" HDR"
             ;;
           p)
             monitorConfig="monitor ${config.desktop.mainMon.name}, preferred, ${config.desktop.mainMon.pos}, 1"
-            notifyMessage+=" -p"
+            notifyMessage+=" 120hz"
             ;;
           r)
             ${hyprctl} reload
-            ${notifySend} -u normal -a $notifyGroup "Reloaded Hyprland."
+            ${notifySend} -u normal -a "$notifyGroup" "Reloaded Hyprland."
             exit 0
             ;;
           ?)
-            ${notifySend} -u critical -a $notifyGroup "Unknown parameter!"
+            ${notifySend} -u critical -a "$notifyGroup" "Unknown parameters!"
             exit 1
             ;;
         esac
@@ -73,7 +73,7 @@ in
       
       ${hyprctl} --batch $hyprCommand
       
-      ${notifySend} -u normal -a $notifyGroup $notifyMessage
+      ${notifySend} -u normal -a "$notifyGroup" "$notifyMessage"
       
       sleep 20s
     ''

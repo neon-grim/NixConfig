@@ -1,4 +1,4 @@
-{pkgs, host, lib, inputs, config, ...}:
+{pkgs, lib, inputs, config, ...}:
 {
   imports =
   [
@@ -105,7 +105,7 @@
         mainModAlt = "${config.desktop.mainMod} ALT_L";
         mainModControl = "${config.desktop.mainMod} CONTROL_L";
         menu = "pkill wofi; sleep 0.1 && wofi -S drun";
-        powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
+        powerMenu = "pkill wofi; sleep 0.1 && wofiPowerMenu";
       in
       [
         # Execute default programs and actions

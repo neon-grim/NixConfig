@@ -13,11 +13,12 @@
   };
   outputs = inputs@{self, nixpkgs, home-manager, ...}:
   let
+    compositor = "hyprland";
     lib = nixpkgs.lib;
     host = "SmelterDeamon";
-    username = "ashen_one";
+    owner = "Michael Mueller de los Santos";
+    user = "ashen_one";
     themeConfig = "andromeda";
-    windowManager = "windowManagers";
     systemArch = "x86_64-linux";
   in
   {
@@ -28,10 +29,11 @@
         system = "${systemArch}";
         specialArgs =
         {
-          inherit inputs;
+          inherit compositor;
           inherit host;
-          inherit username;
-          inherit windowManager;
+          inherit inputs;
+          inherit owner;
+          inherit user;
           inherit systemArch;
         };
         modules =
@@ -41,14 +43,15 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/${host}/home.nix;
+            home-manager.users.${user} = import ./hosts/${host}/home.nix;
             home-manager.extraSpecialArgs =
             {
-              inherit inputs;
+              inherit compositor;
               inherit host;
-              inherit username;
+              inherit inputs;
+              inherit owner;
+              inherit user;
               inherit themeConfig;
-              inherit windowManager;
             };
           }
         ];

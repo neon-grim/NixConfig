@@ -4,7 +4,7 @@ let
   performanceApp = "${lib.getExe' pkgs.corectrl "corectrl"}";
   taskManager = "${lib.getExe pkgs.resources}";
   volumeControl = "${lib.getExe pkgs.pavucontrol}";
-  powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
+  powerMenu = "pkill wofi; sleep 0.1 && wofiPowerMenu";
 in
 {
   programs.waybar =

@@ -16,6 +16,5 @@
     ./system/defaultEnvVar.nix
     ./system/defaultServices.nix
     ./system/security.nix
-    ./system/users.nix
   ];
 }

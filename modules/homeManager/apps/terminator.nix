@@ -1,4 +1,4 @@
-{pkgs, host, config, ...}:
+{config, ...}:
 {
   programs.terminator = 
   {

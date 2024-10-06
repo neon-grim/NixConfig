@@ -1,4 +1,4 @@
-{username, ...}:
+{user, ...}:
 {
   programs.hyprlock =
   {
@@ -33,7 +33,7 @@
           shadow_passes = 2;
         }
         {
-          text = "Hi ${username}";
+          text = "Hi ${user}";
           text_align = "center";
           color = "rgb(${config.theming.palette.txOne})";
           font_size = 25;
