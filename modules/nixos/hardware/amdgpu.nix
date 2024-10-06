@@ -1,7 +1,7 @@
 {pkgs, ...}:
 {
   services.xserver.videoDrivers = ["amdgpu"];
-  programs.corectrl = 
+  programs.corectrl =
   {
     enable = true;
     gpuOverclock.enable = true;

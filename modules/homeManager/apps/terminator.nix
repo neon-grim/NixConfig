@@ -1,9 +1,4 @@
-{pkgs, host, ...}:
-let
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
-    font
-    fontSize;
-in
+{config, ...}:
 {
   programs.terminator = 
   {
@@ -13,10 +8,10 @@ in
       global_config.borderless = true;
       profiles.default = 
       {
-        font = "${font} ${toString fontSize}";
+        font = "${config.desktop.font.name} ${toString config.desktop.font.size}";
         use_system_font = false;
         allow_bold = true;
-        background_darkness = 0.75;
+        background_darkness = 0.90;
         background_type = "transparent";
         use_theme_colors = true;
         show_titlebar = false;

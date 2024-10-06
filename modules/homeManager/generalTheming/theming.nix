@@ -1,18 +1,4 @@
-{pkgs, host, gtkTheme, ...}:
-let
-  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
-    gtkThemePackage
-    gtkThemeName;
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
-    cursorSize
-    cursorThemePackage
-    cursorThemeName
-    font
-    fontSize
-    fontPackage
-    iconThemeName
-    iconThemePackage;
-in
+{pkgs, config, ...}:
 {
   home =
   {
@@ -20,9 +6,9 @@ in
     {
       gtk.enable = true;
       x11.enable = true;
-      package = pkgs."${cursorThemePackage}";
-      name = "${cursorThemeName}";
-      size = cursorSize;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Original-Classic";
+      size = config.desktop.cursorSize;
     };
   };
   gtk =
@@ -30,13 +16,13 @@ in
     enable = true;
     theme =
     {
-      package = pkgs."${gtkThemePackage}";
-      name = "${gtkThemeName}";
+      package = pkgs."${config.theming.gtk.package}";
+      name = config.theming.gtk.name;
     };
     iconTheme =
     {
-      package = pkgs."${iconThemePackage}";
-      name = "${iconThemeName}";
+      package = pkgs.beauty-line-icon-theme;
+      name = "BeautyLine";
     };
     gtk3.extraConfig =
     {
@@ -48,8 +34,8 @@ in
     };
     font =
     {
-      name = "${font}";
-      size = fontSize;
+      name = config.desktop.font.name;
+      size = config.desktop.font.size;
     };
   };
   qt =

@@ -1,18 +1,4 @@
-{host, gtktheme, gtkTheme, ...}:
-let
-  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
-    backgroundColorOne
-    backgroundColorTwo
-    backgroundColorThree
-    backgroundColorFour
-    textColorOne
-    textColorTwo
-    textColorThree
-    textColorFour;
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
-    font
-    fontSize;
-in
+{host, config, ...}:
 {
   services.swaync =
   {
@@ -63,19 +49,19 @@ in
       *
       {
         all: unset;
-        font-family: "${font}";
-        font-size: ${toString fontSize}pt;
+        font-family: "${config.desktop.font.name}";
+        font-size: ${toString config.desktop.font.size}pt;
         transition-duration: 0.1s;
         box-shadow: none;
       }
       trough highlight
       {
-        background: #${backgroundColorTwo};
+        background: #${config.theming.palette.bkTwo};
       }
       scale trough
       {
         margin: 0rem 1rem;
-        background-color: #${backgroundColorTwo};
+        background-color: #${config.theming.palette.bkTwo};
         min-height: 8px;
         min-width: 70px;
       }
@@ -83,8 +69,8 @@ in
       {
         border-radius: 0px;
         margin: 18px;
-        background-color: #${backgroundColorOne};
-        color: #${textColorOne};
+        background-color: #${config.theming.palette.bkOne};
+        color: #${config.theming.palette.txOne};
         padding: 0;
       }
       .floating-notifications.background .notification-row .notification-background .notification
@@ -98,15 +84,15 @@ in
       }
       .floating-notifications.background .notification-row .notification-background .notification .notification-content .summary
       {
-        color: #${textColorOne};
+        color: #${config.theming.palette.txOne};
       }
       .floating-notifications.background .notification-row .notification-background .notification .notification-content .time
       {
-        color: #${textColorOne};
+        color: #${config.theming.palette.txOne};
       }
       .floating-notifications.background .notification-row .notification-background .notification .notification-content .body
       {
-        color: #${textColorOne};
+        color: #${config.theming.palette.txOne};
       }
       .floating-notifications.background .notification-row .notification-background .notification > *:last-child > *
       {
@@ -115,72 +101,72 @@ in
       .floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action
       {
         border: none;
-        color: #${textColorOne};
-        background-color: #${backgroundColorOne};
+        color: #${config.theming.palette.txOne};
+        background-color: #${config.theming.palette.bkOne};
         margin: 7px;
       }
       .floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:hover
       {
-        color: #${textColorThree};
-        background-color: #${backgroundColorThree};
+        color: #${config.theming.palette.txThree};
+        background-color: #${config.theming.palette.bkThree};
       }
       .floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:active
       {
-        color: #${textColorTwo};
-        background-color: #${backgroundColorTwo};
+        color: #${config.theming.palette.txTwo};
+        background-color: #${config.theming.palette.bkTwo};
       }
       .floating-notifications.background .notification-row .notification-background .close-button
       {
         margin: 7px;
         padding: 2px;
         border-radius: 6.3px;
-        color: #${textColorOne};
-        background-color: #${backgroundColorOne};
+        color: #${config.theming.palette.txOne};
+        background-color: #${config.theming.palette.bkOne};
       }
       .floating-notifications.background .notification-row .notification-background .close-button:hover
       {
-        color: #${textColorThree};
-        background-color: #${backgroundColorThree};
+        color: #${config.theming.palette.txThree};
+        background-color: #${config.theming.palette.bkThree};
       }
       .floating-notifications.background .notification-row .notification-background .close-button:active
       {
-        color: #${textColorTwo};
-        background-color: #${backgroundColorTwo};
+        color: #${config.theming.palette.txTwo};
+        background-color: #${config.theming.palette.bkTwo};
       }
       .control-center
       {
         border-radius: 0px;
-        background-color: #${backgroundColorOne};
-        color: #${textColorOne};
+        background-color: #${config.theming.palette.bkOne};
+        color: #${config.theming.palette.txOne};
         padding: 14px;
       }
       .control-center .widget-title > label
       {
-        color: #${textColorOne};
+        color: #${config.theming.palette.txOne};
         font-size: 1.3em;
       }
       .control-center .widget-title button
       {
         border-radius: 7px;
-        color: #${textColorOne};
-        background-color: #${backgroundColorOne};
+        color: #${config.theming.palette.txOne};
+        background-color: #${config.theming.palette.bkOne};
         padding: 8px;
       }
       .control-center .widget-title button:hover
       {
-        color: #${textColorThree};
-        background-color: #${backgroundColorThree};
+        color: #${config.theming.palette.txThree};
+        background-color: #${config.theming.palette.bkThree};
       }
       .control-center .widget-title button:active
       {
-        color: #${textColorTwo};
-        background-color: #${backgroundColorTwo};
+        color: #${config.theming.palette.txTwo};
+        background-color: #${config.theming.palette.bkTwo};
       }
       .control-center .notification-row .notification-background
       {
         border-radius: 7px;
-        color: #${textColorOne};
-        background-color: #${backgroundColorTwo};
+        color: #${config.theming.palette.txOne};
+        background-color: #${config.theming.palette.bkTwo};
         margin-top: 14px;
       }
       .control-center .notification-row .notification-background .notification
@@ -194,15 +180,15 @@ in
       }
       .control-center .notification-row .notification-background .notification .notification-content .summary
       {
-        color: #${textColorOne};
+        color: #${config.theming.palette.txOne};
       }
       .control-center .notification-row .notification-background .notification .notification-content .time
       {
-        color: #${textColorTwo};;
+        color: #${config.theming.palette.txTwo};;
       }
       .control-center .notification-row .notification-background .notification .notification-content .body
       {
-        color: #${textColorOne};
+        color: #${config.theming.palette.txOne};
       }
       .control-center .notification-row .notification-background .notification > *:last-child > *
       {
@@ -211,19 +197,19 @@ in
       .control-center .notification-row .notification-background .notification > *:last-child > * .notification-action
       {
         border-radius: 7px;
-        color: #${textColorTwo};
-        background-color: #${backgroundColorTwo};
+        color: #${config.theming.palette.txTwo};
+        background-color: #${config.theming.palette.bkTwo};
         margin: 7px;
       }
       .control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:hover
       {
-        color: #${textColorTwo};
-        background-color: #${backgroundColorThree};
+        color: #${config.theming.palette.txTwo};
+        background-color: #${config.theming.palette.bkThree};
       }
       .control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:active
       {
-        color: #${textColorTwo};
-        background-color: #${backgroundColorTwo};
+        color: #${config.theming.palette.txTwo};
+        background-color: #${config.theming.palette.bkTwo};
       }
       .close-button
       {
@@ -235,52 +221,52 @@ in
         margin: 7px;
         padding: 2px;
         border-radius: 6.3px;
-        color: #${textColorTwo};
-        background-color: #${backgroundColorTwo};
+        color: #${config.theming.palette.txTwo};
+        background-color: #${config.theming.palette.bkTwo};
       }
       .control-center .notification-row .notification-background .close-button:hover
       {
-        color: #${textColorTwo};
-        background-color: #${backgroundColorThree};
+        color: #${config.theming.palette.txTwo};
+        background-color: #${config.theming.palette.bkThree};
       }
       .control-center .notification-row .notification-background .close-button:active
       {
-        color: #${textColorTwo};
-        background-color: #${backgroundColorTwo};
+        color: #${config.theming.palette.txTwo};
+        background-color: #${config.theming.palette.bkTwo};
       }
       .control-center .notification-row .notification-background:hover
       {
-        color: #${textColorTwo};
-        background-color: #${backgroundColorTwo};
+        color: #${config.theming.palette.txTwo};
+        background-color: #${config.theming.palette.bkTwo};
       }
       .control-center .notification-row .notification-background:active
       {
-        color: #${textColorTwo};
-        background-color: #${backgroundColorTwo};
+        color: #${config.theming.palette.txTwo};
+        background-color: #${config.theming.palette.bkTwo};
       }
       .notification.critical progress
       {
-        background-color: #${backgroundColorFour};
+        background-color: #${config.theming.palette.bkFour};
       }
       .notification.low progress,
       .notification.normal progress
       {
-        background-color: #${backgroundColorTwo};
+        background-color: #${config.theming.palette.bkTwo};
       }
       .control-center-dnd
       {
         margin-top: 5px;
         border-radius: 8px;
-        background: #${backgroundColorOne};
-        border: 1px solid #${backgroundColorTwo};
+        background: #${config.theming.palette.bkOne};
+        border: 1px solid #${config.theming.palette.bkTwo};
       }
       .control-center-dnd:checked
       {
-        background: #${backgroundColorTwo};
+        background: #${config.theming.palette.bkTwo};
       }
       .control-center-dnd slider
       {
-        background: #${backgroundColorOne};
+        background: #${config.theming.palette.bkOne};
         border-radius: 8px;
       }
       .widget-dnd
@@ -292,22 +278,22 @@ in
       {
         font-size: initial;
         border-radius: 8px;
-        background: #${backgroundColorTwo};
-        border: 1px solid #${backgroundColorTwo};
+        background: #${config.theming.palette.bkTwo};
+        border: 1px solid #${config.theming.palette.bkTwo};
       }
       .widget-dnd > switch:checked
       {
-        background: #${backgroundColorTwo};
+        background: #${config.theming.palette.bkTwo};
       }
       .widget-dnd > switch slider
       {
-        background: #${backgroundColorThree};
+        background: #${config.theming.palette.bkThree};
         border-radius: 8px;
-        border: 1px solid #${backgroundColorTwo};
+        border: 1px solid #${config.theming.palette.bkTwo};
       }
       .widget-mpris .widget-mpris-player
       {
-        background: #${backgroundColorOne};
+        background: #${config.theming.palette.bkOne};
         padding: 7px;
         margin-top: 7px;
       }

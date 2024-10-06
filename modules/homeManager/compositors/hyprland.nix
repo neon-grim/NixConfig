@@ -1,23 +1,6 @@
-{pkgs, host, lib, inputs, gtkTheme, ...}:
-let
-  mainMod = "SUPER";
-  inherit (import ../../../hosts/${host}/hostSpecific/gtkThemes/${gtkTheme}.nix)
-    backgroundColorOne
-    backgroundColorFive;
-  inherit (import ../../../hosts/${host}/hostSpecific/themingConfig.nix)
-    cursorSize;
-  inherit (import ../../../hosts/${host}/hostSpecific/systemConfig.nix)
-    layout
-    mouseProfile
-    variant;
-  inherit (import ../../../hosts/${host}/hostSpecific/hyprland/monitorConfig.nix)
-    monitorSetup
-    monitorBinds;
-  inherit (import ../../../hosts/${host}/hostSpecific/hyprland/hyprlandRules.nix)
-    windowRules;
-in
+{pkgs, lib, inputs, config, ...}:
 {
-  imports = 
+  imports =
   [
     inputs.hyprland.homeManagerModules.default
   ];
@@ -26,8 +9,8 @@ in
     enable = true;
     settings =
     {
-      monitor = monitorSetup ++ [", preferred, auto, 1"];
-      windowrulev2 = windowRules;
+      monitor = [", preferred, auto, 1"];
+      xwayland.enabled = true;
       env =
       [
         "CLUTTER_BACKEND,wayland"
@@ -35,7 +18,7 @@ in
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "XCURSOR_SIZE,${toString cursorSize}"
+        "XCURSOR_SIZE,${toString config.desktop.cursorSize}"
         "HYPRSHOT_DIR,$XDG_PICTURES_DIR/sc"
       ];
       exec-once=
@@ -49,10 +32,9 @@ in
       ];
       general =
       {
-        allow_tearing = true;
         border_size = 3;
-        "col.active_border" = "rgb(${backgroundColorFive})";
-        "col.inactive_border" = "rgba(${backgroundColorOne}aa)";
+        "col.active_border" = "rgb(${config.theming.palette.bkFive})";
+        "col.inactive_border" = "rgba(${config.theming.palette.bkOne}aa)";
         gaps_in = 5;
         gaps_out = 5;
         hover_icon_on_border = false;
@@ -67,18 +49,12 @@ in
       };
       input =
       {
-        accel_profile = "${mouseProfile}";
+        accel_profile = "flat";
         follow_mouse = 1;
-        kb_layout = "${layout}";
-        kb_variant = "${variant}";
+        kb_layout = config.desktop.kbLayout;
+        kb_variant = config.desktop.kbVariant;
         numlock_by_default = true;
         sensitivity = 0;
-      };
-      cursor =
-      {
-        min_refresh_rate = 0;
-        no_hardware_cursors = true;
-        no_break_fs_vrr = true;
       };
       animations = 
       {
@@ -109,8 +85,8 @@ in
       };
       bindm =
       [
-        "${mainMod}, mouse:272, movewindow"
-        "${mainMod}, mouse:273, resizewindow"
+        "${config.desktop.mainMod}, mouse:272, movewindow"
+        "${config.desktop.mainMod}, mouse:273, resizewindow"
       ];
       bindl =
       [
@@ -125,29 +101,28 @@ in
       ];
       bind =
       let 
-        mainModShift = "${mainMod} SHIFT";
-        mainModAlt = "${mainMod} ALT_L";
-        mainModControl = "${mainMod} CONTROL_L";
+        mainModShift = "${config.desktop.mainMod} SHIFT";
+        mainModAlt = "${config.desktop.mainMod} ALT_L";
+        mainModControl = "${config.desktop.mainMod} CONTROL_L";
         menu = "pkill wofi; sleep 0.1 && wofi -S drun";
-        powerMenu = "pkill wofi; sleep 0.1 && ~/.dotfiles/scripts/wofi-power.sh";
+        powerMenu = "pkill wofi; sleep 0.1 && wofiPowerMenu";
       in
-        monitorBinds ++
       [
         # Execute default programs and actions
-        "${mainMod}, Return, exec, ${lib.getExe' pkgs.terminator "terminator"}"
-        "${mainMod}, E, exec, ${lib.getExe pkgs.pcmanfm}"
-        "${mainMod}, B, exec, ${lib.getExe pkgs.librewolf}"
-        "${mainMod}, R, exec, ${menu}"
-        "${mainMod}, L, exec, ${powerMenu}"
-        "${mainMod}, K, killactive,"
-        "${mainMod}, F, fullscreen,"
+        "${config.desktop.mainMod}, Return, exec, ${lib.getExe' pkgs.terminator "terminator"}"
+        "${config.desktop.mainMod}, E, exec, ${lib.getExe pkgs.pcmanfm}"
+        "${config.desktop.mainMod}, B, exec, ${lib.getExe pkgs.librewolf}"
+        "${config.desktop.mainMod}, R, exec, ${menu}"
+        "${config.desktop.mainMod}, L, exec, ${powerMenu}"
+        "${config.desktop.mainMod}, K, killactive,"
+        "${config.desktop.mainMod}, F, fullscreen,"
         "${mainModShift}, L, exit,"
         "${mainModShift}, V, togglefloating,"
         # Change focused window
-        "${mainMod}, left, movefocus, l"
-        "${mainMod}, right, movefocus, r"
-        "${mainMod}, up, movefocus, u"
-        "${mainMod}, down, movefocus, d"
+        "${config.desktop.mainMod}, left, movefocus, l"
+        "${config.desktop.mainMod}, right, movefocus, r"
+        "${config.desktop.mainMod}, up, movefocus, u"
+        "${config.desktop.mainMod}, down, movefocus, d"
         # Move focused window within workspace
         "${mainModShift}, left, movewindow, l"
         "${mainModShift}, right, movewindow, r"
@@ -157,27 +132,27 @@ in
         "${mainModControl}, left, layoutmsg, rollnext"
         "${mainModControl}, right, layoutmsg, rollprev"
         # Make focused window Master
-        "${mainMod}, home, layoutmsg, swapwithmaster"
+        "${config.desktop.mainMod}, home, layoutmsg, swapwithmaster"
         # Navigate between workspaces on the same monitor
-        "${mainMod}, PAGE_DOWN, exec, hyprnome -k"
-        "${mainMod}, PAGE_UP, exec, hyprnome --previous -k"
+        "${config.desktop.mainMod}, PAGE_DOWN, exec, hyprnome -k"
+        "${config.desktop.mainMod}, PAGE_UP, exec, hyprnome -p -k -n"
         # Move focused window between workspaces on the same monitor
-        "${mainModShift}, PAGE_DOWN, exec, hyprnome --move"
-        "${mainModShift}, PAGE_UP, exec, hyprnome --previous --move"
+        "${mainModShift}, PAGE_DOWN, exec, hyprnome -m"
+        "${mainModShift}, PAGE_UP, exec, hyprnome -p -m -n"
         # Move focused window between monitors
         "${mainModControl}, PAGE_UP, movewindow, mon:-1"
         "${mainModControl}, PAGE_DOWN, movewindow, mon:+1"
         # Example special workspace (scratchpad)
-        "${mainMod}, S, togglespecialworkspace, magic"
+        "${config.desktop.mainMod}, S, togglespecialworkspace, magic"
         "${mainModShift}, S, movetoworkspace, special:magic"
         "${mainModControl}, S, movetoworkspace, e+0"
         # Scroll through existing workspaces
         "${mainModAlt}, PAGE_UP, workspace, e+1"
         "${mainModAlt}, PAGE_DOWN, workspace, e-1"
         # Screenshot
-        "${mainMod}, F9, exec, hyprshot -m region --freeze"
-        "${mainMod}, F10, exec, hyprshot -m window -m active --freeze"
-        "${mainMod}, F11, exec, hyprshot -m output -m active --freeze"
+        "${config.desktop.mainMod}, F9, exec, hyprshot -m region --freeze"
+        "${config.desktop.mainMod}, F10, exec, hyprshot -m window -m active --freeze"
+        "${config.desktop.mainMod}, F11, exec, hyprshot -m output -m active --freeze"
         # Save clients to file
         "${mainModShift}, F5, exec, hyprctl clients | tee ~/Documents/client.txt"
       ];

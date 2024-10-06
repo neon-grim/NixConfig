@@ -1,18 +1,14 @@
-{config, pkgs, username, windowManager, ...}:
+{config, pkgs, user, compositor, ...}:
 {
   imports = 
   [
     ./../../modules/homeManager/default.nix
-    ./../../modules/homeManager/${windowManager}.nix
+    ./../../modules/homeManager/${compositor}.nix
   ];
-  # home manager user info
-  home.username = username;
-  home.homeDirectory = "/home/${username}";
-  # home manager install verison
+  home.username = "${user}";
+  home.homeDirectory = "/home/${user}";
   home.stateVersion = "23.11";
-  # let home manager install and manage itself.
   programs.home-manager.enable = true;
-  # User dirs
   xdg = 
   {
     enable = true;

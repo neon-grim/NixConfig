@@ -1,4 +1,4 @@
-{pkgs, username, ...}:
+{pkgs, user, ...}:
 {
   services.greetd =
   {
@@ -8,7 +8,7 @@
       default_session =
       {
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-        user = "${username}";
+        user = "${user}";
       };
     };
   };

@@ -2,7 +2,11 @@
 {
   programs =
   {
-    gamemode.enable = true;
+    gamemode =
+    {
+      enable = true;
+      enableRenice = true;
+    };
     steam = 
     {
       enable = true;
@@ -20,6 +24,7 @@
     mangohud
     protonplus
     protontricks
+    ryujinx
     scanmem
     vesktop
     vkbasalt

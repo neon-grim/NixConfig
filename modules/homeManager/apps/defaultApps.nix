@@ -1,4 +1,4 @@
-{pkgs, lib, ...}:
+{...}:
 {
   xdg.configFile."mimeapps.list".force = true;
   xdg.mimeApps =

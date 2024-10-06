@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, inputs, systemArch, ...}:
 {
   programs =
   {
@@ -18,5 +18,8 @@
     thunderbird
     vipsdisp
     xfce.mousepad
+  ] ++
+  [
+    inputs.zen-browser.packages."${systemArch}".specific
   ];
 }

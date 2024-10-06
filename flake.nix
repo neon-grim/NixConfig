@@ -9,27 +9,32 @@
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
   outputs = inputs@{self, nixpkgs, home-manager, ...}:
   let
+    compositor = "hyprland";
     lib = nixpkgs.lib;
     host = "SmelterDeamon";
-    username = "ashen_one";
-    gtkTheme = "andromeda";
-    windowManager = "windowManagers";
+    owner = "Michael Mueller de los Santos";
+    user = "ashen_one";
+    themeConfig = "andromeda";
+    systemArch = "x86_64-linux";
   in
   {
     nixosConfigurations =
     {
       "${host}" = lib.nixosSystem
       {
-        system = "x86_64-linux";
+        system = "${systemArch}";
         specialArgs =
         {
-          inherit inputs;
+          inherit compositor;
           inherit host;
-          inherit username;
-          inherit windowManager;
+          inherit inputs;
+          inherit owner;
+          inherit user;
+          inherit systemArch;
         };
         modules =
         [
@@ -38,14 +43,15 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/${host}/home.nix;
+            home-manager.users.${user} = import ./hosts/${host}/home.nix;
             home-manager.extraSpecialArgs =
             {
-              inherit inputs;
+              inherit compositor;
               inherit host;
-              inherit username;
-              inherit gtkTheme;
-              inherit windowManager;
+              inherit inputs;
+              inherit owner;
+              inherit user;
+              inherit themeConfig;
             };
           }
         ];
