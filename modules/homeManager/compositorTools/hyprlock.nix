@@ -1,4 +1,4 @@
-{user, ...}:
+{user, owner, ...}:
 {
   programs.hyprlock =
   {
