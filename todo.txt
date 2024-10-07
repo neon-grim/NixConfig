@@ -23,10 +23,10 @@ Repo:
 
 Learning Goals:
 ----------
+-Learn the difference between scripting, programing and expresion language
 -Learn basics of C / C++
 -Learn basics of Rust
 -Learn basics of Lua
--Learn basics of bash
 -Learn basics of Neovim
 -Learn basics of GTKCSS
 -Learn basics of 3D modeling

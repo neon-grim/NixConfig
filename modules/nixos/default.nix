@@ -2,7 +2,9 @@
 {
   imports =
   [
+    ./customOptions/desktopOptions.Nix
     ./hardware/amdgpu.nix
+    ./hardware/amdvlk.nix
     ./hardware/bluetooth.nix
     ./hardware/kernel.nix
     ./hardware/networking.nix
@@ -15,6 +17,7 @@
     ./software/terminal.nix
     ./system/defaultEnvVar.nix
     ./system/defaultServices.nix
+    ./system/flatpak.nix
     ./system/security.nix
   ];
 }
