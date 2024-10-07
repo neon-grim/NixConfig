@@ -1,7 +1,10 @@
-{pkgs, ...}:
+{pkgs, config, lib, ...}:
+let
+  printingEnabled = config.desktop.drivers.printing;
+in
 {
-  programs.system-config-printer.enable = true;
-  services =
+  programs.system-config-printer.enable = printingEnabled;
+  services = lib.mkIf (printingEnabled)
   {
     system-config-printer.enable = true;
     printing =

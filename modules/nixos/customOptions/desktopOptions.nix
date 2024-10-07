@@ -1,6 +1,6 @@
 {config, lib, ...}:
 {
-  desktop =
+  options.desktop =
   {
     drivers =
     {

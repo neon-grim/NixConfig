@@ -2,7 +2,7 @@
 {
   imports =
   [
-    ./customOptions/desktopOptions.Nix
+    ./customOptions/desktopOptions.nix
     ./hardware/amdgpu.nix
     ./hardware/amdvlk.nix
     ./hardware/bluetooth.nix
