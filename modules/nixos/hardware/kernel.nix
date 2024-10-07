@@ -13,7 +13,6 @@
     kernelParams =
     [
       "quiet"
-      "amd_pstate=active"
     ];
     kernel.sysctl =
     {
