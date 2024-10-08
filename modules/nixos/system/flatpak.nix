@@ -1,20 +1,20 @@
 {pkgs, config, lib, ...}:
-let
-  flatpakEnabled = config.desktop.software.flatpak;
-in
 {
-  services.flatpak.enable = flatpakEnabled;
-  systemd.services.flatpak-repo = lib.mkIf (flatpakEnabled)
+  config = lib.mkIf (config.desktop.software.flatpak)
   {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = 
-    ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
+    services.flatpak.enable = true;
+    systemd.services.flatpak-repo =
+    {
+      wantedBy = [ "multi-user.target" ];
+      path = [ pkgs.flatpak ];
+      script = 
+      ''
+        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+      '';
+    };
+    environment.systemPackages =
+    [
+      pkgs.gnome-software
+    ];
   };
-  environment.systemPackages = lib.mkIf (flatpakEnabled)
-  [
-    pkgs.gnome-software
-  ];
 }

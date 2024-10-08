@@ -8,9 +8,27 @@
     ./../../modules/nixos/default.nix
     ./../../modules/nixos/${compositor}.nix
   ];
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  i18n.defaultLocale = "en_GB.UTF-8";
-  time.timeZone = "Europe/Zurich";
-  system.stateVersion = "23.11";
+  
+  desktop =
+  {
+    drivers =
+    {
+      amd =
+      {
+        enable = true;
+        amdvlk = true;
+      };
+      printing = true;
+    };
+    software =
+    {
+      flatpak = true;
+      virtualization = true;
+    };
+    system =
+    {
+      locale = "en_GB.UTF-8";
+      timeZone = "Europe/Zurich";
+    };
+  };
 }

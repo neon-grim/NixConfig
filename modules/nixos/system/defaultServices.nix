@@ -1,6 +1,5 @@
 {host, config, user, ...}:
 {
-  console.keyMap = "sg";
   services =
   {
     dbus.enable = true;
@@ -15,4 +14,13 @@
       };
     };
   };
+  
+  console.keyMap = "sg";
+  
+  system.stateVersion = "23.11";
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
+  i18n.defaultLocale = config.desktop.system.locale;
+  time.timeZone = config.desktop.system.timeZone;
 }

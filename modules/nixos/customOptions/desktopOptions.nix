@@ -4,10 +4,18 @@
   {
     drivers =
     {
-      amdvlk = lib.mkOption
+      amd =
       {
-        type= lib.types.bool;
-        default = false;
+        enable = lib.mkOption
+        {
+          type= lib.types.bool;
+          default = false;
+        };
+        amdvlk = lib.mkOption
+        {
+          type= lib.types.bool;
+          default = false;
+        };
       };
       printing = lib.mkOption
       {
@@ -21,6 +29,24 @@
       {
         type= lib.types.bool;
         default = false;
+      };
+      virtualization = lib.mkOption
+      {
+        type = lib.types.bool;
+        default = false;
+      };
+    };
+    system =
+    {
+      timeZone = lib.mkOption
+      {
+        type= lib.types.str;
+        default = "";
+      };
+      locale = lib.mkOption
+      {
+        type= lib.types.str;
+        default = "";
       };
     };
   };
