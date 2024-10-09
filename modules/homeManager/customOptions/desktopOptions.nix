@@ -1,41 +1,52 @@
 {lib, ...}:
 {
-  options =
+  options.desktop =
   {
-    desktop =
+    style =
     {
       cursorSize = lib.mkOption
       {
         type = lib.types.int;
-        default = 24;
+        default = 16;
       };
       font =
       {
         name = lib.mkOption
         {
           type = lib.types.str;
-          default = "JetBrainsMono Nerd Font";
+          default = "";
         };
         size = lib.mkOption
         {
           type = lib.types.int;
-          default = 14;
+          default = 11;
         };
       };
-      kbLayout = lib.mkOption
+      themePreset = lib.mkOption
       {
         type = lib.types.str;
-        default = "ch";
+        default = "";
       };
-      kbVariant = lib.mkOption
+    };
+    system =
+    {
+      hyprlock = lib.mkOption
       {
-        type = lib.types.str;
-        default = "de_nodeadkeys";
+        type = lib.types.bool;
+        default = false;
       };
-      mainMod = lib.mkOption
+      kb =
       {
-        type = lib.types.str;
-        default = "SUPER";
+        layout = lib.mkOption
+        {
+          type = lib.types.str;
+          default = "";
+        };
+        variant = lib.mkOption
+        {
+          type = lib.types.str;
+          default = "";
+        };
       };
       mainMon =
       {
@@ -47,17 +58,17 @@
         res = lib.mkOption
         {
           type = lib.types.str;
-          default = "preferred";
+          default = "";
         };
         oc = lib.mkOption
         {
           type = lib.types.str;
-          default = "preferred";
+          default = "";
         };
         pos = lib.mkOption
         {
           type = lib.types.str;
-          default = "auto";
+          default = "";
         };
       };
     };

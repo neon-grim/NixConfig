@@ -1,6 +1,6 @@
-{config, ...}:
+{config, lib, ...}:
 {
-  theming =
+  theming = lib.mkIf (config.desktop.style.themePreset == "")
   {
     gtk =
     {

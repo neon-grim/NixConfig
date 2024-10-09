@@ -1,4 +1,7 @@
 {pkgs, lib, inputs, config, ...}:
+let
+  mainMon = "SUPER";
+in
 {
   imports =
   [
@@ -18,7 +21,7 @@
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "XCURSOR_SIZE,${toString config.desktop.cursorSize}"
+        "XCURSOR_SIZE,${toString config.desktop.style.cursorSize}"
         "HYPRSHOT_DIR,$XDG_PICTURES_DIR/sc"
       ];
       exec-once=
@@ -51,8 +54,8 @@
       {
         accel_profile = "flat";
         follow_mouse = 1;
-        kb_layout = config.desktop.kbLayout;
-        kb_variant = config.desktop.kbVariant;
+        kb_layout = config.desktop.system.kb.layout;
+        kb_variant = config.desktop.system.kb.variant;
         numlock_by_default = true;
         sensitivity = 0;
       };
@@ -85,8 +88,8 @@
       };
       bindm =
       [
-        "${config.desktop.mainMod}, mouse:272, movewindow"
-        "${config.desktop.mainMod}, mouse:273, resizewindow"
+        "${mainMon}, mouse:272, movewindow"
+        "${mainMon}, mouse:273, resizewindow"
       ];
       bindl =
       [
@@ -101,28 +104,28 @@
       ];
       bind =
       let 
-        mainModShift = "${config.desktop.mainMod} SHIFT";
-        mainModAlt = "${config.desktop.mainMod} ALT_L";
-        mainModControl = "${config.desktop.mainMod} CONTROL_L";
+        mainModShift = "${mainMon} SHIFT";
+        mainModAlt = "${mainMon} ALT_L";
+        mainModControl = "${mainMon} CONTROL_L";
         menu = "pkill wofi; sleep 0.1 && wofi -S drun";
         powerMenu = "pkill wofi; sleep 0.1 && wofiPowerMenu";
       in
       [
         # Execute default programs and actions
-        "${config.desktop.mainMod}, Return, exec, ${lib.getExe' pkgs.terminator "terminator"}"
-        "${config.desktop.mainMod}, E, exec, ${lib.getExe pkgs.pcmanfm}"
-        "${config.desktop.mainMod}, B, exec, ${lib.getExe pkgs.librewolf}"
-        "${config.desktop.mainMod}, R, exec, ${menu}"
-        "${config.desktop.mainMod}, L, exec, ${powerMenu}"
-        "${config.desktop.mainMod}, K, killactive,"
-        "${config.desktop.mainMod}, F, fullscreen,"
+        "${mainMon}, Return, exec, ${lib.getExe' pkgs.terminator "terminator"}"
+        "${mainMon}, E, exec, ${lib.getExe pkgs.pcmanfm}"
+        "${mainMon}, B, exec, ${lib.getExe pkgs.librewolf}"
+        "${mainMon}, R, exec, ${menu}"
+        "${mainMon}, L, exec, ${powerMenu}"
+        "${mainMon}, K, killactive,"
+        "${mainMon}, F, fullscreen,"
         "${mainModShift}, L, exit,"
         "${mainModShift}, V, togglefloating,"
         # Change focused window
-        "${config.desktop.mainMod}, left, movefocus, l"
-        "${config.desktop.mainMod}, right, movefocus, r"
-        "${config.desktop.mainMod}, up, movefocus, u"
-        "${config.desktop.mainMod}, down, movefocus, d"
+        "${mainMon}, left, movefocus, l"
+        "${mainMon}, right, movefocus, r"
+        "${mainMon}, up, movefocus, u"
+        "${mainMon}, down, movefocus, d"
         # Move focused window within workspace
         "${mainModShift}, left, movewindow, l"
         "${mainModShift}, right, movewindow, r"
@@ -132,10 +135,10 @@
         "${mainModControl}, left, layoutmsg, rollnext"
         "${mainModControl}, right, layoutmsg, rollprev"
         # Make focused window Master
-        "${config.desktop.mainMod}, home, layoutmsg, swapwithmaster"
+        "${mainMon}, home, layoutmsg, swapwithmaster"
         # Navigate between workspaces on the same monitor
-        "${config.desktop.mainMod}, PAGE_DOWN, exec, hyprnome -k"
-        "${config.desktop.mainMod}, PAGE_UP, exec, hyprnome -p -k -n"
+        "${mainMon}, PAGE_DOWN, exec, hyprnome -k"
+        "${mainMon}, PAGE_UP, exec, hyprnome -p -k -n"
         # Move focused window between workspaces on the same monitor
         "${mainModShift}, PAGE_DOWN, exec, hyprnome -m"
         "${mainModShift}, PAGE_UP, exec, hyprnome -p -m -n"
@@ -143,16 +146,16 @@
         "${mainModControl}, PAGE_UP, movewindow, mon:-1"
         "${mainModControl}, PAGE_DOWN, movewindow, mon:+1"
         # Example special workspace (scratchpad)
-        "${config.desktop.mainMod}, S, togglespecialworkspace, magic"
+        "${mainMon}, S, togglespecialworkspace, magic"
         "${mainModShift}, S, movetoworkspace, special:magic"
         "${mainModControl}, S, movetoworkspace, e+0"
         # Scroll through existing workspaces
         "${mainModAlt}, PAGE_UP, workspace, e+1"
         "${mainModAlt}, PAGE_DOWN, workspace, e-1"
         # Screenshot
-        "${config.desktop.mainMod}, F9, exec, hyprshot -m region --freeze"
-        "${config.desktop.mainMod}, F10, exec, hyprshot -m window -m active --freeze"
-        "${config.desktop.mainMod}, F11, exec, hyprshot -m output -m active --freeze"
+        "${mainMon}, F9, exec, hyprshot -m region --freeze"
+        "${mainMon}, F10, exec, hyprshot -m window -m active --freeze"
+        "${mainMon}, F11, exec, hyprshot -m output -m active --freeze"
         # Save clients to file
         "${mainModShift}, F5, exec, hyprctl clients | tee ~/Documents/client.txt"
       ];

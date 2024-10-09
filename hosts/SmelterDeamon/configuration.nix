@@ -1,4 +1,4 @@
-{config, pkgs, inputs, host, compositor, ...}:
+{config, pkgs, inputs, host, compositor, lib, ...}:
 {
   imports =
   [
@@ -6,9 +6,12 @@
     ./hostSpecific/storageConfig.nix
     ./hostSpecific/userConfig.nix
     ./../../modules/nixos/default.nix
-    ./../../modules/nixos/${compositor}.nix
-  ];
-  
+  ] ++
+  (
+    if (compositor == "hyprland")
+    then [./../../modules/nixos/hyprland.nix]
+    else [./../../modules/nixos/gnome.nix]
+  );
   desktop =
   {
     drivers =

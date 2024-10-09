@@ -1,4 +1,8 @@
 {host, config, ...}:
+let
+  fontName = config.desktop.style.font.name;
+  fontSize = config.desktop.style.font.size;
+in
 {
   services.swaync =
   {
@@ -49,8 +53,8 @@
       *
       {
         all: unset;
-        font-family: "${config.desktop.font.name}";
-        font-size: ${toString config.desktop.font.size}pt;
+        font-family: "${fontName}";
+        font-size: ${toString fontSize}pt;
         transition-duration: 0.1s;
         box-shadow: none;
       }

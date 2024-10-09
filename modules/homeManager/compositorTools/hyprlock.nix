@@ -1,6 +1,9 @@
-{user, owner, ...}:
+{user, config, lib, ...}:
+let
+  fontName = config.desktop.style.font.name;
+in
 {
-  programs.hyprlock =
+  programs.hyprlock = lib.mkIf (config.desktop.system.hyprlock)
   {
     enable = true;
     settings =
@@ -16,7 +19,7 @@
           text = ''cmd[update:30000] echo "$(date +"%R")"'';
           color = "rgb(${config.theming.palette.txOne})";
           font_size = 80;
-          font_family = "${desktop.font.name}";
+          font_family = "${fontName}";
           position = "0, 0";
           halign = "center";
           valign = "bottom";
@@ -26,7 +29,7 @@
           text = ''cmd[update:43200000] echo "$(date +"%A, %d %B %Y")"'';
           color = "rgb(${config.theming.palette.txOne})";
           font_size = 25;
-          font_family = "${desktop.font.name}";
+          font_family = "${fontName}";
           position = "0, 50";
           halign = "center";
           valign = "bottom";
@@ -37,7 +40,7 @@
           text_align = "center";
           color = "rgb(${config.theming.palette.txOne})";
           font_size = 25;
-          font_family = "${desktop.font.name}";
+          font_family = "${fontName}";
           rotate = 0;
           position = "0, -100";
           halign = "center";

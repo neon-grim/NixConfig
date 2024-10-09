@@ -5,6 +5,8 @@ let
   taskManager = "${lib.getExe pkgs.resources}";
   volumeControl = "${lib.getExe pkgs.pavucontrol}";
   powerMenu = "pkill wofi; sleep 0.1 && wofiPowerMenu";
+  fontName = config.desktop.style.font.name; 
+  fontSize = config.desktop.style.font.size;
 in
 {
   programs.waybar =
@@ -119,8 +121,8 @@ in
     ''
       *
       {
-        font-family: "${config.desktop.font.name}";
-        font-size: ${toString config.desktop.font.size}pt;
+        font-family: "${fontName}";
+        font-size: ${toString fontSize}pt;
         font-weight: bold;
         border-radius: 3px;
         transition-property: background-color;

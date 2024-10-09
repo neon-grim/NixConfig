@@ -1,4 +1,10 @@
 {host, config, user, ...}:
+let
+  kbLayout = config.home-manager.users.${user}.desktop.system.kb.layout;
+  kbVariant = config.home-manager.users.${user}.desktop.system.kb.variant;
+  locale = config.desktop.system.locale;
+  time = config.desktop.system.timeZone;
+in
 {
   services =
   {
@@ -9,8 +15,8 @@
       enable = true;
       xkb =
       {
-        layout = config.home-manager.users.${user}.desktop.kbLayout;
-        variant = config.home-manager.users.${user}.desktop.kbVariant;
+        layout = kbLayout;
+        variant = kbVariant;
       };
     };
   };
@@ -21,6 +27,6 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
-  i18n.defaultLocale = config.desktop.system.locale;
-  time.timeZone = config.desktop.system.timeZone;
+  i18n.defaultLocale = locale;
+  time.timeZone = time;
 }

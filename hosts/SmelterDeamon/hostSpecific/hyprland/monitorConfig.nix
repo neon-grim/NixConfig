@@ -11,7 +11,7 @@ let
   lockedWallpaper = "/mnt/SATASSD1/1_Images/BackgroundImages/Uncompressed/evangelion.png";
 in
 {
-  desktop.mainMon =
+  desktop.system.mainMon =
   {
     name = mainMonitor;
     res = mainMonitorRes;
