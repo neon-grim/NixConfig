@@ -6,6 +6,12 @@ let
   time = config.desktop.system.timeZone;
 in
 {
+  networking =
+  {
+    hostName = "${host}";
+    networkmanager.enable = true;
+  };
+  
   services =
   {
     dbus.enable = true;
