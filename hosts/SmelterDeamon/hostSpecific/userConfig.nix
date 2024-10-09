@@ -1,9 +1,9 @@
-{host, user, owner, ...}:
+{host, user, ...}:
 {
   users.users."${user}" =
   {
     isNormalUser = true;
-    description = "${owner}";
+    description = "Michael Mueller de los Santos";
     extraGroups = 
     [
       "networkmanager" 

@@ -2,6 +2,10 @@
 let
   hyprctl = lib.getExe' inputs.hyprland.packages.x86_64-linux.hyprland "hyprctl";
   notifySend = lib.getExe pkgs.libnotify;
+  mainMonName = config.desktop.system.mainMon.name;
+  mainMonRes = config.desktop.system.mainMon.res;
+  mainMonOc = config.desktop.system.mainMon.oc;
+  mainMonPos = config.desktop.system.mainMon.pos;
 in
 {
   home.packages = with pkgs;
@@ -18,12 +22,12 @@ in
       notifyGroup="Hyprland Tweaks"
       notifyMessage="Tweaks on:"
       
-      if [[ "${config.desktop.mainMon.name}" == "" || "${config.desktop.mainMon.res}" == "" || "${config.desktop.mainMon.oc}" == "" || "${config.desktop.mainMon.pos}" == "" ]]; then
+      if [[ "${mainMonName}" == "" || "${mainMonRes}" == "" || "${mainMonOc}" == "" || "${mainMonPos}" == "" ]]; then
         ${notifySend} -u critical -a 'Hyprland Tweaks' 'Missing main monitor config!'
         exit 2
       fi
       
-      monitorConfig="monitor ${config.desktop.mainMon.name}, ${config.desktop.mainMon.res}@${config.desktop.mainMon.oc}, ${config.desktop.mainMon.pos}, 1"
+      monitorConfig="monitor ${mainMonName}, ${mainMonRes}@${mainMonOc}, ${mainMonPos}, 1"
       
       while getopts ":adhpr" opt; do
         case $opt in
@@ -44,7 +48,7 @@ in
             notifyMessage+=" HDR"
             ;;
           p)
-            monitorConfig="monitor ${config.desktop.mainMon.name}, preferred, ${config.desktop.mainMon.pos}, 1"
+            monitorConfig="monitor ${mainMonName}, preferred, ${mainMonPos}, 1"
             notifyMessage+=" 120hz"
             ;;
           r)

@@ -1,4 +1,8 @@
 {config, ...}:
+let
+  fontName = config.desktop.style.font.name;
+  fontSize = config.desktop.style.font.size;
+in
 {
   programs.terminator = 
   {
@@ -8,7 +12,7 @@
       global_config.borderless = true;
       profiles.default = 
       {
-        font = "${config.desktop.font.name} ${toString config.desktop.font.size}";
+        font = "${fontName} ${toString fontSize}";
         use_system_font = false;
         allow_bold = true;
         background_darkness = 0.90;

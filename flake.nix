@@ -13,16 +13,16 @@
   };
   outputs = inputs@{self, nixpkgs, home-manager, ...}:
   let
-    compositor = "hyprland";
     lib = nixpkgs.lib;
-    host = "SmelterDeamon";
-    owner = "Michael Mueller de los Santos";
-    user = "ashen_one";
-    themeConfig = "andromeda";
     systemArch = "x86_64-linux";
   in
   {
     nixosConfigurations =
+    let
+      compositor = "hyprland";
+      host = "SmelterDeamon";
+      user = "ashen_one";
+    in
     {
       "${host}" = lib.nixosSystem
       {
@@ -32,7 +32,6 @@
           inherit compositor;
           inherit host;
           inherit inputs;
-          inherit owner;
           inherit user;
           inherit systemArch;
         };
@@ -49,9 +48,7 @@
               inherit compositor;
               inherit host;
               inherit inputs;
-              inherit owner;
               inherit user;
-              inherit themeConfig;
             };
           }
         ];

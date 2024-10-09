@@ -1,8 +1,11 @@
-{pkgs, ...}:
+{pkgs, config, lib, ...}:
 {
-  hardware.amdgpu.amdvlk.enable = true;
-  environment.variables =
+  config = lib.mkIf (config.desktop.drivers.amd.amdvlk && config.desktop.drivers.amd.enable)
   {
-    AMD_VULKAN_ICD = "RADV";
+    hardware.amdgpu.amdvlk.enable = true;
+    environment.variables =
+    {
+      AMD_VULKAN_ICD = "RADV";
+    };
   };
 }

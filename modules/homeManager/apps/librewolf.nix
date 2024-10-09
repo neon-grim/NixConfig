@@ -1,8 +1,10 @@
 {...}:
 {
-  programs.librewolf = {
+  programs.librewolf =
+  {
     enable = true;
-    settings = {
+    settings =
+    {
       "privacy.clearOnShutdown.history" = false;
       "privacy.clearOnShutdown.cookies" = false;
       "identity.fxaccounts.enabled" = true;

@@ -1,21 +1,24 @@
-{pkgs, ...}:
+{pkgs, lib, config,...}:
 {
-  services.xserver.videoDrivers = ["amdgpu"];
-  programs.corectrl =
+  config = lib.mkIf (config.desktop.drivers.amd.enable)
   {
-    enable = true;
-    gpuOverclock.enable = true;
-  };
-  hardware =
-  {
-    graphics =
+    services.xserver.videoDrivers = ["amdgpu"];
+    programs.corectrl =
     {
       enable = true;
-      enable32Bit = true;
+      gpuOverclock.enable = true;
     };
+    hardware =
+    {
+      graphics =
+      {
+        enable = true;
+        enable32Bit = true;
+      };
+    };
+    environment.systemPackages = with pkgs;
+    [
+      vulkan-tools
+    ];
   };
-  environment.systemPackages = with pkgs;
-  [
-    vulkan-tools
-  ];
 }
