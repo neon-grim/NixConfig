@@ -30,7 +30,7 @@ in
       mainModShift = "${mainMon} SHIFT";
       mainModAlt = "${mainMon} ALT_L";
       mainModControl = "${mainMon} CONTROL_L";
-      menu = "pkill wofi; sleep 0.1 && wofi -S drun";
+      menu = "pkill wofi; sleep 0.1 && wofi -S drun --width 500 --height 600";
       powerMenu = "pkill wofi; sleep 0.1 && wofiPowerMenu";
     in
     [
