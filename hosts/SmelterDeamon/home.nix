@@ -1,20 +1,18 @@
-{config, lib, pkgs, user, compositor, ...}:
+{config, lib, compositor, ...}:
 {
   imports =
   [
     ./../../modules/homeManager/default.nix
-    ./../../modules/homeManager/${compositor}.nix
   ] ++
   (
     if (compositor == "hyprland") then
     [
       ./../../modules/homeManager/hyprland.nix
-      ./hostSpecific/hyprland/monitorConfig.nix
-      ./hostSpecific/hyprland/hyprlandRules.nix
+      ./hostSpecific/homeManager/monitorConfig.nix
+      ./hostSpecific/homeManager/hyprlandRules.nix
     ]
     else []
   );
-  
   desktop =
   {
     style =

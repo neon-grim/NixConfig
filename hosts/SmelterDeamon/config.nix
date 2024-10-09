@@ -1,11 +1,11 @@
-{config, pkgs, inputs, host, compositor, lib, ...}:
+{config, lib, compositor, ...}:
 {
   imports =
   [
-    ./hardware-configuration.nix
-    ./hostSpecific/storageConfig.nix
-    ./hostSpecific/userConfig.nix
     ./../../modules/nixos/default.nix
+    ./hostSpecific/nixos/hardware-configuration.nix
+    ./hostSpecific/nixos/storageConfig.nix
+    ./hostSpecific/nixos/userConfig.nix
   ] ++
   (
     if (compositor == "hyprland")

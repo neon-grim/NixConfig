@@ -10,6 +10,7 @@
     ./hardware/printing.nix
     ./hardware/sound.nix
     ./software/flatpak.nix
+    ./software/fileManager.nix
     ./software/gaming.nix
     ./software/generalSoftware.nix
     ./software/virtualisation.nix

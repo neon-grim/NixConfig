@@ -1,14 +1,15 @@
 {pkgs, config, ...}:
 {
-  hardware.xone.enable = true;
-  zramSwap.enable = true;
   boot =
   {
-    loader =
-    {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
+    extraModulePackages =
+    [
+      (config.boot.kernelPackages.callPackage ./../../derivations/xpad.nix {})
+    ];
+    kernelModules =
+    [
+      "xpad-noone"
+    ];
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams =
     [
@@ -18,13 +19,18 @@
     {
       "vm.max_map_count" = 2147483642;
     };
-    extraModulePackages =
-    [
-      (config.boot.kernelPackages.callPackage ./../../derivations/xpad.nix {})
-    ];
-    kernelModules =
-    [
-      "xpad-noone"
-    ];
+    loader =
+    {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+  };
+  hardware.xone =
+  {
+    enable = true;
+  };
+  zramSwap =
+  {
+    enable = true;
   };
 }
