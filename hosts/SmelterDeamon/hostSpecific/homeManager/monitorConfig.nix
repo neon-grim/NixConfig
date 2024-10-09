@@ -23,6 +23,7 @@ in
     "${mainMonitor}, ${mainMonitorRes}@120.00, ${mainMonitorPos}, 1"
     "${bottomMonitor}, preferred, 2720x2080, 1"
     "${sideMonitor}, preferred, 0x0, 1, transform, 3"
+    ", preferred, auto, 1"
   ];
   services.hyprpaper.settings =
   {
