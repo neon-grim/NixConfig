@@ -1,6 +1,9 @@
 {pkgs, lib, inputs, config, ...}:
 let
   mainMon = "SUPER";
+  cursorSize = config.desktop.style.cursorSize;
+  bkOne = "${config.theming.palette.bkOne}aa";
+  bkFive = config.theming.palette.bkFive;
 in
 {
   imports =
@@ -21,7 +24,7 @@ in
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "XCURSOR_SIZE,${toString config.desktop.style.cursorSize}"
+        "XCURSOR_SIZE,${toString cursorSize}"
         "HYPRSHOT_DIR,$XDG_PICTURES_DIR/sc"
       ];
       exec-once=
@@ -36,8 +39,8 @@ in
       general =
       {
         border_size = 3;
-        "col.active_border" = "rgb(${config.theming.palette.bkFive})";
-        "col.inactive_border" = "rgba(${config.theming.palette.bkOne}aa)";
+        "col.active_border" = "rgb(${bkFive})";
+        "col.inactive_border" = "rgba(${bkOne})";
         gaps_in = 5;
         gaps_out = 5;
         hover_icon_on_border = false;

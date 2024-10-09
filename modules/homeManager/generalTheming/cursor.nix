@@ -1,4 +1,7 @@
 {pkgs, config, ...}:
+let
+  cursorSize = config.desktop.style.cursorSize;
+in
 {
   home =
   {
@@ -8,7 +11,7 @@
       x11.enable = true;
       package = pkgs.bibata-cursors;
       name = "Bibata-Original-Classic";
-      size = config.desktop.style.cursorSize;
+      size = cursorSize;
     };
   };
 }
