@@ -4,10 +4,6 @@
   [
     inputs.hyprland.nixosModules.default
   ];
-  programs.hyprland =
-  {
-    enable = true;
-  };
   environment.systemPackages = with pkgs;
   [
     hyprland-workspaces
@@ -15,4 +11,8 @@
     hyprnome
     hyprshot
   ];
+  programs.hyprland =
+  {
+    enable = true;
+  };
 }

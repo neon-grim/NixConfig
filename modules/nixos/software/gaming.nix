@@ -1,5 +1,19 @@
 {pkgs, ...}:
 {
+  environment.systemPackages = with pkgs;
+  [
+    goverlay
+    heroic
+    jstest-gtk
+    libstrangle
+    mangohud
+    protonplus
+    protontricks
+    ryujinx
+    scanmem
+    vesktop
+    vkbasalt
+  ];
   programs =
   {
     gamemode =
@@ -15,18 +29,4 @@
       remotePlay.openFirewall = true;
     };
   };
-  environment.systemPackages = with pkgs;
-  [
-    goverlay
-    heroic
-    jstest-gtk
-    libstrangle
-    mangohud
-    protonplus
-    protontricks
-    ryujinx
-    scanmem
-    vesktop
-    vkbasalt
-  ];
 }

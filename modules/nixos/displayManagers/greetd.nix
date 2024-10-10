@@ -1,5 +1,9 @@
 {pkgs, user, ...}:
 {
+  environment.systemPackages = with pkgs;
+  [
+    greetd.tuigreet
+  ];
   services.greetd =
   {
     enable = true;
@@ -12,8 +16,4 @@
       };
     };
   };
-  environment.systemPackages = with pkgs;
-  [
-    greetd.tuigreet
-  ];
 }

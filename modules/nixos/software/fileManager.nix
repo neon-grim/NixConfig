@@ -1,12 +1,8 @@
 {pkgs, ...}:
 {
-  services =
+  environment.sessionVariables =
   {
-    devmon.enable = true;
-    gvfs.enable = true;
-    fstrim.enable = true;
-    udisks2.enable = true;
-    tumbler.enable = true;
+    XDG_MENU_PREFIX = "lxde-";
   };
   environment.systemPackages = with pkgs;
   [
@@ -16,8 +12,12 @@
     lxde.lxmenu-data
     pcmanfm
   ];
-  environment.sessionVariables =
+  services =
   {
-    XDG_MENU_PREFIX = "lxde-";
+    devmon.enable = true;
+    gvfs.enable = true;
+    fstrim.enable = true;
+    udisks2.enable = true;
+    tumbler.enable = true;
   };
 }

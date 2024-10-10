@@ -4,12 +4,13 @@
   [
     ./apps/librewolf.nix
     ./apps/terminator.nix
-    ./customOptions/desktopOptions.nix
+    ./customOptions/desktopStyleOptions.nix
+    ./customOptions/desktopSystemOptions.nix
     ./customOptions/themingOptions.nix
     ./generalTheming/cursor.nix
     ./generalTheming/gtk.nix
     ./generalTheming/qt.nix
-    ./system/defaultApps.nix
     ./system/generalConfig.nix
+    ./system/xdgConfig.nix
   ];
 }

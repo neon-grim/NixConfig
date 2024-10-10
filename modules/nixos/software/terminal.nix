@@ -1,6 +1,5 @@
 {pkgs, ...}:
 {
-  programs.fish.enable = true;
   environment.systemPackages = with pkgs;
   [
     git
@@ -11,4 +10,8 @@
     unrar
     usbutils
   ];
+  programs.fish =
+  {
+    enable = true;
+  };
 }

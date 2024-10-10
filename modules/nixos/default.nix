@@ -2,7 +2,9 @@
 {
   imports =
   [
-    ./customOptions/desktopOptions.nix
+    ./customOptions/desktopDriverOptions.nix
+    ./customOptions/desktopSoftwareOptions.nix
+    ./customOptions/desktopSystemOptions.nix
     ./hardware/amdgpu.nix
     ./hardware/amdvlk.nix
     ./hardware/bluetooth.nix
@@ -10,6 +12,7 @@
     ./hardware/printing.nix
     ./hardware/sound.nix
     ./software/flatpak.nix
+    ./software/fileManager.nix
     ./software/gaming.nix
     ./software/generalSoftware.nix
     ./software/virtualisation.nix

@@ -1,7 +1,5 @@
 {pkgs, ...}:
 {
-  services.playerctld.enable = true;
-  programs.nm-applet.enable = true;
   environment.systemPackages = with pkgs;
   [
     pantheon.pantheon-agent-polkit
@@ -11,6 +9,15 @@
     xdg-user-dirs
     xdg-utils
   ];
+  programs =
+  {
+    nm-applet.enable = true;
+    dconf.enable = true;
+  };
+  services.playerctld =
+  {
+    enable = true;
+  };
   xdg.portal =
   {
     enable = true;

@@ -1,14 +1,8 @@
 {pkgs, ...}:
 {
-  services.xserver.desktopManager.gnome =
+  environment.sessionVariables =
   {
-    enable = true;
-    extraGSettingsOverridePackages = [pkgs.gnome.mutter];
-    extraGSettingsOverrides =
-    ''
-    [org.gnome.mutter]
-    experimental-features=['variable-refresh-rate', 'scale-monitor-framebuffer']
-    '';
+    MUTTER_DEBUG_FORCE_KMS_MODE="simple";
   };
   environment.systemPackages = with pkgs;
   [
@@ -18,8 +12,14 @@
     gnomeExtensions.tray-icons-reloaded
     gnomeExtensions.vitals
   ];
-  environment.sessionVariables =
+  services.xserver.desktopManager.gnome =
   {
-    MUTTER_DEBUG_FORCE_KMS_MODE="simple";
+    enable = true;
+    extraGSettingsOverridePackages = [pkgs.gnome.mutter];
+    extraGSettingsOverrides =
+    ''
+    [org.gnome.mutter]
+    experimental-features=['variable-refresh-rate', 'scale-monitor-framebuffer']
+    '';
   };
 }

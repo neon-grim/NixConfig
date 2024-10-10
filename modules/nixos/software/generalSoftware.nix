@@ -1,9 +1,5 @@
 {pkgs, inputs, systemArch, ...}:
 {
-  programs =
-  {
-    dconf.enable = true;
-  };
   environment.systemPackages = with pkgs;
   [
     bottles

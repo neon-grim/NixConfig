@@ -11,7 +11,6 @@ in
     hostName = "${host}";
     networkmanager.enable = true;
   };
-  
   services =
   {
     dbus.enable = true;
@@ -26,13 +25,13 @@ in
       };
     };
   };
-  
+  # Unknown
   console.keyMap = "sg";
-  
+  # Package Settings
   system.stateVersion = "23.11";
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+  # System Settings
   i18n.defaultLocale = locale;
   time.timeZone = time;
 }

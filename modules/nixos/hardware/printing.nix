@@ -1,22 +1,25 @@
 {pkgs, config, lib, ...}:
-let
-  printingEnabled = config.desktop.drivers.printing;
-in
 {
-  programs.system-config-printer.enable = printingEnabled;
-  services = lib.mkIf (printingEnabled)
+  config = lib.mkIf (config.desktop.drivers.printing)
   {
-    system-config-printer.enable = true;
-    printing =
+    programs.system-config-printer =
     {
       enable = true;
-      drivers = with pkgs; [ hplip ];
     };
-    avahi = 
+    services =
     {
-      enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
+      system-config-printer.enable = true;
+      printing =
+      {
+        enable = true;
+        drivers = with pkgs; [ hplip ];
+      };
+      avahi = 
+      {
+        enable = true;
+        nssmdns4 = true;
+        openFirewall = true;
+      };
     };
   };
 }
