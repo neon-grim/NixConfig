@@ -1,10 +1,12 @@
 {pkgs, lib, ...}:
 let
-  calendar = "${lib.getExe pkgs.thunderbird}";
-  performanceApp = "${lib.getExe' pkgs.corectrl "corectrl"}";
-  taskManager = "${lib.getExe pkgs.resources}";
-  volumeControl = "${lib.getExe pkgs.pavucontrol}";
-  powerMenu = "pkill wofi; sleep 0.1 && wofiPowerMenu";
+  performanceApp = lib.getExe' pkgs.corectrl "corectrl";
+  calendar = lib.getExe pkgs.thunderbird;
+  taskManager = lib.getExe pkgs.resources;
+  volumeControl = lib.getExe pkgs.pavucontrol;
+  makeMute = "${lib.getExe' pkgs.mako "makoctl"} mode -t dnd";
+  makoRestart = "pkill mako-wrapped && sleep 0.5 && ${lib.getExe pkgs.mako} &";
+  powerMenu = "pkill wofi && sleep 0.1 && wofiPowerMenu";
 in
 {
   imports =
@@ -26,13 +28,13 @@ in
       modules-center =
       [ 
         "clock"
+        "custom/notify"
       ];
       modules-right =
       [
         "pulseaudio"
         "memory"
         "cpu"
-        "custom/notification"
         "tray"
         "custom/powermenu"
       ];
@@ -54,9 +56,25 @@ in
       };
       "clock" =
       {
-        interval = 1;
         format = "{:%R  %A %b %d}";
-        on-click = "sleep 0.1 && ${calendar}";
+        on-click = "${calendar}";
+        tooltip = false;
+      };
+      "custom/notify" =
+      {
+        exec = "makoCheckMode";
+        format = "{icon}";
+        format-icons =
+        {
+           "active" = "󱇦";
+           "dnd" = "󱏨";
+        };
+        interval = 1;
+        on-click = "makoShowNotifications";
+        on-click-right = "${makeMute}";
+        on-click-middle = "${makoRestart}";
+        return-type = "json";
+        tooltip = false;
       };
       "memory" =
       {
@@ -78,27 +96,6 @@ in
         format = "";
         on-click = "sleep 0.1 && ${powerMenu}";
         tooltip = false;
-      };
-      "custom/notification" =
-      {
-        tooltip = false;
-        format = "{icon} {}";
-        format-icons = {
-          notification = "";
-          none = "";
-          dnd-notification = "";
-          dnd-none = "";
-          inhibited-notification = "";
-          inhibited-none = "";
-          dnd-inhibited-notification = "";
-          dnd-inhibited-none = "";
-        };
-        return-type = "json";
-        exec-if = "which swaync-client";
-        exec = "swaync-client -swb";
-        on-click = "sleep 0.1 && swaync-client -t -sw";
-        on-click-right = "swaync-client -d -sw";
-        escape = true;
       };
       "hyprland/workspaces" =
       {
