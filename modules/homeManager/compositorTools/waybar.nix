@@ -57,7 +57,7 @@ in
       "clock" =
       {
         format = "{:%R  %A %b %d}";
-        on-click = "${calendar}";
+        on-click = "sleep 0.1 && ${calendar}";
         tooltip = false;
       };
       "custom/notify" =

@@ -4,6 +4,7 @@ let
   fontSize = config.desktop.style.font.size;
   bkOne = config.theming.palette.bkOne;
   bkFour = config.theming.palette.bkFour;
+  bkFive = config.theming.palette.bkFive;
   txOne = config.theming.palette.txOne;
   txTwo = config.theming.palette.txTwo;
   txFour = config.theming.palette.txFour;
