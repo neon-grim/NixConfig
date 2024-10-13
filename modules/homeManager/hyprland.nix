@@ -6,7 +6,7 @@
     ./compositorTools/hyprlock.nix
     ./compositorTools/hyprpaper.nix
     ./compositorTools/hyprTweaks.nix
-    ./compositorTools/swaync.nix
+    ./compositorTools/mako.nix
     ./compositorTools/waybar.nix
     ./compositorTools/wofiPowerMenu.nix
   ];

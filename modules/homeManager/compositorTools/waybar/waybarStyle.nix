@@ -66,6 +66,13 @@ in
       padding-left: 0px;
       padding-right: 4px; 
     }
+    #custom-powermenu
+    {
+      padding-left: 10px;
+      padding-right: 15px;
+      margin-left: 5px;
+      margin-right: 0px;
+    }
     #workspaces button
     {
       padding-top: 5px;
@@ -75,7 +82,7 @@ in
       margin-left: 2px;
       margin-right: 2px;
     }
-    #workspaces button.active
+    #workspaces button.active, #custom-powermenu
     {
       color: #${txTwo};
       background-color: #${bkThree};
@@ -91,9 +98,11 @@ in
       padding-left: 10px;
       padding-right: 10px;
     }
-    #custom-notification
+    #custom-notify
     {
-      min-width: 50px;
+      font-size: ${toString (2 + fontSize)}pt;
+      min-width: 25px;
+      padding-right: 4px;
     }
     #memory, #cpu, #pulseaudio
     {
@@ -108,16 +117,7 @@ in
       margin-left: 5px;
       margin-right: 0px;
     }
-    #custom-powermenu
-    {
-      color: #${txFive};
-      background-color: #${bkFive};
-      padding-left: 10px;
-      padding-right: 15px;
-      margin-left: 5px;
-      margin-right: 0px;
-    }
-    #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #pulseaudio:hover, #custom-powermenu:hover, #custom-notification:hover
+    #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #pulseaudio:hover, #custom-powermenu:hover, #custom-notify:hover
     {
       color: #${txThree};
       background-color: #${bkThree};
