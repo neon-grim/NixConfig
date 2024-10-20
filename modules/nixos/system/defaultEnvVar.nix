@@ -18,8 +18,5 @@
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
-    # Unified Shader directory
-    DXVK_STATE_CACHE_PATH = "$XDG_CACHE_HOME/ProtonShaders/DXVK";
-    VKD3D_SHADER_CACHE_PATH = "$XDG_CACHE_HOME/ProtonShaders/VKD3D";
   };
 }
