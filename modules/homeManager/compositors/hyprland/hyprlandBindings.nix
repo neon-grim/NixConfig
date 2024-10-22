@@ -64,11 +64,11 @@ in
       # Make focused window Master
       "${mainMod}, home, layoutmsg, swapwithmaster"
       # Navigate between workspaces on the same monitor
-      "${mainMod}, PAGE_DOWN, exec, hyprnome -k"
-      "${mainMod}, PAGE_UP, exec, hyprnome -p -k -n"
+      "${mainMod}, PAGE_DOWN, exec, hyprnome -k -c"
+      "${mainMod}, PAGE_UP, exec, hyprnome -p -k -c"
       # Move focused window between workspaces on the same monitor
-      "${mainModShift}, PAGE_DOWN, exec, hyprnome -m"
-      "${mainModShift}, PAGE_UP, exec, hyprnome -p -m -n"
+      "${mainModShift}, PAGE_DOWN, exec, hyprnome -m -c"
+      "${mainModShift}, PAGE_UP, exec, hyprnome -p -m -c"
       # Move focused window between monitors
       "${mainModControl}, PAGE_UP, movewindow, mon:-1"
       "${mainModControl}, PAGE_DOWN, movewindow, mon:+1"
