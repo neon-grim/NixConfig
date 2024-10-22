@@ -6,7 +6,7 @@ let
   volumeControl = lib.getExe pkgs.pavucontrol;
   makeMute = "${lib.getExe' pkgs.mako "makoctl"} mode -t dnd";
   makoRestart = "pkill mako-wrapped && sleep 0.5 && ${lib.getExe pkgs.mako} &";
-  powerMenu = "pkill wofi && sleep 0.1 && wofiPowerMenu";
+  powerMenu = "pkill wofi; sleep 0.1 && wofiPowerMenu";
 in
 {
   imports =
@@ -23,7 +23,6 @@ in
       modules-left =
       [
         "hyprland/workspaces"
-        "sway/workspaces"
       ];
       modules-center =
       [ 

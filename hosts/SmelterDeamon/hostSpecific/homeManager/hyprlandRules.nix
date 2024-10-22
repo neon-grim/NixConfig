@@ -1,4 +1,9 @@
 {...}:
+let
+  mainMonitor = "monitor:desc:Samsung Electric Company Odyssey G95SC H1AK500000";
+  bottomMonitor = "monitor:desc:Invalid Vendor Codename - RTK Verbatim MT14 demoset-1";
+  sideMonitor = "monitor:desc:Acer Technologies ED323QUR";
+in
 {
   wayland.windowManager.hyprland.settings =
   {
@@ -25,21 +30,26 @@
       # Apps
       "workspace 22 silent, title:^(Steam)$"
       "workspace 23 silent, title:^(Heroic Games Launcher)$"
-      "workspace 24 silent, title:^(CoreCtrl)$"
-      "workspace 25 silent, title:^(Lollypop)$"
+      "workspace 24 silent, class:^(com\.obsproject\.Studio)$"
+      "workspace 25 silent, title:^(CoreCtrl)$"
       "workspace 42 silent, class:^(vesktop)$"
+      "workspace 43 silent, class:^(vesktop)$, initialClass:^(Discord Popout)$"
+      "workspace 44 silent, title:^(Lollypop)$"
       "workspace special:magic, class:^(terminator)$"
     ];
     workspace =
     [
       "1, border:false, rounding:false"
-      "1, monitor:desc:Samsung Electric Company Odyssey G95SC H1AK500000"
-      "2, monitor:desc:Samsung Electric Company Odyssey G95SC H1AK500000, default:true, persistent:true"
-      "22, monitor:desc:Invalid Vendor Codename - RTK Verbatim MT14 demoset-1, default:true, persistent:true"
-      "23, monitor:desc:Invalid Vendor Codename - RTK Verbatim MT14 demoset-1"
-      "24, monitor:desc:Invalid Vendor Codename - RTK Verbatim MT14 demoset-1"
-      "25, monitor:desc:Invalid Vendor Codename - RTK Verbatim MT14 demoset-1"
-      "42, monitor:desc:Acer Technologies ED323QUR, default:true, persistent:true"
+      "1, ${mainMonitor}"
+      "2, ${mainMonitor}, default:true, persistent:true"
+      "22, ${bottomMonitor}"
+      "23, ${bottomMonitor}"
+      "24, ${bottomMonitor}"
+      "25, ${bottomMonitor}"
+      "26, ${bottomMonitor}, default:true, persistent:true"
+      "42, ${sideMonitor}, default:true, persistent:true"
+      "43, ${sideMonitor}"
+      "44, ${sideMonitor}"
     ];
   };
 }

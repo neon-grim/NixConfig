@@ -23,8 +23,8 @@ in
     };
     iconTheme =
     {
-      package = pkgs.beauty-line-icon-theme;
-      name = "BeautyLine";
+      name = "Dracula";
+      package = pkgs.dracula-icon-theme;
     };
     gtk3.extraConfig =
     {
