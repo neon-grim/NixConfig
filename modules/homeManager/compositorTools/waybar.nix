@@ -22,40 +22,30 @@ in
       position = "top";
       modules-left =
       [
+        "custom/powermenu"
         "hyprland/workspaces"
       ];
       modules-center =
-      [ 
+      [
         "clock"
         "custom/notify"
       ];
       modules-right =
       [
-        "pulseaudio"
-        "memory"
         "cpu"
+        "memory"
+        "wireplumber"
         "tray"
-        "custom/powermenu"
       ];
-       "tray" =
+      "cpu" =
       {
-        spacing = 12;
-        icon-size = 18;
-        reverse-direction = true;
-      };
-      "pulseaudio" =
-      {
-        format = "{icon} {volume}%";
-        format-muted = "󰖁 {volume}%";
-        format-icons = 
-        {
-          default = ["" ""];
-        };
-        on-click = "sleep 0.1 && ${volumeControl}";
+        interval = 1;
+        format = " {usage}%";
+        on-click = "sleep 0.1 && ${performanceApp}";
       };
       "clock" =
       {
-        format = "{:%R  %A %b %d}";
+        format = "{:%R %a %b %d}";
         on-click = "sleep 0.1 && ${calendar}";
         tooltip = false;
       };
@@ -74,21 +64,6 @@ in
         on-click-middle = "${makoRestart}";
         return-type = "json";
         tooltip = false;
-      };
-      "memory" =
-      {
-        interval = 1;
-        format = " {percentage}%";
-        states = {
-          "warning" = 85;
-        };
-        on-click = "sleep 0.1 && ${taskManager}";
-      };
-      "cpu" =
-      {
-        interval = 1;
-        format = " {usage}%";
-        on-click = "sleep 0.1 && ${performanceApp}";
       };
       "custom/powermenu" =
       {
@@ -110,6 +85,27 @@ in
           urgent = "";
           "1" = "";
         };
+      };
+      "memory" =
+      {
+        interval = 1;
+        format = " {percentage}%";
+        states = {
+          "warning" = 85;
+        };
+        on-click = "sleep 0.1 && ${taskManager}";
+      };
+       "tray" =
+      {
+        spacing = 12;
+        icon-size = 18;
+        reverse-direction = true;
+      };
+      "wireplumber" = 
+      {
+        format = "󰓃 {volume}%";
+        format-muted = "󰓄 {volume}%";
+        on-click = "sleep 0.1 && ${volumeControl}";
       };
     }];
   };

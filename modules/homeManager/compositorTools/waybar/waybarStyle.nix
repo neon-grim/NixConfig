@@ -61,22 +61,14 @@ in
     {
       color: #${txOne};
     }
-    #workspaces
-    {
-      padding-left: 0px;
-      padding-right: 4px; 
-    }
     #custom-powermenu
     {
       padding-left: 10px;
-      padding-right: 15px;
-      margin-left: 5px;
-      margin-right: 0px;
+      padding-right: 16px;
+      margin-right: 5px;
     }
     #workspaces button
     {
-      padding-top: 5px;
-      padding-bottom: 5px;
       padding-left: 6px;
       padding-right: 12px;
       margin-left: 2px;
@@ -86,7 +78,6 @@ in
     {
       color: #${txTwo};
       background-color: #${bkThree};
-      font-weight: bold;
     }
     #workspaces button.urgent
     {
@@ -104,20 +95,19 @@ in
       min-width: 25px;
       padding-right: 4px;
     }
-    #memory, #cpu, #pulseaudio
-    {
-      min-width: 70px;
-    }
     #tray
     {
       color: #${txTwo};
       background-color: #${bkTwo};
       padding-left: 15px;
       padding-right: 15px;
-      margin-left: 5px;
-      margin-right: 0px;
     }
-    #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #pulseaudio:hover, #custom-powermenu:hover, #custom-notify:hover
+    #cpu, #memory, #wireplumber
+    {
+      min-width: 75px;
+      margin-right: 5px;
+    }
+    #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #wireplumber:hover, #custom-powermenu:hover, #custom-notify:hover
     {
       color: #${txThree};
       background-color: #${bkThree};
