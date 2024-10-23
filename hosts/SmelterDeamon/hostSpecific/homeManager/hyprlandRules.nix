@@ -5,8 +5,13 @@ let
   sideMonitor = "monitor:desc:Acer Technologies ED323QUR";
 in
 {
+  desktop.system.workspaceCount = "18";
   wayland.windowManager.hyprland.settings =
   {
+    exec-once=
+    [
+      "hyprWorkspaceStart"
+    ];
     windowrulev2 =
     [
       # Gaming

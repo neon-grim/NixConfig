@@ -43,5 +43,10 @@
         default = "";
       };
     };
+    workspaceCount = lib.mkOption
+    {
+      type = lib.types.str;
+      default = "";
+    };
   };
 }
