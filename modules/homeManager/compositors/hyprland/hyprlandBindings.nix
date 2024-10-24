@@ -36,7 +36,7 @@ in
     [
       # Execute default programs and actions
       "${mainMod}, Return, exec, ${lib.getExe' pkgs.terminator "terminator"}"
-      "${mainMod}, E, exec, ${lib.getExe pkgs.pcmanfm}"
+      "${mainMod}, E, exec, ${lib.getExe' pkgs.nemo-with-extensions "nemo"}"
       "${mainMod}, B, exec, ${lib.getExe pkgs.librewolf}"
       "${mainMod}, R, exec, ${menu}"
       "${mainMod}, O, exec, ${lib.getExe pkgs.obs-studio}"
@@ -83,8 +83,6 @@ in
       "${mainMod}, F9, exec, hyprshot -m region --freeze"
       "${mainMod}, F10, exec, hyprshot -m window -m active --freeze"
       "${mainMod}, F11, exec, hyprshot -m output -m active --freeze"
-      # Save clients to file
-      "${mainModShift}, F5, exec, hyprctl clients | tee ~/Documents/client.txt"
     ];
   };
 }
