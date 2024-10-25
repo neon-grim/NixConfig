@@ -1,7 +1,7 @@
 {config, ...}:
 let
-  bkOne = "${config.theming.palette.bkOne}aa";
-  bkFive = config.theming.palette.bkFive;
+  accentDefault = config.theming.palette.accentDefault;
+  accentDark = "${config.theming.palette.accentDark}aa";
 in
 {
   wayland.windowManager.hyprland.settings =
@@ -22,16 +22,16 @@ in
     };
     general =
     {
-      border_size = 3;
-      "col.active_border" = "rgb(${bkFive})";
-      "col.inactive_border" = "rgba(${bkOne})";
-      gaps_in = 5;
-      gaps_out = 5;
+      border_size = 4;
+      "col.active_border" = "rgb(${accentDefault})";
+      "col.inactive_border" = "rgba(${accentDark})";
+      gaps_in = 6;
+      gaps_out = 12;
     };
     decoration =
     {
       drop_shadow = false;
-      rounding = 3;
+      rounding = 6;
     };
     misc =
     {
