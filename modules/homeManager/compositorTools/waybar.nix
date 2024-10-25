@@ -32,15 +32,16 @@ in
       ];
       modules-right =
       [
-        "cpu"
-        "memory"
         "wireplumber"
+        "memory"
+        "cpu"
         "tray"
       ];
       "cpu" =
       {
         interval = 1;
-        format = " {usage}%";
+        format = "{icon}";
+        format-icons = ["󰝦" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
         on-click = "sleep 0.1 && ${performanceApp}";
       };
       "clock" =
@@ -89,7 +90,8 @@ in
       "memory" =
       {
         interval = 1;
-        format = " {percentage}%";
+        format = "{icon}";
+        format-icons = ["󰝦" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
         states = {
           "warning" = 85;
         };
