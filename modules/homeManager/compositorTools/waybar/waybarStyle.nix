@@ -1,116 +1,133 @@
 {pkgs, lib, config, ...}:
 let
-  fontName = config.desktop.style.font.name; 
-  fontSize = config.desktop.style.font.size;
-  bkOne = config.theming.palette.bkOne;
-  bkTwo = config.theming.palette.bkTwo;
-  bkThree = config.theming.palette.bkThree;
-  bkFour = config.theming.palette.bkFour;
-  bkFive = config.theming.palette.bkFive;
-  txOne = config.theming.palette.txOne;
-  txTwo = config.theming.palette.txTwo;
-  txThree = config.theming.palette.txThree;
-  txFour = config.theming.palette.txFour;
-  txFive = config.theming.palette.txFive;
+  fontName = config.desktop.style.font.name;
+  bkDefault = config.theming.palette.bkDefault;
+  bkBrighter = config.theming.palette.bkBrighter;
+  bkBrightest = config.theming.palette.bkBrightest;
+  bkUrgent = config.theming.palette.bkUrgent;
+  txDefault = config.theming.palette.txDefault;
+  txBrighter = config.theming.palette.txBrighter;
+  txBrightest = config.theming.palette.txBrightest;
+  txUrgent = config.theming.palette.txUrgent;
 in
 {
-  programs.waybar.style =
-  ''
-    *
-    {
-      font-family: "${fontName}";
-      font-size: ${toString fontSize}pt;
-      font-weight: bold;
-      border-radius: 3px;
-      transition-property: background-color;
-      transition-duration: 0.1s;
-    }
-    @keyframes blink_red
-    {
-      to 
+  programs.waybar =
+  let
+    globalStyling =
+    ''
+      *
       {
-        color: #${txFour};
-        background-color: #${bkFour};
+        font-family: "${fontName}";
+        font-size: 16pt;
+        font-weight: bold;
+        border-radius: 3px;
+        transition-property: background-color;
+        transition-duration: 0.1s;
       }
-    }
-    .warning, .critical, .urgent
-    {
-      animation-name: blink_red;
-      animation-duration: 1s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-    }
-    window#waybar
-    {
-      background-color: transparent;
-    }
-    window > box 
-    {
-      color: #${txOne};
-      background-color: #${bkOne};
-      padding: 3px;
-      padding-left:8px;
-      border: 2px none;
-    }
-    tooltip
-    {
-      background-color: #${bkOne};
-    }
-    tooltip label
-    {
-      color: #${txOne};
-    }
-    #custom-powermenu
-    {
-      padding-left: 10px;
-      padding-right: 16px;
-      margin-right: 5px;
-    }
-    #workspaces button
-    {
-      padding-left: 6px;
-      padding-right: 12px;
-      margin-left: 2px;
-      margin-right: 2px;
-    }
-    #workspaces button.active, #custom-powermenu
-    {
-      color: #${txTwo};
-      background-color: #${bkThree};
-    }
-    #workspaces button.urgent
-    {
-      color: #${txFour};
-      background-color: #${bkFour};
-    }
-    #clock
-    {
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-    #custom-notify
-    {
-      font-size: ${toString (2 + fontSize)}pt;
-      min-width: 25px;
-      padding-right: 4px;
-    }
-    #tray
-    {
-      color: #${txTwo};
-      background-color: #${bkTwo};
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-    #cpu, #memory, #wireplumber
-    {
-      min-width: 75px;
-      margin-right: 5px;
-    }
-    #workspaces button:hover, #clock:hover, #memory:hover, #cpu:hover, #wireplumber:hover, #custom-powermenu:hover, #custom-notify:hover
-    {
-      color: #${txThree};
-      background-color: #${bkThree};
-    }
-  '';
+      @keyframes blink_red
+      {
+        to 
+        {
+          color: #${txUrgent};
+          background-color: #${bkUrgent};
+        }
+      }
+      .warning, .critical, .urgent
+      {
+        animation-name: blink_red;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+      window#waybar
+      {
+        background-color: transparent;
+      }
+      window > box 
+      {
+        color: #${txDefault};
+        background-color: #${bkDefault};
+        padding: 3px;
+        padding-left:8px;
+        border: 2px none;
+      }
+      tooltip
+      {
+        background-color: #${bkDefault};
+      }
+      tooltip label
+      {
+        color: #${txDefault};
+      }
+      #clock:hover, #cpu:hover, #custom-notify:hover, #custom-powermenu:hover , #memory:hover, #wireplumber:hover, #workspaces button:hover
+      {
+        color: #${txBrightest};
+        background-color: #${bkBrightest};
+      }
+    '';
+    leftModuleStyling =
+    ''
+      #custom-powermenu
+      {
+        color: #${txBrighter};
+        background-color: #${bkBrighter};
+        padding-left: 10px;
+        padding-right: 16px;
+      }
+      #workspaces button
+      {
+        color: #${txBrighter};
+        padding-left: 6px;
+        padding-right: 12px;
+        margin-left: 3px;
+      }
+      #workspaces button.active
+      {
+        background-color: #${bkBrighter};
+      }
+    '';
+    centerModuleStyling =
+    ''
+      #clock
+      {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      #custom-notify
+      {
+        min-width: 25px;
+        padding-right: 4px;
+      }
+    '';
+    rightModuleStyling =
+    ''
+      #wireplumber
+      {
+        min-width: 75px;
+        margin-right: 5px;
+      }
+      #cpu, #memory
+      {
+        margin-right: 3px;
+        min-width: 30px;
+        padding-right: 3px;
+      }
+      #cpu
+      {
+        color: #${txBrighter};
+      }
+      #tray
+      {
+        color: #${txBrighter};
+        background-color: #${bkBrighter};
+        margin-right: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    '';
+  in
+  {
+    style = (globalStyling + leftModuleStyling + centerModuleStyling + rightModuleStyling);
+  };
 }
