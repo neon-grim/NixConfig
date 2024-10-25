@@ -1,6 +1,7 @@
 {pkgs, lib, config, ...}:
 let
   fontName = config.desktop.style.font.name;
+  accentDefault = config.theming.palette.accentDefault;
   bkDefault = config.theming.palette.bkDefault;
   bkBrighter = config.theming.palette.bkBrighter;
   bkBrightest = config.theming.palette.bkBrightest;
@@ -55,7 +56,7 @@ in
       {
         color: #${txDefault};
       }
-      #clock:hover, #cpu:hover, #custom-notify:hover, #custom-powermenu:hover , #memory:hover, #wireplumber:hover, #workspaces button:hover
+      #clock:hover, #cpu:hover, #custom-notify:hover, #custom-powermenu:hover , #memory:hover, #pulseaudio:hover, #workspaces button:hover
       {
         background-color: #${bkBrightest};
         color: #${txBrightest};
@@ -98,10 +99,27 @@ in
     '';
     rightModuleStyling =
     ''
-      #wireplumber
+      #pulseaudio
       {
-        min-width: 75px;
-        margin-right: 5px;
+        padding-left: 1px;
+        padding-right: 3px;
+      }
+      #pulseaudio-slider slider
+      {
+        background-color: transparent;
+        box-shadow: none;
+      }
+      #pulseaudio-slider trough
+      {
+        min-width: 100px;
+        min-height: 15px;
+        border-radius: 4px;
+        background: #${bkBrightest};
+      }
+      #pulseaudio-slider highlight
+      {
+        border-radius: 4px;
+        background-color: #${accentDefault};
       }
       #cpu, #memory
       {

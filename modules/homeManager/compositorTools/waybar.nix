@@ -32,7 +32,8 @@ in
       ];
       modules-right =
       [
-        "wireplumber"
+        "pulseaudio"
+        "pulseaudio/slider"
         "memory"
         "cpu"
         "tray"
@@ -103,11 +104,19 @@ in
         icon-size = 18;
         reverse-direction = true;
       };
-      "wireplumber" = 
+      "pulseaudio" =
       {
-        format = "󰓃 {volume}%";
-        format-muted = "󰓄 {volume}%";
+        format = "󰕾";
+        format-muted = "󰝟";
         on-click = "sleep 0.1 && ${volumeControl}";
+        scroll-step = 0;
+        tooltip-format = "{icon} {desc} // {volume}%";
+      };
+      "pulseaudio/slider" =
+      {
+        min = 0;
+        max = 100;
+        orientation = "horizontal";
       };
     }];
   };
