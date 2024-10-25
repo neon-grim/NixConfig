@@ -19,52 +19,52 @@
       };
       palette =
       {
-        bkOne = lib.mkOption
+        accentDefault = lib.mkOption
         {
           type = lib.types.str;
           default = "";
         };
-        bkTwo = lib.mkOption
+        accentDark = lib.mkOption
         {
           type = lib.types.str;
           default = "";
         };
-        bkThree = lib.mkOption
+        bkDefault = lib.mkOption
         {
           type = lib.types.str;
           default = "";
         };
-        bkFour = lib.mkOption
+        bkBrighter = lib.mkOption
         {
           type = lib.types.str;
           default = "";
         };
-        bkFive = lib.mkOption
+        bkBrightest = lib.mkOption
         {
           type = lib.types.str;
           default = "";
         };
-        txOne = lib.mkOption
+        bkUrgent = lib.mkOption
         {
           type = lib.types.str;
           default = "";
         };
-        txTwo = lib.mkOption
+        txDefault = lib.mkOption
         {
           type = lib.types.str;
           default = "";
         };
-        txThree = lib.mkOption
+        txBrighter = lib.mkOption
         {
           type = lib.types.str;
           default = "";
         };
-        txFour = lib.mkOption
+        txBrightest = lib.mkOption
         {
           type = lib.types.str;
           default = "";
         };
-        txFive = lib.mkOption
+        txUrgent = lib.mkOption
         {
           type = lib.types.str;
           default = "";
