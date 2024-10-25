@@ -82,7 +82,7 @@ in
         {
           default = "";
           active = "";
-          empty = "";
+          empty = "";
           urgent = "";
           "1" = "";
         };

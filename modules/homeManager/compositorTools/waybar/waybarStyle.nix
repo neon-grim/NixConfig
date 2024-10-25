@@ -17,19 +17,19 @@ in
     ''
       *
       {
+        border-radius: 6px;
         font-family: "${fontName}";
         font-size: 16pt;
         font-weight: bold;
-        border-radius: 3px;
         transition-property: background-color;
-        transition-duration: 0.1s;
+        transition-duration: 0.5s;
       }
       @keyframes blink_red
       {
         to 
         {
-          color: #${txUrgent};
           background-color: #${bkUrgent};
+          color: #${txUrgent};
         }
       }
       .warning, .critical, .urgent
@@ -46,15 +46,10 @@ in
       }
       window > box 
       {
+        background-color: #${bkDefault};
         color: #${txDefault};
-        background-color: #${bkDefault};
-        padding: 3px;
-        padding-left:8px;
-        border: 2px none;
-      }
-      tooltip
-      {
-        background-color: #${bkDefault};
+        padding-bottom: 3px;
+        padding-top: 3px;
       }
       tooltip label
       {
@@ -62,25 +57,26 @@ in
       }
       #clock:hover, #cpu:hover, #custom-notify:hover, #custom-powermenu:hover , #memory:hover, #wireplumber:hover, #workspaces button:hover
       {
-        color: #${txBrightest};
         background-color: #${bkBrightest};
+        color: #${txBrightest};
       }
     '';
     leftModuleStyling =
     ''
       #custom-powermenu
       {
-        color: #${txBrighter};
         background-color: #${bkBrighter};
+        color: #${txBrighter};
+        margin-left: 3px;
         padding-left: 10px;
         padding-right: 16px;
       }
       #workspaces button
       {
         color: #${txBrighter};
+        margin-left: 3px;
         padding-left: 6px;
         padding-right: 12px;
-        margin-left: 3px;
       }
       #workspaces button.active
       {
@@ -119,9 +115,9 @@ in
       }
       #tray
       {
-        color: #${txBrighter};
         background-color: #${bkBrighter};
-        margin-right: 1px;
+        color: #${txBrighter};
+        margin-right: 3px;
         padding-left: 15px;
         padding-right: 15px;
       }
