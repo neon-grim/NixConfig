@@ -11,12 +11,12 @@ in
   programs.kitty =
   {
     enable = true;
-    themeFile = "rose-pine";
     font =
     {
       name = fontName;
       size = fontSize;
     };
+    themeFile = "rose-pine";
     settings =
     {
       
@@ -25,6 +25,7 @@ in
       cursor = "#${accentDefault}";
       cursor_shape = "beam";
       foreground = "#${accentDefault}";
+      scrollback_lines = 0;
       selection_background = "#${accentDefault}";
       selection_foreground = "#${txUrgent}";
       shell = "fish";
