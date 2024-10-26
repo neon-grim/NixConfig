@@ -35,7 +35,7 @@ in
     in
     [
       # Execute default programs and actions
-      "${mainMod}, Return, exec, ${lib.getExe' pkgs.terminator "terminator"}"
+      "${mainMod}, Return, exec, ${lib.getExe pkgs.kitty}"
       "${mainMod}, E, exec, ${lib.getExe' pkgs.nemo-with-extensions "nemo"}"
       "${mainMod}, B, exec, ${lib.getExe pkgs.librewolf}"
       "${mainMod}, R, exec, ${menu}"

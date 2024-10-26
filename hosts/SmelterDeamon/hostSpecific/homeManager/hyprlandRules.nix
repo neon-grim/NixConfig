@@ -34,13 +34,12 @@ in
       "size 70% 70%, floating:1, title:^([C-c]hoose.*)$"
       # Apps
       "workspace 10 silent, title:^(Steam)$"
-      "workspace 11 silent, title:^(Heroic Games Launcher)$"
+      "workspace 10 silent, title:^(Heroic Games Launcher)$"
+      "workspace 11 silent, title:^(CoreCtrl)$"
       "workspace 12 silent, class:^(com\.obsproject\.Studio)$"
-      "workspace 13 silent, title:^(CoreCtrl)$"
       "workspace 15 silent, class:^(vesktop)$"
-      "workspace 16 silent, class:^(vesktop)$, initialClass:^(Discord Popout)$"
-      "workspace 17 silent, title:^(Lollypop)$"
-      "workspace special:magic, class:^(terminator)$"
+      "workspace 16 silent, title:^(Lollypop)$"
+      "workspace special:magic, class:^(kitty)$"
     ];
     workspace =
     [
