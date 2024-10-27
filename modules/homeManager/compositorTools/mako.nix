@@ -1,13 +1,12 @@
 {config, pkgs, ...}:
 let
   fontName = config.desktop.style.font.name;
-  fontSize = config.desktop.style.font.size;
-  bkOne = config.theming.palette.bkOne;
-  bkFour = config.theming.palette.bkFour;
-  bkFive = config.theming.palette.bkFive;
-  txOne = config.theming.palette.txOne;
-  txTwo = config.theming.palette.txTwo;
-  txFour = config.theming.palette.txFour;
+  accentDefault = config.theming.palette.accentDefault;
+  bkDefault = config.theming.palette.bkDefault;
+  bkUrgent = config.theming.palette.bkUrgent;
+  txDefault = config.theming.palette.txDefault;
+  txBrighter = config.theming.palette.txBrighter;
+  txUrgent = config.theming.palette.txUrgent;
   iconPath = builtins.toString pkgs.beauty-line-icon-theme;
 in
 {
@@ -20,18 +19,18 @@ in
   {
     enable = true;
     anchor = "top-center";
-    backgroundColor = "#${bkOne}";
-    borderColor = "#${bkFive}";
-    borderRadius = 3;
-    borderSize = 3;
+    backgroundColor = "#${bkDefault}";
+    borderColor = "#${accentDefault}";
+    borderRadius = 6;
+    borderSize = 4;
     defaultTimeout = 10000;
-    font = "${fontName} ${toString fontSize}";
+    font = "${fontName} 14";
     height = 150;
     icons = true;
     iconPath = iconPath;
     layer = "overlay";
     maxVisible = 20;
-    progressColor = "#${bkFive}";
+    progressColor = "#${accentDefault}";
     width = 400;
     extraConfig =
     ''
@@ -43,15 +42,15 @@ in
       invisible=1
       
       [urgency=low]
-      text-color=#${txOne}
+      text-color=#${txDefault}
       
       [urgency=normal]
-      text-color=#${txTwo}
+      text-color=#${txBrighter}
       
       [urgency=high]
-      border-color=#${bkFour}
-      background-color=#${bkFour}
-      text-color=#${txFour}
+      border-color=#${bkUrgent}
+      background-color=#${bkUrgent}
+      text-color=#${txUrgent}
     '';
   };
 }

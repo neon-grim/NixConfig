@@ -2,8 +2,9 @@
 {
   imports =
   [
+    ./apps/fastFetch.nix
     ./apps/librewolf.nix
-    ./apps/terminator.nix
+    ./apps/kitty.nix
     ./customOptions/desktopStyleOptions.nix
     ./customOptions/desktopSystemOptions.nix
     ./customOptions/themingOptions.nix

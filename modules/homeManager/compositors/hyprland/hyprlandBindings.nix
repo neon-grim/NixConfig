@@ -35,8 +35,8 @@ in
     in
     [
       # Execute default programs and actions
-      "${mainMod}, Return, exec, ${lib.getExe' pkgs.terminator "terminator"}"
-      "${mainMod}, E, exec, ${lib.getExe pkgs.pcmanfm}"
+      "${mainMod}, Return, exec, ${lib.getExe pkgs.kitty}"
+      "${mainMod}, E, exec, ${lib.getExe' pkgs.nemo-with-extensions "nemo"}"
       "${mainMod}, B, exec, ${lib.getExe pkgs.librewolf}"
       "${mainMod}, R, exec, ${menu}"
       "${mainMod}, O, exec, ${lib.getExe pkgs.obs-studio}"
@@ -64,11 +64,11 @@ in
       # Make focused window Master
       "${mainMod}, home, layoutmsg, swapwithmaster"
       # Navigate between workspaces on the same monitor
-      "${mainMod}, PAGE_DOWN, exec, hyprnome -k"
-      "${mainMod}, PAGE_UP, exec, hyprnome -p -k -n"
+      "${mainMod}, PAGE_DOWN, exec, hyprnome -k -c"
+      "${mainMod}, PAGE_UP, exec, hyprnome -p -k -c"
       # Move focused window between workspaces on the same monitor
-      "${mainModShift}, PAGE_DOWN, exec, hyprnome -m"
-      "${mainModShift}, PAGE_UP, exec, hyprnome -p -m -n"
+      "${mainModShift}, PAGE_DOWN, exec, hyprnome -m -c"
+      "${mainModShift}, PAGE_UP, exec, hyprnome -p -m -c"
       # Move focused window between monitors
       "${mainModControl}, PAGE_UP, movewindow, mon:-1"
       "${mainModControl}, PAGE_DOWN, movewindow, mon:+1"
@@ -83,8 +83,6 @@ in
       "${mainMod}, F9, exec, hyprshot -m region --freeze"
       "${mainMod}, F10, exec, hyprshot -m window -m active --freeze"
       "${mainMod}, F11, exec, hyprshot -m output -m active --freeze"
-      # Save clients to file
-      "${mainModShift}, F5, exec, hyprctl clients | tee ~/Documents/client.txt"
     ];
   };
 }

@@ -5,10 +5,10 @@ let
   mainMonitor = "desc:Samsung Electric Company Odyssey G95SC H1AK500000";
   bottomMonitor = "desc:Invalid Vendor Codename - RTK Verbatim MT14 demoset-1";
   sideMonitor = "desc:Acer Technologies ED323QUR";
-  wallpaperOne = "/mnt/SATASSD1/1_Images/BackgroundImages/Superwide/Death_Superwide.png";
-  wallpaperTwo = "/mnt/SATASSD1/1_Images/BackgroundImages/Uncompressed/red_transistor.png";
-  wallpaperthree = "/mnt/SATASSD1/1_Images/BackgroundImages/Uncompressed/instrument.png";
-  lockedWallpaper = "/mnt/SATASSD1/1_Images/BackgroundImages/Uncompressed/evangelion.png";
+  wallpaperOne = "~/Pictures/Background/Superwide/Death_Superwide.png";
+  wallpaperTwo = "~/Pictures/Background/Uncompressed/red_transistor.png";
+  wallpaperthree = "~/Pictures/Background/Uncompressed/instrument.png";
+  lockedWallpaper = "~/Pictures/Background/Uncompressed/evangelion.png";
 in
 {
   desktop.system.mainMon =

@@ -9,16 +9,16 @@
     };
     palette =
     {
-      bkOne = "111216";
-      bkTwo = "23262e";
-      bkThree = "2b2f38";
-      bkFour ="ce0205";
-      bkFive ="d8dee9";
-      txOne = "797e86";
-      txTwo = "d8dee9";
-      txThree = "aac8ff";
-      txFour = "000000";
-      txFive = "111216";
+      accentDefault = "d8dee9";
+      accentDark = "111216";
+      bkDefault = "111216";
+      bkBrighter = "23262e";
+      bkBrightest = "2b2f38";
+      bkUrgent ="ce0205";
+      txDefault = "797e86";
+      txBrighter = "d8dee9";
+      txBrightest = "aac8ff";
+      txUrgent = "000000";
     };
   };
 }
