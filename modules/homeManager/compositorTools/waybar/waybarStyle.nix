@@ -101,8 +101,8 @@ in
     ''
       #pulseaudio
       {
-        padding-left: 1px;
-        padding-right: 3px;
+        padding-left: 3px;
+        padding-right: 6px;
       }
       #pulseaudio-slider slider
       {
