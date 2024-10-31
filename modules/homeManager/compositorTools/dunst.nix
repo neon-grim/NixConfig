@@ -26,10 +26,11 @@ in
     {
       global =
       {
-        width = 400;
+        monitor= "mouse";
         height = 300;
-        corner_radius = 6;
+        width = 400;
         offset = "0x12";
+        corner_radius = 6;
         origin = "top-center";
         transparency = 10;
         font = "${fontName} 14";
@@ -39,14 +40,14 @@ in
         background = "#${bkDefault}";
         foreground = "#${txDefault}";
         frame_color = "#${accentDefault}";
-        timeout = 10;
+        timeout = 7;
       };
       urgency_normal =
       {
         background = "#${bkDefault}";
         foreground = "#${txBrighter}";
         frame_color = "#${accentDefault}";
-        timeout = 20;
+        timeout = 15;
       };
       urgency_critical =
       {

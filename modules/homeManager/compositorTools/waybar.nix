@@ -1,10 +1,10 @@
 {pkgs, lib, ...}:
 let
   performanceApp = lib.getExe' pkgs.corectrl "corectrl";
+  dunstCtl = lib.getExe' pkgs.dunst "dunstctl";
   calendar = lib.getExe pkgs.thunderbird;
   taskManager = lib.getExe pkgs.resources;
   volumeControl = lib.getExe pkgs.pavucontrol;
-  dunstCtl = lib.getExe' pkgs.dunst "dunstctl";
   powerMenu = "pkill wofi; sleep 0.1 && wofiPowerMenu";
 in
 {
