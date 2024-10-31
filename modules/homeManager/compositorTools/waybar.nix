@@ -4,8 +4,7 @@ let
   calendar = lib.getExe pkgs.thunderbird;
   taskManager = lib.getExe pkgs.resources;
   volumeControl = lib.getExe pkgs.pavucontrol;
-  makeMute = "${lib.getExe' pkgs.mako "makoctl"} mode -t dnd";
-  makoRestart = "pkill mako-wrapped && sleep 0.5 && ${lib.getExe pkgs.mako} &";
+  dunstCtl = lib.getExe' pkgs.dunst "dunstctl";
   powerMenu = "pkill wofi; sleep 0.1 && wofiPowerMenu";
 in
 {
@@ -53,7 +52,7 @@ in
       };
       "custom/notify" =
       {
-        exec = "makoCheckMode";
+        exec = "dunstCheckMode";
         format = "{icon}";
         format-icons =
         {
@@ -61,9 +60,9 @@ in
            "dnd" = "󱏨";
         };
         interval = 1;
-        on-click = "makoShowNotifications";
-        on-click-right = "${makeMute}";
-        on-click-middle = "${makoRestart}";
+        on-click = "dunstShowNotifications";
+        on-click-right = "${dunstCtl} set-paused toggle";
+        on-click-middle = "${dunstCtl} history-clear";
         return-type = "json";
         tooltip = false;
       };

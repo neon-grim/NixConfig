@@ -11,7 +11,8 @@ in
 {
   imports =
   [
-    
+    ./dunst/dunstCheckMode.nix
+    ./dunst/dunstShowNotifications.nix
   ];
   services.dunst =
   {
