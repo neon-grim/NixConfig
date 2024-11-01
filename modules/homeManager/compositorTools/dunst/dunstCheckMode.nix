@@ -1,16 +1,16 @@
 {pkgs, lib, ...}:
 let
-  makoCtl = lib.getExe' pkgs.mako "makoctl";
+  dunstCtl = lib.getExe' pkgs.dunst "dunstctl";
 in
 {
   home.packages = with pkgs;
   [(
-    writeShellScriptBin  "makoCheckMode"
+    writeShellScriptBin  "dunstCheckMode"
     ''
-      makoMode=$(${makoCtl} mode | grep "dnd")
       result=""
+      paused=$(${dunstCtl} is-paused)
       
-      if [[ -n $makoMode ]]
+      if $paused
       then
         result="dnd"
       else

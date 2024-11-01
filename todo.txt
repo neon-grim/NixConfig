@@ -2,20 +2,19 @@ Misc:
 ----------
 -Crop wallpaper to fit screens
 
-Issues:
+Bugs:
 ----------
--Fix Mouse not being captured in fullscreen games
 -Fix waybar not restarting on relogin
-
-Software:
-----------
--Get teams on linux
--Fix hyprlock crashing on reconnecting screen
+-Fix notitications not being triggered through hyprTweaks
 
 Home-manager
 ----------
 -Add Icons to Wofi
--Add window rule for floating windows to limit size based on monitor
+-Expand workspace script to move workspaces to the correct output
+-Add loop / map to monitor config, in order to avoid monitor config redundancy
+-Fix floating windows not following window size rule
+-Add notification counter and noticication waiting to be displayed indicator
+-add script to remove notitication when clicking on it
 
 Repo:
 ----------
