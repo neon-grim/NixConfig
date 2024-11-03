@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs;
   [
+    lact
     goverlay
     heroic
     jstest-gtk
@@ -19,6 +20,7 @@
     gamescope =
     {
       enable = true;
+      capSysNice = true;
     };
     gamemode =
     {
