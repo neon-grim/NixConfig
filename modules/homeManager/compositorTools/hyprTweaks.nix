@@ -1,7 +1,7 @@
-{pkgs, lib, inputs, config, ...}:
+{pkgs, lib, config, ...}:
 let
   dunstify = lib.getExe' pkgs.dunst "dunstify";
-  hyprctl = lib.getExe' inputs.hyprland.packages.x86_64-linux.hyprland "hyprctl";
+  hyprctl = lib.getExe' pkgs.hyprland "hyprctl";
   mainMonName = config.desktop.system.mainMon.name;
   mainMonRes = config.desktop.system.mainMon.res;
   mainMonOc = config.desktop.system.mainMon.oc;

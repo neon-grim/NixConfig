@@ -2,14 +2,13 @@
   description = "SmelterDeamon NixOS flake";
   inputs =
   {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
     home-manager =
     {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager";
     };
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
   outputs = inputs@{self, nixpkgs, home-manager, ...}:
   let
