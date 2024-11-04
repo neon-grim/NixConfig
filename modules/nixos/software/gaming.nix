@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs;
   [
+    lact
     goverlay
     heroic
     jstest-gtk
@@ -16,6 +17,10 @@
   ];
   programs =
   {
+    gamescope =
+    {
+      enable = true;
+    };
     gamemode =
     {
       enable = true;

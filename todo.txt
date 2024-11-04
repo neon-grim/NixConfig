@@ -5,11 +5,9 @@ Misc:
 Bugs:
 ----------
 -Fix waybar not restarting on relogin
--Fix notitications not being triggered through hyprTweaks
 
 Home-manager
 ----------
--Add Icons to Wofi
 -Expand workspace script to move workspaces to the correct output
 -Add loop / map to monitor config, in order to avoid monitor config redundancy
 -Fix floating windows not following window size rule

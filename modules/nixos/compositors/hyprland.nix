@@ -1,9 +1,5 @@
-{pkgs, inputs, ...}:
+{pkgs, ...}:
 {
-  imports =
-  [
-    inputs.hyprland.nixosModules.default
-  ];
   environment.systemPackages = with pkgs;
   [
     hyprland-workspaces

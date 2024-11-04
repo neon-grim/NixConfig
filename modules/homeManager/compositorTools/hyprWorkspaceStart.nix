@@ -1,6 +1,6 @@
-{pkgs, lib, inputs, config, ...}:
+{pkgs, lib, config, ...}:
 let
-  hyprctl = lib.getExe' inputs.hyprland.packages.x86_64-linux.hyprland "hyprctl";
+  hyprctl = lib.getExe' pkgs.hyprland "hyprctl";
   workspaceCount = config.desktop.system.workspaceCount;
 in
 {
