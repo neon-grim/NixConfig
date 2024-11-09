@@ -14,6 +14,7 @@ in
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       "XCURSOR_SIZE,${toString cursorSize}"
       "HYPRSHOT_DIR,$XDG_PICTURES_DIR/ScreenShots"
+      "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
     ];
   };
 }
