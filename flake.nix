@@ -3,6 +3,7 @@
   inputs =
   {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     home-manager =
     {
