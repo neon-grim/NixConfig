@@ -17,7 +17,6 @@ in
       
       hyprCommand="keyword animations:enabled false;"
       hyprCommand+=" keyword decoration:blur:enabled false;"
-      hyprCommand+=" keyword decoration:drop_shadow false;"
       
       notifyGroup="Hyprland Tweaks"
       notifyMessage="Tweaks on:"
