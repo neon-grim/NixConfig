@@ -9,7 +9,6 @@
     libstrangle
     mangohud
     protonplus
-    protontricks
     ryujinx
     scanmem
     vesktop
@@ -30,7 +29,7 @@
     {
       enable = true;
       gamescopeSession.enable = true;
-      dedicatedServer.openFirewall = true;
+      protontricks.enable = true;
       remotePlay.openFirewall = true;
     };
   };
