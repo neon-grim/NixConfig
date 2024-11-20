@@ -13,7 +13,7 @@ in
 {
   desktop.system.mainMon =
   {
-    name = mainMonitor;
+    name = "DP-1";
     res = mainMonitorRes;
     oc = "240.00";
     pos = mainMonitorPos;

@@ -2,6 +2,7 @@
 let
   dunstify = lib.getExe' pkgs.dunst "dunstify";
   hyprctl = lib.getExe' pkgs.hyprland "hyprctl";
+  xrandr = lib.getExe pkgs.xorg.xrandr;
   mainMonName = config.desktop.system.mainMon.name;
   mainMonRes = config.desktop.system.mainMon.res;
   mainMonOc = config.desktop.system.mainMon.oc;
@@ -13,11 +14,11 @@ in
     writeShellScriptBin "hyprTweaks"
     ''
       adaptiveSync=false
-      highDynamicRange=false
+      fullColorRange=false
       
       hyprCommand="keyword animations:enabled false;"
       hyprCommand+=" keyword decoration:blur:enabled false;"
-      hyprCommand+=" keyword decoration:drop_shadow false;"
+      hyprCommand+=" keyword general:allow_tearing true;"
       
       notifyGroup="Hyprland Tweaks"
       notifyMessage="Tweaks on:"
@@ -29,23 +30,25 @@ in
       
       monitorConfig="monitor ${mainMonName}, ${mainMonRes}@${mainMonOc}, ${mainMonPos}, 1"
       
-      while getopts ":adhpr" opt; do
+      while getopts ":acdhpr" opt; do
         case $opt in
           a)
             adaptiveSync=true
+            notifyMessage+=" VRR"
+            ;;
+          c)
             hyprCommand+=" keyword cursor:min_refresh_rate 0;"
             hyprCommand+=" keyword cursor:no_break_fs_vrr true;"
             hyprCommand+=" keyword cursor:no_hardware_cursors true;"
-            hyprCommand+=" keyword general:allow_tearing true;"
-            notifyMessage+=" VRR"
+            notifyMessage+=" SC"
             ;;
           d)
             hyprCommand+=" keyword render:direct_scanout true;"
             notifyMessage+=" DS"
             ;;
           h)
-            highDynamicRange=true
-            notifyMessage+=" HDR"
+            fullColorRange=true
+            notifyMessage+=" 10Bit"
             ;;
           p)
             monitorConfig="monitor ${mainMonName}, preferred, ${mainMonPos}, 1"
@@ -67,7 +70,7 @@ in
         monitorConfig+=", vrr, 2"
       fi
       
-      if $bitdepth; then
+      if $fullColorRange; then
         monitorConfig+=", bitdepth, 10"
       fi
       
@@ -75,11 +78,19 @@ in
         hyprCommand+=" keyword $monitorConfig;"
       fi
       
+      ${hyprctl} keyword "monitor ${mainMonName}, disable"
+      
+      sleep 5s
+      
       ${hyprctl} --batch $hyprCommand
       
       ${dunstify} -u normal "$notifyGroup" "$notifyMessage"
       
-      sleep 20s
+      sleep 15s
+      
+      ${xrandr} --output ${mainMonName} --primary
+      
+      ${dunstify} -u normal "$notifyGroup" "Xwayland primary: ${mainMonName}"
     ''
   )];
 }

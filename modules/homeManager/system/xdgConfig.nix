@@ -14,6 +14,7 @@
         "audio/flac" = ["org.gnome.Lollypop.desktop"];
         "image/jpeg" = ["org.libvips.vipsdisp.desktop"];
         "image/png" = ["org.libvips.vipsdisp.desktop"];
+        "inode/directory" = ["nemo.desktop"];
         "text/plain" = ["org.xfce.mousepad.desktop"];
         "text/html" = ["zen.desktop"];
         "video/mp4" = ["io.github.celluloid_player.Celluloid.desktop"];

@@ -1,6 +1,6 @@
 {config, ...}:
 let
-  cursorSize = config.desktop.style.cursorSize;
+  cursorSize = toString config.desktop.style.cursorSize;
 in
 {
   wayland.windowManager.hyprland.settings =
@@ -12,7 +12,7 @@ in
       "QT_QPA_PLATFORM,wayland;xcb"
       "QT_AUTO_SCREEN_SCALE_FACTOR,1"
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-      "XCURSOR_SIZE,${toString cursorSize}"
+      "XCURSOR_SIZE,${cursorSize}"
       "HYPRSHOT_DIR,$XDG_PICTURES_DIR/ScreenShots"
     ];
   };
