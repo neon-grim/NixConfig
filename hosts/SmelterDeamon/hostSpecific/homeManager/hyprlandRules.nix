@@ -33,12 +33,11 @@ in
       "size 70% 70%, floating:1, title:^([S-s]elect.*)$"
       "size 70% 70%, floating:1, title:^([C-c]hoose.*)$"
       # Apps
-      "workspace 10 silent, title:^(Steam)$"
-      "workspace 10 silent, title:^(Heroic Games Launcher)$"
-      "workspace 11 silent, title:^(CoreCtrl)$"
-      "workspace 12 silent, class:^(com\.obsproject\.Studio)$"
+      "fullscreenstate 0 0, fullscreen:1, class:^(zen-alpha)$"
+      "fullscreenstate 0 0, fullscreen:1, class:^(io.github.celluloid_player.Celluloid)$"
+      # Workspace
       "workspace 15 silent, class:^(vesktop)$"
-      "workspace 16 silent, title:^(Lollypop)$"
+      "workspace 16, title:^(Lollypop)$"
       "workspace special:magic, class:^(kitty)$"
     ];
     workspace =
