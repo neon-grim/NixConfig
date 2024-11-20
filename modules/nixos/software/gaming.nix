@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs;
   [
-    lact
     goverlay
     heroic
     jstest-gtk
@@ -25,7 +24,7 @@
       enable = true;
       enableRenice = true;
     };
-    steam = 
+    steam =
     {
       enable = true;
       gamescopeSession.enable = true;
