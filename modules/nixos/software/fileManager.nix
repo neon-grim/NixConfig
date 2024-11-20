@@ -3,13 +3,13 @@
   environment.systemPackages = with pkgs;
   [
     ffmpegthumbnailer
-    nemo-fileroller
     nemo-with-extensions
     pika-backup
   ];
   programs =
   {
     gnome-disks.enable = true;
+    file-roller.enable = true;
   };
   services =
   {

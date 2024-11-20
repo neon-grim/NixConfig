@@ -11,8 +11,8 @@
   ];
   programs =
   {
-    nm-applet.enable = true;
     dconf.enable = true;
+    nm-applet.enable = true;
   };
   services.playerctld =
   {

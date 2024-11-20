@@ -2,14 +2,12 @@
 {
   environment.systemPackages = with pkgs;
   [
-    lact
     goverlay
     heroic
     jstest-gtk
     libstrangle
     mangohud
     protonplus
-    protontricks
     ryujinx
     scanmem
     vesktop
@@ -26,11 +24,12 @@
       enable = true;
       enableRenice = true;
     };
-    steam = 
+    steam =
     {
       enable = true;
       gamescopeSession.enable = true;
       dedicatedServer.openFirewall = true;
+      protontricks.enable = true;
       remotePlay.openFirewall = true;
     };
   };
