@@ -30,7 +30,7 @@ in
     };
     decoration =
     {
-      drop_shadow = false;
+      shadow.enabled = false;
       rounding = 6;
     };
     misc =

@@ -84,13 +84,13 @@ in
       
       ${hyprctl} --batch $hyprCommand
       
-      ${dunstify} -u normal "$notifyGroup" "$notifyMessage"
-      
       sleep 15s
+      
+      ${hyprctl} dispatch focusmonitor ${mainMonName}
       
       ${xrandr} --output ${mainMonName} --primary
       
-      ${dunstify} -u normal "$notifyGroup" "Xwayland primary: ${mainMonName}"
+      ${dunstify} -u normal "$notifyGroup" "$notifyMessage"
     ''
   )];
 }

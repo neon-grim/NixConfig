@@ -4,10 +4,12 @@
   [
     git
     lazygit
+    neovim
     nix-prefetch-git
     psmisc
     unrar
     usbutils
+    tmux
   ];
   programs.fish =
   {
