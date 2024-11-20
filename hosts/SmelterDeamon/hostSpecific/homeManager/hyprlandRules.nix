@@ -33,8 +33,7 @@ in
       "size 70% 70%, floating:1, title:^([S-s]elect.*)$"
       "size 70% 70%, floating:1, title:^([C-c]hoose.*)$"
       # Apps
-      "fullscreenstate 0 0, fullscreen:1, class:^(zen-alpha)$"
-      "fullscreenstate 0 0, fullscreen:1, class:^(io.github.celluloid_player.Celluloid)$"
+      "suppressevent maximize, class:.*"
       # Workspace
       "workspace 15 silent, class:^(vesktop)$"
       "workspace 16, title:^(Lollypop)$"
