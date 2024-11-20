@@ -16,6 +16,7 @@
         "image/png" = ["org.libvips.vipsdisp.desktop"];
         "text/plain" = ["org.xfce.mousepad.desktop"];
         "text/html" = ["zen.desktop"];
+        "inode/directory" = ["nemo.desktop"];
         "video/mp4" = ["io.github.celluloid_player.Celluloid.desktop"];
         "x-scheme-handler/http" = ["zen.desktop"];
         "x-scheme-handler/https" = ["zen.desktop"];
