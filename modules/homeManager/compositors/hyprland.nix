@@ -15,14 +15,13 @@
       general =
       {
         hover_icon_on_border = false;
-        layout = "master";
+        layout = "dwindle";
         resize_on_border = false;
       };
-      master =
+      dwindle =
       {
-        mfact = 0.5;
-        new_status = "slave";
-        orientation = "center";
+        pseudotile = true;
+        force_split = 2;
       };
       input =
       {
