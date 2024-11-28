@@ -35,34 +35,33 @@ in
     in
     [
       # Execute default programs and actions
-      "${mainMod}, Return, exec, ${lib.getExe pkgs.kitty}"
+      "${mainMod}, RETURN, exec, ${lib.getExe pkgs.kitty}"
       "${mainMod}, E, exec, ${lib.getExe' pkgs.nemo-with-extensions "nemo"}"
       "${mainMod}, B, exec, zen"
       "${mainMod}, R, exec, ${menu}"
-      "${mainMod}, O, exec, ${lib.getExe pkgs.obs-studio}"
       "${mainMod}, L, exec, ${powerMenu}"
-      "${mainMod}, K, killactive,"
-      "${mainMod}, F, fullscreen,"
-      "${mainModShift}, L, exit,"
-      "${mainModShift}, V, togglefloating,"
       # OBS shortcuts
       "${mainMod}, F1, pass, ^(com\.obsproject\.Studio)$"
       "${mainMod}, F2, pass, ^(com\.obsproject\.Studio)$"
       # Change focused window
-      "${mainMod}, left, movefocus, l"
-      "${mainMod}, right, movefocus, r"
-      "${mainMod}, up, movefocus, u"
-      "${mainMod}, down, movefocus, d"
+      "${mainMod}, LEFT, movefocus, l"
+      "${mainMod}, RIGHT, movefocus, r"
+      "${mainMod}, UP, movefocus, u"
+      "${mainMod}, DOWN, movefocus, d"
       # Move focused window within workspace
-      "${mainModShift}, left, movewindow, l"
-      "${mainModShift}, right, movewindow, r"
-      "${mainModShift}, up, movewindow, u"
-      "${mainModShift}, down, movewindow, d"
-      # Cycle master window within workspace
-      "${mainModControl}, left, layoutmsg, rollnext"
-      "${mainModControl}, right, layoutmsg, rollprev"
-      # Make focused window Master
-      "${mainMod}, home, layoutmsg, swapwithmaster"
+      "${mainModShift}, LEFT, movewindow, l"
+      "${mainModShift}, RIGHT, movewindow, r"
+      "${mainModShift}, UP, movewindow, u"
+      "${mainModShift}, DOWN, movewindow, d"
+      # Layout shortcut
+      "${mainMod}, TAB, layoutmsg, swapsplit"
+      "${mainMod}, HOME, layoutmsg, movetoroot active unstable"
+      "${mainMod}, P, pseudo,"
+      # System
+      "${mainMod}, END, killactive,"
+      "${mainMod}, F, fullscreen,"
+      "${mainModShift}, L, exit,"
+      "${mainModShift}, V, togglefloating,"
       # Navigate between workspaces on the same monitor
       "${mainMod}, PAGE_DOWN, exec, hyprnome -k -c"
       "${mainMod}, PAGE_UP, exec, hyprnome -p -k -c"
@@ -80,9 +79,9 @@ in
       "${mainModAlt}, PAGE_UP, workspace, e+1"
       "${mainModAlt}, PAGE_DOWN, workspace, e-1"
       # Screenshot
-      "${mainMod}, F9, exec, hyprshot -m region --freeze"
-      "${mainMod}, F10, exec, hyprshot -m window -m active --freeze"
-      "${mainMod}, F11, exec, hyprshot -m output -m active --freeze"
+      ", PRINT, exec, hyprshot -m window -m active --freeze"
+      "${mainModShift}, PRINT, exec, hyprshot -m output -m active --freeze"
+      "${mainModControl}, PRINT, exec, hyprshot -m region --freeze"
     ];
   };
 }
