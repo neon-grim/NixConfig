@@ -22,6 +22,7 @@
       {
         name = "JetBrainsMono Nerd Font";
         size = 14;
+        package = "nerd-fonts.jetbrains-mono";
       };
       themePreset = "andromeda";
     };

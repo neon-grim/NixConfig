@@ -19,6 +19,11 @@
         type = lib.types.int;
         default = 11;
       };
+      package = lib.mkOption
+      {
+        type = lib.types.int;
+        default = "";
+      };
     };
     themePreset = lib.mkOption
     {
