@@ -39,7 +39,7 @@ in
     {
       name = fontName;
       size = fontSize;
-      package = pkgs.${fontPackage};
+      package = fontPackage;
     };
   };
 }
