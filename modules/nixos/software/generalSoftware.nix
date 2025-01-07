@@ -1,8 +1,7 @@
-{pkgs, inputs, systemArch, ...}:
+{pkgs, ...}:
 {
   environment.systemPackages = with pkgs;
   [
-    bottles
     celluloid
     krita
     lollypop
@@ -14,8 +13,5 @@
     thunderbird
     vipsdisp
     xfce.mousepad
-  ] ++
-  [
-    inputs.zen-browser.packages."${systemArch}".specific
   ];
 }
