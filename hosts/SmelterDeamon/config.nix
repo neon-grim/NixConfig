@@ -25,7 +25,7 @@
     };
     software =
     {
-      flatpak = true;
+      flatpak = false;
       virtualization = true;
     };
     system =
