@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs;
   [
+    bottles
     celluloid
     krita
     lollypop
