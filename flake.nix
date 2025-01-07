@@ -3,7 +3,6 @@
   inputs =
   {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
     home-manager =
     {
       inputs.nixpkgs.follows = "nixpkgs";
