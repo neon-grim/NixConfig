@@ -1,4 +1,4 @@
-{config, lib, compositor, ...}:
+{pkgs, config, lib, compositor, ...}:
 {
   imports =
   [
@@ -22,6 +22,7 @@
       {
         name = "JetBrainsMono Nerd Font";
         size = 14;
+        package = pkgs.nerd-fonts.jetbrains-mono;
       };
       themePreset = "andromeda";
     };

@@ -2,6 +2,7 @@
 let
   fontName = config.desktop.style.font.name;
   fontSize = config.desktop.style.font.size;
+  fontPackage = config.desktop.style.font.package;
   themeName = config.theming.gtk.name;
   themePackage = config.theming.gtk.package;
 in
@@ -38,6 +39,7 @@ in
     {
       name = fontName;
       size = fontSize;
+      package = fontPackage;
     };
   };
 }
