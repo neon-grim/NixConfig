@@ -1,11 +1,11 @@
-{config, lib, ...}:
+{pkgs, config, lib, ...}:
 {
   theming = lib.mkIf (config.desktop.style.themePreset == "kanagawa")
   {
     gtk =
     {
       name = "";
-      package = "";
+      #package = pkgs.;
     };
     palette =
     {

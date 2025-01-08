@@ -1,11 +1,11 @@
-{config, lib, ...}:
+{pkgs, config, lib, ...}:
 {
   theming = lib.mkIf (config.desktop.style.themePreset == "andromeda")
   {
     gtk =
     {
       name = "Andromeda-standard-buttons";
-      package = "andromeda-gtk-theme";
+      package = pkgs.andromeda-gtk-theme;
     };
     palette =
     {

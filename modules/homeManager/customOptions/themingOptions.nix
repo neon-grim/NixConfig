@@ -13,7 +13,7 @@
         };
         package = lib.mkOption
         {
-          type = lib.types.str;
+          type = lib.types.package;
           default = "";
         };
       };

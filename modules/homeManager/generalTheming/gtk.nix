@@ -20,7 +20,7 @@ in
     theme =
     {
       name = themeName;
-      package = pkgs.${themePackage};
+      package = themePackage;
     };
     iconTheme =
     {
