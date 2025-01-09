@@ -37,7 +37,7 @@ in
       # Execute default programs and actions
       "${mainMod}, RETURN, exec, ${lib.getExe pkgs.kitty}"
       "${mainMod}, E, exec, ${lib.getExe' pkgs.nemo-with-extensions "nemo"}"
-      "${mainMod}, B, exec, zen"
+      "${mainMod}, B, exec, ${lib.getExe pkgs.librewolf}"
       "${mainMod}, R, exec, ${menu}"
       "${mainMod}, L, exec, ${powerMenu}"
       # OBS shortcuts

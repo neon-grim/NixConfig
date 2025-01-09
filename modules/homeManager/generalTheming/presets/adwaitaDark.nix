@@ -5,7 +5,7 @@
     gtk =
     {
       name = "";
-      package = "";
+      #package = pkgs.;
     };
     palette =
     {
