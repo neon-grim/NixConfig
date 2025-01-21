@@ -1,7 +1,8 @@
-{config, ...}:
+{config, inputs, ...}:
 {
   imports =
   [
+    inputs.hyprland.homeManagerModules.default
     ./hyprland/hyprlandAutoStart.nix
     ./hyprland/hyprlandBindings.nix
     ./hyprland/hyprlandEnvVars.nix
