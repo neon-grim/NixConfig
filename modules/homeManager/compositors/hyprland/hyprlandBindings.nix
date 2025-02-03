@@ -41,8 +41,8 @@ in
       "${mainMod}, R, exec, ${menu}"
       "${mainMod}, L, exec, ${powerMenu}"
       # OBS shortcuts
-      "${mainMod}, F1, pass, ^(com\.obsproject\.Studio)$"
-      "${mainMod}, F2, pass, ^(com\.obsproject\.Studio)$"
+      "${mainModShift}, R, pass, ^(com\.obsproject\.Studio)$"
+      "${mainModControl}, R, pass, ^(com\.obsproject\.Studio)$"
       # Change focused window
       "${mainMod}, LEFT, movefocus, l"
       "${mainMod}, RIGHT, movefocus, r"
