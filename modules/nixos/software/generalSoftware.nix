@@ -7,7 +7,6 @@
     krita
     lollypop
     moonlight-qt
-    obs-studio
     pitivi
     python3Full
     resources
