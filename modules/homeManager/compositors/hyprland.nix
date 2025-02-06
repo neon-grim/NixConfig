@@ -18,6 +18,13 @@
         hover_icon_on_border = false;
         layout = "dwindle";
         resize_on_border = false;
+        snap =
+        {
+          enabled = true;
+          border_overlap = true;
+          monitor_gap = 15;
+          window_gap = 15;
+        };
       };
       dwindle =
       {
