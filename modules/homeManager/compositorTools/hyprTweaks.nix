@@ -38,17 +38,18 @@ in
             ;;
           c)
             hyprCommand+=" keyword cursor:min_refresh_rate 0;"
-            hyprCommand+=" keyword cursor:no_break_fs_vrr true;"
+            hyprCommand+=" keyword cursor:no_break_fs_vrr 2;"
             hyprCommand+=" keyword cursor:no_hardware_cursors true;"
             notifyMessage+=" SC"
             ;;
           d)
-            hyprCommand+=" keyword render:direct_scanout true;"
+            hyprCommand+=" keyword render:direct_scanout 2;"
             notifyMessage+=" DS"
             ;;
           h)
             fullColorRange=true
-            notifyMessage+=" 10Bit"
+            hyprCommand+=" keyword experimental:xx_color_management_v4 true;"
+            notifyMessage+=" HDR"
             ;;
           p)
             monitorConfig="monitor ${mainMonName}, preferred, ${mainMonPos}, 1"
