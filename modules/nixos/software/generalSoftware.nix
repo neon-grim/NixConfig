@@ -7,9 +7,8 @@
     davinci-resolve
     krita
     lollypop
-    losslesscut-bin
     moonlight-qt
-    pitivi
+    onlyoffice-desktopeditors
     python3Full
     resources
     thunderbird
