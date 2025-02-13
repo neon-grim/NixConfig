@@ -6,6 +6,9 @@
     [
       lact
       vulkan-tools
+      unigine-heaven
+      unigine-superposition
+      unigine-valley
     ];
     hardware =
     {
