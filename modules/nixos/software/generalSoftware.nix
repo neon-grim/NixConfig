@@ -5,6 +5,8 @@
     bottles
     celluloid
     davinci-resolve
+    ffmpeg-full
+    handbrake
     krita
     lollypop
     moonlight-qt
