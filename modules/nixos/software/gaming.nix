@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs;
   [
+    discord
     goverlay
     gpu-screen-recorder-gtk
     heroic
