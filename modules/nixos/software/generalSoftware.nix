@@ -6,6 +6,7 @@
     celluloid
     davinci-resolve
     ffmpeg-full
+    gapless
     handbrake
     krita
     lollypop
