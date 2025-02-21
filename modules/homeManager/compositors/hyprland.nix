@@ -40,12 +40,12 @@
         numlock_by_default = true;
         sensitivity = 0;
       };
-    };
-    xwayland =
-    {
-      enabled = true;
-      use_nearest_neighbor = true;
-      force_zero_scaling = true;
+      xwayland =
+      {
+        enabled = true;
+        use_nearest_neighbor = true;
+        force_zero_scaling = true;
+      };
     };
   };
 }
