@@ -1,4 +1,4 @@
-{host, config, user, ...}:
+{host, config, user, inputs, ...}:
 let
   kbLayout = config.home-manager.users.${user}.desktop.system.kb.layout;
   kbVariant = config.home-manager.users.${user}.desktop.system.kb.variant;
@@ -8,6 +8,10 @@ let
   AzeronProductId = "10bc";
 in
 {
+  imports =
+  [
+    inputs.chaotic.nixosModules.default
+  ];
   networking =
   {
     hostName = "${host}";
