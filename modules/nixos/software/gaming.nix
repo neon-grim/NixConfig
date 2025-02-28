@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs;
   [
-    discord
+    discord-krisp
     goverlay
     gpu-screen-recorder-gtk
     heroic
