@@ -21,6 +21,10 @@
   {
     enable = true;
   };
+  services =
+  {
+    scx.enable = true;
+  };
   zramSwap =
   {
     enable = true;
