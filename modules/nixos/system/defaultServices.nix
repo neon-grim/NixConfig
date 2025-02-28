@@ -4,6 +4,8 @@ let
   kbVariant = config.home-manager.users.${user}.desktop.system.kb.variant;
   locale = config.desktop.system.locale;
   time = config.desktop.system.timeZone;
+  AzeronVendorId = "16d0";
+  AzeronProductId = "10bc";
 in
 {
   networking =
@@ -15,6 +17,10 @@ in
   {
     dbus.enable = true;
     geoclue2.enable = true;
+    udev.extraRules =
+    ''
+      ATTRS{idVendor}=="${AzeronVendorId}", ATTRS{idProduct}=="${AzeronProductId}", RUN+="/sbin/modprobe xpad" RUN+="/bin/sh -c 'echo ${AzeronVendorId} ${AzeronProductId} > /sys/bus/usb/drivers/xpad/new_id'"
+    '';
     xserver =
     {
       enable = true;

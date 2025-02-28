@@ -1,7 +1,8 @@
-{config, ...}:
+{config, inputs, ...}:
 {
   imports =
   [
+    inputs.hyprland.homeManagerModules.default
     ./hyprland/hyprlandAutoStart.nix
     ./hyprland/hyprlandBindings.nix
     ./hyprland/hyprlandEnvVars.nix
@@ -17,6 +18,13 @@
         hover_icon_on_border = false;
         layout = "dwindle";
         resize_on_border = false;
+        snap =
+        {
+          enabled = true;
+          border_overlap = true;
+          monitor_gap = 15;
+          window_gap = 15;
+        };
       };
       dwindle =
       {
@@ -31,6 +39,12 @@
         kb_variant = config.desktop.system.kb.variant;
         numlock_by_default = true;
         sensitivity = 0;
+      };
+      xwayland =
+      {
+        enabled = true;
+        use_nearest_neighbor = true;
+        force_zero_scaling = true;
       };
     };
   };

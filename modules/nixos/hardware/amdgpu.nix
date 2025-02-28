@@ -6,9 +6,16 @@
     [
       lact
       vulkan-tools
+      unigine-heaven
+      unigine-superposition
+      unigine-valley
     ];
     hardware =
     {
+      amdgpu =
+      {
+        opencl.enable = true;
+      };
       graphics =
       {
         enable = true;

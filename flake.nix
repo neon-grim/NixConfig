@@ -3,6 +3,7 @@
   inputs =
   {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    hyprland.url = "github:hyprwm/Hyprland";
     home-manager =
     {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +32,6 @@
           inherit host;
           inherit inputs;
           inherit user;
-          inherit systemArch;
         };
         modules =
         [

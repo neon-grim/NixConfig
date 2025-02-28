@@ -2,15 +2,7 @@
 {
   boot =
   {
-    extraModulePackages =
-    [
-      (config.boot.kernelPackages.callPackage ./../../derivations/xpad.nix {})
-    ];
-    kernelModules =
-    [
-      "xpad-noone"
-    ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     kernelParams =
     [
       "quiet"

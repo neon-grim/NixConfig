@@ -2,7 +2,9 @@
 {
   environment.systemPackages = with pkgs;
   [
+    discord
     goverlay
+    gpu-screen-recorder-gtk
     heroic
     jstest-gtk
     libstrangle
@@ -23,6 +25,19 @@
     {
       enable = true;
       enableRenice = true;
+    };
+    gpu-screen-recorder =
+    {
+      enable = true;
+    };
+    obs-studio =
+    {
+      enable = true;
+      enableVirtualCamera = true;
+      plugins = with pkgs.obs-studio-plugins;
+      [
+        obs-vkcapture
+      ];
     };
     steam =
     {

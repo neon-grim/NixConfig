@@ -4,11 +4,14 @@
   [
     bottles
     celluloid
+    davinci-resolve
+    ffmpeg-full
+    gapless
+    handbrake
     krita
     lollypop
     moonlight-qt
-    obs-studio
-    pitivi
+    onlyoffice-desktopeditors
     python3Full
     resources
     thunderbird
