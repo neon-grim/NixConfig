@@ -10,16 +10,15 @@
       unigine-superposition
       unigine-valley
     ];
+    chaotic =
+    {
+      mesa-git.enable = true;
+    };
     hardware =
     {
       amdgpu =
       {
         opencl.enable = true;
-      };
-      graphics =
-      {
-        enable = true;
-        enable32Bit = true;
       };
     };
     services.xserver.videoDrivers = 
