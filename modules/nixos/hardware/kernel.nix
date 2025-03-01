@@ -4,6 +4,7 @@
   [
     ./kernelConfig/kernelPackage.nix
     ./kernelConfig/kernelModules.nix
+    ./kernelConfig/xpadExtraRules.nix
   ];
   boot =
   {

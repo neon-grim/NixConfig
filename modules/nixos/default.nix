@@ -16,7 +16,7 @@
     ./software/virtualisation.nix
     ./software/terminal.nix
     ./system/defaultEnvVar.nix
-    ./system/defaultServices.nix
+    ./system/commonOptions.nix
     ./system/fonts.nix
     ./system/security.nix
   ];
