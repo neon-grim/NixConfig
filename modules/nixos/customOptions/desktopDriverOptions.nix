@@ -1,6 +1,6 @@
 {lib, ...}:
 {
-  options.desktop.drivers =
+  options.desktop =
   {
     amd =
     {
@@ -14,11 +14,27 @@
         type= lib.types.bool;
         default = false;
       };
+      mesaGit = lib.mkOption
+      {
+        type= lib.types.bool;
+        default = false;
+      };
     };
-    printing = lib.mkOption
+    kernel =
     {
-      type= lib.types.bool;
-      default = false;
+      cachyos = lib.mkOption
+      {
+        type= lib.types.bool;
+        default = false;
+      };
+    };
+    printing =
+    {
+      enable = lib.mkOption
+      {
+        type= lib.types.bool;
+        default = false;
+      };
     };
   };
 }

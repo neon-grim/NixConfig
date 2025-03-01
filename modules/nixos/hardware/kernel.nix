@@ -1,8 +1,13 @@
 {pkgs, config, ...}:
 {
+  imports =
+  [
+    ./kernelConfig/cachyosKernel.nix
+    ./kernelConfig/defaultKernel.nix
+    ./kernelConfig/kernelModules.nix
+  ];
   boot =
   {
-    kernelPackages = pkgs.linuxPackages_cachyos;
     kernelParams =
     [
       "quiet"
@@ -16,21 +21,5 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-  };
-  hardware.xone =
-  {
-    enable = true;
-  };
-  services =
-  {
-    scx =
-    {
-      enable = true;
-      scheduler = "scx_lavd";
-    };
-  };
-  zramSwap =
-  {
-    enable = true;
   };
 }

@@ -1,6 +1,6 @@
 {pkgs, config, lib, ...}:
 {
-  config = lib.mkIf (config.desktop.drivers.amd.enable && config.desktop.drivers.amd.amdvlk)
+  config = lib.mkIf (config.desktop.amd.enable && config.desktop.amd.amdvlk)
   {
     environment.variables =
     {

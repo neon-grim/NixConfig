@@ -1,6 +1,11 @@
 {pkgs, config, lib, ...}:
 {
-  config = lib.mkIf (config.desktop.drivers.amd.enable)
+  imports =
+  [
+    ./gpuUserSpaceDrivers/amdvlk.nix
+    ./gpuUserSpaceDrivers/mesaGit.nix
+  ];
+  config = lib.mkIf (config.desktop.amd.enable)
   {
     environment.systemPackages = with pkgs;
     [
@@ -9,10 +14,6 @@
       unigine-heaven
       unigine-valley
     ];
-    chaotic =
-    {
-      mesa-git.enable = true;
-    };
     hardware =
     {
       amdgpu =
