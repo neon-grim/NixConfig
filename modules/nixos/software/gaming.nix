@@ -10,6 +10,7 @@
     libstrangle
     mangohud
     protonplus
+    protonup-qt
     ryujinx
     scanmem
     vesktop
