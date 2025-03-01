@@ -2,8 +2,7 @@
 {
   imports =
   [
-    ./kernelConfig/cachyosKernel.nix
-    ./kernelConfig/defaultKernel.nix
+    ./kernelConfig/kernelPackage.nix
     ./kernelConfig/kernelModules.nix
   ];
   boot =

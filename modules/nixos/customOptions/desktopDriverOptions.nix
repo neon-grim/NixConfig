@@ -22,10 +22,10 @@
     };
     kernel =
     {
-      cachyos = lib.mkOption
+      name = lib.mkOption
       {
-        type= lib.types.bool;
-        default = false;
+        type= lib.types.str;
+        default = "";
       };
     };
     printing =

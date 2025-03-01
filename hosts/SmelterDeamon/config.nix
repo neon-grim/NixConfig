@@ -22,7 +22,7 @@
     };
     kernel =
     {
-      cachyos = true;
+      name = "cachyos";
     };
     printing =
     {
