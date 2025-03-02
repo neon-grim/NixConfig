@@ -17,8 +17,10 @@ in
       # Gaming
       "immediate, class:^(.*)$"
       "workspace 1 silent, class:^(steam_app_.*)$"
+      "workspace 1 silent, class:^(gamescope)$"
       "workspace 1 silent, class:^(Selaco.*)$"
       "fullscreenstate 2 2, floating:1, class:^(steam_app_.*)$"
+      "fullscreenstate 2 2, floating:1, class:^(gamescope)$"
       "fullscreenstate 2 2, floating:1, class:^(Selaco.*)$"
       # File-explorer
       "center 1, floating:1, xwayland:0, title:^(.*)$"
