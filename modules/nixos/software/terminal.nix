@@ -8,6 +8,7 @@
     nix-prefetch-git
     psmisc
     unrar
+    unzip
     usbutils
     tmux
   ];
