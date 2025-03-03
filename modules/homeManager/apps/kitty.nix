@@ -25,7 +25,7 @@ in
       cursor = "#${accentDefault}";
       cursor_shape = "beam";
       foreground = "#${accentDefault}";
-      scrollback_lines = 0;
+      scrollback_lines = 2000;
       selection_background = "#${accentDefault}";
       selection_foreground = "#${txUrgent}";
       shell = "fish";
