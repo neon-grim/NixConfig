@@ -2,19 +2,19 @@
 {
   environment.systemPackages = with pkgs;
   [
-    discord-krisp
-    goverlay
     gpu-screen-recorder-gtk
     heroic
     jstest-gtk
     libstrangle
     mangohud
+    mangojuice
     protonplus
     protonup-qt
     ryujinx
     scanmem
     vesktop
     vkbasalt
+    vkbasalt-cli
   ];
   programs =
   {
