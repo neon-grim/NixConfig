@@ -32,12 +32,22 @@
         type = lib.types.str;
         default = "";
       };
-      oc = lib.mkOption
+      pos = lib.mkOption
       {
         type = lib.types.str;
         default = "";
       };
-      pos = lib.mkOption
+      maxHz = lib.mkOption
+      {
+        type = lib.types.str;
+        default = "";
+      };
+      midHz = lib.mkOption
+      {
+        type = lib.types.str;
+        default = "";
+      };
+      lowHz = lib.mkOption
       {
         type = lib.types.str;
         default = "";
