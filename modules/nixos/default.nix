@@ -6,8 +6,6 @@
     ./customOptions/desktopSoftwareOptions.nix
     ./customOptions/desktopSystemOptions.nix
     ./hardware/amdgpu.nix
-    ./hardware/amdvlk.nix
-    ./hardware/bluetooth.nix
     ./hardware/kernel.nix
     ./hardware/printing.nix
     ./hardware/sound.nix
@@ -18,7 +16,7 @@
     ./software/virtualisation.nix
     ./software/terminal.nix
     ./system/defaultEnvVar.nix
-    ./system/defaultServices.nix
+    ./system/commonOptions.nix
     ./system/fonts.nix
     ./system/security.nix
   ];

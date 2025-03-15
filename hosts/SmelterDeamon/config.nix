@@ -14,14 +14,19 @@
   );
   desktop =
   {
-    drivers =
+    amd =
     {
-      amd =
-      {
-        enable = true;
-        amdvlk = false;
-      };
-      printing = true;
+      enable = true;
+      amdvlk = false;
+      mesaGit = true;
+    };
+    kernel =
+    {
+      name = "cachyos";
+    };
+    printing =
+    {
+      enable = true;
     };
     software =
     {

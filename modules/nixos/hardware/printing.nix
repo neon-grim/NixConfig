@@ -1,6 +1,6 @@
 {pkgs, config, lib, ...}:
 {
-  config = lib.mkIf (config.desktop.drivers.printing)
+  config = lib.mkIf (config.desktop.printing.enable)
   {
     programs.system-config-printer =
     {

@@ -1,8 +1,13 @@
 {pkgs, config, ...}:
 {
+  imports =
+  [
+    ./kernelConfig/kernelPackage.nix
+    ./kernelConfig/kernelModules.nix
+    ./kernelConfig/xpadExtraRules.nix
+  ];
   boot =
   {
-    kernelPackages = pkgs.linuxPackages_zen;
     kernelParams =
     [
       "quiet"
@@ -16,13 +21,5 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-  };
-  hardware.xone =
-  {
-    enable = true;
-  };
-  zramSwap =
-  {
-    enable = true;
   };
 }
