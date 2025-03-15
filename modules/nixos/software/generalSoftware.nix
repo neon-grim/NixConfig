@@ -14,6 +14,7 @@
     onlyoffice-desktopeditors
     python3Full
     resources
+    teams-for-linux
     thunderbird
     vipsdisp
     xfce.mousepad
