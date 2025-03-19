@@ -10,7 +10,9 @@
     moonlight-qt
   ] ++ [
     handbrake
-    drawing
+    davinci-resolve
+    gimp
+    pinta
     pitivi
   ] ++ [
     celluloid
