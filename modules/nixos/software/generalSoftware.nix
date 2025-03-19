@@ -21,6 +21,7 @@
   ] ++ [
     thunderbird
     onlyoffice-desktopeditors
+    libreoffice
     xfce.mousepad
   ] ++ [
     teams-for-linux
