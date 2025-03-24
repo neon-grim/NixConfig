@@ -20,7 +20,6 @@
     image-roll
   ] ++ [
     thunderbird
-    onlyoffice-desktopeditors
     libreoffice
     xfce.mousepad
   ] ++ [
