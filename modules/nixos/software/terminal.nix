@@ -11,6 +11,7 @@
     unzip
     usbutils
     tmux
+    wf-recorder
   ];
   programs.fish =
   {

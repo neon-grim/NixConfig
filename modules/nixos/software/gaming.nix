@@ -2,19 +2,15 @@
 {
   environment.systemPackages = with pkgs;
   [
-    gpu-screen-recorder-gtk
     heroic
     jstest-gtk
     libstrangle
     mangohud
     mangojuice
     protonplus
-    protonup-qt
     ryujinx
     scanmem
-    vesktop
     vkbasalt
-    vkbasalt-cli
   ];
   programs =
   {
@@ -26,19 +22,6 @@
     {
       enable = true;
       enableRenice = true;
-    };
-    gpu-screen-recorder =
-    {
-      enable = true;
-    };
-    obs-studio =
-    {
-      enable = true;
-      enableVirtualCamera = true;
-      plugins = with pkgs.obs-studio-plugins;
-      [
-        obs-vkcapture
-      ];
     };
     steam =
     {

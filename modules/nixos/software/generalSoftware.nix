@@ -3,20 +3,43 @@
   environment.systemPackages = with pkgs;
   [
     bottles
-    celluloid
-    davinci-resolve
-    ffmpeg-full
-    gapless
-    handbrake
-    krita
-    lollypop
-    moonlight-qt
-    onlyoffice-desktopeditors
     python3Full
     resources
-    teams-for-linux
+  ] ++ [
+    gpu-screen-recorder-gtk
+    moonlight-qt
+  ] ++ [
+    handbrake
+    davinci-resolve
+    gimp
+    pinta
+    pitivi
+  ] ++ [
+    celluloid
+    gapless
+    image-roll
+  ] ++ [
     thunderbird
-    vipsdisp
+    libreoffice
     xfce.mousepad
+  ] ++ [
+    teams-for-linux
+    vesktop
   ];
+  programs =
+  {
+    gpu-screen-recorder =
+    {
+      enable = true;
+    };
+    obs-studio =
+    {
+      enable = true;
+      enableVirtualCamera = true;
+      plugins = with pkgs.obs-studio-plugins;
+      [
+        obs-vkcapture
+      ];
+    };
+  };
 }
