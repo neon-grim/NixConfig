@@ -18,7 +18,7 @@
     {
       enable = true;
       amdvlk = false;
-      mesaGit = true;
+      mesaGit = false;
     };
     kernel =
     {
@@ -30,7 +30,7 @@
     };
     software =
     {
-      flatpak = false;
+      flatpak = true;
       virtualization = true;
     };
     system =

@@ -9,7 +9,6 @@
   {
     environment.systemPackages = with pkgs;
     [
-      lact
       vulkan-tools
       unigine-heaven
       unigine-valley
