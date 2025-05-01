@@ -15,7 +15,7 @@
     pinta
     pitivi
   ] ++ [
-    celluloid
+    clapper
     gapless
     image-roll
   ] ++ [

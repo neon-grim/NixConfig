@@ -9,17 +9,17 @@
       enable = true;
       defaultApplications =
       {
-        "application/pdf" = ["zen.desktop"];
-        "audio/mp3" = ["org.gnome.Lollypop.desktop"];
-        "audio/flac" = ["org.gnome.Lollypop.desktop"];
-        "image/jpeg" = ["org.libvips.vipsdisp.desktop"];
-        "image/png" = ["org.libvips.vipsdisp.desktop"];
+        "application/pdf" = ["librewolf.desktop"];
+        "audio/mp3" = ["com.github.neithern.g4music.desktop"];
+        "audio/flac" = ["com.github.neithern.g4music.desktop"];
+        "image/jpeg" = ["com.github.weclaw1.ImageRoll.desktop"];
+        "image/png" = ["com.github.weclaw1.ImageRoll.desktop"];
         "inode/directory" = ["nemo.desktop"];
         "text/plain" = ["org.xfce.mousepad.desktop"];
-        "text/html" = ["zen.desktop"];
-        "video/mp4" = ["io.github.celluloid_player.Celluloid.desktop"];
-        "x-scheme-handler/http" = ["zen.desktop"];
-        "x-scheme-handler/https" = ["zen.desktop"];
+        "video/mp4" = [""];
+        "video/mkv" = [""];
+        "x-scheme-handler/http" = ["librewolf.desktop"];
+        "x-scheme-handler/https" = ["librewolf.desktop"];
       };
     };
     userDirs = 
