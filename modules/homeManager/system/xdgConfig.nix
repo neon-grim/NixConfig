@@ -16,8 +16,8 @@
         "image/png" = ["com.github.weclaw1.ImageRoll.desktop"];
         "inode/directory" = ["nemo.desktop"];
         "text/plain" = ["org.xfce.mousepad.desktop"];
-        "video/mp4" = ["com.github.rafostar.Clapper.desktop"];
-        "video/mkv" = ["com.github.rafostar.Clapper.desktop"];
+        "video/mp4" = ["vlc.desktop"];
+        "video/mkv" = ["vlc.desktop"];
         "x-scheme-handler/http" = ["librewolf.desktop"];
         "x-scheme-handler/https" = ["librewolf.desktop"];
       };

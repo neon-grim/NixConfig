@@ -15,7 +15,7 @@
     pinta
     pitivi
   ] ++ [
-    clapper
+    vlc
     gapless
     image-roll
   ] ++ [
