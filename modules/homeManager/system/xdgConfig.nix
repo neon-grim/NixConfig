@@ -17,7 +17,7 @@
         "inode/directory" = ["nemo.desktop"];
         "text/plain" = ["org.xfce.mousepad.desktop"];
         "video/mp4" = ["vlc.desktop"];
-        "video/mkv" = ["vlc.desktop"];
+        "video/x-matroska" = ["vlc.desktop"];
         "x-scheme-handler/http" = ["librewolf.desktop"];
         "x-scheme-handler/https" = ["librewolf.desktop"];
       };
