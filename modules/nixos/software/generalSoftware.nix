@@ -39,6 +39,7 @@
       plugins = with pkgs.obs-studio-plugins;
       [
         obs-vkcapture
+        obs-vaapi
       ];
     };
   };
