@@ -18,7 +18,7 @@
     {
       enable = true;
       amdvlk = false;
-      mesaGit = false;
+      mesaGit = true;
     };
     kernel =
     {
