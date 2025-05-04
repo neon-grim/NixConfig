@@ -14,7 +14,9 @@
     ];
     kernel.sysctl =
     {
+      "kernel.split_lock_mitigate" = 0;
       "vm.max_map_count" = 2147483642;
+      "vm.vfs_cache_pressure" = 10;
     };
     loader =
     {
