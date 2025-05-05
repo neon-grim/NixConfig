@@ -2,7 +2,6 @@
   description = "SmelterDeamon NixOS flake";
   inputs =
   {
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";

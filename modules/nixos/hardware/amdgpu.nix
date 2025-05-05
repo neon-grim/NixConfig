@@ -3,26 +3,29 @@
   imports =
   [
     ./gpuUserSpaceDrivers/amdvlk.nix
-    ./gpuUserSpaceDrivers/mesaGit.nix
   ];
   config = lib.mkIf (config.desktop.amd.enable)
   {
     environment.systemPackages = with pkgs;
     [
-      vulkan-tools
+      libva-utils
       unigine-heaven
       unigine-valley
     ];
     hardware =
     {
+      amdgpu =
+      {
+        opencl.enable = true;
+      };
       graphics =
       {
         enable = true;
         enable32Bit = true;
-      };
-      amdgpu =
-      {
-        opencl.enable = true;
+        extraPackages = with pkgs;
+        [
+          libva
+        ];
       };
     };
     services.xserver.videoDrivers = 

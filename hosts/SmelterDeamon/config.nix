@@ -18,11 +18,10 @@
     {
       enable = true;
       amdvlk = false;
-      mesaGit = true;
     };
     kernel =
     {
-      name = "cachyos";
+      name = "lqx";
     };
     printing =
     {
