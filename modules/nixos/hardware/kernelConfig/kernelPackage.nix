@@ -3,10 +3,6 @@ let
   kernelName = config.desktop.kernel.name;
 in
 {
-  environment.systemPackages = with pkgs;
-  [
-    scx.full
-  ];
   boot =
   {
     kernelPackages = 
@@ -15,5 +11,10 @@ in
       else if (config.desktop.kernel.name == "zen") then pkgs.linuxPackages_zen
       else pkgs.linuxPackages_latest
     );
+  };
+  services.scx =
+  {
+    enable = true;
+    scheduler = "scx_bpfland";
   };
 }
