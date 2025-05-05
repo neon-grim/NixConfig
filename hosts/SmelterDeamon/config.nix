@@ -19,10 +19,6 @@
       enable = true;
       amdvlk = false;
     };
-    kernel =
-    {
-      name = "lqx";
-    };
     printing =
     {
       enable = true;
