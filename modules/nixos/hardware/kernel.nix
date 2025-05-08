@@ -11,6 +11,7 @@
     kernelParams =
     [
       "quiet"
+       "amdgpu.ppfeaturemask=0xfffd7fff"
     ];
     kernel.sysctl =
     {

@@ -42,21 +42,16 @@
     [
       "amdgpu"
     ];
-    programs.corectrl =
-    {
-      enable = true;
-      gpuOverclock.enable = true;
-    };
-    systemd.services.lact =
+    systemd.services.lactd =
     {
       enable = true;
       after = [ "multi-user.target" ];
-      description = "LACT Daemon";
-      wantedBy = [ "multi-user.target" ];
+      description = "AMDGPU Control Daemon";
       serviceConfig =
       {
         ExecStart = "${pkgs.lact}/bin/lact daemon";
       };
+      wantedBy = [ "multi-user.target" ];
     };
   };
 }
