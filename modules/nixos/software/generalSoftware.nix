@@ -24,6 +24,7 @@
     xfce.mousepad
   ] ++ [
     teams-for-linux
+    brave
     vesktop
   ];
   programs =
