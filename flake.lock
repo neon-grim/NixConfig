@@ -350,6 +350,22 @@
         "type": "github"
       }
     },
+    "lact": {
+      "locked": {
+        "lastModified": 1745346107,
+        "narHash": "sha256-+iUn89qrKqBXD6vd8TvFJPwzuZ9iiV3FzX7I/gG0FLQ=",
+        "owner": "cything",
+        "repo": "nixpkgs",
+        "rev": "21846b25c4e56f24c70db76993ca66236449a5ae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cything",
+        "ref": "lact",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1746461020,
@@ -409,6 +425,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "lact": "lact",
         "nixpkgs": "nixpkgs_2"
       }
     },
