@@ -2,6 +2,7 @@
   description = "SmelterDeamon NixOS flake";
   inputs =
   {
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
@@ -9,7 +10,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
   
-  outputs = inputs@{self, nixpkgs, home-manager, ...}:
+  outputs = inputs@{self, nixpkgs, home-manager, chaotic, ...}:
   {
     nixosConfigurations =
     let
@@ -32,6 +33,10 @@
         modules =
         [
           ./hosts/${host}/config.nix
+          chaotic.nixosModules.default
+          {
+            chaotic.mesa-git.enable = true;
+          }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
