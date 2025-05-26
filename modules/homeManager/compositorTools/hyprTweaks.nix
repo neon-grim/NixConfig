@@ -52,17 +52,14 @@ in
         exit 1
       fi
       
-      while getopts "p:acdhrt" opt; do
+      while getopts "p:adhrt" opt; do
         case $opt in
           a)
             adaptiveSync=true
-            notifyMessage+=", VRR"
-            ;;
-          c)
             hyprCommand+=" keyword cursor:min_refresh_rate 0;"
-            hyprCommand+=" keyword cursor:no_break_fs_vrr 2;"
-            hyprCommand+=" keyword cursor:no_hardware_cursors true;"
-            notifyMessage+=", SC"
+            hyprCommand+=" keyword cursor:no_break_fs_vrr 1;"
+            hyprCommand+=" keyword cursor:no_hardware_cursors 1;"
+            notifyMessage+=", VRR"
             ;;
           d)
             hyprCommand+=" keyword render:direct_scanout 1;"
@@ -70,8 +67,7 @@ in
             ;;
           h)
             fullColorRange=true
-            hyprCommand+=" keyword experimental:xx_color_management_v4 true;"
-            notifyMessage+=", HDR"
+            notifyMessage+=", 10bit"
             ;;
           p)
             preferredHz=$OPTARG
