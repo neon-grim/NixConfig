@@ -43,7 +43,6 @@ in
       
       hyprCommand="keyword animations:enabled false;"
       hyprCommand+=" keyword decoration:blur:enabled false;"
-      hyprCommand+=" keyword general:allow_tearing true;"
       
       notifyGroup="Hyprtweaks"
       notifyMessage="Tweaks on"
@@ -53,7 +52,7 @@ in
         exit 1
       fi
       
-      while getopts "p:acdhr" opt; do
+      while getopts "p:acdhrt" opt; do
         case $opt in
           a)
             adaptiveSync=true
@@ -66,7 +65,7 @@ in
             notifyMessage+=", SC"
             ;;
           d)
-            hyprCommand+=" keyword render:direct_scanout 2;"
+            hyprCommand+=" keyword render:direct_scanout 1;"
             notifyMessage+=", DS"
             ;;
           h)
@@ -76,12 +75,15 @@ in
             ;;
           p)
             preferredHz=$OPTARG
-            notifyMessage+=", Hz"
             ;;
           r)
             reload=true
             preferredHz="mid"
             notifyMessage="Reloaded Hyprland"
+            ;;
+          t)
+            hyprCommand+=" keyword general:allow_tearing true;"
+            notifyMessage+=", Tear"
             ;;
           ?)
             ${dunstify} -u critical "$notifyGroup" "Unknown parameters!"
@@ -93,6 +95,8 @@ in
       refreshRate="${maxHz}"
       refreshRate=$([[ $preferredHz == "mid" ]] && echo "${midHz}" || echo $refreshRate)
       refreshRate=$([[ $preferredHz == "low" ]] && echo "${lowHz}" || echo $refreshRate)
+      
+      notifyMessage+=", $refreshRate Hz"
       
       monitorConfig="monitor ${mainMonName}, ${mainMonRes}@$refreshRate, ${mainMonPos}, 1"
       

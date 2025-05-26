@@ -2,29 +2,25 @@
   description = "SmelterDeamon NixOS flake";
   inputs =
   {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
-    home-manager =
-    {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/home-manager";
-    };
+    lact.url = "github:cything/nixpkgs?ref=lact";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
-  outputs = inputs@{self, nixpkgs, home-manager, ...}:
-  let
-    lib = nixpkgs.lib;
-    systemArch = "x86_64-linux";
-  in
+  
+  outputs = inputs@{self, nixpkgs, home-manager, chaotic, ...}:
   {
     nixosConfigurations =
     let
       compositor = "hyprland";
       host = "SmelterDeamon";
       user = "ashen_one";
+      systemArch = "x86_64-linux";
     in
     {
-      "${host}" = lib.nixosSystem
+      "${host}" = nixpkgs.lib.nixosSystem
       {
         system = "${systemArch}";
         specialArgs =
@@ -37,6 +33,10 @@
         modules =
         [
           ./hosts/${host}/config.nix
+          chaotic.nixosModules.default
+          {
+            chaotic.mesa-git.enable = true;
+          }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

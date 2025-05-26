@@ -1,4 +1,4 @@
-{host, config, inputs, ...}:
+{host, config, ...}:
 let
   locale = config.desktop.system.locale;
   time = config.desktop.system.timeZone;
@@ -6,7 +6,6 @@ in
 {
   imports =
   [
-    inputs.chaotic.nixosModules.default
     ./commonModules/commonServices.nix
     ./commonModules/keyboarConfig.nix
   ];

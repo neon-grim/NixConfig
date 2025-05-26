@@ -15,7 +15,7 @@
     pinta
     pitivi
   ] ++ [
-    celluloid
+    vlc
     gapless
     image-roll
   ] ++ [
@@ -24,6 +24,7 @@
     xfce.mousepad
   ] ++ [
     teams-for-linux
+    brave
     vesktop
   ];
   programs =
@@ -39,6 +40,7 @@
       plugins = with pkgs.obs-studio-plugins;
       [
         obs-vkcapture
+        obs-vaapi
       ];
     };
   };
