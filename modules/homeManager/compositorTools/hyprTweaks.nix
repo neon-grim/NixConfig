@@ -52,13 +52,12 @@ in
         exit 1
       fi
       
-      while getopts "p:adhrt" opt; do
+      while getopts "p:adhrst" opt; do
         case $opt in
           a)
             adaptiveSync=true
             hyprCommand+=" keyword cursor:min_refresh_rate 0;"
             hyprCommand+=" keyword cursor:no_break_fs_vrr 1;"
-            hyprCommand+=" keyword cursor:no_hardware_cursors 1;"
             notifyMessage+=", VRR"
             ;;
           d)
@@ -76,6 +75,10 @@ in
             reload=true
             preferredHz="mid"
             notifyMessage="Reloaded Hyprland"
+            ;;
+          s)
+            hyprCommand+=" keyword cursor:no_hardware_cursors 1;"
+            notifyMessage+=", SC"
             ;;
           t)
             hyprCommand+=" keyword general:allow_tearing true;"
