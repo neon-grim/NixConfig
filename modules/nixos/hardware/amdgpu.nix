@@ -2,26 +2,11 @@
 {
   imports =
   [
-    ./gpuUserSpaceDrivers/amdvlk.nix
+    ./graphicsConfig/amdvlk.nix
+    ./graphicsConfig/lact.nix
   ];
   config = lib.mkIf (config.desktop.amd.enable)
   {
-    nixpkgs.overlays = 
-    [
-      (final: prev: {
-        lact = final.callPackage "${inputs.lact}/pkgs/by-name/la/lact/package.nix"
-        {
-          hwdata = final.callPackage "${inputs.lact}/pkgs/by-name/hw/hwdata/package.nix" { };
-        };
-      })
-    ];
-    environment.systemPackages = with pkgs;
-    [
-      libva-utils
-      unigine-heaven
-      unigine-valley
-      lact
-    ];
     hardware =
     {
       amdgpu =
@@ -35,6 +20,14 @@
         extraPackages = with pkgs;
         [
           libva
+          libvdpau
+          vaapiVdpau
+          libvdpau-va-gl
+        ];
+        extraPackages32 = with pkgs.pkgsi686Linux; 
+        [
+          vaapiVdpau
+          libvdpau-va-gl
         ];
       };
     };
@@ -42,16 +35,5 @@
     [
       "amdgpu"
     ];
-    systemd.services.lactd =
-    {
-      enable = true;
-      after = [ "multi-user.target" ];
-      description = "AMDGPU Control Daemon";
-      serviceConfig =
-      {
-        ExecStart = "${pkgs.lact}/bin/lact daemon";
-      };
-      wantedBy = [ "multi-user.target" ];
-    };
   };
 }
