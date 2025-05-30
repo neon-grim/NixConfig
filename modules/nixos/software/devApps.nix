@@ -4,4 +4,4 @@
   [
     python3Full
   ];
-};
+}
