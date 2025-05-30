@@ -4,6 +4,7 @@
   [
     git
     lazygit
+    libva-utils
     neovim
     nix-prefetch-git
     psmisc
