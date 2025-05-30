@@ -12,24 +12,29 @@
     [
       "quiet"
       "amdgpu.ppfeaturemask=0xfffd7fff"
+      "noresume"
     ];
     kernel.sysctl =
     {
-      #Disable mitigations
+      # Disable mitigations
       "kernel.split_lock_mitigate" = 0;
-      #SteamOs
+      # SteamOs
       "vm.max_map_count" = 2147483642;
-      #Swap
+      # Swap
       "vm.swappiness" = 10;
       "vm.vfs_cache_pressure" = 50;
-      #Page flush tweaks
+      # Page flush tweaks
       "vm.dirty_ratio" = 4;
       "vm.dirty_background_ratio" = 2;
     };
     loader =
     {
-      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
+    };
+    tmp = 
+    {
+      cleanOnBoot = true;
     };
   };
 }

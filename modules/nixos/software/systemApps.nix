@@ -2,30 +2,33 @@
 {
   environment.systemPackages = with pkgs;
   [
+    # Wine
     bottles
-    python3Full
-    resources
-  ] ++ [
+    # Streaming
     gpu-screen-recorder-gtk
     moonlight-qt
-  ] ++ [
+    # Editing
     handbrake
     davinci-resolve
     gimp
     pinta
     pitivi
-  ] ++ [
-    vlc
+    # Media
     gapless
+    vlc
     image-roll
-  ] ++ [
-    thunderbird
+    # Office
     libreoffice
+    thunderbird
     xfce.mousepad
-  ] ++ [
-    teams-for-linux
+    # Chromium
     brave
+    teams-for-linux
     vesktop
+    # Benchmarks
+    resources
+    unigine-heaven
+    unigine-valley
   ];
   programs =
   {
