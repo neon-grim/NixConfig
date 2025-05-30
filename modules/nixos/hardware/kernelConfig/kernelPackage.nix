@@ -15,6 +15,7 @@ in
   services.scx =
   {
     enable = true;
-    scheduler = "scx_bpfland";
+    package = pkgs.scx.full;
+    scheduler = "scx_lavd";
   };
 }
