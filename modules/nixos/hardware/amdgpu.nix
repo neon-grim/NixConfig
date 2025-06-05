@@ -4,6 +4,7 @@
   [
     ./graphicsConfig/amdvlk.nix
     ./graphicsConfig/lact.nix
+    ./graphicsConfig/mesaGit.nix
   ];
   config = lib.mkIf (config.desktop.amd.enable)
   {
