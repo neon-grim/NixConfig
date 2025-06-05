@@ -17,5 +17,10 @@ in
     enable = true;
     package = pkgs.scx.full;
     scheduler = "scx_lavd";
+    extraArgs =
+    [
+      "--performance"
+      "--no-core-compaction"
+    ];
   };
 }
