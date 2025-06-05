@@ -11,7 +11,6 @@
     ./hardware/printing.nix
     ./hardware/sound.nix
     ./software/devApps.nix
-    ./software/fileManager.nix
     ./software/flatpak.nix
     ./software/gamingApps.nix
     ./software/systemApps.nix

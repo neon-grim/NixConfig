@@ -2,6 +2,8 @@
 {
   environment.systemPackages = with pkgs;
   [
+    # backups
+    pika-backup
     # Wine
     bottles
     # Streaming
