@@ -7,6 +7,10 @@
   ];
   config = lib.mkIf (config.desktop.amd.enable)
   {
+    boot.kernelParams =
+    [
+      "amdgpu.ppfeaturemask=0xfffd7fff"
+    ];
     hardware =
     {
       amdgpu =
