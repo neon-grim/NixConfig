@@ -1,13 +1,22 @@
 {pkgs, config, ...}:
+let
+  kernelName = config.desktop.kernel.name;
+in
 {
   imports =
   [
-    ./kernelConfig/kernelPackage.nix
+    ./kernelConfig/scxConfig.nix
     ./kernelConfig/kernelModules.nix
     ./kernelConfig/xpadExtraRules.nix
   ];
   boot =
   {
+    kernelPackages = 
+    (
+      if (config.desktop.kernel.name == "lqx") then pkgs.linuxPackages_lqx
+      else if (config.desktop.kernel.name == "zen") then pkgs.linuxPackages_zen
+      else pkgs.linuxPackages_latest
+    );
     kernelParams =
     [
       "quiet"
