@@ -1,5 +1,6 @@
 {
-  description = "SmelterDeamon NixOS flake";
+  description = "NeonGrim NixOS flake";
+  
   inputs =
   {
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -37,15 +38,22 @@
           chaotic.nixosModules.default
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${user} = import ./hosts/${host}/home.nix;
-            home-manager.extraSpecialArgs =
+            home-manager =
             {
-              inherit compositor;
-              inherit host;
-              inherit inputs;
-              inherit user;
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.${user}.imports =
+              [
+                ./hosts/${host}/home.nix
+                ./modules/homeManager/default.nix
+              ];
+              extraSpecialArgs =
+              {
+                inherit compositor;
+                inherit host;
+                inherit inputs;
+                inherit user;
+              };
             };
           }
         ];

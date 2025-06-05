@@ -1,4 +1,4 @@
-{config, lib, compositor, ...}:
+{config, ...}:
 {
   imports =
   [

@@ -1,4 +1,4 @@
-{...}:
+{compositor, ...}:
 {
   imports =
   [
@@ -13,5 +13,17 @@
     ./generalTheming/qt.nix
     ./system/generalConfig.nix
     ./system/xdgConfig.nix
-  ];
+  ] ++ (
+    if (compositor == "hyprland") then
+    [
+      ./compositors/hyprland.nix
+      ./compositorTools/hyprlock.nix
+      ./compositorTools/hyprpaper.nix
+      ./compositorTools/hyprTweaks.nix
+      ./compositorTools/hyprWorkspaceStart.nix
+      ./compositorTools/dunst.nix
+      ./compositorTools/waybar.nix
+      ./compositorTools/wofiPowerMenu.nix
+    ] else []
+  );
 }
