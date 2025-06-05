@@ -20,7 +20,6 @@ in
     extraArgs =
     [
       "--performance"
-      "--no-core-compaction"
     ];
   };
 }
