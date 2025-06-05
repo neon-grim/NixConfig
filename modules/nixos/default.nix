@@ -1,4 +1,4 @@
-{...}:
+{compositor, ...}:
 {
   imports =
   [
@@ -21,13 +21,13 @@
     ./system/fonts.nix
     ./system/security.nix
   ] ++ (
-    if (compositor == "hyprland")
+    if (compositor == "hyprland") then
     [
       ./compositors/hyprland.nix
       ./software/wmSoftware.nix
     ] else []
   ) ++ (
-    if (compositor == "gnome")
+    if (compositor == "gnome") then
     [
       ./compositors/gnome.nix
     ] else []
