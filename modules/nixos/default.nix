@@ -20,5 +20,16 @@
     ./system/commonOptions.nix
     ./system/fonts.nix
     ./system/security.nix
-  ];
+  ] ++ (
+    if (compositor == "hyprland")
+    [
+      ./compositors/hyprland.nix
+      ./software/wmSoftware.nix
+    ] else []
+  ) ++ (
+    if (compositor == "gnome")
+    [
+      ./compositors/gnome.nix
+    ] else []
+  );
 }

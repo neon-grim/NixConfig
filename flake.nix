@@ -33,6 +33,7 @@
         modules =
         [
           ./hosts/${host}/config.nix
+          ./modules/nixos/default.nix
           chaotic.nixosModules.default
           {
             chaotic.mesa-git.enable = true;
