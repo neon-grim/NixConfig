@@ -1,7 +1,8 @@
-{compositor, ...}:
+{...}:
 {
   imports =
   [
+    ./compositors/hyprland.nix
     ./customOptions/desktopDriverOptions.nix
     ./customOptions/desktopSoftwareOptions.nix
     ./customOptions/desktopSystemOptions.nix
@@ -20,16 +21,6 @@
     ./system/commonOptions.nix
     ./system/fonts.nix
     ./system/security.nix
-  ] ++ (
-    if (compositor == "hyprland") then
-    [
-      ./compositors/hyprland.nix
-      ./software/wmSoftware.nix
-    ] else []
-  ) ++ (
-    if (compositor == "gnome") then
-    [
-      ./compositors/gnome.nix
-    ] else []
-  );
+    ./software/wmSoftware.nix
+  ];
 }

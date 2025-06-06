@@ -15,7 +15,6 @@
   {
     nixosConfigurations =
     let
-      compositor = "hyprland";
       host = "SmelterDeamon";
       user = "ashen_one";
     in
@@ -25,7 +24,6 @@
         system = "x86_64-linux";
         specialArgs =
         {
-          inherit compositor;
           inherit host;
           inherit inputs;
           inherit user;
@@ -48,7 +46,6 @@
               ];
               extraSpecialArgs =
               {
-                inherit compositor;
                 inherit host;
                 inherit inputs;
                 inherit user;
