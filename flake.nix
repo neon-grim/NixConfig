@@ -18,12 +18,11 @@
       compositor = "hyprland";
       host = "SmelterDeamon";
       user = "ashen_one";
-      systemArch = "x86_64-linux";
     in
     {
       "${host}" = nixpkgs.lib.nixosSystem
       {
-        system = "${systemArch}";
+        system = "x86_64-linux";
         specialArgs =
         {
           inherit compositor;
