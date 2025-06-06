@@ -2,15 +2,9 @@
 {
   hardware =
   {
-    bluetooth =
-    {
-      enable = true;
-      powerOnBoot = true;
-    };
-    xone =
-    {
-      enable = true;
-    };
+    cpu.amd.updateMicrocode = true;
+    opentabletdriver.enable = true;
+    xone.enable = true;
   };
   zramSwap =
   {
