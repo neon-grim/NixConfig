@@ -12,7 +12,6 @@
     {
       enable = true;
       amdvlk = false;
-      mesaGit = true;
     };
     printing =
     {
