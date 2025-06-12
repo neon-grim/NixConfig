@@ -14,11 +14,6 @@
         type= lib.types.bool;
         default = false;
       };
-      mesaGit = lib.mkOption
-      {
-        type= lib.types.bool;
-        default = false;
-      };
     };
     kernel =
     {
