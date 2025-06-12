@@ -4,10 +4,10 @@
   {
     enable = true;
     package = pkgs.scx.full;
-    scheduler = "scx_lavd";
+    scheduler = "scx_bpfland";
     extraArgs =
     [
-      "--performance"
+      "-m performance"
     ];
   };
 }
