@@ -26,14 +26,6 @@
     steam =
     {
       enable = true;
-      gamescopeSession =
-      {
-        enable = true;
-        args =
-        [
-          "--prefer-output" "DP-1"
-        ];
-      };
       dedicatedServer.openFirewall = true;
       protontricks.enable = true;
       remotePlay.openFirewall = true;
