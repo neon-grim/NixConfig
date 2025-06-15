@@ -43,6 +43,7 @@ in
       
       hyprCommand="keyword animations:enabled false;"
       hyprCommand+=" keyword decoration:blur:enabled false;"
+      hyprCommand+=" keyword misc:render_unfocused_fps 60;"
       
       notifyGroup="Hyprtweaks"
       notifyMessage="Tweaks on"
