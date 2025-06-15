@@ -26,9 +26,13 @@
     steam =
     {
       enable = true;
-      dedicatedServer.openFirewall = true;
       protontricks.enable = true;
-      remotePlay.openFirewall = true;
     };
+  };
+  services.sunshine =
+  {
+    enable = true;
+    capSysAdmin = true;
+    openFirewall = true;
   };
 }
