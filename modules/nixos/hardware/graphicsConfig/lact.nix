@@ -1,17 +1,8 @@
-{pkgs, inputs, ...}:
+{pkgs, ...}:
 {
   environment.systemPackages = with pkgs;
   [
     lact
-  ];
-  nixpkgs.overlays = 
-  [
-    (final: prev: {
-      lact = final.callPackage "${inputs.lact}/pkgs/by-name/la/lact/package.nix"
-      {
-        hwdata = final.callPackage "${inputs.lact}/pkgs/by-name/hw/hwdata/package.nix" { };
-      };
-    })
   ];
   systemd.services.lactd =
   {
