@@ -16,7 +16,7 @@ in
     [
       # Gaming
       "workspace 1 silent, class:^(steam_app_.*)$"
-      "fullscreenstate 2 2, fullscreenstate:* 2, class:^(steam_app_.*)$"
+      "fullscreenstate 2 2, class:^(steam_app_.*)$"
       "immediate, fullscreenstate:2 2, class:^(steam_app_.*)$"
       "renderunfocused, fullscreenstate:2 2, class:^(steam_app_.*)$"
       # File-explorer
