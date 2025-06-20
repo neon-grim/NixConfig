@@ -16,9 +16,10 @@ in
     [
       # Gaming
       "workspace 1 silent, class:^(steam_app_.*)$"
-      "fullscreenstate 2 2, class:^(steam_app_.*)$"
-      "immediate, fullscreenstate:2 2, class:^(steam_app_.*)$"
-      "renderunfocused, fullscreenstate:2 2, class:^(steam_app_.*)$"
+      "tag game, fullscreen:1, class:^(steam_app_.*)$"
+      "fullscreenstate 2 2, tag:game, class:^(steam_app_.*)$"
+      "immediate, fullscreenstate:2 2, tag:game, class:^(steam_app_.*)$"
+      "renderunfocused, fullscreenstate:2 2, tag:game, class:^(steam_app_.*)$"
       # File-explorer
       "center 1, floating:1, xwayland:0, title:^(.*)$"
       "float, floating:0, title:^([O-o]pen.*)$"
