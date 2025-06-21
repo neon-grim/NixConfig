@@ -9,6 +9,7 @@
     mangojuice
     protonplus
     ryujinx
+    shadps4
     scanmem
     vkbasalt
   ];
