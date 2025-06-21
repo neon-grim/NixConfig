@@ -10,8 +10,8 @@
     gpu-screen-recorder-gtk
     moonlight-qt
     # Editing
-    handbrake
-    davinci-resolve
+    #handbrake
+    #davinci-resolve
     gimp
     pinta
     pitivi

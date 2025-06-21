@@ -15,7 +15,7 @@
     {
       amdgpu =
       {
-        opencl.enable = true;
+        opencl.enable = false;
       };
       graphics =
       {
