@@ -13,10 +13,6 @@
     ];
     hardware =
     {
-      amdgpu =
-      {
-        opencl.enable = false;
-      };
       graphics =
       {
         enable = true;
