@@ -9,6 +9,7 @@
     mangojuice
     protonplus
     ryujinx
+    shadps4
     scanmem
     vkbasalt
   ];
@@ -26,17 +27,14 @@
     steam =
     {
       enable = true;
-      gamescopeSession =
-      {
-        enable = true;
-        args =
-        [
-          "--prefer-output" "DP-1"
-        ];
-      };
-      dedicatedServer.openFirewall = true;
       protontricks.enable = true;
-      remotePlay.openFirewall = true;
     };
+  };
+  services.sunshine =
+  {
+    enable = true;
+    autoStart = false;
+    capSysAdmin = true;
+    openFirewall = true;
   };
 }

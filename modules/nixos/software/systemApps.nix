@@ -10,9 +10,8 @@
     gpu-screen-recorder-gtk
     moonlight-qt
     # Editing
-    handbrake
-    davinci-resolve
     gimp
+    kdePackages.kdenlive
     pinta
     pitivi
     # Media

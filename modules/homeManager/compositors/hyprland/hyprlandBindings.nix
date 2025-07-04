@@ -65,9 +65,11 @@ in
       # Navigate between workspaces on the same monitor
       "${mainMod}, PAGE_DOWN, exec, hyprnome -k -c"
       "${mainMod}, PAGE_UP, exec, hyprnome -p -k -c"
+      "${mainMod}, G, workspace, 1"
       # Move focused window between workspaces on the same monitor
       "${mainModShift}, PAGE_DOWN, exec, hyprnome -m -c"
       "${mainModShift}, PAGE_UP, exec, hyprnome -p -m -c"
+      "${mainModShift}, G, movetoworkspace, 1"
       # Move focused window between monitors
       "${mainModControl}, PAGE_UP, movewindow, mon:-1"
       "${mainModControl}, PAGE_DOWN, movewindow, mon:+1"

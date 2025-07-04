@@ -2,12 +2,8 @@
 {
   services.scx =
   {
-    enable = true;
+    enable = false;
     package = pkgs.scx.full;
-    scheduler = "scx_lavd";
-    extraArgs =
-    [
-      "--performance"
-    ];
+    scheduler = "scx_bpfland";
   };
 }

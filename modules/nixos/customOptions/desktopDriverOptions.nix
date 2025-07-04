@@ -15,14 +15,6 @@
         default = false;
       };
     };
-    kernel =
-    {
-      name = lib.mkOption
-      {
-        type= lib.types.str;
-        default = "";
-      };
-    };
     printing =
     {
       enable = lib.mkOption
