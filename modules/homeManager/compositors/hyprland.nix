@@ -53,7 +53,7 @@
       cursor =
       {
         min_refresh_rate = 0;
-        cursor:no_break_fs_vrr = 1;
+        no_break_fs_vrr = 1;
       };
     };
   };
