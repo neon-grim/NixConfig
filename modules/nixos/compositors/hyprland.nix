@@ -7,8 +7,6 @@
   environment.systemPackages = with pkgs;
   [
     greetd.tuigreet
-    hyprland-workspaces
-    hyprland-protocols
     hyprnome
     hyprshot
   ];
