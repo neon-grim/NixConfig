@@ -11,25 +11,9 @@
     [
       "amdgpu.ppfeaturemask=0xfffd7fff"
     ];
-    hardware =
+    hardware.graphics =
     {
-      graphics =
-      {
-        enable = true;
-        enable32Bit = true;
-        extraPackages = with pkgs;
-        [
-          libva
-          libvdpau
-          vaapiVdpau
-          libvdpau-va-gl
-        ];
-        extraPackages32 = with pkgs.pkgsi686Linux; 
-        [
-          vaapiVdpau
-          libvdpau-va-gl
-        ];
-      };
+      enable = true;
     };
     services.xserver.videoDrivers = 
     [

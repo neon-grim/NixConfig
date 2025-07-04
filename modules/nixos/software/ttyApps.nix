@@ -4,14 +4,12 @@
   [
     git
     lazygit
-    libva-utils
     neovim
     nix-prefetch-git
     psmisc
     unrar
     unzip
     usbutils
-    tmux
     wf-recorder
   ];
   programs.fish =

@@ -7,8 +7,6 @@
   environment.systemPackages = with pkgs;
   [
     greetd.tuigreet
-    hyprland-workspaces
-    hyprland-protocols
     hyprnome
     hyprshot
   ];
@@ -27,5 +25,13 @@
         user = "${user}";
       };
     };
+  };
+  xdg.portal =
+  {
+    enable = true;
+    extraPortals = 
+    [
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 }

@@ -20,7 +20,6 @@
     ./system/defaultEnvVar.nix
     ./system/commonOptions.nix
     ./system/fonts.nix
-    ./system/security.nix
     ./software/wmSoftware.nix
   ];
 }

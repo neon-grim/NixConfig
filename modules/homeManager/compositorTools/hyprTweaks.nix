@@ -43,9 +43,8 @@ in
       
       hyprCommand="keyword animations:enabled false;"
       hyprCommand+=" keyword decoration:blur:enabled false;"
-      hyprCommand+=" keyword misc:render_unfocused_fps 60;"
       
-      notifyGroup="Hyprtweaks"
+      notifyGroup="HyprTweaks"
       notifyMessage="Tweaks on"
       
       if [[ "${mainMonName}" == "" || "${mainMonRes}" == "" || "${maxHz}" == "" || "${midHz}" == "" || "${lowHz}" == "" || "${mainMonPos}" == "" ]]; then
@@ -57,8 +56,6 @@ in
         case $opt in
           a)
             adaptiveSync=true
-            hyprCommand+=" keyword cursor:min_refresh_rate 0;"
-            hyprCommand+=" keyword cursor:no_break_fs_vrr 1;"
             notifyMessage+=", VRR"
             ;;
           d)
