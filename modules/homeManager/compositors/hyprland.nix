@@ -46,6 +46,15 @@
         use_nearest_neighbor = true;
         force_zero_scaling = true;
       };
+      misc =
+      {
+        render_unfocused_fps = 60;
+      };
+      cursor =
+      {
+        min_refresh_rate = 0;
+        cursor:no_break_fs_vrr = 1;
+      };
     };
   };
 }
