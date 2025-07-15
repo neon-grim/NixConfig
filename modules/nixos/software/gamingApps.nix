@@ -13,6 +13,10 @@
     scanmem
     vkbasalt
   ];
+  hardware =
+  {
+    steam-hardware.enable = true;
+  };
   programs =
   {
     gamescope =
