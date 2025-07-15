@@ -3,8 +3,10 @@
   hardware =
   {
     cpu.amd.updateMicrocode = true;
+    enableAllFirmware = true;
     opentabletdriver.enable = true;
-    xone.enable = true;
+    steam-hardware.enable = true;
+    xpadneo.enable = true;
   };
   zramSwap =
   {
