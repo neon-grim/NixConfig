@@ -10,7 +10,7 @@
     gpu-screen-recorder-gtk
     moonlight-qt
     # Editing
-    gimp
+    #gimp
     kdePackages.kdenlive
     pinta
     pitivi

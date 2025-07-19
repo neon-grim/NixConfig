@@ -10,7 +10,7 @@
     protonplus
     ryujinx
     shadps4
-    scanmem
+    #scanmem
     vkbasalt
   ];
   programs =
