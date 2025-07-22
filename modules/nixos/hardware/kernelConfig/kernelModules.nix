@@ -1,5 +1,9 @@
 {pkgs, config, ...}:
 {
+  boot.kernelModules =
+  [
+    "ntsync"
+  ];
   hardware =
   {
     cpu.amd.updateMicrocode = true;
