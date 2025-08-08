@@ -8,7 +8,7 @@
     mangohud
     mangojuice
     protonplus
-    ryujinx
+    ryubing
     shadps4
     vkbasalt
   ];

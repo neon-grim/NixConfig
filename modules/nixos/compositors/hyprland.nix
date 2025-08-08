@@ -6,7 +6,7 @@
   ];
   environment.systemPackages = with pkgs;
   [
-    greetd.tuigreet
+    tuigreet
     hyprnome
     hyprshot
   ];
@@ -21,7 +21,7 @@
     {
       default_session =
       {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
         user = "${user}";
       };
     };
