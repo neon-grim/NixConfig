@@ -10,7 +10,6 @@
     enableAllFirmware = true;
     opentabletdriver.enable = true;
     steam-hardware.enable = true;
-    xpadneo.enable = true;
   };
   zramSwap =
   {

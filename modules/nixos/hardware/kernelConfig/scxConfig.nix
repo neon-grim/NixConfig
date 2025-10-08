@@ -2,7 +2,7 @@
 {
   services.scx =
   {
-    enable = false;
+    enable = true;
     package = pkgs.scx.full;
     scheduler = "scx_bpfland";
   };
