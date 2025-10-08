@@ -35,8 +35,6 @@ in
       # Prevent
       "suppressevent maximize, class:.*"
       # Workspace
-      "workspace 15 silent, class:^(vesktop)$"
-      "workspace 16 silent, title:^(Lollypop)$"
       "workspace special:magic, class:^(kitty)$"
     ];
     workspace =

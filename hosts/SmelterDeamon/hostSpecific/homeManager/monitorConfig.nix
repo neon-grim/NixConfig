@@ -3,9 +3,11 @@ let
   mainMonitorRes = "5120x1440";
   mainMonitorPos = "0x640";
   defaultRefreshRate = "120.00";
+  # Monitor Names
   mainMonitor = "desc:Samsung Electric Company Odyssey G95SC H1AK500000";
   bottomMonitor = "desc:Invalid Vendor Codename - RTK Verbatim MT14 demoset-1";
   sideMonitor = "desc:Acer Technologies ED323QUR";
+  # Monitor Wallpaper
   wallpaperOne = "~/Pictures/Background/Superwide/Death_Superwide.png";
   wallpaperTwo = "~/Pictures/Background/Uncompressed/red_transistor.png";
   wallpaperthree = "~/Pictures/Background/Uncompressed/instrument.png";

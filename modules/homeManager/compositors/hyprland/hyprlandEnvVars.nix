@@ -18,7 +18,6 @@ in
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       "XCURSOR_SIZE,${cursorSize}"
       "HYPRSHOT_DIR,$XDG_PICTURES_DIR/ScreenShots"
-      "STEAM_FORCE_DESKTOPUI_SCALING,1.25"
     ];
   };
 }

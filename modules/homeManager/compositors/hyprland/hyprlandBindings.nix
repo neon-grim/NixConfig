@@ -37,12 +37,8 @@ in
       # Execute default programs and actions
       "${mainMod}, RETURN, exec, ${lib.getExe pkgs.kitty}"
       "${mainMod}, E, exec, ${lib.getExe' pkgs.nemo-with-extensions "nemo"}"
-      "${mainMod}, B, exec, ${lib.getExe pkgs.librewolf}"
       "${mainMod}, R, exec, ${menu}"
       "${mainMod}, L, exec, ${powerMenu}"
-      # OBS shortcuts
-      "${mainModShift}, R, pass, ^(com\.obsproject\.Studio)$"
-      "${mainModControl}, R, pass, ^(com\.obsproject\.Studio)$"
       # Change focused window
       "${mainMod}, LEFT, movefocus, l"
       "${mainMod}, RIGHT, movefocus, r"
@@ -81,7 +77,7 @@ in
       "${mainModAlt}, PAGE_UP, workspace, e+1"
       "${mainModAlt}, PAGE_DOWN, workspace, e-1"
       # Screenshot
-      ", PRINT, exec, hyprshot -m window -m active --freeze"
+      "${mainMod}, PRINT, exec, hyprshot -m window -m active --freeze"
       "${mainModShift}, PRINT, exec, hyprshot -m output -m active --freeze"
       "${mainModControl}, PRINT, exec, hyprshot -m region --freeze"
     ];
