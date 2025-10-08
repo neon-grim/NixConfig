@@ -11,7 +11,6 @@
       "libvirt" 
       "kvm" 
       "libvirtd"
-      "corectrl"
       "gamemode"
     ];
   };
