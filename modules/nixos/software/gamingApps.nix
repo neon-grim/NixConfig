@@ -4,7 +4,6 @@
   [
     heroic
     jstest-gtk
-    libstrangle
     mangohud
     mangojuice
     protonplus

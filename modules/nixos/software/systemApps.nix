@@ -20,7 +20,6 @@
     image-roll
     # Office
     libreoffice
-    thunderbird
     xfce.mousepad
     # Chromium
     brave
@@ -36,16 +35,6 @@
     gpu-screen-recorder =
     {
       enable = true;
-    };
-    obs-studio =
-    {
-      enable = true;
-      enableVirtualCamera = true;
-      plugins = with pkgs.obs-studio-plugins;
-      [
-        obs-vkcapture
-        obs-vaapi
-      ];
     };
   };
 }
