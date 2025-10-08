@@ -2,7 +2,6 @@
 {
   imports =
   [
-    ./graphicsConfig/amdvlk.nix
     ./graphicsConfig/lact.nix
   ];
   config = lib.mkIf (config.desktop.amd.enable)
@@ -11,6 +10,10 @@
     [
       "amdgpu.ppfeaturemask=0xfffd7fff"
     ];
+    chaotic.mesa-git =
+    {
+      enable = true;
+    };
     hardware.graphics =
     {
       enable = true;

@@ -9,11 +9,6 @@
         type= lib.types.bool;
         default = false;
       };
-      amdvlk = lib.mkOption
-      {
-        type= lib.types.bool;
-        default = false;
-      };
     };
     printing =
     {
