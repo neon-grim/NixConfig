@@ -18,7 +18,7 @@ in
     ''
       *
       {
-        border-radius: 6px;
+        border-radius: 0px;
         font-family: "${fontName}";
         font-size: 16pt;
         font-weight: bold;
