@@ -29,7 +29,7 @@ in
         notifyGroup=$3
         notifyMessage=$4
         
-        if [[ "${value}" == "" ]]; then
+        if [[ "$value" == "" ]]; then
           ${dunstify} -u critical "$notifyGroup" "$notifyMessage"
           exit $exitCode
         fi
@@ -46,22 +46,37 @@ in
           low)
             echo "${lowHz}"
             ;;
+          "")
+            echo "${maxHz}"
+            ;;
           ?)
             echo "${maxHz}"
             ;;
         esac
       }
       
+      function is_bool_set()
+      {
+        value=$1
+        returnValue=$2
+        
+        if $value; then
+          echo "$returnValue";
+        fi  
+      }
+      
       function execute_command()
       {
         hyprCommand=$1
-        notifyGroup=$2
-        notifyMessage=$3
+        paper=$2
+        notifyGroup=$3
+        notifyMessage=$4
         
         ${hyprctl} keyword "monitor ${mainMonDesc}, disable"
         
         sleep 2s
         
+        ${hyprctl} "hyprpaper wallpaper ${mainMonDesc}, $paper"
         ${hyprctl} --batch $hyprCommand
         
         sleep 2s
@@ -77,16 +92,13 @@ in
       {
         notifyGroup=$1
         hyprCommand="reload;"
-        hyprCommand+="hyprpaper wallpaper ${mainMonDesc}, ${paperOne};"
         
-        execute_command "$hyprCommand" "$notifyGroup" "Reloaded Hyprland"
-        
-        exit 0
+        execute_command "$hyprCommand" "${paperOne}" "$notifyGroup" "Reloaded Hyprland"
       }
       
       adaptiveSync=false
       fullColorRange=false
-      refreshRate=""
+      preferredHz=""
       reload=false
       
       hyprCommand="keyword animations:enabled false;"
@@ -103,7 +115,7 @@ in
       notify_error_and_exit "${lowHz}" "6" "$notifyGroup" "Missing Monitor low Refreshrate!"
       notify_error_and_exit "${mainMonPos}" "7" "$notifyGroup" "Missing Monitor Position!"
       notify_error_and_exit "${paperOne}" "8" "$notifyGroup" "Missing Monitor default Wallpaper!"
-      notify_error_and_exit "${paperTow}" "9" "$notifyGroup" "Missing Monitor gaming Wallpaper!"
+      notify_error_and_exit "${paperTwo}" "9" "$notifyGroup" "Missing Monitor gaming Wallpaper!"
       
       while getopts "p:adhrst" opt; do
         case $opt in
@@ -112,7 +124,7 @@ in
             notifyMessage+=", VRR"
             ;;
           d)
-            hyprCommand+=" keyword render:direct_scanout 1;"
+            hyprCommand+="keyword render:direct_scanout 1;"
             notifyMessage+=", DS"
             ;;
           h)
@@ -120,18 +132,18 @@ in
             notifyMessage+=", 10bit"
             ;;
           p)
-            refreshRate=$(set_refreshrate_string "$OPTARG")
-            notifyMessage+=", $refreshRate Hz"
+            preferredHz=$OPTARG
             ;;
           r)
             reload_and_exit "$notifyGroup"
+            exit 0
             ;;
           s)
-            hyprCommand+=" keyword cursor:no_hardware_cursors 1;"
+            hyprCommand+="keyword cursor:no_hardware_cursors 1;"
             notifyMessage+=", SC"
             ;;
           t)
-            hyprCommand+=" keyword general:allow_tearing true;"
+            hyprCommand+="keyword general:allow_tearing true;"
             notifyMessage+=", Tear"
             ;;
           ?)
@@ -140,15 +152,17 @@ in
         esac
       done
       
+      refreshRate=$(set_refreshrate_string "$preferredHz")
+      notifyMessage+=", $refreshRate Hz"
+      
       monitorConfig="monitor ${mainMonDesc}, ${mainMonRes}@$refreshRate, ${mainMonPos}, 1"
       
-      monitorConfig+=$($adaptiveSync && echo ", vrr, 2" || echo "")
-      monitorConfig+=$($fullColorRange && echo ", bitdepth, 10" || echo "")
+      monitorConfig+=$(is_bool_set "$adaptiveSync"  ", vrr, 2")
+      monitorConfig+=$(is_bool_set "$fullColorRange"  ", bitdepth, 10")
       
       hyprCommand+="keyword $monitorConfig;"
-      hyprCommand+="hyprpaper wallpaper ${mainMonDesc}, ${paperTow};"
       
-      execute_command "$hyprCommand" "$notifyGroup" "$notifyMessage"
+      execute_command "$hyprCommand" "${paperTwo}" "$notifyGroup" "$notifyMessage"
     ''
   )];
 }
