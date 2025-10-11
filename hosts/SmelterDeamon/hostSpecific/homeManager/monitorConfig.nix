@@ -1,5 +1,6 @@
 {config, ...}:
 let
+  # Main Monitor config
   mainMonitorRes = "5120x1440";
   mainMonitorPos = "0x640";
   defaultRefreshRate = "120.00";
@@ -18,11 +19,14 @@ in
   desktop.system.mainMon =
   {
     name = "DP-1";
+    desc = mainMonitor;
     res = mainMonitorRes;
     pos = mainMonitorPos;
     maxHz = "240.00";
     midHz = defaultRefreshRate;
     lowHz = "60.00";
+    paperOne = wallpaperOne;
+    paperTwo =  wallpaperGaming;
   };
   wayland.windowManager.hyprland.settings.monitor =
   [
@@ -45,7 +49,6 @@ in
       "${mainMonitor}, ${wallpaperOne}"
       "${bottomMonitor}, ${wallpaperTwo}"
       "${sideMonitor}, ${wallpaperthree}"
-      "workspace1, ${wallpaperGaming}"
     ];
   };
   programs.hyprlock.settings.background =

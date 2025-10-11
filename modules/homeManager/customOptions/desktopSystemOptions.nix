@@ -27,6 +27,11 @@
         type = lib.types.str;
         default = "";
       };
+      desc= lib.mkOption
+      {
+        type = lib.types.str;
+        default = "";
+      };
       res = lib.mkOption
       {
         type = lib.types.str;
@@ -48,6 +53,16 @@
         default = "";
       };
       lowHz = lib.mkOption
+      {
+        type = lib.types.str;
+        default = "";
+      };
+      paperOne = lib.mkOption
+      {
+        type = lib.types.str;
+        default = "";
+      };
+      paperTwo = lib.mkOption
       {
         type = lib.types.str;
         default = "";
