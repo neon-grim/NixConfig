@@ -16,6 +16,7 @@
     gamescope =
     {
       enable = true;
+      package = pkgs.gamescope_git;
     };
     gamemode =
     {
