@@ -11,6 +11,7 @@ let
   wallpaperOne = "~/Pictures/Background/Superwide/Death_Superwide.png";
   wallpaperTwo = "~/Pictures/Background/Uncompressed/red_transistor.png";
   wallpaperthree = "~/Pictures/Background/Uncompressed/instrument.png";
+  wallpaperGaming = "~/Pictures/Background/Superwide/gaming_wallpaper.png";
   lockedWallpaper = "~/Pictures/Background/Uncompressed/evangelion.png";
 in
 {
@@ -37,12 +38,14 @@ in
       "${wallpaperOne}"
       "${wallpaperTwo}"
       "${wallpaperthree}"
+      "${wallpaperGaming}"
     ];
     wallpaper =
     [
       "${mainMonitor}, ${wallpaperOne}"
       "${bottomMonitor}, ${wallpaperTwo}"
       "${sideMonitor}, ${wallpaperthree}"
+      "workspace1, ${wallpaperGaming}"
     ];
   };
   programs.hyprlock.settings.background =
