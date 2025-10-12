@@ -22,16 +22,16 @@ in
     };
     general =
     {
-      border_size = 4;
+      border_size = 2;
       "col.active_border" = "rgb(${accentDefault})";
       "col.inactive_border" = "rgba(${accentDark})";
-      gaps_in = 6;
-      gaps_out = 12;
+      gaps_in = 0;
+      gaps_out = 0;
     };
     decoration =
     {
       shadow.enabled = false;
-      rounding = 6;
+      rounding = 0;
     };
     misc =
     {

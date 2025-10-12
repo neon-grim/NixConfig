@@ -30,7 +30,9 @@ in
         height = 300;
         width = 400;
         offset = "0x12";
-        corner_radius = 6;
+        gap_size = 6;
+        frame_width = 2;
+        corner_radius = 2;
         origin = "top-center";
         transparency = 10;
         font = "${fontName} 14";

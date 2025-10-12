@@ -20,6 +20,8 @@ in
       "fullscreenstate 2 2, tag:game, class:^(steam_app_.*)$"
       "immediate, fullscreenstate:2 2, tag:game, class:^(steam_app_.*)$"
       "renderunfocused, fullscreenstate:2 2, tag:game, class:^(steam_app_.*)$"
+      "workspace 1 silent, class:^(gamescope)$"
+      "immediate, class:^(gamescope)$"
       # File-explorer
       "center 1, floating:1, xwayland:0, title:^(.*)$"
       "float, floating:0, title:^([O-o]pen.*)$"
@@ -35,8 +37,6 @@ in
       # Prevent
       "suppressevent maximize, class:.*"
       # Workspace
-      "workspace 15 silent, class:^(vesktop)$"
-      "workspace 16 silent, title:^(Lollypop)$"
       "workspace special:magic, class:^(kitty)$"
     ];
     workspace =

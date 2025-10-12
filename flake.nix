@@ -3,13 +3,14 @@
   
   inputs =
   {
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
   
-  outputs = inputs@{self, nixpkgs, home-manager, ...}:
+  outputs = inputs@{self, chaotic, nixpkgs, home-manager, ...}:
   {
     nixosConfigurations =
     let
@@ -28,6 +29,7 @@
         };
         modules =
         [
+          chaotic.nixosModules.default
           ./hosts/${host}/config.nix
           ./modules/nixos/default.nix
           home-manager.nixosModules.home-manager

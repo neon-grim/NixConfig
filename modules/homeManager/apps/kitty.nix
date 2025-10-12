@@ -19,7 +19,6 @@ in
     themeFile = "rose-pine";
     settings =
     {
-      
       background = "#${bkDefault}";
       background_opacity = 0.8;
       cursor = "#${accentDefault}";

@@ -11,7 +11,6 @@
     amd =
     {
       enable = true;
-      amdvlk = false;
     };
     printing =
     {

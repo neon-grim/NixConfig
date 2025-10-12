@@ -6,9 +6,7 @@
   ];
   environment.systemPackages = with pkgs;
   [
-    greetd.tuigreet
-    hyprland-workspaces
-    hyprland-protocols
+    tuigreet
     hyprnome
     hyprshot
   ];
@@ -23,9 +21,17 @@
     {
       default_session =
       {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
         user = "${user}";
       };
     };
+  };
+  xdg.portal =
+  {
+    enable = true;
+    extraPortals = 
+    [
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 }

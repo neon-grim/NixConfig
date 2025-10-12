@@ -1,22 +1,25 @@
 Misc:
 ----------
--Crop wallpaper to fit screens
 
 Bugs:
 ----------
--Fix waybar not restarting on relogin
 
 Home-manager
 ----------
--Expand workspace script to move workspaces to the correct output
--Add loop / map to monitor config, in order to avoid monitor config redundancy
+-Add config file for dracula theme to mouspad
+-Remove redundancies from monitor config
 -Fix floating windows not following window size rule
 -Add notification counter and noticication waiting to be displayed indicator
--add script to remove notitication when clicking on it
+
+Entire system Config
+----------
+-Split Custom Options
+-Make flake more angnostic and expand with more desktops.
 
 Repo:
 ----------
 -Fillout readme in repo
+-Add background image to repo
 
 Learning Goals:
 ----------

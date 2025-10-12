@@ -1,8 +1,7 @@
 {pkgs, lib, ...}:
 let
-  performanceApp = lib.getExe' pkgs.corectrl "corectrl";
+  performanceApp = lib.getExe pkgs.lact;
   dunstCtl = lib.getExe' pkgs.dunst "dunstctl";
-  calendar = lib.getExe pkgs.thunderbird;
   taskManager = lib.getExe pkgs.resources;
   volumeControl = lib.getExe pkgs.pavucontrol;
   powerMenu = "pkill wofi; sleep 0.1 && wofiPowerMenu";
@@ -47,7 +46,6 @@ in
       "clock" =
       {
         format = "{:%R %a %b %d}";
-        on-click = "sleep 0.1 && ${calendar}";
         tooltip = false;
       };
       "custom/notify" =
@@ -74,8 +72,8 @@ in
       };
       "hyprland/workspaces" =
       {
-        on-scroll-up = "hyprctl dispatch workspace e+1";
-        on-scroll-down = "hyprctl dispatch workspace e-1";
+        on-scroll-up = "hyprnome -p -k -c";
+        on-scroll-down = "hyprnome -k -c";
         on-click = "activate";
         format = "{icon}";
         format-icons = 
