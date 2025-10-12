@@ -27,10 +27,10 @@ in
         value=$1
         exitCode=$2
         notifyGroup=$3
-        notifyMessage=$4
+        errorMessage=$4
         
         if [[ "$value" == "" ]]; then
-          ${dunstify} -u critical "$notifyGroup" "$notifyMessage"
+          ${dunstify} -u critical "$notifyGroup" "$errorMessage"
           exit $exitCode
         fi
       }
