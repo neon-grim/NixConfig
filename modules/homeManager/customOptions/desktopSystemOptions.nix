@@ -32,7 +32,12 @@
         type = lib.types.str;
         default = "";
       };
-      res = lib.mkOption
+      height = lib.mkOption
+      {
+        type = lib.types.str;
+        default = "";
+      };
+      width = lib.mkOption
       {
         type = lib.types.str;
         default = "";

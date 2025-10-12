@@ -7,7 +7,8 @@ let
   # Main Monitor Config
   mainMonName = config.desktop.system.mainMon.name;
   mainMonDesc = config.desktop.system.mainMon.desc;
-  mainMonRes = config.desktop.system.mainMon.res;
+  mainMonWidth = config.desktop.system.mainMon.width;
+  mainMonHeight = config.desktop.system.mainMon.height;
   mainMonPos = config.desktop.system.mainMon.pos;
   # Main Monitor supported Refreshrates
   maxHz = config.desktop.system.mainMon.maxHz;
@@ -109,7 +110,8 @@ in
       
       notify_error_and_exit "${mainMonName}" "1" "$notifyGroup" "Missing Monitor Port!"
       notify_error_and_exit "${mainMonDesc}" "2" "$notifyGroup" "Missing Monitor Description!"
-      notify_error_and_exit "${mainMonRes}" "3" "$notifyGroup" "Missing Monitor Resolution!"
+      notify_error_and_exit "${mainMonWidth}" "3" "$notifyGroup" "Missing Monitor Resolution!"
+      notify_error_and_exit "${mainMonHeight}" "3" "$notifyGroup" "Missing Monitor Resolution!"
       notify_error_and_exit "${maxHz}" "4" "$notifyGroup" "Missing Monitor max Refreshrate!"
       notify_error_and_exit "${midHz}" "5" "$notifyGroup" "Missing Monitor mid Refreshrate!"
       notify_error_and_exit "${lowHz}" "6" "$notifyGroup" "Missing Monitor low Refreshrate!"
@@ -155,7 +157,7 @@ in
       refreshRate=$(set_refreshrate_string "$preferredHz")
       notifyMessage+=", $refreshRate Hz"
       
-      monitorConfig="monitor ${mainMonDesc}, ${mainMonRes}@$refreshRate, ${mainMonPos}, 1"
+      monitorConfig="monitor ${mainMonDesc}, ${mainMonWidth}x${mainMonHeight}@$refreshRate, ${mainMonPos}, 1"
       
       monitorConfig+=$(is_bool_set "$adaptiveSync"  ", vrr, 2")
       monitorConfig+=$(is_bool_set "$fullColorRange"  ", bitdepth, 10")

@@ -1,7 +1,8 @@
 {config, ...}:
 let
   # Main Monitor config
-  mainMonitorRes = "5120x1440";
+  mainMonitorWidth = "5120";
+  mainMonitorHeight = "1440";
   mainMonitorPos = "0x640";
   defaultRefreshRate = "120.00";
   # Monitor Names
@@ -20,7 +21,8 @@ in
   {
     name = "DP-1";
     desc = mainMonitor;
-    res = mainMonitorRes;
+    width = mainMonitorWidth;
+    height = mainMonitorHeight;
     pos = mainMonitorPos;
     maxHz = "240.00";
     midHz = defaultRefreshRate;
@@ -30,7 +32,7 @@ in
   };
   wayland.windowManager.hyprland.settings.monitor =
   [
-    "${mainMonitor}, ${mainMonitorRes}@${defaultRefreshRate}, ${mainMonitorPos}, 1"
+    "${mainMonitor}, ${mainMonitorWidth}x${mainMonitorHeight}@${defaultRefreshRate}, ${mainMonitorPos}, 1"
     "${bottomMonitor}, preferred, 1600x2080, 1"
     "${sideMonitor}, preferred, 5120x0, 1, transform, 1"
     ", preferred, auto, 1"
