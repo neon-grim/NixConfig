@@ -32,4 +32,3 @@ Learning Goals:
 -Learn basics of 3D modeling
 -Go through C# basics again
 -Learn how to hex edit game executables (FPS, RES, Aspect ratio)
--Learn how to remove nix channels
