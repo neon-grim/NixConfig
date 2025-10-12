@@ -24,7 +24,6 @@ in
     gamescope =
     {
       enable = true;
-      capSysNice = true;
       package = pkgs.gamescope_git.overrideAttrs
       (_:
         {
@@ -39,7 +38,6 @@ in
         "--force-grab-cursor" 
         "-W ${mainMonWidth}"
         "-H ${mainMonHeight}"
-        "-o 30"
       ];
       env =
       {
