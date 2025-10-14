@@ -11,7 +11,7 @@ in
   environment.systemPackages = with pkgs;
   [
     heroic
-    jstest-gtk
+    #jstest-gtk
     mangohud
     mangojuice
     protonplus
