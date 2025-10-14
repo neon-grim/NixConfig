@@ -2,15 +2,21 @@
 {
   environment.systemPackages = with pkgs;
   [
+    # Repo
     git
     lazygit
-    neovim
     nix-prefetch-git
+    # Editor
+    neovim
+    # Utils
     psmisc
+    usbutils
+    # Packaging
     unrar
     unzip
-    usbutils
+    # Media
     wf-recorder
+    ffmpeg-full
   ];
   programs.fish =
   {
