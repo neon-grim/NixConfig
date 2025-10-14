@@ -3,8 +3,8 @@ let
   fontName = config.desktop.style.font.name;
   fontSize = config.desktop.style.font.size;
   fontPackage = config.desktop.style.font.package;
-  themeName = config.theming.gtk.name;
-  themePackage = config.theming.gtk.package;
+  themeName = config.desktop.theming.gtk.name;
+  themePackage = config.desktop.theming.gtk.package;
 in
 {
   imports = 

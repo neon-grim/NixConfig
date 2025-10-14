@@ -1,15 +1,15 @@
 {pkgs, lib, config, ...}:
 let
   fontName = config.desktop.style.font.name;
-  accentDefault = config.theming.palette.accentDefault;
-  bkDefault = config.theming.palette.bkDefault;
-  bkBrighter = config.theming.palette.bkBrighter;
-  bkBrightest = config.theming.palette.bkBrightest;
-  bkUrgent = config.theming.palette.bkUrgent;
-  txDefault = config.theming.palette.txDefault;
-  txBrighter = config.theming.palette.txBrighter;
-  txBrightest = config.theming.palette.txBrightest;
-  txUrgent = config.theming.palette.txUrgent;
+  accentDefault = config.desktop.theming.palette.accentDefault;
+  bkDefault = config.desktop.theming.palette.bkDefault;
+  bkBrighter = config.desktop.theming.palette.bkBrighter;
+  bkBrightest = config.desktop.theming.palette.bkBrightest;
+  bkUrgent = config.desktop.theming.palette.bkUrgent;
+  txDefault = config.desktop.theming.palette.txDefault;
+  txBrighter = config.desktop.theming.palette.txBrighter;
+  txBrightest = config.desktop.theming.palette.txBrightest;
+  txUrgent = config.desktop.theming.palette.txUrgent;
 in
 {
   programs.waybar =

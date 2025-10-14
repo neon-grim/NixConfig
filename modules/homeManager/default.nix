@@ -13,9 +13,10 @@
     ./compositorTools/dunst.nix
     ./compositorTools/waybar.nix
     ./compositorTools/wofiPowerMenu.nix
+    ./customOptions/desktopMonitorOptions.nix
     ./customOptions/desktopStyleOptions.nix
     ./customOptions/desktopSystemOptions.nix
-    ./customOptions/themingOptions.nix
+    ./customOptions/desktopThemingOptions.nix
     ./generalTheming/cursor.nix
     ./generalTheming/gtk.nix
     ./generalTheming/qt.nix

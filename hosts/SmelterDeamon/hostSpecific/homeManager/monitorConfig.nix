@@ -17,7 +17,7 @@ let
   lockedWallpaper = "~/Pictures/Background/Uncompressed/evangelion.png";
 in
 {
-  desktop.system.mainMon =
+  desktop.mainMon =
   {
     name = "DP-1";
     desc = mainMonitor;

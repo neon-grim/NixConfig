@@ -1,8 +1,8 @@
 {pkgs, user, config, ...}:
 let
   # Main Monitor config
-  mainMonHeight = config.home-manager.users.${user}.desktop.system.mainMon.height;
-  mainMonWidth = config.home-manager.users.${user}.desktop.system.mainMon.width;
+  mainMonHeight = config.home-manager.users.${user}.desktop.mainMon.height;
+  mainMonWidth = config.home-manager.users.${user}.desktop.mainMon.width;
   # Keybaord config
   kbLayout = config.home-manager.users.${user}.desktop.system.kb.layout;
   kbVariant = config.home-manager.users.${user}.desktop.system.kb.variant;

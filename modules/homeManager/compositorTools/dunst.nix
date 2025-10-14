@@ -1,12 +1,12 @@
 {config, pkgs, ...}:
 let
   fontName = config.desktop.style.font.name;
-  accentDefault = config.theming.palette.accentDefault;
-  bkDefault = config.theming.palette.bkDefault;
-  bkUrgent = config.theming.palette.bkUrgent;
-  txDefault = config.theming.palette.txDefault;
-  txBrighter = config.theming.palette.txBrighter;
-  txUrgent = config.theming.palette.txUrgent;
+  accentDefault = config.desktop.theming.palette.accentDefault;
+  bkDefault = config.desktop.theming.palette.bkDefault;
+  bkUrgent = config.desktop.theming.palette.bkUrgent;
+  txDefault = config.desktop.theming.palette.txDefault;
+  txBrighter = config.desktop.theming.palette.txBrighter;
+  txUrgent = config.desktop.theming.palette.txUrgent;
 in
 {
   imports =
