@@ -2,17 +2,28 @@
 {
   options.desktop =
   {
-    amd =
+    drivers =
     {
-      enable = lib.mkOption
+      amd =
       {
-        type= lib.types.bool;
-        default = false;
+        enable = lib.mkOption
+        {
+          type= lib.types.bool;
+          default = false;
+        };
+      };
+      printing =
+      {
+        enable = lib.mkOption
+        {
+          type= lib.types.bool;
+          default = false;
+        };
       };
     };
-    printing =
+    kernel =
     {
-      enable = lib.mkOption
+      lts = lib.mkOption
       {
         type= lib.types.bool;
         default = false;
