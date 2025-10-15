@@ -1,7 +1,7 @@
 {config, ...}:
 let
-  accentDefault = config.theming.palette.accentDefault;
-  accentDark = "${config.theming.palette.accentDark}aa";
+  accentDefault = config.desktop.theming.palette.accentDefault;
+  accentDark = "${config.desktop.theming.palette.accentDark}aa";
 in
 {
   wayland.windowManager.hyprland.settings =

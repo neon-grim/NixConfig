@@ -1,6 +1,6 @@
 {pkgs, config, lib, ...}:
 {
-  theming = lib.mkIf (config.desktop.style.themePreset == "andromeda")
+  desktop.theming = lib.mkIf (config.desktop.style.themePreset == "andromeda")
   {
     gtk =
     {

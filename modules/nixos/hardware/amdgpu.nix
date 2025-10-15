@@ -4,7 +4,7 @@
   [
     ./graphicsConfig/lact.nix
   ];
-  config = lib.mkIf (config.desktop.amd.enable)
+  config = lib.mkIf (config.desktop.drivers.amd.enable)
   {
     boot.kernelParams =
     [

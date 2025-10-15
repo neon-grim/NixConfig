@@ -1,6 +1,6 @@
 {pkgs, config, ...}:
 let
-  kernelName = config.desktop.kernel.name;
+  isLts = config.desktop.kernel.lts;
 in
 {
   imports =
@@ -11,7 +11,13 @@ in
   ];
   boot =
   {
-    kernelPackages = pkgs.linuxPackages_cachyos-lts;
+    kernelPackages = 
+    ( 
+      if isLts then 
+        pkgs.linuxPackages_cachyos-lts
+      else
+        pkgs.linuxPackages_cachyos
+    );
     kernelParams =
     [
       "quiet"

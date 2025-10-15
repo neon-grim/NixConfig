@@ -1,11 +1,11 @@
 {user, config, lib, ...}:
 let
   fontName = config.desktop.style.font.name;
-  accentDefault = config.theming.palette.accentDefault;
-  bkDefault = config.theming.palette.bkDefault;
-  bkUrgent = config.theming.palette.bkUrgent;
-  txDefault = config.theming.palette.txDefault;
-  txBrightest = config.theming.palette.txBrightest;
+  accentDefault = config.desktop.theming.palette.accentDefault;
+  bkDefault = config.desktop.theming.palette.bkDefault;
+  bkUrgent = config.desktop.theming.palette.bkUrgent;
+  txDefault = config.desktop.theming.palette.txDefault;
+  txBrightest = config.desktop.theming.palette.txBrightest;
 in
 {
   programs.hyprlock = lib.mkIf (config.desktop.system.hyprlock)

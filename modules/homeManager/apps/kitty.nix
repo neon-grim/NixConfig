@@ -2,10 +2,10 @@
 let
   fontName = config.desktop.style.font.name;
   fontSize = config.desktop.style.font.size;
-  accentDefault = config.theming.palette.accentDefault;
-  bkDefault = config.theming.palette.bkDefault;
-  txDefault = config.theming.palette.txDefault;
-  txUrgent = config.theming.palette.txUrgent;
+  accentDefault = config.desktop.theming.palette.accentDefault;
+  bkDefault = config.desktop.theming.palette.bkDefault;
+  txDefault = config.desktop.theming.palette.txDefault;
+  txUrgent = config.desktop.theming.palette.txUrgent;
 in
 {
   programs.kitty =

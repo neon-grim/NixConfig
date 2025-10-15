@@ -5,18 +5,18 @@ let
   hyprctl = lib.getExe' pkgs.hyprland "hyprctl";
   xrandr = lib.getExe pkgs.xorg.xrandr;
   # Main Monitor Config
-  mainMonName = config.desktop.system.mainMon.name;
-  mainMonDesc = config.desktop.system.mainMon.desc;
-  mainMonWidth = config.desktop.system.mainMon.width;
-  mainMonHeight = config.desktop.system.mainMon.height;
-  mainMonPos = config.desktop.system.mainMon.pos;
+  mainMonName = config.desktop.mainMon.name;
+  mainMonDesc = config.desktop.mainMon.desc;
+  mainMonWidth = config.desktop.mainMon.width;
+  mainMonHeight = config.desktop.mainMon.height;
+  mainMonPos = config.desktop.mainMon.pos;
   # Main Monitor supported Refreshrates
-  maxHz = config.desktop.system.mainMon.maxHz;
-  midHz = config.desktop.system.mainMon.midHz;
-  lowHz = config.desktop.system.mainMon.lowHz;
+  maxHz = config.desktop.mainMon.maxHz;
+  midHz = config.desktop.mainMon.midHz;
+  lowHz = config.desktop.mainMon.lowHz;
   # Main Monitor Wallpapers
-  paperOne = config.desktop.system.mainMon.paperOne;
-  paperTwo = config.desktop.system.mainMon.paperTwo;
+  paperOne = config.desktop.mainMon.paperOne;
+  paperTwo = config.desktop.mainMon.paperTwo;
 in
 {
   home.packages = with pkgs;

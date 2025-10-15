@@ -8,13 +8,20 @@
   ];
   desktop =
   {
-    amd =
+    drivers =
     {
-      enable = true;
+      amd =
+      {
+        enable = true;
+      };
+      printing =
+      {
+        enable = true;
+      };
     };
-    printing =
+    kernel =
     {
-      enable = true;
+      lts = true;
     };
     software =
     {
