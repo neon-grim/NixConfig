@@ -1,3 +1,8 @@
+Misc:
+----------
+-Create module for vkbasalt config
+-Create module for sweetfx reshades
+
 Nixos:
 ----------
 -Remove scx module
