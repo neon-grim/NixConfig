@@ -1,25 +1,39 @@
 Misc:
 ----------
+-Create module for vkbasalt config
+-Create module for sweetfx reshades
+
+Nixos:
+----------
+-Remove scx module
+-Add declarative flatpak config
+-Add flatpak theming
 
 Bugs:
 ----------
 
 Home-manager
 ----------
--Add config file for dracula theme to mouspad
--Remove redundancies from monitor config
--Fix floating windows not following window size rule
--Add notification counter and noticication waiting to be displayed indicator
+-Add list for side monitor config
+-Add mousepad module with dracula theme
+-Fix file explorer portal not following window rules
+-Add notification counter when muted
+-Add notification interactibility
+-Add wofi button to waybar
+-Add start menu
+-Add wf-recorder command
 
 Entire system Config
 ----------
--Split Custom Options
--Make flake more angnostic and expand with more desktops.
+-Make config more agnostic to system
+-Add davids PC to my nixos config
+-Add legion go to config
 
 Repo:
 ----------
 -Fillout readme in repo
 -Add background image to repo
+-Add .gitIgnore file which contains hardware-configuration
 
 Learning Goals:
 ----------
