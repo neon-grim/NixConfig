@@ -3,6 +3,7 @@ let
   # App Executables
   dunstify = lib.getExe' pkgs.dunst "dunstify";
   hyprctl = lib.getExe' pkgs.hyprland "hyprctl";
+  hyprpaper = lib.getExe pkgs.hyprpaper;
   xrandr = lib.getExe pkgs.xorg.xrandr;
   # Main Monitor Config
   mainMonName = config.desktop.mainMon.name;
@@ -77,7 +78,6 @@ in
         
         sleep 2s
         
-        ${hyprctl} "hyprpaper wallpaper ${mainMonDesc}, $paper"
         ${hyprctl} --batch $hyprCommand
         
         sleep 2s
@@ -85,6 +85,8 @@ in
         ${hyprctl} dispatch focusmonitor ${mainMonDesc}
         
         ${xrandr} --output ${mainMonName} --primary
+        
+        ${hyprctl} "${hyprpaper} wallpaper ${mainMonDesc}, $paper"
         
         ${dunstify} -u normal "$notifyGroup" "$notifyMessage"
       }
