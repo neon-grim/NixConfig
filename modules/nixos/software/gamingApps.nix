@@ -18,6 +18,7 @@ in
     ryubing
     shadps4
     vkbasalt
+    lsfg-vk
   ];
   programs =
   {
