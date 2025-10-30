@@ -11,13 +11,14 @@ in
   environment.systemPackages = with pkgs;
   [
     heroic
-    #jstest-gtk
+    jstest-gtk
     mangohud
     mangojuice
     protonplus
     ryubing
     shadps4
     vkbasalt
+    lsfg-vk
   ];
   programs =
   {
