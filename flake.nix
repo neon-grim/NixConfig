@@ -6,7 +6,7 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "github:hyprwm/Hyprland/b7ef892ecf9c07e742239102056da950ebb42eee";
+    hyprland.url = "github:hyprwm/Hyprland/cfac27251af5df4352f747c4539ea9f65450f05a";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
   
