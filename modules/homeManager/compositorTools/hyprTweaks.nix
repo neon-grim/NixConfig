@@ -128,8 +128,8 @@ in
             notifyMessage+=", VRR"
             ;;
           d)
-            hyprCommand+="keyword render:direct_scanout 1;"
-            notifyMessage+=", DS"
+            hyprCommand+="keyword render:direct_scanout 0;"
+            notifyMessage+=", DS off"
             ;;
           h)
             fullColorRange=true
@@ -144,7 +144,7 @@ in
             ;;
           s)
             hyprCommand+="keyword cursor:no_hardware_cursors 1;"
-            notifyMessage+=", SC"
+            notifyMessage+=", HWC off"
             ;;
           t)
             hyprCommand+="keyword general:allow_tearing true;"
