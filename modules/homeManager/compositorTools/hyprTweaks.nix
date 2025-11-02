@@ -121,7 +121,7 @@ in
       notify_error_and_exit "${paperOne}" "8" "$notifyGroup" "Missing Monitor default Wallpaper!"
       notify_error_and_exit "${paperTwo}" "9" "$notifyGroup" "Missing Monitor gaming Wallpaper!"
       
-      while getopts "p:adhrst" opt; do
+      while getopts "p:adhnrst" opt; do
         case $opt in
           a)
             adaptiveSync=true
@@ -134,6 +134,10 @@ in
           h)
             fullColorRange=true
             notifyMessage+=", 10bit"
+            ;;
+          n)
+            hyprCommand+="keyword render:new_render_scheduling 1;"
+            notifyMessage+=", NRS"
             ;;
           p)
             preferredHz=$OPTARG

@@ -16,7 +16,7 @@
       };
       render =
       {
-        direct_scanout = 2;
+        direct_scanout = 1;
         cm_enabled = true;
         cm_fs_passthrough = 2;
         cm_auto_hdr = 1;
