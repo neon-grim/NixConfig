@@ -27,10 +27,8 @@
     brave
     teams-for-linux
     vesktop
-    # Benchmarks
+    # Tools
     resources
-    unigine-heaven
-    unigine-valley
   ];
   programs =
   {
