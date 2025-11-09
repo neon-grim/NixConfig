@@ -16,6 +16,8 @@
     pitivi
     # Media
     gapless
+    lollypop
+    totem
     vlc
     image-roll
     # Office
