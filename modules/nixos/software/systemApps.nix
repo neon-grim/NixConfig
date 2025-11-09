@@ -2,10 +2,6 @@
 {
   environment.systemPackages = with pkgs;
   [
-    # backups
-    pika-backup
-    # Wine
-    bottles
     # Streaming
     gpu-screen-recorder-gtk
     moonlight-qt
@@ -28,7 +24,9 @@
     teams-for-linux
     vesktop
     # Tools
-    resources
+    baobab
+    bottles
+    pika-backup
   ];
   programs =
   {

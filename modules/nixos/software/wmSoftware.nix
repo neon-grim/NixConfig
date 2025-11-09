@@ -7,6 +7,7 @@
     nemo-with-extensions
     pantheon.pantheon-agent-polkit
     pavucontrol
+    resources
     wofi
     xdg-utils
   ];
