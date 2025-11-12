@@ -1,4 +1,4 @@
-{host, config, ...}:
+{pkgs, host, config, ...}:
 let
   locale = config.desktop.system.locale;
   time = config.desktop.system.timeZone;

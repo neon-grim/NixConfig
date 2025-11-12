@@ -6,6 +6,7 @@
     ./apps/librewolf.nix
     ./apps/kitty.nix
     ./compositors/hyprland.nix
+    ./compositors/niri.nix
     ./compositorTools/hyprlock.nix
     ./compositorTools/hyprpaper.nix
     ./compositorTools/hyprTweaks.nix
