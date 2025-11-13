@@ -2,20 +2,23 @@
 let
   # Main Monitor Config
   mainMonName = config.desktop.mainMon.desc;
+  mainMonPort = config.desktop.mainMon.name;
   mainMonWidth = config.desktop.mainMon.width;
   mainMonHeight = config.desktop.mainMon.height;
   mainMonMidHz = config.desktop.mainMon.midHz;
   mainMonMaxHz = config.desktop.mainMon.maxHz;
   mainMonPosX = config.desktop.mainMon.posX;
   mainMonPosY = config.desktop.mainMon.posY;
-  MainMonPaper = config.desktop.mainMon.paperOne;
+  mainMonPaper = config.desktop.mainMon.paperOne;
   # Side Monitor Config
   sideMonName = "Acer Technologies ED323QUR Unknown";
+  sideMonPort = "HDMI-A-2";
   sideMonPosX = "5120";
   sideMonPosY = "0";
   sideMonPaper = "~/Pictures/Background/Uncompressed/instrument.png";
   # Buttom Monitor Config
   buttomMonName = "Invalid Vendor Codename - RTK Verbatim MT14 demoset-1";
+  buttomMonPort = "HDMI-A-1";
   buttomMonPosX = "1600";
   buttomMonPosY = "2080";
   buttomMonPaper = "~/Pictures/Background/Uncompressed/red_transistor.png";
@@ -30,7 +33,7 @@ in
     "desc:${sideMonName}, preferred, ${sideMonPosX}x${sideMonPosY}, 1, transform, 1"
     "desc:${buttomMonName}, preferred, ${buttomMonPosX}x${buttomMonPosY}, 1"
   ];
-  # Niri monitor config
+  # Niri Monitor Config
   desktop.niri.outputs =
   ''
     output "${mainMonName}" {
@@ -46,10 +49,20 @@ in
       position x=${buttomMonPosX} y=${buttomMonPosY}
     }
   '';
-  # Sesion Lock manager
+  # Sesion Lock Manager
   programs.hyprlock.settings.background =
   {
     path = "${lockedWallpaper}";
     zindex = -2;
   };
+  # Wallpaper Script
+  home.packages = with pkgs;
+  [(
+    writeShellScriptBin "swaybgInit"
+    ''
+      swaybg -o ${mainMonPort} -m center -i ${mainMonPaper}
+      swaybg -o ${sideMonPort} -m center -i ${sideMonPaper}
+      swaybg -o ${buttomMonPort} -m center -i ${buttomMonPaper}
+    ''
+  )];
 }

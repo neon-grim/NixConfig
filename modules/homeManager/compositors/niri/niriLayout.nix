@@ -1,16 +1,11 @@
 {config, ...}:
 let
   accentDefault = config.desktop.theming.palette.accentDefault;
-  accentDark = "${config.desktop.theming.palette.accentDark}aa";
+  accentDark = config.desktop.theming.palette.accentDark;
 in
 {
   desktop.niri.layout =
   ''
-    prefer-no-csd
-    screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d %H-%M-%S.png"
-    hotkey-overlay {
-      skip-at-startup
-    }
     layout {
       gaps 4
       center-focused-column "never"
@@ -25,8 +20,19 @@ in
       focus-ring {
         width 2
         active-color "#${accentDefault}"
-        inactive-color "#${accentDark}"
+        inactive-color "#${accentDark}aa"
       }
+    }
+    hotkey-overlay {
+      skip-at-startup
+    }
+    gestures {
+      hot-corners {
+        off
+      }
+    }
+    overview {
+      backdrop-color "#${accentDark}"
     }
   '';
 }

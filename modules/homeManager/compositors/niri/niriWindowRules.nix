@@ -16,8 +16,11 @@
       open-floating true
     }
     window-rule {
-        geometry-corner-radius 4
-        clip-to-geometry true
+      geometry-corner-radius 4
+      clip-to-geometry true
+    }
+    debug {
+      skip-cursor-only-updates-during-vrr
     }
   '';
 }
