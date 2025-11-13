@@ -1,11 +1,7 @@
 {...}:
 {
-  services.hyprpaper =
+  services.swww = 
   {
     enable = true;
-    settings =
-    {
-      splash = false;
-    };
   };
 }
