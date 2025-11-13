@@ -15,6 +15,7 @@
     ./compositorTools/waybar.nix
     ./compositorTools/wofiPowerMenu.nix
     ./customOptions/desktopMonitorOptions.nix
+    ./customOptions/desktopNiriOptions.nix
     ./customOptions/desktopStyleOptions.nix
     ./customOptions/desktopSystemOptions.nix
     ./customOptions/desktopThemingOptions.nix

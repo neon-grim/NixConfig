@@ -10,13 +10,21 @@
 
       case $selected in
         logout)
-          exec hyprctl dispatch exit;;
+          if [[ $XDG_CURRENT_DESKTOP == "niri" ]]; then
+            exec niri msg exit
+          else
+            exec hyprctl dispatch exit
+          fi
+          ;;
         lock)
-          exec hyprlock;;
+          exec hyprlock
+          ;;
         reboot)
-          exec systemctl reboot;;
+          exec systemctl reboot
+          ;;
         shutdown)
-          exec systemctl poweroff -i;;
+          exec systemctl poweroff -i
+          ;;
       esac
     ''
   )];

@@ -10,7 +10,8 @@ let
   mainMonDesc = config.desktop.mainMon.desc;
   mainMonWidth = config.desktop.mainMon.width;
   mainMonHeight = config.desktop.mainMon.height;
-  mainMonPos = config.desktop.mainMon.pos;
+  mainMonPosX = config.desktop.mainMon.posX;
+  mainMonPosY = config.desktop.mainMon.posX;
   # Main Monitor supported Refreshrates
   maxHz = config.desktop.mainMon.maxHz;
   midHz = config.desktop.mainMon.midHz;
@@ -117,7 +118,8 @@ in
       notify_error_and_exit "${maxHz}" "4" "$notifyGroup" "Missing Monitor max Refreshrate!"
       notify_error_and_exit "${midHz}" "5" "$notifyGroup" "Missing Monitor mid Refreshrate!"
       notify_error_and_exit "${lowHz}" "6" "$notifyGroup" "Missing Monitor low Refreshrate!"
-      notify_error_and_exit "${mainMonPos}" "7" "$notifyGroup" "Missing Monitor Position!"
+      notify_error_and_exit "${mainMonPosX}" "7" "$notifyGroup" "Missing Monitor Position!"
+      notify_error_and_exit "${mainMonPosY}" "7" "$notifyGroup" "Missing Monitor Position!"
       notify_error_and_exit "${paperOne}" "8" "$notifyGroup" "Missing Monitor default Wallpaper!"
       notify_error_and_exit "${paperTwo}" "9" "$notifyGroup" "Missing Monitor gaming Wallpaper!"
       
@@ -163,7 +165,7 @@ in
       refreshRate=$(set_refreshrate_string "$preferredHz")
       notifyMessage+=", $refreshRate Hz"
       
-      monitorConfig="monitor ${mainMonDesc}, ${mainMonWidth}x${mainMonHeight}@$refreshRate, ${mainMonPos}, 1"
+      monitorConfig="monitor ${mainMonDesc}, ${mainMonWidth}x${mainMonHeight}@$refreshRate, ${mainMonPosX}x${mainMonPosY}, 1"
       
       monitorConfig+=$(is_bool_set "$adaptiveSync"  ", vrr, 2")
       monitorConfig+=$(is_bool_set "$fullColorRange"  ", bitdepth, 10")

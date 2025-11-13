@@ -1,58 +1,58 @@
 {config, ...}:
 let
-  # Main Monitor config
-  mainMonitorWidth = "5120";
-  mainMonitorHeight = "1440";
-  mainMonitorPos = "0x640";
-  defaultRefreshRate = "120.00";
-  # Monitor Names
-  mainMonitor = "desc:Samsung Electric Company Odyssey G95SC H1AK500000";
-  bottomMonitor = "desc:Invalid Vendor Codename - RTK Verbatim MT14 demoset-1";
-  sideMonitor = "desc:Acer Technologies ED323QUR";
-  # Monitor Wallpaper
-  wallpaperOne = "~/Pictures/Background/Superwide/Death_Superwide.png";
-  wallpaperTwo = "~/Pictures/Background/Uncompressed/red_transistor.png";
-  wallpaperthree = "~/Pictures/Background/Uncompressed/instrument.png";
-  wallpaperGaming = "~/Pictures/Background/Superwide/gaming_wallpaper.png";
+  # Main Monitor Config
+  mainMonName = config.desktop.mainMon.name;
+  mainMonWidth = config.desktop.mainMon.width;
+  mainMonHeight = config.desktop.mainMon.height;
+  mainMonMidHz = config.desktop.mainMon.midHz;
+  mainMonMaxHz = config.desktop.mainMon.maxHz;
+  mainMonPosX = config.desktop.mainMon.posX;
+  mainMonPosY = config.desktop.mainMon.posY;
+  MainMonPaper = config.desktop.mainMon.paperOne;
+  # Side Monitor Config
+  sideMonName = "Acer Technologies ED323QUR";
+  sideMonPosX = "5120";
+  sideMonPosY = "0";
+  sideMonPaper = "~/Pictures/Background/Uncompressed/instrument.png";
+  # Buttom Monitor Config
+  buttomMonName = "Invalid Vendor Codename - RTK Verbatim MT14 demoset-1";
+  buttomMonPosX = "1600";
+  buttomMonPosY = "2080";
+  buttomMonPaper = "~/Pictures/Background/Uncompressed/red_transistor.png";
+  # Lockscreen
   lockedWallpaper = "~/Pictures/Background/Uncompressed/evangelion.png";
 in
 {
-  desktop.mainMon =
-  {
-    name = "DP-1";
-    desc = mainMonitor;
-    width = mainMonitorWidth;
-    height = mainMonitorHeight;
-    pos = mainMonitorPos;
-    maxHz = "240.00";
-    midHz = defaultRefreshRate;
-    lowHz = "60.00";
-    paperOne = wallpaperOne;
-    paperTwo =  wallpaperGaming;
-  };
+  imports =
+  [
+    ./mainMon.nix
+  ]
+  # Hyprland monitor config
   wayland.windowManager.hyprland.settings.monitor =
   [
-    "${mainMonitor}, ${mainMonitorWidth}x${mainMonitorHeight}@${defaultRefreshRate}, ${mainMonitorPos}, 1"
-    "${bottomMonitor}, preferred, 1600x2080, 1"
-    "${sideMonitor}, preferred, 5120x0, 1, transform, 1"
-    ", preferred, auto, 1"
+    "desc:${mainMonName}, ${mainMonWidth}x${mainMonHeight}@${mainMonMidHz}, ${mainMonPosX}x${mainMonPosY}, 1"
+    "desc:${sideMonName}, preferred, ${sideMonPosX}x${sideMonPosY}, 1, transform, 1"
+    "desc:${buttomMonName}, preferred, ${buttomMonPosX}x${buttomMonPosY}, 1"
   ];
-  services.hyprpaper.settings =
-  {
-    preload =
-    [
-      "${wallpaperOne}"
-      "${wallpaperTwo}"
-      "${wallpaperthree}"
-      "${wallpaperGaming}"
-    ];
-    wallpaper =
-    [
-      "${mainMonitor}, ${wallpaperOne}"
-      "${bottomMonitor}, ${wallpaperTwo}"
-      "${sideMonitor}, ${wallpaperthree}"
-    ];
-  };
+  # Niri monitor config
+  desktop.niri.outputs =
+  ''
+    output "${mainMonName}" {
+      mode "${mainMonWidth}x${mainMonHeight}@${mainMonMaxHz}"
+      position x=${mainMonPosX} y=${mainMonPosY}
+      variable-refresh-rate on-demand=true
+    }
+
+    output "${sideMonName}" {
+      position x=${sideMonPosX} y=${sideMonPosY}
+      transform "90"
+    }
+
+    output "${buttomMonName}" {
+      position x=${buttomMonPosX} y=${buttomMonPosY}
+    }
+  '';
+  # Sesion Lock manager
   programs.hyprlock.settings.background =
   {
     path = "${lockedWallpaper}";

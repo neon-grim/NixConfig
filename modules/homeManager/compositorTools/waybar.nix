@@ -22,6 +22,7 @@ in
       [
         "custom/powermenu"
         "hyprland/workspaces"
+        "niri/workspaces"
       ];
       modules-center =
       [
@@ -83,6 +84,17 @@ in
           empty = "";
           urgent = "";
           "1" = "";
+        };
+      };
+      "niri/workspaces" =
+      {
+        format = "{icon}";
+        format-icons = 
+        {
+          active = "";
+          default = "";
+          focused = "";
+          urgent = "";
         };
       };
       "memory" =
