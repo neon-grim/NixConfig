@@ -8,8 +8,9 @@
       "${lib.getExe' pkgs.blueman "blueman-applet"}"
       "${lib.getExe' pkgs.networkmanagerapplet "nm-applet"} --indicator"
       "${lib.getExe pkgs.dunst}"
-      "${lib.getExe pkgs.hyprpaper}"
       "${lib.getExe pkgs.waybar}"
+      "hyprWorkspaceStart"
+      "swaybgInit"
     ];
   };
 }

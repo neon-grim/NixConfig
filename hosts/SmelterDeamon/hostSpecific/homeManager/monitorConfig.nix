@@ -1,4 +1,4 @@
-{config, ...}:
+{pkgs, config, ...}:
 let
   # Main Monitor Config
   mainMonName = config.desktop.mainMon.desc;
@@ -60,9 +60,9 @@ in
   [(
     writeShellScriptBin "swaybgInit"
     ''
-      swaybg -o ${mainMonPort} -m center -i ${mainMonPaper}
-      swaybg -o ${sideMonPort} -m center -i ${sideMonPaper}
-      swaybg -o ${buttomMonPort} -m center -i ${buttomMonPaper}
+      swaybg -o ${mainMonPort} -m fit -i ${mainMonPaper} \
+             -o ${sideMonPort} -m fill -i ${sideMonPaper} \
+             -o ${buttomMonPort} -m fill -i ${buttomMonPaper} &
     ''
   )];
 }
