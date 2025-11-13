@@ -7,17 +7,14 @@
       open-fullscreen true
       variable-refresh-rate true
     }
-
     window-rule {
       match app-id=r#"^org\.wezfurlong\.wezterm$"#
       default-column-width {}
     }
-
     window-rule {
       match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
       open-floating true
     }
-
     window-rule {
         geometry-corner-radius 4
         clip-to-geometry true

@@ -11,26 +11,26 @@ in
   desktop.niri.binds =
   ''
     binds {
-      ${mainModShift}+o { show-hotkey-overlay; }
+      ${mainModShift}+O { show-hotkey-overlay; }
       
       ${mainMod}+Return hotkey-overlay-title="Open a Terminal: Kitty" { spawn "${lib.getExe pkgs.kitty}"; }
-      ${mainMod}+E hotkey-overlay-title="Open a File Explorer: Nemo" { spawn "${lib.getExe' pkgs.nemo-with-extensions "nemo"}"; }
+      ${mainMod}+E      hotkey-overlay-title="Open a File Explorer: Nemo" { spawn "${lib.getExe' pkgs.nemo-with-extensions "nemo"}"; }
       
-      ${mainMod}+R hotkey-overlay-title="Run an Application: Wofi" { spawn-sh "pkill wofi; sleep 0.1 && wofi -S drun -I --width 500 --height 600"; }
+      ${mainMod}+R hotkey-overlay-title="App Menu: Wofi" { spawn-sh "pkill wofi; sleep 0.1 && wofi -S drun -I --width 500 --height 600"; }
       ${mainMod}+L hotkey-overlay-title="Power Menu: Wofi" { spawn-sh "pkill wofi; sleep 0.1 && wofiPowerMenu"; }
       
       XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"; }
       XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
       XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
       XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-      XF86AudioPlay     allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-      XF86AudioPrev     allow-when-locked=true { spawn-sh "playerctl previous"; }
-      XF86AudioNext     allow-when-locked=true { spawn-sh "playerctl next"; }
-      XF86AudioRewind     allow-when-locked=true { spawn-sh "playerctl position 5-"; }
+      XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+      XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
+      XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+      XF86AudioRewind      allow-when-locked=true { spawn-sh "playerctl position 5-"; }
       XF86AudioForward     allow-when-locked=true { spawn-sh "playerctl position 5+"; }
       
       ${mainMod}+Tab repeat=false { toggle-overview; }
-      ${mainMod}+q repeat=false { close-window; }
+      ${mainMod}+q   repeat=false { close-window; }
       
       ${mainMod}+Right { focus-column-right; }
       ${mainMod}+Left  { focus-column-left; }
@@ -42,8 +42,8 @@ in
       ${mainModShift}+Up    { move-window-up; }
       ${mainModShift}+Down  { move-window-down; }
       
-      ${mainMod}+Home { focus-column-first; }
-      ${mainMod}+End  { focus-column-last; }
+      ${mainMod}+Home      { focus-column-first; }
+      ${mainMod}+End       { focus-column-last; }
       ${mainModShift}+Home { move-column-to-first; }
       ${mainModShift}+End  { move-column-to-last; }
       
@@ -75,57 +75,40 @@ in
       ${mainModShift}+WheelScrollRight { move-column-right; }
       ${mainModShift}+WheelScrollLeft  { move-column-left; }
       
-      ${mainModAlt}+WheelScrollUp        { focus-column-left; }
-      ${mainModAlt}+WheelScrollDown      { focus-column-right; }
+      ${mainModAlt}+WheelScrollUp       { focus-column-left; }
+      ${mainModAlt}+WheelScrollDown     { focus-column-right; }
       ${mainModCtrlAlt}+WheelScrollUp   { move-column-left; }
       ${mainModCtrlAlt}+WheelScrollDown { move-column-right; }
-      
-      ${mainMod}+1 { focus-workspace 1; }
-      ${mainMod}+2 { focus-workspace 2; }
-      ${mainMod}+3 { focus-workspace 3; }
-      ${mainMod}+4 { focus-workspace 4; }
-      ${mainMod}+5 { focus-workspace 5; }
-      ${mainMod}+6 { focus-workspace 6; }
-      ${mainMod}+7 { focus-workspace 7; }
-      ${mainMod}+8 { focus-workspace 8; }
-      ${mainMod}+9 { focus-workspace 9; }
-      ${mainModShift}+1 { move-column-to-workspace 1; }
-      ${mainModShift}+2 { move-column-to-workspace 2; }
-      ${mainModShift}+3 { move-column-to-workspace 3; }
-      ${mainModShift}+4 { move-column-to-workspace 4; }
-      ${mainModShift}+5 { move-column-to-workspace 5; }
-      ${mainModShift}+6 { move-column-to-workspace 6; }
-      ${mainModShift}+7 { move-column-to-workspace 7; }
-      ${mainModShift}+8 { move-column-to-workspace 8; }
-      ${mainModShift}+9 { move-column-to-workspace 9; }
       
       ${mainModShiftAlt}+Left  { consume-or-expel-window-left; }
       ${mainModShiftAlt}+Right { consume-or-expel-window-right; }
       
-      ${mainModShiftAlt}+Up  { consume-window-into-column; }
+      ${mainModShiftAlt}+Up   { consume-window-into-column; }
       ${mainModShiftAlt}+Down { expel-window-from-column; }
       
-      ${mainMod}+W { switch-preset-column-width; }
-      ${mainModShift}+W { switch-preset-window-height; }
-      ${mainMod}+S { reset-window-height; }
-      ${mainMod}+F { maximize-column; }
-      ${mainModShift}+F { fullscreen-window; }
+      ${mainMod}+D      { switch-preset-column-width; }
+      ${mainModShift}+D { maximize-column; }
+      ${mainModCtrl}+D  { expand-column-to-available-width; }
+      ${mainMod}+A      { set-column-width "50%"; }
+      ${mainMod}+W      { switch-preset-window-height; }
+      ${mainMod}+S      { reset-window-height; }
       
-      ${mainModCtrl}+F { expand-column-to-available-width; }
+      ${mainMod}+F      { fullscreen-window; }
+      ${mainModShift}+F { toggle-windowed-fullscreen; }
       
-      ${mainMod}+C { center-column; }
+      ${mainMod}+C      { center-column; }
       ${mainModShift}+C { center-visible-columns; }
       
-      ${mainMod}+V       { toggle-window-floating; }
+      ${mainMod}+V      { toggle-window-floating; }
       ${mainModShift}+V { switch-focus-between-floating-and-tiling; }
       
-      ${mainMod}+Print { screenshot-screen; }
+      ${mainMod}+Print      { screenshot-screen; }
       ${mainModShift}+Print { screenshot; }
-      ${mainModCtrl}+Print { screenshot-window; }
+      ${mainModCtrl}+Print  { screenshot-window; }
       
       ${mainMod}+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
       
-      ${mainModShift}+L { quit; }
+      ${mainModShift}+L    { quit; }
       ${mainModShiftAlt}+P { power-off-monitors; }
     }
   '';

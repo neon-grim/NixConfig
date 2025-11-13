@@ -6,20 +6,22 @@ in
 {
   desktop.niri.layout =
   ''
+    prefer-no-csd
+    screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d %H-%M-%S.png"
+    hotkey-overlay {
+      skip-at-startup
+    }
     layout {
       gaps 4
       center-focused-column "never"
-      
       preset-column-widths {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
       }
-      
       default-column-width { 
         proportion 0.5 
       }
-      
       focus-ring {
         width 2
         active-color "#${accentDefault}"
