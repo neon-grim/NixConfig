@@ -25,8 +25,8 @@ in
 {
   imports =
   [
-    ./mainMon.nix
-  ]
+    ./mainMonitor.nix
+  ];
   # Hyprland monitor config
   wayland.windowManager.hyprland.settings.monitor =
   [

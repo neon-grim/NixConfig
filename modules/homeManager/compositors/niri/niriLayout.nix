@@ -26,5 +26,5 @@ in
         inactive-color "#${accentDark}"
       }
     }
-  ''
+  '';
 }

@@ -2,10 +2,10 @@
 let
     mainMod = "Super";
     mainModShift = "Super+Shift";
-    MainModCtrl = "Super+Ctrl";
-    MainModAlt = "Super+Alt";
+    mainModCtrl = "Super+Ctrl";
+    mainModAlt = "Super+Alt";
     mainModShiftAlt = "Super+Shift+Alt";
-    MainModCtrlAlt = "Super+Ctrl+Alt";
+    mainModCtrlAlt = "Super+Ctrl+Alt";
 in
 {
   desktop.niri.binds =
@@ -77,8 +77,8 @@ in
       
       ${mainModAlt}+WheelScrollUp        { focus-column-left; }
       ${mainModAlt}+WheelScrollDown      { focus-column-right; }
-      ${MainModCtrlAlt}+WheelScrollUp   { move-column-left; }
-      ${MainModCtrlAlt}+WheelScrollDown { move-column-right; }
+      ${mainModCtrlAlt}+WheelScrollUp   { move-column-left; }
+      ${mainModCtrlAlt}+WheelScrollDown { move-column-right; }
       
       ${mainMod}+1 { focus-workspace 1; }
       ${mainMod}+2 { focus-workspace 2; }

@@ -23,12 +23,12 @@ in
   ];
   home.file.".config/niri/config.kdl".text =
   (
-    startConfig ++
-    config.desktop.niri.startup ++
-    config.desktop.niri.environmentVariables ++
-    config.desktop.niri.input ++
-    config.desktop.niri.layout ++
-    config.desktop.niri.windowRules ++
-    config.desktop.niri.binds ++
+    startConfig +
+    config.desktop.niri.startup +
+    config.desktop.niri.environmentVariables +
+    config.desktop.niri.input +
+    config.desktop.niri.layout +
+    config.desktop.niri.windowRules +
+    config.desktop.niri.binds
   );
 }
