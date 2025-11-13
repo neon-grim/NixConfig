@@ -23,10 +23,6 @@ let
   lockedWallpaper = "~/Pictures/Background/Uncompressed/evangelion.png";
 in
 {
-  imports =
-  [
-    ./mainMonitor.nix
-  ];
   # Hyprland monitor config
   wayland.windowManager.hyprland.settings.monitor =
   [
