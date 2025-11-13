@@ -1,7 +1,7 @@
 {config, ...}:
 let
   # Main Monitor Config
-  mainMonName = config.desktop.mainMon.name;
+  mainMonName = config.desktop.mainMon.desc;
   mainMonWidth = config.desktop.mainMon.width;
   mainMonHeight = config.desktop.mainMon.height;
   mainMonMidHz = config.desktop.mainMon.midHz;
@@ -10,7 +10,7 @@ let
   mainMonPosY = config.desktop.mainMon.posY;
   MainMonPaper = config.desktop.mainMon.paperOne;
   # Side Monitor Config
-  sideMonName = "Acer Technologies ED323QUR";
+  sideMonName = "Acer Technologies ED323QUR Unknown";
   sideMonPosX = "5120";
   sideMonPosY = "0";
   sideMonPaper = "~/Pictures/Background/Uncompressed/instrument.png";
@@ -42,12 +42,10 @@ in
       position x=${mainMonPosX} y=${mainMonPosY}
       variable-refresh-rate on-demand=true
     }
-
     output "${sideMonName}" {
       position x=${sideMonPosX} y=${sideMonPosY}
       transform "90"
     }
-
     output "${buttomMonName}" {
       position x=${buttomMonPosX} y=${buttomMonPosY}
     }

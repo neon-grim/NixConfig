@@ -26,6 +26,7 @@ in
     startConfig +
     config.desktop.niri.startup +
     config.desktop.niri.environmentVariables +
+    config.desktop.niri.outputs +
     config.desktop.niri.input +
     config.desktop.niri.layout +
     config.desktop.niri.windowRules +

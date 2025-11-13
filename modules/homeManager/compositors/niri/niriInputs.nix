@@ -9,8 +9,10 @@ in
     input {
       keyboard {
         numlock
-        layout ${kbLayout}
-        variant ${kbVariant}
+        xkb {
+          layout "${kbLayout}"
+          variant "${kbVariant}"
+        }
       }
       mouse {
         accel-speed 1

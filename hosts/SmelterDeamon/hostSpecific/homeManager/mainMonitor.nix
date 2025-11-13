@@ -8,7 +8,7 @@
     height = "1440";
     posX = "0";
     posY = "640";
-    maxHz = "240.00";
+    maxHz = "239.999";
     midHz = "120.00";
     lowHz = "60.00";
     paperOne = "~/Pictures/Background/Superwide/Death_Superwide.png";
