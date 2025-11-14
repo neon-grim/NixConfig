@@ -1,26 +1,23 @@
 {pkgs, config, lib, ...}:
 {
-  imports =
-  [
-    ./graphicsConfig/lact.nix
-  ];
   config = lib.mkIf (config.desktop.drivers.amd.enable)
   {
-    boot.kernelParams =
-    [
-      "amdgpu.ppfeaturemask=0xfffd7fff"
-    ];
     chaotic.mesa-git =
     {
       enable = true;
     };
-    hardware.graphics =
+    hardware =
     {
-      enable = true;
+      amdgpu.overdrive.enable = true;
+      graphics.enable = true;
     };
-    services.xserver.videoDrivers = 
-    [
-      "amdgpu"
-    ];
+    services =
+    {
+      lact.enable = true;
+      xserver.videoDrivers = 
+      [
+        "amdgpu"
+      ];
+    };
   };
 }

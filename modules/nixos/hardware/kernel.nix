@@ -5,7 +5,6 @@ in
 {
   imports =
   [
-    ./kernelConfig/scxConfig.nix
     ./kernelConfig/kernelModules.nix
     ./kernelConfig/xpadExtraRules.nix
   ];

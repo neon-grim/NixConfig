@@ -2,10 +2,6 @@
 {
   environment.systemPackages = with pkgs;
   [
-    # backups
-    pika-backup
-    # Wine
-    bottles
     # Streaming
     gpu-screen-recorder-gtk
     moonlight-qt
@@ -16,6 +12,8 @@
     pitivi
     # Media
     gapless
+    lollypop
+    totem
     vlc
     image-roll
     # Office
@@ -25,10 +23,10 @@
     brave
     teams-for-linux
     vesktop
-    # Benchmarks
-    resources
-    unigine-heaven
-    unigine-valley
+    # Tools
+    baobab
+    bottles
+    pika-backup
   ];
   programs =
   {
