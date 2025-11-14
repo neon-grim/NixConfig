@@ -16,7 +16,7 @@ in
     mangojuice
     protonplus
     ryubing
-    shadps4
+    #shadps4
     vkbasalt
     lsfg-vk
   ];
