@@ -8,6 +8,7 @@
     pantheon.pantheon-agent-polkit
     pavucontrol
     resources
+    swaybg
     wofi
     xdg-utils
   ];

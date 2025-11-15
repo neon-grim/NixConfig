@@ -1,10 +1,10 @@
-{config, ...}:
+{config, lib, ...}:
 let
   accentDefault = config.desktop.theming.palette.accentDefault;
   accentDark = config.desktop.theming.palette.accentDark;
 in
 {
-  desktop.niri.layout =
+  desktop.niri.layout = lib.mkIf (config.desktop.system.compositors.niri.enable)
   ''
     layout {
       gaps 4

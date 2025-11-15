@@ -1,12 +1,14 @@
-{pkgs, ...}:
+{pkgs, lib, config, user, ...}:
 {
-  environment.systemPackages = with pkgs;
-  [
-    swaybg
-    xwayland-satellite
-  ];
-  programs =
+  config = lib.mkIf (config.home-manager.users.${user}.desktop.system.compositors.niri.enable)
   {
-    niri.enable = true;
+    environment.systemPackages = with pkgs;
+    [
+      xwayland-satellite
+    ];
+    programs =
+    {
+      niri.enable = true;
+    };
   };
 }

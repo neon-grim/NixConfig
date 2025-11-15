@@ -1,10 +1,10 @@
-{config, ...}:
+{config, lib, ...}:
 let
   kbLayout = config.desktop.system.kb.layout;
   kbVariant = config.desktop.system.kb.variant;
 in
 {
-  desktop.niri.input =
+  desktop.niri.input = lib.mkIf (config.desktop.system.compositors.niri.enable)
   ''
     input {
       keyboard {

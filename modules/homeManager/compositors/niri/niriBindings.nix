@@ -1,4 +1,4 @@
-{pkgs, lib, ...}:
+{pkgs, lib, config, ...}:
 let
     mainMod = "Super";
     mainModShift = "Super+Shift";
@@ -8,7 +8,7 @@ let
     mainModCtrlAlt = "Super+Ctrl+Alt";
 in
 {
-  desktop.niri.binds =
+  desktop.niri.binds = lib.mkIf (config.desktop.system.compositors.niri.enable)
   ''
     binds {
       ${mainModShift}+O { show-hotkey-overlay; }
