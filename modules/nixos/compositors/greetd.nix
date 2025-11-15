@@ -1,9 +1,29 @@
-{pkgs, user, ...}:
+{pkgs, user, config, lib, ...}:
+let
+  compositor = config.home-manager.users.${user}.desktop.system.compositors.defaultSession;
+  kbLayout = config.home-manager.users.${user}.desktop.system.kb.layout;
+  kbVariant = config.home-manager.users.${user}.desktop.system.kb.variant;
+in
 {
-  environment.systemPackages = with pkgs;
-  [
-    tuigreet
-  ];
+  programs.regreet =
+  {
+    enable = true;
+    cursorTheme.name = "Bibata-Original-Classic";
+    iconTheme.name = "Dracula";
+    settings =
+    {
+      keyboard =
+      {
+        layout = kbLayout;
+        variant = kbVariant;
+      };
+      default_session = compositor;
+    };
+  };
+  services.cage = 
+  {
+    enable = true;
+  };
   services.greetd =
   {
     enable = true;
@@ -11,7 +31,7 @@
     {
       default_session =
       {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = "${lib.getExe pkgs.cage} -s -- ${lib.getExe pkgs.regreet}";
         user = "${user}";
       };
     };
