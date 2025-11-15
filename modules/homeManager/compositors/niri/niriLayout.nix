@@ -4,7 +4,7 @@ let
   accentDark = config.desktop.theming.palette.accentDark;
 in
 {
-  desktop.niri.layout = lib.mkIf (config.desktop.system.compositors.niri.enable)
+  desktop.niri.layout =
   ''
     layout {
       gaps 4

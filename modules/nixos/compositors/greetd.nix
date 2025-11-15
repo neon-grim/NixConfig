@@ -1,11 +1,10 @@
 {pkgs, user, config, lib, ...}:
 let
-  compositor = config.home-manager.users.${user}.desktop.system.compositors.defaultSession;
+  # Home Manager Options
   mainMonName = config.home-manager.users.${user}.desktop.mainMon.desc;
-  
   kbLayout = config.home-manager.users.${user}.desktop.system.kb.layout;
   kbVariant = config.home-manager.users.${user}.desktop.system.kb.variant;
-  
+  # Compositor Config
   niriConf = pkgs.writeText "niriGtkGreetConfig" 
   ''
     spawn-sh-at-startup "swaybg -c 000000 & ${lib.getExe pkgs.regreet}; niri msg action quit --skip-confirmation"
@@ -47,7 +46,7 @@ in
     iconTheme.name = "Dracula";
     settings =
     {
-      default_session = compositor;
+      default_session = "Niri";
     };
   };
   services.greetd =

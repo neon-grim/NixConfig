@@ -3,7 +3,7 @@ let
   cursorSize = toString config.desktop.style.cursorSize;
 in
 {
-  desktop.niri.environmentVariables = lib.mkIf (config.desktop.system.compositors.niri.enable)
+  desktop.niri.environmentVariables =
   ''
     environment {
       CLUTTER_BACKEND "wayland"

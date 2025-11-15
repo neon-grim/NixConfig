@@ -1,6 +1,6 @@
 {pkgs, lib, config, ...}:
 {
-  desktop.niri.startup = lib.mkIf (config.desktop.system.compositors.niri.enable)
+  desktop.niri.startup =
   ''
     prefer-no-csd
     screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d %H-%M-%S.png"

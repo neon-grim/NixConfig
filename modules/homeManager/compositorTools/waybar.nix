@@ -21,7 +21,6 @@ in
       modules-left =
       [
         "custom/powermenu"
-        "hyprland/workspaces"
         "niri/workspaces"
       ];
       modules-center =
@@ -71,30 +70,14 @@ in
         on-click = "sleep 0.1 && ${powerMenu}";
         tooltip = false;
       };
-      "hyprland/workspaces" =
-      {
-        on-scroll-up = "hyprnome -p -k -c";
-        on-scroll-down = "hyprnome -k -c";
-        on-click = "activate";
-        format = "{icon}";
-        format-icons = 
-        {
-          default = "";
-          active = "";
-          empty = "";
-          urgent = "";
-          "1" = "";
-        };
-      };
       "niri/workspaces" =
       {
         format = "{icon}";
         format-icons = 
         {
-          active = "";
+          active = "";
           default = "";
-          focused = "";
-          urgent = "";
+          focused = "";
         };
       };
       "memory" =

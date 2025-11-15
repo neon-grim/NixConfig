@@ -8,7 +8,7 @@ let
     mainModCtrlAlt = "Super+Ctrl+Alt";
 in
 {
-  desktop.niri.binds = lib.mkIf (config.desktop.system.compositors.niri.enable)
+  desktop.niri.binds =
   ''
     binds {
       ${mainModShift}+O { show-hotkey-overlay; }
@@ -108,7 +108,6 @@ in
       
       ${mainMod}+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
       
-      ${mainModShift}+L    { quit; }
       ${mainModShiftAlt}+P { power-off-monitors; }
     }
   '';

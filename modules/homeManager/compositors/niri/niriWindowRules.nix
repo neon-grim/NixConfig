@@ -1,6 +1,6 @@
 {config, lib, ...}:
 {
-  desktop.niri.windowRules = lib.mkIf (config.desktop.system.compositors.niri.enable)
+  desktop.niri.windowRules =
   ''
     window-rule {
       match app-id=r#"^steam_app_.*$"#

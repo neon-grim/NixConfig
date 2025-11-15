@@ -5,11 +5,8 @@
     ./apps/fastFetch.nix
     ./apps/librewolf.nix
     ./apps/kitty.nix
-    ./compositors/hyprland.nix
     ./compositors/niri.nix
     ./compositorTools/hyprlock.nix
-    ./compositorTools/hyprTweaks.nix
-    ./compositorTools/hyprWorkspaceStart.nix
     ./compositorTools/dunst.nix
     ./compositorTools/waybar.nix
     ./compositorTools/wofiPowerMenu.nix

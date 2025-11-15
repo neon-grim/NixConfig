@@ -4,7 +4,7 @@ let
   kbVariant = config.desktop.system.kb.variant;
 in
 {
-  desktop.niri.input = lib.mkIf (config.desktop.system.compositors.niri.enable)
+  desktop.niri.input =
   ''
     input {
       keyboard {

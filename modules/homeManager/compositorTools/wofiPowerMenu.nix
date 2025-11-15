@@ -10,11 +10,7 @@
 
       case $selected in
         logout)
-          if [[ $XDG_CURRENT_DESKTOP == "niri" ]]; then
-            exec niri msg exit
-          else
-            exec hyprctl dispatch exit
-          fi
+          niri msg action quit --skip-confirmation
           ;;
         lock)
           exec hyprlock

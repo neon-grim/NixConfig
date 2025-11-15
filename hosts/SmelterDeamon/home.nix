@@ -20,13 +20,6 @@
     };
     system =
     {
-      hyprlock = true;
-      compositors =
-      {
-        defaultSession = "niri";
-        hyprland.enable = true;
-        niri.enable = true;
-      };
       kb =
       {
         layout = "ch";

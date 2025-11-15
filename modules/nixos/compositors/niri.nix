@@ -1,6 +1,6 @@
 {pkgs, lib, config, user, ...}:
 {
-  config = lib.mkIf (config.home-manager.users.${user}.desktop.system.compositors.niri.enable)
+  config =
   {
     environment.systemPackages = with pkgs;
     [
