@@ -58,6 +58,7 @@ in
       mode "${mainMonWidth}x${mainMonHeight}@${mainMonMaxHz}"
       position x=${mainMonPosX} y=${mainMonPosY}
       variable-refresh-rate on-demand=true
+      focus-at-startup
     }
     output "${sideMonName} Unknown" {
       position x=${sideMonPosX} y=${sideMonPosY}

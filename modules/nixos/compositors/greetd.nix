@@ -1,8 +1,43 @@
 {pkgs, user, config, lib, ...}:
 let
   compositor = config.home-manager.users.${user}.desktop.system.compositors.defaultSession;
+  mainMonName = config.home-manager.users.${user}.desktop.mainMon.desc;
+  
   kbLayout = config.home-manager.users.${user}.desktop.system.kb.layout;
   kbVariant = config.home-manager.users.${user}.desktop.system.kb.variant;
+  
+  niriConf = pkgs.writeText "niriGtkGreetConfig" 
+  ''
+    spawn-sh-at-startup "swaybg -c 000000 & ${lib.getExe pkgs.regreet}; niri msg action quit --skip-confirmation"
+    hotkey-overlay {
+      skip-at-startup
+    }
+    gestures {
+      hot-corners {
+        off
+      }
+    }
+    input {
+      keyboard {
+        numlock
+        xkb {
+          layout "${kbLayout}"
+          variant "${kbVariant}"
+        }
+      }
+      mouse {
+        accel-speed 1
+        accel-profile "flat"
+      }
+    }
+    output "${mainMonName}" {
+      focus-at-startup
+      position x=0 y=0
+    }
+    window-rule {
+      open-on-output "${mainMonName}"
+    }
+  '';
 in
 {
   programs.regreet =
@@ -12,17 +47,8 @@ in
     iconTheme.name = "Dracula";
     settings =
     {
-      keyboard =
-      {
-        layout = kbLayout;
-        variant = kbVariant;
-      };
       default_session = compositor;
     };
-  };
-  services.cage = 
-  {
-    enable = true;
   };
   services.greetd =
   {
@@ -31,7 +57,7 @@ in
     {
       default_session =
       {
-        command = "${lib.getExe pkgs.cage} -s -- ${lib.getExe pkgs.regreet}";
+        command = "${lib.getExe pkgs.niri} --config ${niriConf}";
         user = "${user}";
       };
     };
