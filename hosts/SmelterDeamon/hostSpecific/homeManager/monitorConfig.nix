@@ -11,7 +11,7 @@ let
   mainMonPosY = config.desktop.mainMon.posY;
   mainMonPaper = config.desktop.mainMon.paperOne;
   # Side Monitor Config
-  sideMonName = "Acer Technologies ED323QUR Unknown";
+  sideMonName = "Acer Technologies ED323QUR";
   sideMonPort = "HDMI-A-2";
   sideMonPosX = "5120";
   sideMonPosY = "0";
@@ -41,7 +41,7 @@ in
       position x=${mainMonPosX} y=${mainMonPosY}
       variable-refresh-rate on-demand=true
     }
-    output "${sideMonName}" {
+    output "${sideMonName} Unknown" {
       position x=${sideMonPosX} y=${sideMonPosY}
       transform "90"
     }
