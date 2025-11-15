@@ -1,6 +1,6 @@
-{config, ...}:
+{config, lib, ...}:
 {
-  wayland.windowManager.hyprland =
+  wayland.windowManager.hyprland = lib.mkIf (config.desktop.system.compositors.hyprland.enable)
   {
     settings =
     {

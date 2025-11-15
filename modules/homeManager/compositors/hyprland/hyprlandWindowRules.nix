@@ -1,6 +1,6 @@
-{...}:
+{lib, config, ...}:
 {
-  wayland.windowManager.hyprland.settings.windowrule =
+  wayland.windowManager.hyprland.settings.windowrule = lib.mkIf (config.desktop.system.compositors.hyprland.enable)
   [
     # Gaming
     "workspace 1 silent, class:^(steam_app_.*)$"

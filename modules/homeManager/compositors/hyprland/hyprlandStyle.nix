@@ -1,10 +1,10 @@
-{config, ...}:
+{config, lib, ...}:
 let
   accentDefault = config.desktop.theming.palette.accentDefault;
   accentDark = "${config.desktop.theming.palette.accentDark}aa";
 in
 {
-  wayland.windowManager.hyprland.settings =
+  wayland.windowManager.hyprland.settings = lib.mkIf (config.desktop.system.compositors.hyprland.enable)
   {
     animations = 
     {

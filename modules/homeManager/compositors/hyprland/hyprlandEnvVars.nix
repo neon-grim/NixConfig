@@ -1,9 +1,9 @@
-{config, ...}:
+{config, lib, ...}:
 let
   cursorSize = toString config.desktop.style.cursorSize;
 in
 {
-  wayland.windowManager.hyprland.settings =
+  wayland.windowManager.hyprland.settings = lib.mkIf (config.desktop.system.compositors.hyprland.enable)
   {
     env =
     [

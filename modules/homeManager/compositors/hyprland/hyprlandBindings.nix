@@ -1,9 +1,9 @@
-{pkgs, lib, ...}:
+{pkgs, lib, config, ...}:
 let
     mainMod = "SUPER";
 in
 {
-  wayland.windowManager.hyprland.settings =
+  wayland.windowManager.hyprland.settings = lib.mkIf (config.desktop.system.compositors.hyprland.enable)
   {
     binds =
     {

@@ -20,6 +20,24 @@
         default = "";
       };
     };
+    compositors =
+    {
+      defaultSession = lib.mkOption
+      {
+        type = lib.types.str;
+        default = "";
+      };
+      hyprland.enable = lib.mkOption
+      {
+        type = lib.types.bool;
+        default = false;
+      };
+      niri.enable = lib.mkOption
+      {
+        type = lib.types.bool;
+        default = false;
+      };
+    };
     workspaceCount = lib.mkOption
     {
       type = lib.types.str;

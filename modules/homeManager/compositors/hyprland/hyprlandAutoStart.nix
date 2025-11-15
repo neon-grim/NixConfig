@@ -1,6 +1,6 @@
-{pkgs, lib, ...}:
+{pkgs, lib, config, ...}:
 {
-  wayland.windowManager.hyprland.settings =
+  wayland.windowManager.hyprland.settings = lib.mkIf (config.desktop.system.compositors.hyprland.enable)
   {
     exec-once=
     [

@@ -1,10 +1,10 @@
-{config, ...}:
+{config, lib, ...}:
 let
   kbLayout = config.desktop.system.kb.layout;
   kbVariant = config.desktop.system.kb.variant;
 in
 {
-  wayland.windowManager.hyprland =
+  wayland.windowManager.hyprland = lib.mkIf (config.desktop.system.compositors.hyprland.enable)
   {
     settings =
     {

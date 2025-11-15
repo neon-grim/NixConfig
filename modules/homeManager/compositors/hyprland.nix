@@ -1,4 +1,4 @@
-{config, inputs, ...}:
+{config, inputs, lib, ...}:
 {
   imports =
   [
@@ -11,7 +11,7 @@
     ./hyprland/hyprlandStyle.nix
     ./hyprland/hyprlandWindowRules.nix
   ];
-  wayland.windowManager.hyprland =
+  wayland.windowManager.hyprland = lib.mkIf (config.desktop.system.compositors.hyprland.enable)
   {
     enable = true;
     settings =
