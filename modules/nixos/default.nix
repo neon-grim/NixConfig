@@ -2,7 +2,9 @@
 {
   imports =
   [
+    ./compositors/greetd.nix
     ./compositors/hyprland.nix
+    ./compositors/niri.nix
     ./customOptions/desktopDriverOptions.nix
     ./customOptions/desktopSoftwareOptions.nix
     ./customOptions/desktopSystemOptions.nix
