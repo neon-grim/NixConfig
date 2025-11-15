@@ -20,6 +20,7 @@
     };
     system =
     {
+      hyprlock = true;
       compositors =
       {
         defaultSession = "niri";

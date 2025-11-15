@@ -4,18 +4,21 @@ let
   workspaceCount = config.desktop.system.workspaceCount;
 in
 {
-  home.packages = with pkgs;
-  [(
-    writeShellScriptBin "hyprWorkspaceStart"
-    ''
-      command=""
-      
-      for ((i = ${workspaceCount}; i > 1; i--))
-      do
-        command+="dispatch workspace $i;"
-      done
-      
-      ${hyprctl} --batch $command
-    ''
-  )];
+  home = lib.mkIf (config.desktop.system.compositors.hyprland.enable)
+  {
+    packages = with pkgs;
+    [(
+      writeShellScriptBin "hyprWorkspaceStart"
+      ''
+        command=""
+        
+        for ((i = ${workspaceCount}; i > 1; i--))
+        do
+          command+="dispatch workspace $i;"
+        done
+        
+        ${hyprctl} --batch $command
+      ''
+    )];
+  };
 }
