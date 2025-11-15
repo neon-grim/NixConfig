@@ -2,7 +2,6 @@
 {
   imports =
   [
-    ./hostSpecific/homeManager/hyprlandRules.nix
     ./hostSpecific/homeManager/mainMonitor.nix
     ./hostSpecific/homeManager/monitorConfig.nix
   ];

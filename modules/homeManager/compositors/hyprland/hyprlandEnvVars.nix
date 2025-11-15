@@ -8,8 +8,6 @@ in
     env =
     [
       "XDG_SESSION_TYPE,wayland"
-      "XDG_CURRENT_DESKTOP,Hyprland"
-      "XDG_SESSION_DESKTOP,Hyprland"
       "CLUTTER_BACKEND,wayland"
       "GDK_BACKEND,wayland"
       "SDL_VIDEODRIVER,wayland"

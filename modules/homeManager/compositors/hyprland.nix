@@ -9,6 +9,7 @@
     ./hyprland/hyprlandInputs.nix
     ./hyprland/hyprlandRender.nix
     ./hyprland/hyprlandStyle.nix
+    ./hyprland/hyprlandWindowRules.nix
   ];
   wayland.windowManager.hyprland =
   {

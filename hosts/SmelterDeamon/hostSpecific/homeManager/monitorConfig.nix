@@ -26,13 +26,31 @@ let
   lockedWallpaper = "~/Pictures/Background/Uncompressed/evangelion.png";
 in
 {
+  desktop.system.workspaceCount = "10";
   # Hyprland monitor config
-  wayland.windowManager.hyprland.settings.monitor =
-  [
-    "desc:${mainMonName}, ${mainMonWidth}x${mainMonHeight}@${mainMonMidHz}, ${mainMonPosX}x${mainMonPosY}, 1"
-    "desc:${sideMonName}, preferred, ${sideMonPosX}x${sideMonPosY}, 1, transform, 1"
-    "desc:${buttomMonName}, preferred, ${buttomMonPosX}x${buttomMonPosY}, 1"
-  ];
+  wayland.windowManager.hyprland.settings =
+  {
+    monitor =
+    [
+      "desc:${mainMonName}, ${mainMonWidth}x${mainMonHeight}@${mainMonMidHz}, ${mainMonPosX}x${mainMonPosY}, 1"
+      "desc:${sideMonName}, preferred, ${sideMonPosX}x${sideMonPosY}, 1, transform, 1"
+      "desc:${buttomMonName}, preferred, ${buttomMonPosX}x${buttomMonPosY}, 1"
+    ];
+    workspace =
+    [
+      "1, border:false, rounding:false"
+      "1, monitor:desc:${mainMonName}"
+      "2, monitor:desc:${mainMonName}, persistent:true, default:true"
+      "3, monitor:desc:${mainMonName}, persistent:true"
+      "4, monitor:desc:${mainMonName}, persistent:true"
+      "5, monitor:desc:${mainMonName}, persistent:true"
+      "6, monitor:desc:${buttomMonName}, persistent:true, default:true"
+      "7, monitor:desc:${buttomMonName}, persistent:true"
+      "8, monitor:desc:${buttomMonName}, persistent:true"
+      "9, monitor:desc:${sideMonName}, persistent:true, default:true"
+      "10, monitor:desc:${sideMonName}, persistent:true"
+    ];
+  };
   # Niri Monitor Config
   desktop.niri.outputs =
   ''
