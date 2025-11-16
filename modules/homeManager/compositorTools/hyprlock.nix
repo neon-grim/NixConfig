@@ -27,7 +27,7 @@ in
           font_family = "${fontName}";
           position = "0, 0";
           halign = "center";
-          valign = "bottom";
+          valign = "top";
           shadow_passes = 2;
         }
         {
