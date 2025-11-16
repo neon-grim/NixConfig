@@ -39,16 +39,10 @@ let
   '';
 in
 {
-  programs.regreet =
-  {
-    enable = true;
-    cursorTheme.name = "Bibata-Original-Classic";
-    iconTheme.name = "Dracula";
-    settings =
-    {
-      default_session = "Niri";
-    };
-  };
+  environment.systemPackages = with pkgs;
+  [
+    tuigreet
+  ];
   services.greetd =
   {
     enable = true;
@@ -56,7 +50,11 @@ in
     {
       default_session =
       {
-        command = "${lib.getExe pkgs.niri} --config ${niriConf}";
+        command = 
+        (
+          "${pkgs.tuigreet}/bin/tuigreet --time --issue --remember --remember-session --user-menu --asterisks " +
+          "--theme border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red"
+        );
         user = "${user}";
       };
     };
