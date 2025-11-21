@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs;
   [
     ffmpegthumbnailer
+    file-roller
     libnotify
     nemo-with-extensions
     pantheon.pantheon-agent-polkit
@@ -14,7 +15,6 @@
   ];
   programs =
   {
-    file-roller.enable = true;
     gnome-disks.enable = true;
     nm-applet.enable = true;
   };
