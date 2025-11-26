@@ -1,7 +1,7 @@
 {...}:
 let
   AzeronVendorId = "16d0";
-  AzeronProductId = "10bc";
+  AzeronProductId = "13ea";
 in
 {
   services.udev.extraRules =
