@@ -33,13 +33,16 @@ in
       position x=${mainMonPosX} y=${mainMonPosY}
       variable-refresh-rate on-demand=true
       focus-at-startup
+      scale 1.0
     }
     output "${sideMonName} Unknown" {
       position x=${sideMonPosX} y=${sideMonPosY}
       transform "90"
+      scale 1.0
     }
     output "${buttomMonName}" {
       position x=${buttomMonPosX} y=${buttomMonPosY}
+      scale 1.0
     }
   '';
   # Sesion Lock Manager
