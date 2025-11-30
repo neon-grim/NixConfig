@@ -18,6 +18,7 @@
     image-roll
     # Office
     onlyoffice-desktopeditors
+    proton-pass
     xfce.mousepad
     # Chromium
     brave
