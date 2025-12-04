@@ -1,61 +1,64 @@
-{config, ...}:
+{pkgs, config, ...}:
 let
-  # Main Monitor config
-  mainMonitorWidth = "5120";
-  mainMonitorHeight = "1440";
-  mainMonitorPos = "0x640";
-  defaultRefreshRate = "120.00";
-  # Monitor Names
-  mainMonitor = "desc:Samsung Electric Company Odyssey G95SC H1AK500000";
-  bottomMonitor = "desc:Invalid Vendor Codename - RTK Verbatim MT14 demoset-1";
-  sideMonitor = "desc:Acer Technologies ED323QUR";
-  # Monitor Wallpaper
-  wallpaperOne = "~/Pictures/Background/Superwide/Death_Superwide.png";
-  wallpaperTwo = "~/Pictures/Background/Uncompressed/red_transistor.png";
-  wallpaperthree = "~/Pictures/Background/Uncompressed/instrument.png";
-  wallpaperGaming = "~/Pictures/Background/Superwide/gaming_wallpaper.png";
+  # Main Monitor Config
+  mainMonName = config.desktop.mainMon.desc;
+  mainMonPort = config.desktop.mainMon.name;
+  mainMonWidth = config.desktop.mainMon.width;
+  mainMonHeight = config.desktop.mainMon.height;
+  mainMonMaxHz = config.desktop.mainMon.maxHz;
+  mainMonPosX = config.desktop.mainMon.posX;
+  mainMonPosY = config.desktop.mainMon.posY;
+  mainMonPaper = config.desktop.mainMon.paperOne;
+  # Side Monitor Config
+  sideMonName = "Acer Technologies ED323QUR";
+  sideMonPort = "HDMI-A-2";
+  sideMonPosX = "5120";
+  sideMonPosY = "0";
+  sideMonPaper = "~/Pictures/Background/Uncompressed/instrument.png";
+  # Buttom Monitor Config
+  buttomMonName = "Invalid Vendor Codename - RTK Verbatim MT14 demoset-1";
+  buttomMonPort = "HDMI-A-1";
+  buttomMonPosX = "1600";
+  buttomMonPosY = "2080";
+  buttomMonPaper = "~/Pictures/Background/Uncompressed/red_transistor.png";
+  # Lockscreen
   lockedWallpaper = "~/Pictures/Background/Uncompressed/evangelion.png";
 in
 {
-  desktop.mainMon =
-  {
-    name = "DP-1";
-    desc = mainMonitor;
-    width = mainMonitorWidth;
-    height = mainMonitorHeight;
-    pos = mainMonitorPos;
-    maxHz = "240.00";
-    midHz = defaultRefreshRate;
-    lowHz = "60.00";
-    paperOne = wallpaperOne;
-    paperTwo =  wallpaperGaming;
-  };
-  wayland.windowManager.hyprland.settings.monitor =
-  [
-    "${mainMonitor}, ${mainMonitorWidth}x${mainMonitorHeight}@${defaultRefreshRate}, ${mainMonitorPos}, 1"
-    "${bottomMonitor}, preferred, 1600x2080, 1"
-    "${sideMonitor}, preferred, 5120x0, 1, transform, 1"
-    ", preferred, auto, 1"
-  ];
-  services.hyprpaper.settings =
-  {
-    preload =
-    [
-      "${wallpaperOne}"
-      "${wallpaperTwo}"
-      "${wallpaperthree}"
-      "${wallpaperGaming}"
-    ];
-    wallpaper =
-    [
-      "${mainMonitor}, ${wallpaperOne}"
-      "${bottomMonitor}, ${wallpaperTwo}"
-      "${sideMonitor}, ${wallpaperthree}"
-    ];
-  };
+  # Niri Monitor Config
+  desktop.niri.outputs =
+  ''
+    output "${mainMonName}" {
+      mode "${mainMonWidth}x${mainMonHeight}@${mainMonMaxHz}"
+      position x=${mainMonPosX} y=${mainMonPosY}
+      variable-refresh-rate on-demand=true
+      focus-at-startup
+      scale 1.0
+    }
+    output "${sideMonName} Unknown" {
+      position x=${sideMonPosX} y=${sideMonPosY}
+      transform "90"
+      scale 1.0
+    }
+    output "${buttomMonName}" {
+      position x=${buttomMonPosX} y=${buttomMonPosY}
+      scale 1.0
+    }
+  '';
+  # Sesion Lock Manager
   programs.hyprlock.settings.background =
   {
     path = "${lockedWallpaper}";
     zindex = -2;
   };
+  # Wallpaper Script
+  home.packages = with pkgs;
+  [(
+    writeShellScriptBin "swaybgInit"
+    ''
+      swaybg -o ${mainMonPort} -m fit -i ${mainMonPaper} \
+             -o ${sideMonPort} -m fill -i ${sideMonPaper} \
+             -o ${buttomMonPort} -m fill -i ${buttomMonPaper} &
+    ''
+  )];
 }

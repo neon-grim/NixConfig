@@ -1,4 +1,4 @@
-{host, config, ...}:
+{pkgs, host, config, ...}:
 let
   locale = config.desktop.system.locale;
   time = config.desktop.system.timeZone;
@@ -37,5 +37,13 @@ in
   time =
   {
     timeZone = time;
+  };
+  xdg.portal =
+  {
+    enable = true;
+    extraPortals = 
+    [
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 }

@@ -1,4 +1,4 @@
-{user, config, lib, ...}:
+{user, config, ...}:
 let
   fontName = config.desktop.style.font.name;
   accentDefault = config.desktop.theming.palette.accentDefault;
@@ -8,7 +8,7 @@ let
   txBrightest = config.desktop.theming.palette.txBrightest;
 in
 {
-  programs.hyprlock = lib.mkIf (config.desktop.system.hyprlock)
+  programs.hyprlock =
   {
     enable = true;
     settings =
@@ -27,7 +27,7 @@ in
           font_family = "${fontName}";
           position = "0, 0";
           halign = "center";
-          valign = "bottom";
+          valign = "top";
           shadow_passes = 2;
         }
         {

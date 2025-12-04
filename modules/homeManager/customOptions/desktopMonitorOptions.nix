@@ -22,7 +22,12 @@
       type = lib.types.str;
       default = "";
     };
-    pos = lib.mkOption
+    posX = lib.mkOption
+    {
+      type = lib.types.str;
+      default = "";
+    };
+    posY = lib.mkOption
     {
       type = lib.types.str;
       default = "";

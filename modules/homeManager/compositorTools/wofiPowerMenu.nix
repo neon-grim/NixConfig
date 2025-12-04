@@ -10,13 +10,17 @@
 
       case $selected in
         logout)
-          exec hyprctl dispatch exit;;
+          niri msg action quit --skip-confirmation
+          ;;
         lock)
-          exec hyprlock;;
+          exec hyprlock
+          ;;
         reboot)
-          exec systemctl reboot;;
+          exec systemctl reboot
+          ;;
         shutdown)
-          exec systemctl poweroff -i;;
+          exec systemctl poweroff -i
+          ;;
       esac
     ''
   )];

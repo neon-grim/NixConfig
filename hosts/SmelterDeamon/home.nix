@@ -2,8 +2,8 @@
 {
   imports =
   [
+    ./hostSpecific/homeManager/mainMonitor.nix
     ./hostSpecific/homeManager/monitorConfig.nix
-    ./hostSpecific/homeManager/hyprlandRules.nix
   ];
   desktop =
   {
@@ -20,7 +20,6 @@
     };
     system =
     {
-      hyprlock = true;
       kb =
       {
         layout = "ch";
