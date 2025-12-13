@@ -12,8 +12,9 @@
   outputs = inputs@{self, chaotic, nixpkgs, home-manager, ...}:
   let
     desktops =
-    [ 
+    [
       { name = "SmelterDeamon"; user = "ashen_one"; }
+      { name = "Susanoo"; user = "order_shadow"; }
     ];
   in
   {
