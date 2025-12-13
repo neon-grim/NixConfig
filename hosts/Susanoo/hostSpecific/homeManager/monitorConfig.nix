@@ -1,4 +1,4 @@
-{config, ...}:
+{config, pkgs, ...}:
 let
   # Main Monitor Config
   mainMonName = config.desktop.mainMon.desc;
@@ -10,7 +10,7 @@ let
   mainMonPosY = config.desktop.mainMon.posY;
   mainMonPaper = config.desktop.mainMon.paperOne;
   # Side Monitor Config
-  sideMonitor = "Samsung Electric Company U32J59x HTPK701828";
+  sideMonName = "Samsung Electric Company U32J59x HTPK701828";
   sideMonPort = "DP-2";
   sideMonPosX = "0";
   sideMonPosY = "0";

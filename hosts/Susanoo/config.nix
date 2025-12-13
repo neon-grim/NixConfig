@@ -38,3 +38,4 @@
       timeZone = "Europe/Zurich";
     };
   };
+}
