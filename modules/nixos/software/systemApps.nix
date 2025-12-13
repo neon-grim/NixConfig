@@ -9,25 +9,20 @@
     gimp
     kdePackages.kdenlive
     pinta
-    pitivi
     # Media
-    gapless
     lollypop
-    totem
     vlc
     image-roll
     # Office
     onlyoffice-desktopeditors
-    proton-pass
     xfce.mousepad
     # Chromium
     brave
     teams-for-linux
     vesktop
     # Tools
-    baobab
+    qbittorrent
     bottles
-    pika-backup
   ];
   programs =
   {

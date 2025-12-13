@@ -10,15 +10,15 @@ in
 {
   environment.systemPackages = with pkgs;
   [
+    dolphin-emu
     heroic
     jstest-gtk
     mangohud
     mangojuice
     protonplus
     ryubing
-    #shadps4
+    shadps4
     vkbasalt
-    lsfg-vk
   ];
   programs =
   {
