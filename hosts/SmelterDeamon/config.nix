@@ -1,10 +1,15 @@
-{config, ...}:
+{config, pkgs, ...}:
 {
   imports =
   [
     ./hostSpecific/nixos/hardware-configuration.nix
     ./hostSpecific/nixos/storageConfig.nix
     ./hostSpecific/nixos/userConfig.nix
+  ];
+  environment.systemPackages = with pkgs;
+  [
+    lsfg-vk
+    proton-pass
   ];
   desktop =
   {

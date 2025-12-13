@@ -10,7 +10,7 @@ let
   mainMonPosY = config.desktop.mainMon.posY;
   mainMonPaper = config.desktop.mainMon.paperOne;
   # Side Monitor Config
-  sideMonName = "Acer Technologies ED323QUR";
+  sideMonName = "Acer Technologies ED323QUR Unknown";
   sideMonPort = "HDMI-A-2";
   sideMonPosX = "5120";
   sideMonPosY = "0";
@@ -35,7 +35,7 @@ in
       focus-at-startup
       scale 1.0
     }
-    output "${sideMonName} Unknown" {
+    output "${sideMonName}" {
       position x=${sideMonPosX} y=${sideMonPosY}
       transform "90"
       scale 1.0
