@@ -1,4 +1,4 @@
-{pkgs, config, ...}:
+{config, pkgs, ...}:
 let
   # Main Monitor Config
   mainMonName = config.desktop.mainMon.desc;
@@ -10,19 +10,13 @@ let
   mainMonPosY = config.desktop.mainMon.posY;
   mainMonPaper = config.desktop.mainMon.paperOne;
   # Side Monitor Config
-  sideMonName = "Acer Technologies ED323QUR Unknown";
-  sideMonPort = "HDMI-A-2";
-  sideMonPosX = "5120";
+  sideMonName = "Samsung Electric Company U32J59x HTPK701828";
+  sideMonPort = "DP-2";
+  sideMonPosX = "0";
   sideMonPosY = "0";
-  sideMonPaper = "~/Pictures/Background/Uncompressed/instrument.png";
-  # Buttom Monitor Config
-  buttomMonName = "Invalid Vendor Codename - RTK Verbatim MT14 demoset-1";
-  buttomMonPort = "HDMI-A-1";
-  buttomMonPosX = "1600";
-  buttomMonPosY = "2080";
-  buttomMonPaper = "~/Pictures/Background/Uncompressed/red_transistor.png";
+  sideMonPaper = "~/Pictures/Wallpapers/DoomSlayerDTDA.png";
   # Lockscreen
-  lockedWallpaper = "~/Pictures/Background/Uncompressed/evangelion.png";
+  lockedWallpaper = "~/Pictures/Wallpapers/DoomSlayerDTDA.png";
 in
 {
   # Niri Monitor Config
@@ -37,11 +31,6 @@ in
     }
     output "${sideMonName}" {
       position x=${sideMonPosX} y=${sideMonPosY}
-      transform "90"
-      scale 1.0
-    }
-    output "${buttomMonName}" {
-      position x=${buttomMonPosX} y=${buttomMonPosY}
       scale 1.0
     }
   '';
@@ -57,8 +46,7 @@ in
     writeShellScriptBin "swaybgInit"
     ''
       swaybg -o ${mainMonPort} -m fit -i ${mainMonPaper} \
-             -o ${sideMonPort} -m fill -i ${sideMonPaper} \
-             -o ${buttomMonPort} -m fill -i ${buttomMonPaper} &
+             -o ${sideMonPort} -m fill -i ${sideMonPaper} &
     ''
   )];
 }

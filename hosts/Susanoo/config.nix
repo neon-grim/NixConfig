@@ -8,8 +8,7 @@
   ];
   environment.systemPackages = with pkgs;
   [
-    lsfg-vk
-    proton-pass
+    edopro
   ];
   desktop =
   {
@@ -21,7 +20,7 @@
       };
       printing =
       {
-        enable = true;
+        enable = false;
       };
     };
     kernel =
@@ -31,7 +30,7 @@
     software =
     {
       flatpak = false;
-      virtualization = true;
+      virtualization = false;
     };
     system =
     {

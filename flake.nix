@@ -10,26 +10,30 @@
   };
   
   outputs = inputs@{self, chaotic, nixpkgs, home-manager, ...}:
+  let
+    desktops =
+    [
+      { name = "SmelterDeamon"; user = "ashen_one"; }
+      { name = "Susanoo"; user = "order_shadow"; }
+    ];
+  in
   {
-    nixosConfigurations =
-    let
-      host = "SmelterDeamon";
-      user = "ashen_one";
-    in
+    nixosConfigurations = nixpkgs.lib.listToAttrs (map (host: 
     {
-      "${host}" = nixpkgs.lib.nixosSystem
+      name = host.name;
+      value = nixpkgs.lib.nixosSystem
       {
         system = "x86_64-linux";
         specialArgs =
         {
-          inherit host;
+          host = host.name;
+          user = host.user;
           inherit inputs;
-          inherit user;
         };
         modules =
         [
           chaotic.nixosModules.default
-          ./hosts/${host}/config.nix
+          ./hosts/${host.name}/config.nix
           ./modules/nixos/default.nix
           home-manager.nixosModules.home-manager
           {
@@ -37,21 +41,21 @@
             {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.${user}.imports =
+              users.${host.user}.imports =
               [
-                ./hosts/${host}/home.nix
+                ./hosts/${host.name}/home.nix
                 ./modules/homeManager/default.nix
               ];
               extraSpecialArgs =
               {
-                inherit host;
+                host = host.name;
+                user = host.user;
                 inherit inputs;
-                inherit user;
               };
             };
           }
         ];
       };
-    };
+    }) desktops);
   };
 }
