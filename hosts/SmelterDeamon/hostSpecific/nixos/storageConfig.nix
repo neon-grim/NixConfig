@@ -19,14 +19,4 @@
       "x-gvfs-show"
     ];
   };
-  fileSystems."/mnt/SATASSD1" =
-  {
-    device = "/dev/disk/by-label/SATASSD1";
-    fsType = "ext4";
-    options = 
-    [
-      "nofail"
-      "x-gvfs-show"
-    ];
-  };
 }
