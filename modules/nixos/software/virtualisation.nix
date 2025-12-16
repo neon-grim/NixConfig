@@ -1,11 +1,11 @@
-{config, lib, pkgs, ...}:
+{config, lib, pkgs, pkgs-stable, ...}:
 {
   config = lib.mkIf (config.desktop.software.virtualization)
   {
-    environment.systemPackages = with pkgs;
+    environment.systemPackages =
     [
-      winboat
-      podman-compose
+      pkgs.winboat
+      pkgs-stable.docker-compose
     ];
     programs.virt-manager =
     {
@@ -13,7 +13,11 @@
     };
     virtualisation =
     {
-      podman.enable = true;
+      docker = 
+      {
+        enable = true;
+        package = pkgs-stable.docker;
+      };
       libvirtd.enable = true;
       spiceUSBRedirection.enable = true;
     };
