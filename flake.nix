@@ -7,15 +7,18 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
   };
   
-  outputs = inputs@{self, chaotic, nixpkgs, home-manager, ...}:
+  outputs = inputs@{self, chaotic, nixpkgs, nixpkgs-stable, home-manager, ...}:
   let
+    arch = "x86_64-linux";
     desktops =
     [
       { name = "SmelterDeamon"; user = "ashen_one"; }
       { name = "Susanoo"; user = "order_shadow"; }
     ];
+    pkgs-stable = nixpkgs-stable.legacyPackages.${arch};
   in
   {
     nixosConfigurations = nixpkgs.lib.listToAttrs (map (host: 
@@ -23,12 +26,12 @@
       name = host.name;
       value = nixpkgs.lib.nixosSystem
       {
-        system = "x86_64-linux";
+        system = arch;
         specialArgs =
         {
           host = host.name;
           user = host.user;
-          inherit inputs;
+          inherit pkgs-stable;
         };
         modules =
         [
@@ -50,7 +53,6 @@
               {
                 host = host.name;
                 user = host.user;
-                inherit inputs;
               };
             };
           }

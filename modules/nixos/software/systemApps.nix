@@ -23,6 +23,8 @@
     # Tools
     qbittorrent
     bottles
+    # SDKs
+    python314
   ];
   programs =
   {

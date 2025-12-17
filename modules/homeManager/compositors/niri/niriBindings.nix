@@ -65,15 +65,15 @@ in
     '';
     monitorBinds =
     ''
-      ${mainModAlt}+Right      { focus-monitor-right; }
-      ${mainModAlt}+Left       { focus-monitor-left; }
-      ${mainModAlt}+Up         { focus-monitor-up; }
-      ${mainModAlt}+Down       { focus-monitor-down; }
-      ${mainModShiftAlt}+Right { move-column-to-monitor-right; }
-      ${mainModShiftAlt}+Left  { move-column-to-monitor-left; }
-      ${mainModShiftAlt}+Up    { move-column-to-monitor-up; }
-      ${mainModShiftAlt}+Down  { move-column-to-monitor-down; }
-      ${mainModShiftAlt}+P     { power-off-monitors; }
+      ${mainModAlt}+Right       { focus-monitor-right; }
+      ${mainModAlt}+Left        { focus-monitor-left; }
+      ${mainModAlt}+Up          { focus-monitor-up; }
+      ${mainModAlt}+Down        { focus-monitor-down; }
+      ${mainModShiftAlt}+Right  { move-column-to-monitor-right; }
+      ${mainModShiftAlt}+Left   { move-column-to-monitor-left; }
+      ${mainModShiftAlt}+Up     { move-column-to-monitor-up; }
+      ${mainModShiftAlt}+Down   { move-column-to-monitor-down; }
+      ${mainModShiftAlt}+Delete { power-off-monitors; }
     '';
     workspaceBinds =
     ''
@@ -92,9 +92,9 @@ in
     '';
     screenshotBinds =
     ''
-      ${mainMod}+Print      { screenshot-screen; }
-      ${mainModShift}+Print { screenshot; }
-      ${mainModCtrl}+Print  { screenshot-window; }
+      ${mainMod}+P      { screenshot-screen; }
+      ${mainModShift}+P { screenshot; }
+      ${mainModCtrl}+P  { screenshot-window; }
     '';
     mediaBinds =
     ''
