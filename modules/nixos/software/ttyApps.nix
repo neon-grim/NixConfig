@@ -11,6 +11,7 @@
     # Utils
     psmisc
     usbutils
+    exiftool
     # Packaging
     unrar
     unzip
