@@ -14,7 +14,7 @@ in
     heroic
     jstest-gtk
     mangohud
-    mangojuice
+    goverlay
     protonplus
     ryubing
     shadps4
