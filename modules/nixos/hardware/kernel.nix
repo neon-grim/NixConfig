@@ -13,9 +13,9 @@ in
     kernelPackages = 
     ( 
       if isLts then 
-        pkgs.linuxPackages_cachyos-lts
+        pkgs.linuxPackages
       else
-        pkgs.linuxPackages_cachyos
+        pkgs.linuxPackages_latest
     );
     kernelParams =
     [
