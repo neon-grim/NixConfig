@@ -3,14 +3,13 @@
   
   inputs =
   {
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
   };
   
-  outputs = inputs@{self, chaotic, nixpkgs, nixpkgs-stable, home-manager, ...}:
+  outputs = inputs@{self, nixpkgs, nixpkgs-stable, home-manager, ...}:
   let
     arch = "x86_64-linux";
     desktops =
@@ -35,7 +34,6 @@
         };
         modules =
         [
-          chaotic.nixosModules.default
           ./hosts/${host.name}/config.nix
           ./modules/nixos/default.nix
           home-manager.nixosModules.home-manager

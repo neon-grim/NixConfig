@@ -2,10 +2,6 @@
 {
   config = lib.mkIf (config.desktop.drivers.amd.enable)
   {
-    chaotic.mesa-git =
-    {
-      enable = true;
-    };
     hardware =
     {
       amdgpu.overdrive.enable = true;
