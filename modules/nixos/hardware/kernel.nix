@@ -13,9 +13,9 @@ in
     kernelPackages = 
     ( 
       if isLts then 
-        pkgs.linuxPackages_latest
-      else
         pkgs.linuxPackages
+      else
+        pkgs.linuxPackages_latest
     );
     kernelParams =
     [
