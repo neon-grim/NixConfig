@@ -1,6 +1,6 @@
-{pkgs, ...}:
+{pkgs-stable, ...}:
 {
-  environment.systemPackages = with pkgs;
+  environment.systemPackages = with pkgs-stable;
   [
     # Streaming
     gpu-screen-recorder-gtk
@@ -23,14 +23,13 @@
     # Tools
     qbittorrent
     bottles
-    # SDKs
-    python314
   ];
   programs =
   {
     gpu-screen-recorder =
     {
       enable = true;
+      package = pkgs-stable.gpu-screen-recorder;
     };
   };
 }
