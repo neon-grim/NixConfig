@@ -10,7 +10,6 @@ in
 {
   environment.systemPackages = with pkgs;
   [
-    dolphin-emu
     heroic
     jstest-gtk
     mangohud
