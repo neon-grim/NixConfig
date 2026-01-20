@@ -25,7 +25,7 @@
     };
     kernel =
     {
-      lts = true;
+      lts = false;
     };
     software =
     {
