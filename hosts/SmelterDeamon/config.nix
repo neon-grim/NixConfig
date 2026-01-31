@@ -31,7 +31,7 @@
     software =
     {
       flatpak = false;
-      virtualization = true;
+      virtualization = false;
     };
     system =
     {
