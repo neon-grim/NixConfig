@@ -19,7 +19,11 @@
       { name = "Susanoo"; user = "order_shadow"; }
     ];
     kernelOverlays = nix-cachyos-kernel.overlays.pinned;
-    pkgs-stable = nixpkgs-stable.legacyPackages.${arch};
+    pkgs-stable = import nixpkgs-stable
+    {
+      system = arch;
+      config.allowUnfree = true;
+    };
   in
   {
     nixosConfigurations = nixpkgs.lib.listToAttrs (map (host: 
