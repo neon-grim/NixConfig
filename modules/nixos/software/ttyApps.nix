@@ -1,6 +1,6 @@
-{pkgs, ...}:
+{pkgs-stable, ...}:
 {
-  environment.systemPackages = with pkgs;
+  environment.systemPackages = with pkgs-stable;
   [
     # Repo
     git

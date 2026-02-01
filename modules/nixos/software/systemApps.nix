@@ -19,7 +19,7 @@
     # Chromium
     brave
     teams-for-linux
-    vesktop
+    discord
     # Tools
     qbittorrent
     bottles
