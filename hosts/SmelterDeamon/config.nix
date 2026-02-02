@@ -10,7 +10,12 @@
   [
     lsfg-vk
     proton-pass
+    discord
   ];
+  programs.noisetorch =
+  {
+    enable = true;
+  };
   desktop =
   {
     drivers =

@@ -19,7 +19,6 @@
     # Chromium
     brave
     teams-for-linux
-    discord
     # Tools
     qbittorrent
     bottles
