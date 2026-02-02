@@ -4,9 +4,17 @@
   {
     hardware =
     {
-      amdgpu.overdrive.enable = true;
+      amdgpu.overdrive =
+      {
+        enable = true;
+        ppfeaturemask = "0xffffffff";
+      };
       graphics.enable = true;
     };
+    boot.kernelParams =
+    [
+      "amdgpu.gfxoff=0"
+    ];
     services =
     {
       lact.enable = true;
