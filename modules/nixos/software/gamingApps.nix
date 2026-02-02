@@ -44,6 +44,10 @@ in
       enable = true;
       enableRenice = true;
     };
+    noisetorch =
+    {
+      enable = true;
+    };
     steam =
     {
       enable = true;
