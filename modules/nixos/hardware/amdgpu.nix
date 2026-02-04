@@ -11,10 +11,6 @@
       };
       graphics.enable = true;
     };
-    boot.kernelParams =
-    [
-      "amdgpu.gfxoff=0"
-    ];
     services =
     {
       lact.enable = true;
