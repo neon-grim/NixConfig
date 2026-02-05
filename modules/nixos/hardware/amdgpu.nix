@@ -7,7 +7,7 @@
       amdgpu.overdrive =
       {
         enable = true;
-        ppfeaturemask = "0xffffffff";
+        ppfeaturemask = "0xf7fff";
       };
       graphics.enable = true;
     };

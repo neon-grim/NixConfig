@@ -12,7 +12,7 @@ in
     kernelPackages = 
     ( 
       if isLts then 
-        pkgs.linuxPackages_latest
+        pkgs.linuxPackages_6_17
       else
         pkgs.cachyosKernels.linuxPackages-cachyos-bore
     );
