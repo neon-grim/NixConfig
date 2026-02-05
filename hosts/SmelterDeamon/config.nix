@@ -5,6 +5,7 @@
     ./hostSpecific/nixos/hardware-configuration.nix
     ./hostSpecific/nixos/storageConfig.nix
     ./hostSpecific/nixos/userConfig.nix
+    ./hostSpecific/nixos/xpadExtraRules.nix
   ];
   environment.systemPackages = with pkgs;
   [
