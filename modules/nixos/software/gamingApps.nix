@@ -15,6 +15,7 @@ in
     mangohud
     goverlay
     protonplus
+    teamspeak6-client
     ryubing
     shadps4
     vkbasalt
