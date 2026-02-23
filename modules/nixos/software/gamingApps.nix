@@ -14,6 +14,7 @@ in
     jstest-gtk
     mangohud
     goverlay
+    gpu-screen-recorder-gtk
     protonplus
     teamspeak6-client
     ryubing
@@ -39,6 +40,11 @@ in
         XKB_DEFAULT_LAYOUT = kbLayout;
         XKB_DEFAULT_VARIANT = kbVariant;
       };
+    };
+    gpu-screen-recorder =
+    {
+      enable = true;
+      package = pkgs.gpu-screen-recorder;
     };
     gamemode =
     {

@@ -3,7 +3,6 @@
   environment.systemPackages = with pkgs-stable;
   [
     # Streaming
-    gpu-screen-recorder-gtk
     moonlight-qt
     # Editing
     gimp
@@ -23,12 +22,4 @@
     qbittorrent
     bottles
   ];
-  programs =
-  {
-    gpu-screen-recorder =
-    {
-      enable = true;
-      package = pkgs-stable.gpu-screen-recorder;
-    };
-  };
 }
