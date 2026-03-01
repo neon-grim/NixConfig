@@ -9,7 +9,11 @@
         enable = true;
         ppfeaturemask = "0xf7fff";
       };
-      graphics.enable = true;
+      graphics =
+      {
+        enable = true;
+        enable32Bit = true;
+      };
     };
     services =
     {
