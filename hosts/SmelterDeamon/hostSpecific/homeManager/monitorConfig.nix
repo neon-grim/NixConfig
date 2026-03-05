@@ -12,13 +12,13 @@ let
   # Side Monitor Config
   sideMonName = "Acer Technologies ED323QUR Unknown";
   sideMonPort = "HDMI-A-2";
-  sideMonPosX = "5120";
+  sideMonPosX = "0";
   sideMonPosY = "0";
   sideMonPaper = "~/Pictures/Background/Uncompressed/instrument.png";
   # Buttom Monitor Config
   buttomMonName = "Invalid Vendor Codename - RTK Verbatim MT14 demoset-1";
   buttomMonPort = "HDMI-A-1";
-  buttomMonPosX = "1600";
+  buttomMonPosX = "3040";
   buttomMonPosY = "2080";
   buttomMonPaper = "~/Pictures/Background/Uncompressed/red_transistor.png";
   # Lockscreen
@@ -37,7 +37,7 @@ in
     }
     output "${sideMonName}" {
       position x=${sideMonPosX} y=${sideMonPosY}
-      transform "90"
+      transform "270"
       scale 1.0
     }
     output "${buttomMonName}" {
