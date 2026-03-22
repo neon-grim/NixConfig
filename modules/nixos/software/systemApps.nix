@@ -1,6 +1,6 @@
-{pkgs-stable, ...}:
+{pkgs, ...}:
 {
-  environment.systemPackages = with pkgs-stable;
+  environment.systemPackages = with pkgs;
   [
     # Streaming
     moonlight-qt
@@ -14,10 +14,9 @@
     image-roll
     # Office
     onlyoffice-desktopeditors
-    xfce.mousepad
+    mousepad
     # Chromium
     brave
-    teams-for-linux
     # Tools
     qbittorrent
     bottles

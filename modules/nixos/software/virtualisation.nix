@@ -1,11 +1,11 @@
-{config, lib, pkgs, pkgs-stable, ...}:
+{config, lib, pkgs, ...}:
 {
   config = lib.mkIf (config.desktop.software.virtualization)
   {
-    environment.systemPackages =
+    environment.systemPackages = with pkgs;
     [
-      pkgs.winboat
-      pkgs-stable.docker-compose
+      winboat
+      docker-compose
     ];
     programs.virt-manager =
     {
@@ -16,7 +16,6 @@
       docker = 
       {
         enable = true;
-        package = pkgs-stable.docker;
       };
       libvirtd.enable = true;
       spiceUSBRedirection.enable = true;
