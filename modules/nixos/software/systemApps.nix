@@ -2,16 +2,14 @@
 {
   environment.systemPackages = with pkgs;
   [
-    # Streaming
-    moonlight-qt
     # Editing
     gimp
     kdePackages.kdenlive
     pinta
     # Media
+    celluloid
     lollypop
-    vlc
-    image-roll
+    eog
     # Office
     onlyoffice-desktopeditors
     mousepad
@@ -19,6 +17,5 @@
     brave
     # Tools
     qbittorrent
-    bottles
   ];
 }

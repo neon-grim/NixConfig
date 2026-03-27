@@ -12,7 +12,6 @@
     psmisc
     usbutils
     exiftool
-    wf-recorder
     ffmpeg-full
     # Packaging
     unrar

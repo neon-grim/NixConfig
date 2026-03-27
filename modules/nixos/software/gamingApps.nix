@@ -13,11 +13,13 @@ in
     heroic
     jstest-gtk
     mangohud
+    moonlight-qt
     goverlay
     gpu-screen-recorder-gtk
     protonplus
     teamspeak6-client
     ryubing
+    scanmem
     shadps4
     vkbasalt
   ];
