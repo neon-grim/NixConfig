@@ -11,7 +11,6 @@
   [
     lsfg-vk
     proton-pass
-    discord
   ];
   programs.noisetorch =
   {

@@ -10,6 +10,7 @@ in
 {
   environment.systemPackages = with pkgs;
   [
+    vesktop
     heroic
     jstest-gtk
     mangohud
