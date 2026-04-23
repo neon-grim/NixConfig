@@ -10,13 +10,17 @@ in
 {
   environment.systemPackages = with pkgs;
   [
-    dolphin-emu
+    vesktop
     heroic
     jstest-gtk
     mangohud
+    moonlight-qt
     goverlay
+    gpu-screen-recorder-gtk
     protonplus
+    teamspeak6-client
     ryubing
+    scanmem
     shadps4
     vkbasalt
   ];
@@ -39,6 +43,11 @@ in
         XKB_DEFAULT_LAYOUT = kbLayout;
         XKB_DEFAULT_VARIANT = kbVariant;
       };
+    };
+    gpu-screen-recorder =
+    {
+      enable = true;
+      package = pkgs.gpu-screen-recorder;
     };
     gamemode =
     {

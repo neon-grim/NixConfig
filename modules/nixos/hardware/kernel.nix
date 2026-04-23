@@ -6,16 +6,15 @@ in
   imports =
   [
     ./kernelConfig/kernelModules.nix
-    ./kernelConfig/xpadExtraRules.nix
   ];
   boot =
   {
     kernelPackages = 
     ( 
       if isLts then 
-        pkgs.cachyosKernels.linuxPackages-cachyos-lts
+        pkgs.linuxPackages
       else
-        pkgs.cachyosKernels.linuxPackages-cachyos-bore
+        pkgs.linuxPackages_latest
     );
     kernelParams =
     [
@@ -28,12 +27,6 @@ in
       "kernel.split_lock_mitigate" = 0;
       # SteamOs
       "vm.max_map_count" = 2147483642;
-      # Swap
-      "vm.swappiness" = 10;
-      "vm.vfs_cache_pressure" = 50;
-      # Page flush tweaks
-      "vm.dirty_ratio" = 4;
-      "vm.dirty_background_ratio" = 2;
     };
     loader =
     {

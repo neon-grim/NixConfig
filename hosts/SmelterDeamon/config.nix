@@ -5,12 +5,17 @@
     ./hostSpecific/nixos/hardware-configuration.nix
     ./hostSpecific/nixos/storageConfig.nix
     ./hostSpecific/nixos/userConfig.nix
+    ./hostSpecific/nixos/xpadExtraRules.nix
   ];
   environment.systemPackages = with pkgs;
   [
     lsfg-vk
     proton-pass
   ];
+  programs.noisetorch =
+  {
+    enable = true;
+  };
   desktop =
   {
     drivers =
@@ -21,7 +26,7 @@
       };
       printing =
       {
-        enable = true;
+        enable = false;
       };
     };
     kernel =
@@ -31,7 +36,7 @@
     software =
     {
       flatpak = false;
-      virtualization = true;
+      virtualization = false;
     };
     system =
     {

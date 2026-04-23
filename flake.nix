@@ -3,14 +3,12 @@
   
   inputs =
   {
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
   };
   
-  outputs = inputs@{self, nix-cachyos-kernel, nixpkgs, nixpkgs-stable, home-manager, ...}:
+  outputs = inputs@{self, nixpkgs, home-manager, ...}:
   let
     arch = "x86_64-linux";
     desktops =
@@ -18,8 +16,6 @@
       { name = "SmelterDeamon"; user = "ashen_one"; }
       { name = "Susanoo"; user = "order_shadow"; }
     ];
-    kernelOverlays = nix-cachyos-kernel.overlays.pinned;
-    pkgs-stable = nixpkgs-stable.legacyPackages.${arch};
   in
   {
     nixosConfigurations = nixpkgs.lib.listToAttrs (map (host: 
@@ -32,7 +28,6 @@
         {
           host = host.name;
           user = host.user;
-          inherit pkgs-stable;
         };
         modules =
         [
@@ -56,20 +51,6 @@
               };
             };
           }
-          (
-            { pkgs, ... }:
-            {
-              nixpkgs.overlays = 
-              [
-                kernelOverlays
-              ];
-              nix.settings =
-              {
-                substituters = [ "https://attic.xuyh0120.win/lantian" ];
-                trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
-              };
-            }
-          )
         ];
       };
     }) desktops);

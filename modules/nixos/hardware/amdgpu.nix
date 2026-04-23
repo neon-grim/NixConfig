@@ -4,8 +4,16 @@
   {
     hardware =
     {
-      amdgpu.overdrive.enable = true;
-      graphics.enable = true;
+      amdgpu.overdrive =
+      {
+        enable = true;
+        ppfeaturemask = "0xf7fff";
+      };
+      graphics =
+      {
+        enable = true;
+        enable32Bit = true;
+      };
     };
     services =
     {

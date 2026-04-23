@@ -1,4 +1,4 @@
-{pkgs, config, ...}:
+{...}:
 {
   boot.kernelModules =
   [
@@ -8,7 +8,6 @@
   {
     cpu.amd.updateMicrocode = true;
     enableAllFirmware = true;
-    opentabletdriver.enable = true;
     steam-hardware.enable = true;
   };
   zramSwap =

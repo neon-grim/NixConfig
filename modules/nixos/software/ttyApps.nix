@@ -12,12 +12,10 @@
     psmisc
     usbutils
     exiftool
+    ffmpeg-full
     # Packaging
     unrar
     unzip
-    # Media
-    wf-recorder
-    ffmpeg-full
   ];
   programs.fish =
   {

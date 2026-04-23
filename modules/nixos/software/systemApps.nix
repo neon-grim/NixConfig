@@ -1,35 +1,21 @@
-{pkgs-stable, ...}:
+{pkgs, ...}:
 {
-  environment.systemPackages = with pkgs-stable;
+  environment.systemPackages = with pkgs;
   [
-    # Streaming
-    gpu-screen-recorder-gtk
-    moonlight-qt
     # Editing
     gimp
     kdePackages.kdenlive
     pinta
     # Media
+    celluloid
     lollypop
-    vlc
-    image-roll
+    eog
     # Office
     onlyoffice-desktopeditors
-    xfce.mousepad
+    mousepad
     # Chromium
     brave
-    teams-for-linux
-    vesktop
     # Tools
     qbittorrent
-    bottles
   ];
-  programs =
-  {
-    gpu-screen-recorder =
-    {
-      enable = true;
-      package = pkgs-stable.gpu-screen-recorder;
-    };
-  };
 }

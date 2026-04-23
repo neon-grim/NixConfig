@@ -19,6 +19,12 @@ in
       open-fullscreen true
       variable-refresh-rate true
     }
+    window-rule {
+      match app-id=r#"^.*\.exe$"#
+      open-on-output "${mainMonDesc}"
+      open-fullscreen true
+      variable-refresh-rate true
+    }
     debug {
       skip-cursor-only-updates-during-vrr
     }

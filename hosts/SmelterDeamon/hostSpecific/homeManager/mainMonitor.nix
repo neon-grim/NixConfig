@@ -6,7 +6,7 @@
     desc = "Samsung Electric Company Odyssey G95SC H1AK500000";
     width = "5120";
     height = "1440";
-    posX = "0";
+    posX = "1440";
     posY = "640";
     maxHz = "239.999";
     midHz = "120.00";
