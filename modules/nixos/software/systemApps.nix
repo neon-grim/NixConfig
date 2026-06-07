@@ -17,5 +17,6 @@
     brave
     # Tools
     qbittorrent
+    python315
   ];
 }
