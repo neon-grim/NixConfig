@@ -1,6 +1,6 @@
 {...}:
 {
-  programs.librewolf =
+  programs.firefox =
   {
     enable = true;
     settings =
