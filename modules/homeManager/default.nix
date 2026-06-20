@@ -3,7 +3,7 @@
   imports =
   [
     ./apps/fastFetch.nix
-    ./apps/librewolf.nix
+    ./apps/browser.nix
     ./apps/kitty.nix
     ./compositors/niri.nix
     ./compositorTools/hyprlock.nix
