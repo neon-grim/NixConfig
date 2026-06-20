@@ -3,7 +3,7 @@
   programs.firefox =
   {
     enable = true;
-    settings =
+    profiles.default.settings =
     {
       "privacy.clearOnShutdown.history" = false;
       "privacy.clearOnShutdown.cookies" = false;
