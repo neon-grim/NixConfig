@@ -14,7 +14,7 @@ in
       if isLts then 
         pkgs.linuxPackages
       else
-        pkgs.linuxPackages_7_0
+        pkgs.linuxPackages_zen
     );
     kernelParams =
     [
