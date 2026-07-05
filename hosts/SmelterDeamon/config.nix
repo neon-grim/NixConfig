@@ -12,10 +12,6 @@
     lsfg-vk
     proton-pass
   ];
-  programs.noisetorch =
-  {
-    enable = true;
-  };
   desktop =
   {
     drivers =
