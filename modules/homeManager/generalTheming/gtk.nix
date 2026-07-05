@@ -22,6 +22,11 @@ in
       name = themeName;
       package = themePackage;
     };
+    gtk3.theme =
+    {
+      name = themeName;
+      package = themePackage;
+    };
     iconTheme =
     {
       name = "Dracula";
