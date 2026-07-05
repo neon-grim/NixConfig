@@ -17,12 +17,7 @@ in
   gtk =
   {
     enable = true;
-    gtk4.theme =
-    {
-      name = themeName;
-      package = themePackage;
-    };
-    gtk3.theme =
+    theme =
     {
       name = themeName;
       package = themePackage;
