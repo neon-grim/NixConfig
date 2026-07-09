@@ -13,7 +13,6 @@ in
     ./presets/adwaitaDark.nix
     ./presets/kanagawa.nix
   ];
-  
   gtk =
   {
     enable = true;
