@@ -19,7 +19,6 @@ in
     theme =
     {
       name = themeName;
-      package = themePackage;
     };
     iconTheme =
     {
