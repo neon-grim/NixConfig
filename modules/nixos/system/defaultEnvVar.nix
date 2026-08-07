@@ -1,4 +1,7 @@
-{...}:
+{user, config, ...}:
+let
+  gtkTheme = config.home-manager.users.${user}.desktop.theming.gtk.name;
+in
 {
   environment.sessionVariables =
   {
@@ -18,5 +21,7 @@
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
+    # Theme
+    GTK_THEME = "${gtkTheme}";
   };
 }
