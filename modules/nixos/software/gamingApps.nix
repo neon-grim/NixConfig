@@ -11,7 +11,7 @@ in
     heroic
     jstest-gtk
     mangohud
-    goverlay
+    #goverlay
     gpu-screen-recorder-gtk
     protonplus
     teamspeak6-client
