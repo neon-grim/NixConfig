@@ -18,6 +18,7 @@ in
     ryubing
     scanmem
     shadps4
+    shadps4-qtlauncher
     vkbasalt
   ];
   programs =
