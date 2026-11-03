@@ -11,7 +11,7 @@
     lollypop
     eog
     # Office
-    onlyoffice-desktopeditors
+    wpsoffice
     mousepad
     # Chromium
     brave
