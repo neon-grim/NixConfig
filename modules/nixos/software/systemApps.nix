@@ -11,12 +11,22 @@
     lollypop
     eog
     # Office
-    onlyoffice-desktopeditors
+    collabora-desktop
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.en_GB-large
+    hunspellDicts.de_CH
+    hyphen
+    hyphenDicts.en_US
+    hyphenDicts.en_GB
+    hyphenDicts.de-ch
     mousepad
-    # Chromium
-    brave
     # Tools
     qbittorrent
     python315
   ];
+  environment.sessionVariables =
+  {
+    DICPATH = "/run/current-system/sw/share/hunspell:/run/current-system/sw/share/hyphen";
+  };
 }
